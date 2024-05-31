@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 10:06:12
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-29 10:06:32
+ * @Last Modified time: 2024-06-01 00:30:18
  */
 #include <stdint.h>
 
@@ -18,19 +18,26 @@ namespace scene
 
     public:
         typedef std::shared_ptr<SceneCircleArray> Ptr;
-        
+
         SceneCircleArray() = default;
-        
-        ~SceneCircleArray() { m_circles.circles.clear(); };
 
-        const CircleArray &GetCircles() const { return m_circles; };
+        ~SceneCircleArray(){};
 
-        void SetCircles(const CircleArray &circles) { m_circles = circles; };
+        const CircleArray::Ptr GetCircles() const
+        {
+            return std::dynamic_pointer_cast<CircleArray>(m_object);
+        };
 
-        virtual void Clear() override { m_circles.circles.clear(); }
+        void SetCircles(const CircleArray &circles)
+        {
+            if (m_object == nullptr)
+            {
+                m_object = std::make_shared<CircleArray>();
+            }
+            *m_object = circles;
+        };
 
-    protected:
-        CircleArray m_circles;
+        // virtual void Clear() override { m_circles.circles.clear(); }
     };
 
 } // namespace scene

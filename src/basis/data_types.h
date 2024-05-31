@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-27 19:24:29
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-29 19:37:33
+ * @Last Modified time: 2024-06-01 00:14:20
  */
 
 #ifndef __DATA_TYPES_H__
@@ -10,6 +10,7 @@
 
 #include <string>
 #include <vector>
+#include <memory>
 namespace basis
 {
 
@@ -48,103 +49,95 @@ namespace basis
         int x{0}, y{0};
     };
 
+    struct BaseObject
+    {
+        typedef std::shared_ptr<BaseObject> Ptr;
+        BaseObject() {}
+        virtual void clear() {}
+        Header header{};
+        bool isValid = true;
+    };
+
     using Points = std::vector<Vec2f>;
 
-    struct Path
+    struct Path : public BaseObject
     {
+        typedef std::shared_ptr<Path> Ptr;
         Path() {}
-        Header header{};
         Points points;
         bool isDashed = false;
         float thicknessScale = 1.0f;
         float dashLength = 0.5f;
         float gapLength = 0.1f;
-        bool isValid = false;
     };
 
-    struct PathArray
+    struct PathArray : public BaseObject
     {
+        typedef std::shared_ptr<PathArray> Ptr;
         PathArray() {}
-
-        Header header;
         std::vector<Path> paths;
-        bool isValid = false;
     };
 
-    struct Polygon
+    struct Polygon : public BaseObject
     {
+        typedef std::shared_ptr<Polygon> Ptr;
         Polygon() {}
-
-        Header header;
         Points points;
         bool filled = false;
-        bool isValid = false;
     };
 
-    struct PolygonArray
+    struct PolygonArray : public BaseObject
     {
+        typedef std::shared_ptr<PolygonArray> Ptr;
         PolygonArray() {}
-
-        Header header;
         std::vector<Polygon> polygons;
-        bool isValid = false;
     };
 
-    struct Circle
+    struct Circle : public BaseObject
     {
+        typedef std::shared_ptr<Circle> Ptr;
         Circle() {}
-
-        Header header;
         Vec2f center;
         float radius;
-        bool isValid = false;
     };
 
-    struct CircleArray
+    struct CircleArray : public BaseObject
     {
+        typedef std::shared_ptr<CircleArray> Ptr;
         CircleArray() {}
-
-        Header header;
         std::vector<Circle> circles;
-        bool isValid = false;
     };
 
-    struct PointCloud
+    struct PointCloud : public BaseObject
     {
+        typedef std::shared_ptr<PointCloud> Ptr;
         PointCloud() {}
-
-        Header header;
         Points points;
-        bool isValid = false;
     };
 
-    struct Pose
+    struct Pose : public BaseObject
     {
+        typedef std::shared_ptr<Pose> Ptr;
         Pose() {}
-
-        Header header;
         Vec2f pos;
         float yaw = 0;
-        bool isValid = false;
     };
-    struct PoseArray
+    struct PoseArray : public BaseObject
     {
+        typedef std::shared_ptr<PoseArray> Ptr;
         PoseArray() {}
-
-        Header header;
         std::vector<Pose> poses;
-        bool isValid = false;
     };
 
-    struct TransformNode
+    struct TransformNode : public BaseObject
     {
+        typedef std::shared_ptr<TransformNode> Ptr;
         TransformNode() {}
 
         Vec2f trans;
         float yaw;
         std::string frameId;
         std::string parentFrameId = ROOT_FRAME;
-        bool isValid = false;
     };
     enum COLOR_TYPE
     {
@@ -173,11 +166,11 @@ namespace basis
         POINT_CLOUD = 5,
         NONE_TYPE
     };
-    struct Marker
-    {
-        Marker() {}
 
-        Header header;
+    struct Marker : public BaseObject
+    {
+        typedef std::shared_ptr<Marker> Ptr;
+        Marker() {}
         int type = 0;
         int color = 0;
         Path path;
@@ -188,15 +181,13 @@ namespace basis
         float length = 1.0f;
         float thickness = 0.01f;
         float radius = 0.0f;
-        bool isValid = false;
     };
 
-    struct MarkerArray
+    struct MarkerArray : public BaseObject
     {
+        typedef std::shared_ptr<MarkerArray> Ptr;
         MarkerArray() {}
-        Header header;
         std::vector<Marker> markers;
-        bool isValid = false;
     };
 
 } // namespace basis

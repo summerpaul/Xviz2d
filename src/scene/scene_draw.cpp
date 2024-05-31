@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 19:17:01
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-31 16:28:10
+ * @Last Modified time: 2024-06-01 00:46:43
  */
 
 #include "scene_view.h"
@@ -11,7 +11,7 @@
 #include "basis/xviz_util.h"
 #include "scene/tf_tree/tf_tree.h"
 #include "scene/scene_options.h"
-
+#include "basis/logger.h"
 #include <memory>
 #include <iostream>
 namespace scene
@@ -43,8 +43,7 @@ namespace scene
 
         for (int i = 0; i < numDashes; ++i)
         {
-            if (i % 2 == 0)
-                continue;
+            CHECK_CONTINUE(i % 2 == 0);
             const float start = i * dashSize + fminf(i * dashSpacing, remainingLength);
             const float end = fminf(start + dashSize, length);
             const Vec2f dashStart = p1 + dir * start;
@@ -220,8 +219,28 @@ namespace scene
         DrawAxis(drawList, view, origin_pose, options->originAxisLength, options->originAxisThickness);
     }
 
+    void DrawScenePath(ImDrawList *drawList,
+                       const SceneView::Ptr &view,
+                       const Transform &draw_to_object_tf,
+                       unsigned int bk_color,
+                       const Path::Ptr &path,
+                       float thickness,
+                       unsigned int color)
+    {
 
-	//void DrawScenePath(ImDrawList *drawList,)
+        auto draw_path = Mul(draw_to_object_tf, path->points);
+        if (path->isDashed)
+        {
+            const auto &dash_length = path->dashLength;
+            const auto &gap_length = path->gapLength;
+            DrawDashedPolyline(drawList, view, draw_path, color, bk_color, thickness, dash_length, gap_length);
+        }
+        else
+        {
+            DrawPolyline(drawList, view, draw_path, color, false, thickness);
+        }
+    }
+
     void DrawSceneObjects(ImDrawList *drawList, const SceneManager::Ptr &scene)
     {
 
@@ -229,7 +248,7 @@ namespace scene
         auto view = scene->GetSceneView();
         const auto draw_frame_id = scene->GetDrawFrameID();
         auto tf_tree = scene->GetTFTree();
-		auto all_objects_list = scene->GetAllObjects();
+        auto all_objects_list = scene->GetAllObjects();
         for (auto &scene_objects : *all_objects_list)
         {
             CHECK_CONTINUE(!options->drawObject[scene_objects.first]);
@@ -243,8 +262,14 @@ namespace scene
             {
                 const auto &obj_options = draw_object->GetOptions();
                 CHECK_CONTINUE(!obj_options.isVisible);
+                CHECK_CONTINUE(!draw_object->HasObject())
                 const auto &thickness = obj_options.thickness;
                 const auto &color = obj_options.color;
+                std::string text_str = draw_object->GetName();
+                std::string frame_id = draw_object->GetFrameId();
+                auto draw_to_object_tf = tf_tree->LookupTransform(frame_id, draw_frame_id);
+                Vec2f text_pose;
+                auto bk_color = options->backgroundColor;
 
                 switch (scene_objects.first)
                 {
@@ -252,22 +277,12 @@ namespace scene
                 {
                     // 数据转换
                     ScenePath::Ptr scene_path = std::dynamic_pointer_cast<ScenePath>(std::move(draw_object));
-					const auto &path = scene_path->GetPath();
-					const std::string &frame_id = path.header.frameId;
-					auto draw_to_object_tf = tf_tree->LookupTransform(frame_id, draw_frame_id);
-					auto draw_path = Mul(draw_to_object_tf, path.points);
-					if (path.isDashed)
-					{
-						const auto bk_color = scene->GetOptions()->backgroundColor;
-						const auto &dash_length = path.dashLength;
-						const auto &gap_length = path.gapLength;
-						DrawDashedPolyline(drawList, view, draw_path, color, bk_color, thickness, dash_length, gap_length);
-					}
-					else
-					{
-						DrawPolyline(drawList, view, draw_path, color, false, thickness);
-					}
-					
+                    const auto &path = scene_path->GetPath();
+                    DrawScenePath(drawList, view, draw_to_object_tf, bk_color, path, thickness, color);
+                    CHECK_BREAK(path->points.size() == 0);
+                    text_pose = Mul(draw_to_object_tf, path->points.front());
+                    CHECK_CONTINUE(!obj_options.isShowID);
+                    DrawText(drawList, view, text_pose, color, text_str);
                 }
 
                 break;
@@ -275,6 +290,11 @@ namespace scene
                 {
                     // 数据转换
                     ScenePathArray::Ptr scene_path_array = std::dynamic_pointer_cast<ScenePathArray>(std::move(draw_object));
+                    const auto &paths = scene_path_array->GetPaths();
+                    for (auto &path : paths->paths)
+                    {
+                        // DrawScenePath(drawList, view, tf_tree, draw_frame_id, options->backgroundColor, path, thickness, color);
+                    }
                 }
                 break;
                 case SceneObjectType::POSE:
@@ -343,6 +363,7 @@ namespace scene
         // 绘制网格,最底层
         DrawGrid(drawList, scene);
         DrawOriginAxis(drawList, scene);
+        // 绘制添加的图形
         DrawSceneObjects(drawList, scene);
     }
 }

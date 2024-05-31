@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-30 15:29:17
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-30 17:57:08
+ * @Last Modified time: 2024-05-31 23:14:22
  */
 #include <stdint.h>
 
@@ -30,11 +30,10 @@ void DrawTransformDemo(const scene::SceneManager::Ptr &scene)
     tf_node2.trans = {10.0f, 10.0f};
     tf_node2.yaw = XVIZ_PI4;
 
-
     if (g_first_draw)
     {
         scene::SceneObjectOptions options;
-        options.isShowID = false;
+        options.isShowID = true;
         options.length = 1.0f;
 
         scene->AddTransformNode(BASE_LINK, &tf_node1, &options);
@@ -64,6 +63,7 @@ void DrawPathDemo(const scene::SceneManager::Ptr &scene)
     path.header.frameId = WORLD_FRAME;
     path.header.name = "world_path";
     options.color = scene::IM_BLUE;
+    options.isShowID = true;
 
     if (g_first_draw)
     {
@@ -76,9 +76,18 @@ void DrawPathDemo(const scene::SceneManager::Ptr &scene)
 
     path.header.frameId = BASE_LINK;
     path.header.name = "frameId1_path";
-    scene->AddPath("frameId1_path", &path);
+
+    if (g_first_draw)
+    {
+        scene->AddPath("frameId1_path", &path, &options);
+    }
+    else
+    {
+        scene->AddPath("frameId1_path", &path);
+    }
+
     path.header.frameId = BASE_LINK2;
-    
+
     options.color = scene::IM_RED;
     options.isShowID = true;
     options.thickness = 0.02f;

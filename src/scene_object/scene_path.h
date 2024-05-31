@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 10:07:46
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-29 10:07:57
+ * @Last Modified time: 2024-06-01 00:40:31
  */
 #include <stdint.h>
 
@@ -18,15 +18,23 @@ namespace scene
     public:
         typedef std::shared_ptr<ScenePath> Ptr;
         ScenePath() = default;
-        ~ScenePath() { m_path.points.clear(); }
+        ~ScenePath() {}
 
-        void SetPath(const Path &path) { m_path = path; }
-        const Path &GetPath() const { return m_path; }
+        void SetPath(const Path &path)
+        {
+            if (m_object == nullptr)
+            {
+                m_object = std::make_shared<Path>();
+            }
+            *std::dynamic_pointer_cast<Path>(m_object) = path;
+        }
 
-        virtual void Clear() override { m_path.points.clear(); }
+        const Path::Ptr GetPath() const
+        {
+            return std::dynamic_pointer_cast<Path>(m_object);
+        }
 
-    protected:
-        Path m_path;
+        // virtual void Clear() override { std::dynamic_pointer_cast<Path>(std::move(m_object))->points.clear(); }
     };
 
 } // nam

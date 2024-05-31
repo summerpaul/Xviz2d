@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 15:12:08
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-29 15:15:35
+ * @Last Modified time: 2024-05-31 22:41:19
  */
 #include <stdint.h>
 
@@ -22,7 +22,7 @@ namespace basis
 #if defined(WIN32) || defined(_WIN32) || defined(__WIN32__)
         localtime_s(&localTime, &currentTime);
 #else
-        now_time = *std::localtime(&currentTime);
+        localTime = *std::localtime(&currentTime);
 #endif
         std::stringstream ss;
         ss << std::put_time(&localTime, "%Y-");

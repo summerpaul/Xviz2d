@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 10:08:05
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-29 10:08:20
+ * @Last Modified time: 2024-06-01 00:31:43
  */
 #include <stdint.h>
 
@@ -18,15 +18,23 @@ namespace scene
     public:
         typedef std::shared_ptr<ScenePathArray> Ptr;
         ScenePathArray() = default;
-        ~ScenePathArray() { m_paths.paths.clear(); }
+        ~ScenePathArray() {}
 
-        virtual void Clear() override { m_paths.paths.clear(); }
+        virtual void Clear() override {}
 
-        const PathArray &GetPaths() const { return m_paths; }
-        void SetPaths(const PathArray &paths) { m_paths = paths; }
+        const PathArray::Ptr GetPaths() const
+        {
 
-    protected:
-        PathArray m_paths;
+            return std::dynamic_pointer_cast<PathArray>(m_object);
+        }
+        void SetPaths(const PathArray &paths)
+        {
+            if (m_object == nullptr)
+            {
+                m_object = std::make_shared<PathArray>();
+            }
+            *m_object = paths;
+        }
     };
 
 }

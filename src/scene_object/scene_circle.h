@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 10:05:47
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-29 10:06:01
+ * @Last Modified time: 2024-06-01 00:26:02
  */
 #include <stdint.h>
 
@@ -20,12 +20,20 @@ namespace scene
         SceneCircle() = default;
         virtual ~SceneCircle() = default;
 
-        const Circle &GetCircle() const { return m_circle; }
+        const Circle::Ptr GetCircle() const
+        {
+            return std::static_pointer_cast<Circle>(m_object);
+        }
 
-        void SetCircle(const Circle &circle) { m_circle = circle; }
+        void SetCircle(const Circle &circle)
 
-    protected:
-        Circle m_circle;
+        {
+            if (m_object == nullptr)
+            {
+                m_object = std::make_shared<Circle>();
+            }
+            *m_object = circle;
+        }
     };
 }
 #endif /* __SCENE_CIRCLE_H__ */
