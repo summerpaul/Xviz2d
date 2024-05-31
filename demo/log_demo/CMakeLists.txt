@@ -1,0 +1,1 @@
+add_executable(log_demo log_demo.cpp)
