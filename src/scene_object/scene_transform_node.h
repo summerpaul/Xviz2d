@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 10:10:33
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-29 10:10:43
+ * @Last Modified time: 2024-06-01 20:31:13
  */
 #include <stdint.h>
 
@@ -19,12 +19,20 @@ namespace scene
         SceneTransformNode() = default;
         virtual ~SceneTransformNode() = default;
 
-        const TransformNode &GetTransformNode() const { return m_tfNode; }
+        const TransformNode::Ptr GetTransformNode() const
+        {
+            return std::dynamic_pointer_cast<TransformNode>(m_object);
+        }
 
-        void SetTransformNode(const TransformNode &tfNode) { m_tfNode = tfNode; }
+        void SetTransformNode(const TransformNode &tfNode)
+        {
 
-    protected:
-        TransformNode m_tfNode;
+            if (m_object == nullptr)
+            {
+                m_object = std::make_shared<TransformNode>();
+            }
+            *std::dynamic_pointer_cast<TransformNode>(m_object) = tfNode;
+        }
     };
 
 } // name

@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 10:07:23
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-29 10:07:33
+ * @Last Modified time: 2024-06-01 20:23:09
  */
 #include <stdint.h>
 
@@ -17,15 +17,22 @@ namespace scene
     public:
         typedef std::shared_ptr<SceneMarkerArray> Ptr;
         SceneMarkerArray() {}
-        virtual ~SceneMarkerArray() { m_markers.markers.clear(); }
-        virtual void Clear() override { m_markers.markers.clear(); }
+        virtual ~SceneMarkerArray() {}
+        virtual void Clear() override {}
 
-        const MarkerArray &GetMarkers() const { return m_markers; }
+        const MarkerArray::Ptr GetMarkers() const
+        {
+            return std::dynamic_pointer_cast<MarkerArray>(m_object);
+        }
 
-        void SetMarkers(const MarkerArray &markers) { m_markers = markers; }
-
-    protected:
-        MarkerArray m_markers;
+        void SetMarkers(const MarkerArray &markers)
+        {
+            if (m_object == nullptr)
+            {
+                m_object = std::make_shared<MarkerArray>();
+            }
+            *std::dynamic_pointer_cast<MarkerArray>(m_object) = markers;
+        }
     };
 
 } // namespace  scene

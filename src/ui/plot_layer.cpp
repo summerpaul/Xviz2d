@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 19:02:34
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-01 08:12:59
+ * @Last Modified time: 2024-06-01 20:38:22
  */
 #include "plot_layer.h"
 #include "app/app.h"
@@ -190,7 +190,7 @@ namespace ui
                               ImVec2(150, 0));
         }
     }
-    
+
     void PlotLayer::DrawUnselectedData(const std::string &title, const RollingBuffer &data)
     {
 
@@ -505,7 +505,7 @@ namespace ui
         ImGui::SameLine();
         ImGui::ColorEdit4((std::string(title) + "color").data(), col, ImGuiColorEditFlags_NoInputs | ImGuiColorEditFlags_NoLabel);
         ImGui::SameLine();
-        ImGui::SliderScalar(("##" + std::string(title)).data(), ImGuiDataType_Double, value, &min, &max);
+        ImGui::SliderScalar(("##" + std::string(title)).data(), ImGuiDataType_Double, value, &min, &max, "%.3f");
         ImGui::SetItemUsingMouseWheel();
         if (ImGui::IsItemHovered())
         {

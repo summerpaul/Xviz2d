@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-30 15:29:17
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-01 10:20:35
+ * @Last Modified time: 2024-06-01 20:35:22
  */
 #include <stdint.h>
 
@@ -19,6 +19,7 @@ void DrawTransformDemo(const scene::SceneManager::Ptr &scene)
 {
 
     TransformNode tf_node1;
+    tf_node1.header.name = BASE_LINK;
     tf_node1.frameId = BASE_LINK;
     tf_node1.parentFrameId = WORLD_FRAME;
     tf_node1.trans = {5.0f, 5.0f};
@@ -26,6 +27,7 @@ void DrawTransformDemo(const scene::SceneManager::Ptr &scene)
 
     TransformNode tf_node2;
     tf_node2.frameId = BASE_LINK2;
+    tf_node2.header.name = BASE_LINK2;
     tf_node2.parentFrameId = BASE_LINK;
     tf_node2.trans = {10.0f, 10.0f};
     tf_node2.yaw = XVIZ_PI4;
@@ -278,6 +280,7 @@ void DrawPolygonArrayDemo(const scene::SceneManager::Ptr &scene)
     polygonArray.polygons.emplace_back(polygon2);
     polygonArray.polygons.emplace_back(polygon3);
     polygonArray.header.frameId = WORLD_FRAME;
+    polygonArray.header.name = "world_frame_polygons";
 
     scene::SceneObjectOptions options;
     if (g_first_draw)
@@ -290,11 +293,12 @@ void DrawPolygonArrayDemo(const scene::SceneManager::Ptr &scene)
     {
         scene->AddPolygonArray("world_polygon_array", &polygonArray);
     }
-
-    scene->AddPolygonArray("world_polygon_array", &polygonArray);
     polygonArray.header.frameId = BASE_LINK;
+    polygonArray.header.name = "frame1_polygons";
     scene->AddPolygonArray("frame1_polygon_array", &polygonArray);
+
     polygonArray.header.frameId = BASE_LINK2;
+    polygonArray.header.name = "frame2_polygons";
     scene->AddPolygonArray("frame2_polygon_array", &polygonArray);
 }
 

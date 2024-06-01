@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 19:17:01
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-01 11:24:03
+ * @Last Modified time: 2024-06-01 20:33:38
  */
 
 #include "scene_view.h"
@@ -365,7 +365,7 @@ namespace scene
         case SceneObjectType::PATH:
         {
             // 数据转换
-            ScenePath::Ptr scene_path = std::dynamic_pointer_cast<ScenePath>(std::move(draw_object));
+            auto scene_path = std::dynamic_pointer_cast<ScenePath>(std::move(draw_object));
             const auto &path = scene_path->GetPath();
             DrawScenePath(drawList, view, draw_to_object_tf, bk_color, *path, thickness, color);
             CHECK_BREAK(path->points.size() == 0);
@@ -379,13 +379,13 @@ namespace scene
         case SceneObjectType::PATH_ARRAY:
         {
             // 数据转换
-            ScenePathArray::Ptr scene_path_array = std::dynamic_pointer_cast<ScenePathArray>(std::move(draw_object));
+            auto scene_path_array = std::dynamic_pointer_cast<ScenePathArray>(std::move(draw_object));
             const auto &paths = scene_path_array->GetPaths();
             for (auto &path : paths->paths)
             {
                 DrawScenePath(drawList, view, draw_to_object_tf, bk_color, path, thickness, color);
-                CHECK_BREAK(path.points.size() == 0);
-                CHECK_BREAK(!obj_options.isShowID);
+                CHECK_CONTINUE(path.points.size() == 0);
+                CHECK_CONTINUE(!obj_options.isShowID);
                 text_pose = Mul(draw_to_object_tf, path.points.front());
                 text_str = path.header.name;
                 DrawText(drawList, view, text_pose, color, text_str);
@@ -403,7 +403,6 @@ namespace scene
             text_pose = draw_pose.pos;
             text_str = draw_pose.header.name;
             DrawText(drawList, view, text_pose, color, text_str);
-            LOG_INFO("pose test pose is %f, %f", text_pose.x, text_pose.y);
         }
         break;
         case SceneObjectType::POSE_ARRAY:
@@ -415,7 +414,7 @@ namespace scene
             {
                 auto draw_pose = Mul(draw_to_object_tf, pose);
                 DrawArrow(drawList, view, draw_pose, length, color, thickness);
-                CHECK_BREAK(!obj_options.isShowID);
+                CHECK_CONTINUE(!obj_options.isShowID);
                 text_pose = draw_pose.pos;
                 text_str = pose.header.name;
                 DrawText(drawList, view, text_pose, color, text_str);
@@ -428,6 +427,10 @@ namespace scene
             auto scene_polygon = std::dynamic_pointer_cast<ScenePolygon>(std::move(draw_object));
             const auto &polygon = scene_polygon->GetPolygon();
             DrawScenePolygon(drawList, view, draw_to_object_tf, *polygon, thickness, color);
+            CHECK_BREAK(!obj_options.isShowID);
+            text_pose = Mul(draw_to_object_tf, polygon->points.front());
+            text_str = polygon->header.name;
+            DrawText(drawList, view, text_pose, color, text_str);
         }
         break;
         case SceneObjectType::POLYGON_ARRAY:
@@ -438,6 +441,10 @@ namespace scene
             for (auto &polygon : polygons->polygons)
             {
                 DrawScenePolygon(drawList, view, draw_to_object_tf, polygon, thickness, color);
+                CHECK_CONTINUE(!obj_options.isShowID);
+                text_pose = Mul(draw_to_object_tf, polygon.points.front());
+                text_str = polygon.header.name;
+                DrawText(drawList, view, text_pose, color, text_str);
             }
         }
         break;
@@ -448,6 +455,11 @@ namespace scene
             const auto &circle = scene_circle->GetCircle();
             Vec2f center = Mul(draw_to_object_tf, circle->center);
             DrawCircle(drawList, view, center, circle->radius, color, thickness);
+
+            CHECK_BREAK(!obj_options.isShowID);
+            text_pose = center;
+            text_str = circle->header.name;
+            DrawText(drawList, view, text_pose, color, text_str);
         }
         break;
         case SceneObjectType::CIRCLE_ARRAY:
@@ -459,6 +471,10 @@ namespace scene
             {
                 Vec2f center = Mul(draw_to_object_tf, circle.center);
                 DrawCircle(drawList, view, center, circle.radius, color, thickness);
+                CHECK_CONTINUE(!obj_options.isShowID);
+                text_pose = center;
+                text_str = circle.header.name;
+                DrawText(drawList, view, text_pose, color, text_str);
             }
         }
         break;
@@ -466,12 +482,19 @@ namespace scene
         {
             // 数据转换
             auto scene_marker = std::dynamic_pointer_cast<SceneMarker>(std::move(draw_object));
+            const auto &marker = scene_marker->GetMarker();
+            DrawMarker(drawList, view, *marker, draw_to_object_tf, obj_options.isShowID);
         }
         break;
         case SceneObjectType::MARKER_ARRAY:
         {
             // 数据转换
             auto scene_marker_array = std::dynamic_pointer_cast<SceneMarkerArray>(std::move(draw_object));
+            const auto &markers = scene_marker_array->GetMarkers();
+            for (auto &marker : markers->markers)
+            {
+                DrawMarker(drawList, view, marker, draw_to_object_tf, obj_options.isShowID);
+            }
         }
         break;
         case SceneObjectType::POINT_CLOUD:
@@ -481,6 +504,29 @@ namespace scene
             const auto &point_cloud = scene_point_cloud->GetPointCloud();
             auto draw_points = Mul(draw_to_object_tf, point_cloud->points);
             DrawPointCloud(drawList, view, draw_points, color, radius);
+        }
+        break;
+        case SceneObjectType::TRANSFORM_NODE:
+        {
+            // 数据转换
+            auto scene_transform_node = std::dynamic_pointer_cast<SceneTransformNode>(std::move(draw_object));
+            const auto &transform_node = scene_transform_node->GetTransformNode();
+            const std::string &frame_id = transform_node->frameId;
+            const std::string &parent_frame_id = transform_node->parentFrameId;
+            const Vec2f tf_trans = transform_node->trans;
+            const float tf_angle = transform_node->yaw;
+            auto parent_to_object_tf = Transform(tf_trans.x, tf_trans.y, tf_angle);
+            auto draw_to_parent_tf = tf_tree->LookupTransform(parent_frame_id, draw_frame_id);
+            auto draw_pose = TransformToPose(Mul(draw_to_parent_tf, parent_to_object_tf));
+            const auto &length = obj_options.length;
+            const auto &thickness = obj_options.thickness;
+            DrawAxis(drawList, view, draw_pose, length, thickness);
+            Vec2f parent_pt = draw_to_parent_tf.trans;
+            const Vec2f &object_pt = draw_pose.pos;
+            DrawLine(drawList, view, parent_pt, object_pt, obj_options.color, thickness);
+            CHECK_BREAK(!obj_options.isShowID);
+            const std::string &name = transform_node->frameId;
+            DrawText(drawList, view, object_pt, obj_options.color, name);
         }
         break;
         default:
