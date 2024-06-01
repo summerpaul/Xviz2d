@@ -2,33 +2,16 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-28 20:21:23
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-01 10:18:48
+ * @Last Modified time: 2024-06-01 21:29:01
  */
 
 #ifndef __SCENE_OBJECT_OPTIONS_H__
 #define __SCENE_OBJECT_OPTIONS_H__
 #include <string>
 #include "scene/scene_color.h"
+#include "scene_object_type.h"
 namespace scene
 {
-
-    enum SceneObjectType
-    {
-        PATH = 0,
-        PATH_ARRAY,
-        POSE,
-        POSE_ARRAY,
-        POINT_CLOUD,
-        POLYGON,
-        POLYGON_ARRAY,
-        CIRCLE,
-        CIRCLE_ARRAY,
-        MARKER,
-        MARKER_ARRAY,
-        TRANSFORM_NODE,
-        OBJECT_NUM
-    };
-
 
     struct SceneObjectOptions
     {

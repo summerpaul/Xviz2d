@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 19:17:01
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-01 20:33:38
+ * @Last Modified time: 2024-06-01 21:59:54
  */
 
 #include "scene_view.h"
@@ -276,7 +276,7 @@ namespace scene
         }
     }
 
-    void DrawMarker(ImDrawList *drawList, const SceneView::Ptr &view, const Marker &marker, const Transform &tf, bool is_show_id = false)
+    void DrawMarker(ImDrawList *drawList, const SceneView::Ptr &view, const Marker &marker, const Transform &tf, bool is_show_id, unsigned int bk_color)
     {
         const auto &thickness = marker.thickness;
         const auto &color = GetImColor(marker.color);
@@ -287,11 +287,8 @@ namespace scene
         {
         case MARKER_TYPE::PATH:
         {
-            const auto &path = marker.path;
-            const auto drawPath = Mul(tf, path.points);
-            DrawPolyline(drawList, view, drawPath, color, false, thickness);
-            CHECK_BREAK(drawPath.size() <= 0);
-            text_pose = drawPath[0];
+            DrawScenePath(drawList, view, tf, bk_color, marker.path, thickness, color);
+            text_pose = Mul(tf, marker.path.points.front());
             text_pose_valid = true;
             break;
         }
@@ -315,10 +312,9 @@ namespace scene
         }
         case MARKER_TYPE::POLYGON:
         {
-            const auto points = Mul(tf, marker.polygon.points);
-            DrawPolyline(drawList, view, points, color, true, thickness);
-            CHECK_BREAK(points.size() <= 0);
-            text_pose = points[0];
+            DrawScenePolygon(drawList, view, tf, marker.polygon, thickness, color);
+
+            text_pose = Mul(tf, marker.polygon.points.front());
             text_pose_valid = true;
             break;
         }
@@ -483,7 +479,7 @@ namespace scene
             // 数据转换
             auto scene_marker = std::dynamic_pointer_cast<SceneMarker>(std::move(draw_object));
             const auto &marker = scene_marker->GetMarker();
-            DrawMarker(drawList, view, *marker, draw_to_object_tf, obj_options.isShowID);
+            DrawMarker(drawList, view, *marker, draw_to_object_tf, obj_options.isShowID, bk_color);
         }
         break;
         case SceneObjectType::MARKER_ARRAY:
@@ -493,7 +489,7 @@ namespace scene
             const auto &markers = scene_marker_array->GetMarkers();
             for (auto &marker : markers->markers)
             {
-                DrawMarker(drawList, view, marker, draw_to_object_tf, obj_options.isShowID);
+                DrawMarker(drawList, view, marker, draw_to_object_tf, obj_options.isShowID, bk_color);
             }
         }
         break;
@@ -558,6 +554,7 @@ namespace scene
         }
         // 绘制顶层图形
         CHECK_RETURN(options->topDrawtype > SceneObjectType::OBJECT_NUM);
+        CHECK_RETURN(all_objects_list->find(options->topDrawtype) == all_objects_list->end());
         auto top_objects = all_objects_list->at(options->topDrawtype);
         std::vector<SceneObject::Ptr> draw_objects;
         top_objects.GatherAll(draw_objects);

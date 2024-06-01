@@ -2,25 +2,26 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 10:12:43
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-30 18:18:25
+ * @Last Modified time: 2024-06-01 21:40:26
  */
 #include <stdint.h>
 
 #ifndef __SCENE_OPTIONS_H__
 #define __SCENE_OPTIONS_H__
 #include "scene_color.h"
+#include "scene_object/scene_object_type.h"
 #include <memory>
 namespace scene
 {
     struct SceneOptions
     {
-		SceneOptions()
-		{
-			for (size_t i = 0; i < 14; i++)
-			{
-				drawObject[i] = true;
-			}
-		}
+        SceneOptions()
+        {
+            for (size_t i = 0; i < 14; i++)
+            {
+                drawObject[i] = true;
+            }
+        }
         typedef std::shared_ptr<SceneOptions> Ptr;
         unsigned int backgroundColor = IM_WHITE;
         unsigned int gridColor = IM_COL32(0, 0, 0, 100);
@@ -49,7 +50,8 @@ namespace scene
         bool drawMeasure = false;
         bool drawTransformNodeList = false;
         bool drawObject[14];
-        int topDrawtype = 4;
+        int topDrawtype = scene::SceneObjectType::POLYGON_ARRAY;
+        std::string topDrawtypeStr = SceneObjectStr[scene::SceneObjectType::POLYGON_ARRAY];
     };
 }
 

@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 19:00:52
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-30 14:13:14
+ * @Last Modified time: 2024-06-01 21:47:28
  */
 #include <iostream>
 
@@ -183,6 +183,34 @@ namespace ui
                     if (ImGui::Selectable(frameId.second.data(), is_selected))
                     {
                         m_scene->SetDrawFrameId(frameId.second);
+                    }
+
+                    if (is_selected)
+                    {
+                        ImGui::SetItemDefaultFocus();
+                    }
+                }
+
+                ImGui::EndCombo();
+            }
+
+            ImGui::Text("TopDrawObject");
+            ImGui::SameLine();
+            ImGui::SetNextItemWidth(150);
+            // auto options = m_scene->GetOptions();
+            if (ImGui::BeginCombo("##TopDrawObject", options->topDrawtypeStr.data(),
+                                  ImGuiComboFlags_NoArrowButton))
+            {
+
+                for (int i = 0; i < scene::SceneObjectType::OBJECT_NUM; i++)
+                {
+                    auto objectTypeStr = scene::SceneObjectStr[i];
+                    bool is_selected = objectTypeStr == options->topDrawtypeStr;
+
+                    if (ImGui::Selectable(objectTypeStr.data(), is_selected))
+                    {
+                        options->topDrawtype = i;
+                        options->topDrawtypeStr = objectTypeStr;
                     }
 
                     if (is_selected)
