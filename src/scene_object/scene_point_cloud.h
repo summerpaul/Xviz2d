@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 10:08:32
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-29 10:08:46
+ * @Last Modified time: 2024-06-01 10:34:35
  */
 #include <stdint.h>
 
@@ -18,15 +18,22 @@ namespace scene
     public:
         typedef std::shared_ptr<ScenePointCloud> Ptr;
         ScenePointCloud() = default;
-        virtual ~ScenePointCloud() { m_pointCloud.points.clear(); }
-        virtual void Clear() override { m_pointCloud.points.clear(); }
+        virtual ~ScenePointCloud() {}
+        virtual void Clear() override {}
 
-        const PointCloud &GetPointCloud() const { return m_pointCloud; }
+        const PointCloud::Ptr GetPointCloud() const
+        {
+            return std::dynamic_pointer_cast<PointCloud>(m_object);
+        }
 
-        void SetPointCloud(const PointCloud &pointCloud) { m_pointCloud = pointCloud; }
-
-    protected:
-        PointCloud m_pointCloud;
+        void SetPointCloud(const PointCloud &pointCloud)
+        {
+            if (m_object == nullptr)
+            {
+                m_object = std::make_shared<PointCloud>();
+            }
+            *std::dynamic_pointer_cast<PointCloud>(m_object) = pointCloud;
+        }
     };
 
 } // namespace scene

@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 19:02:34
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-30 14:10:11
+ * @Last Modified time: 2024-06-01 08:12:59
  */
 #include "plot_layer.h"
 #include "app/app.h"
@@ -164,7 +164,7 @@ namespace ui
         ImGui::Selectable(title, true, 0, ImVec2(150, 0));
         ImGui::TableSetColumnIndex(col_index++);
         const auto &cur_value = data.ys.back();
-        ImGui::Selectable(FormatDoubleValue(cur_value, 2).data(), true, 0,
+        ImGui::Selectable(FormatDoubleValue(cur_value, 3).data(), true, 0,
                           ImVec2(150, 0));
         double val1 = 0;
         double val2 = 0;
@@ -172,21 +172,21 @@ namespace ui
         {
             ImGui::TableSetColumnIndex(col_index++);
             val1 = data.ys[idx1];
-            ImGui::Selectable(FormatDoubleValue(val1, 2).data(), true, 0,
+            ImGui::Selectable(FormatDoubleValue(val1, 3).data(), true, 0,
                               ImVec2(150, 0));
         }
         if (isShowDragX2 && idx2 >= 0)
         {
             ImGui::TableSetColumnIndex(col_index++);
             val2 = data.ys[idx2];
-            ImGui::Selectable(FormatDoubleValue(val2, 2).data(), true, 0,
+            ImGui::Selectable(FormatDoubleValue(val2, 3).data(), true, 0,
                               ImVec2(150, 0));
         }
         if (isShowDragX1 && isShowDragX2)
         {
             ImGui::TableSetColumnIndex(col_index++);
             auto delta = val2 - val1;
-            ImGui::Selectable(FormatDoubleValue(delta, 2).data(), true, 0,
+            ImGui::Selectable(FormatDoubleValue(delta, 3).data(), true, 0,
                               ImVec2(150, 0));
         }
     }
@@ -215,7 +215,7 @@ namespace ui
         }
         ImGui::TableSetColumnIndex(col_index++);
         const auto &cur_value = data.ys.back();
-        ImGui::Selectable(FormatDoubleValue(cur_value, 2).data(), false, 0,
+        ImGui::Selectable(FormatDoubleValue(cur_value, 3).data(), false, 0,
                           ImVec2(100, 0));
         double val1 = 0;
         double val2 = 0;
@@ -223,21 +223,21 @@ namespace ui
         {
             ImGui::TableSetColumnIndex(col_index++);
             val1 = data.ys[idx1];
-            ImGui::Selectable(FormatDoubleValue(val1, 2).data(), false, 0,
+            ImGui::Selectable(FormatDoubleValue(val1, 3).data(), false, 0,
                               ImVec2(100, 0));
         }
         if (isShowDragX2 && idx2 >= 0)
         {
             ImGui::TableSetColumnIndex(col_index++);
             val2 = data.ys[idx2];
-            ImGui::Selectable(FormatDoubleValue(val2, 2).data(), false, 0,
+            ImGui::Selectable(FormatDoubleValue(val2, 3).data(), false, 0,
                               ImVec2(100, 0));
         }
         if (isShowDragX1 && isShowDragX2)
         {
             ImGui::TableSetColumnIndex(col_index++);
             auto delta = val2 - val1;
-            ImGui::Selectable(FormatDoubleValue(delta, 2).data(), false, 0,
+            ImGui::Selectable(FormatDoubleValue(delta, 3).data(), false, 0,
                               ImVec2(100, 0));
         }
     }
@@ -410,7 +410,7 @@ namespace ui
             if (tooltip_index != -1)
             {
                 double y_value = plotData.ys[tooltip_index];
-                std::string msg = data_name + ":" + (FormatDoubleValue(y_value, 2));
+                std::string msg = data_name + ":" + (FormatDoubleValue(y_value, 3));
                 ImPlot::PlotText(msg.data(), mouse_x, y_value, ImVec2(0, 0), ImPlotTextFlags_None);
             }
         }
@@ -434,7 +434,7 @@ namespace ui
         if (ImGui::BeginTooltip())
         {
             const double deltaX = dragX2 - dragX1;
-            ImGui::Text("deltaX is %s", FormatDoubleValue(deltaX, 2).c_str());
+            ImGui::Text("deltaX is %s", FormatDoubleValue(deltaX, 3).c_str());
 
             ImGui::EndTooltip();
         }

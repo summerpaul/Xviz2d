@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 18:27:36
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-31 16:41:06
+ * @Last Modified time: 2024-06-01 09:13:25
  */
 #include <iostream>
 #include "app/app.h"
@@ -26,9 +26,13 @@ int main(int argc, char const *argv[])
 			} });
 
     app->Run();
-
-    app->Shutdown();
     running = false;
+    if(demo_thread.joinable())
+    {
+        demo_thread.join();
+        LOG_INFO("finished demo thread");
+    }
+    app->Shutdown();
 
     return 0;
 }

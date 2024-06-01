@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 10:06:12
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-01 00:30:18
+ * @Last Modified time: 2024-06-01 10:40:08
  */
 #include <stdint.h>
 
@@ -34,7 +34,7 @@ namespace scene
             {
                 m_object = std::make_shared<CircleArray>();
             }
-            *m_object = circles;
+            *std::dynamic_pointer_cast<CircleArray>(m_object) = circles;
         };
 
         // virtual void Clear() override { m_circles.circles.clear(); }

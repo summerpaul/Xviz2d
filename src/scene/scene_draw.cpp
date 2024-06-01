@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 19:17:01
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-01 00:46:43
+ * @Last Modified time: 2024-06-01 11:24:03
  */
 
 #include "scene_view.h"
@@ -223,21 +223,268 @@ namespace scene
                        const SceneView::Ptr &view,
                        const Transform &draw_to_object_tf,
                        unsigned int bk_color,
-                       const Path::Ptr &path,
+                       const Path &path,
                        float thickness,
                        unsigned int color)
     {
 
-        auto draw_path = Mul(draw_to_object_tf, path->points);
-        if (path->isDashed)
+        auto draw_path = Mul(draw_to_object_tf, path.points);
+        if (path.isDashed)
         {
-            const auto &dash_length = path->dashLength;
-            const auto &gap_length = path->gapLength;
+            const auto &dash_length = path.dashLength;
+            const auto &gap_length = path.gapLength;
             DrawDashedPolyline(drawList, view, draw_path, color, bk_color, thickness, dash_length, gap_length);
         }
         else
         {
             DrawPolyline(drawList, view, draw_path, color, false, thickness);
+        }
+    }
+
+    void DrawScenePolygon(ImDrawList *drawList,
+                          const SceneView::Ptr &view,
+                          const Transform &draw_to_object_tf,
+                          const Polygon &polygon,
+                          float thickness,
+                          unsigned int color)
+    {
+        auto draw_polygon = Mul(draw_to_object_tf, polygon.points);
+        if (polygon.filled)
+        {
+            DrawConvexPolyFilled(drawList, view, draw_polygon, color);
+        }
+        else
+        {
+            DrawPolyline(drawList, view, draw_polygon, color, true, thickness);
+        }
+    }
+
+    void DrawPointCloud(ImDrawList *drawList, const SceneView::Ptr &view, const Points &points, ImU32 col, float radius)
+    {
+        size_t num_points = points.size();
+        CHECK_RETURN(num_points == 0);
+        Vec2f view_rect_min{view->GetViewRectMin().x, view->GetViewRectMin().y};
+        Vec2f view_rect_max{view->GetViewRectMax().x, view->GetViewRectMax().y};
+        const float pw_radius = radius * view->invScale;
+        for (auto const &point : points)
+        {
+            // 绘制的点云数据不在绘制范围内，不进行绘制
+            auto pixel_pos = view->FromLocal({point.x, point.y});
+            CHECK_CONTINUE(pixel_pos.x < view_rect_min.x || pixel_pos.x > view_rect_max.x ||
+                           pixel_pos.y < view_rect_min.y || pixel_pos.y > view_rect_max.y);
+            drawList->AddCircleFilled({pixel_pos.x, pixel_pos.y}, pw_radius, col);
+        }
+    }
+
+    void DrawMarker(ImDrawList *drawList, const SceneView::Ptr &view, const Marker &marker, const Transform &tf, bool is_show_id = false)
+    {
+        const auto &thickness = marker.thickness;
+        const auto &color = GetImColor(marker.color);
+        const auto &length = marker.length;
+        Vec2f text_pose;
+        bool text_pose_valid = false;
+        switch (marker.type)
+        {
+        case MARKER_TYPE::PATH:
+        {
+            const auto &path = marker.path;
+            const auto drawPath = Mul(tf, path.points);
+            DrawPolyline(drawList, view, drawPath, color, false, thickness);
+            CHECK_BREAK(drawPath.size() <= 0);
+            text_pose = drawPath[0];
+            text_pose_valid = true;
+            break;
+        }
+        case MARKER_TYPE::POSE:
+        {
+            const auto &pose = marker.pose;
+            const auto drawPose = Mul(tf, pose);
+            DrawArrow(drawList, view, drawPose, length, color, thickness);
+            text_pose_valid = true;
+            text_pose = drawPose.pos;
+            break;
+        }
+        case MARKER_TYPE::CIRCLE:
+        {
+            const auto &circle = marker.circle;
+            const auto draw_center = Mul(tf, marker.circle.center);
+            DrawCircle(drawList, view, draw_center, circle.radius, color, thickness);
+            text_pose_valid = true;
+            text_pose = draw_center;
+            break;
+        }
+        case MARKER_TYPE::POLYGON:
+        {
+            const auto points = Mul(tf, marker.polygon.points);
+            DrawPolyline(drawList, view, points, color, true, thickness);
+            CHECK_BREAK(points.size() <= 0);
+            text_pose = points[0];
+            text_pose_valid = true;
+            break;
+        }
+        case MARKER_TYPE::POINT_CLOUD:
+        {
+            const auto &radius = marker.radius;
+            const auto points = Mul(tf, marker.pointCloud.points);
+            DrawPointCloud(drawList, view, points, color, radius);
+            CHECK_BREAK(points.size() <= 0);
+            text_pose = points[0];
+            text_pose_valid = true;
+            break;
+        }
+
+        default:
+            break;
+        }
+        CHECK_RETURN(!is_show_id);
+        CHECK_RETURN(!text_pose_valid);
+        DrawText(drawList, view, text_pose, color, marker.header.name);
+    }
+
+    void DrawObject(ImDrawList *drawList, const SceneView::Ptr &view,
+                    const SceneOptions::Ptr &options,
+                    const TFTree::Ptr &tf_tree,
+                    const std::string &draw_frame_id,
+                    int type, const SceneObject::Ptr &draw_object)
+    {
+        const auto &obj_options = draw_object->GetOptions();
+        CHECK_RETURN(!obj_options.isVisible);
+        CHECK_RETURN(!draw_object->HasObject())
+        const auto &thickness = obj_options.thickness;
+        const auto &color = obj_options.color;
+        const auto &length = obj_options.length;
+        const auto &radius = obj_options.radius;
+        std::string text_str = draw_object->GetName();
+        std::string frame_id = draw_object->GetFrameId();
+        auto draw_to_object_tf = tf_tree->LookupTransform(frame_id, draw_frame_id);
+        Vec2f text_pose;
+        auto bk_color = options->backgroundColor;
+
+        switch (type)
+        {
+        case SceneObjectType::PATH:
+        {
+            // 数据转换
+            ScenePath::Ptr scene_path = std::dynamic_pointer_cast<ScenePath>(std::move(draw_object));
+            const auto &path = scene_path->GetPath();
+            DrawScenePath(drawList, view, draw_to_object_tf, bk_color, *path, thickness, color);
+            CHECK_BREAK(path->points.size() == 0);
+            CHECK_BREAK(!obj_options.isShowID);
+            text_pose = Mul(draw_to_object_tf, path->points.front());
+            text_str = path->header.name;
+            DrawText(drawList, view, text_pose, color, text_str);
+        }
+
+        break;
+        case SceneObjectType::PATH_ARRAY:
+        {
+            // 数据转换
+            ScenePathArray::Ptr scene_path_array = std::dynamic_pointer_cast<ScenePathArray>(std::move(draw_object));
+            const auto &paths = scene_path_array->GetPaths();
+            for (auto &path : paths->paths)
+            {
+                DrawScenePath(drawList, view, draw_to_object_tf, bk_color, path, thickness, color);
+                CHECK_BREAK(path.points.size() == 0);
+                CHECK_BREAK(!obj_options.isShowID);
+                text_pose = Mul(draw_to_object_tf, path.points.front());
+                text_str = path.header.name;
+                DrawText(drawList, view, text_pose, color, text_str);
+            }
+        }
+        break;
+        case SceneObjectType::POSE:
+        {
+            // 数据转换
+            auto scene_pose = std::dynamic_pointer_cast<ScenePose>(std::move(draw_object));
+            const auto &pose = scene_pose->GetPose();
+            auto draw_pose = Mul(draw_to_object_tf, *pose);
+            DrawArrow(drawList, view, draw_pose, length, color, thickness);
+            CHECK_BREAK(!obj_options.isShowID);
+            text_pose = draw_pose.pos;
+            text_str = draw_pose.header.name;
+            DrawText(drawList, view, text_pose, color, text_str);
+            LOG_INFO("pose test pose is %f, %f", text_pose.x, text_pose.y);
+        }
+        break;
+        case SceneObjectType::POSE_ARRAY:
+        {
+            // 数据转换
+            auto scene_pose_array = std::dynamic_pointer_cast<ScenePoseArray>(std::move(draw_object));
+            const auto &poses = scene_pose_array->GetPoses();
+            for (auto &pose : poses->poses)
+            {
+                auto draw_pose = Mul(draw_to_object_tf, pose);
+                DrawArrow(drawList, view, draw_pose, length, color, thickness);
+                CHECK_BREAK(!obj_options.isShowID);
+                text_pose = draw_pose.pos;
+                text_str = pose.header.name;
+                DrawText(drawList, view, text_pose, color, text_str);
+            }
+        }
+        break;
+        case SceneObjectType::POLYGON:
+        {
+            // 数据转换
+            auto scene_polygon = std::dynamic_pointer_cast<ScenePolygon>(std::move(draw_object));
+            const auto &polygon = scene_polygon->GetPolygon();
+            DrawScenePolygon(drawList, view, draw_to_object_tf, *polygon, thickness, color);
+        }
+        break;
+        case SceneObjectType::POLYGON_ARRAY:
+        {
+            // 数据转换
+            auto scene_polygon_array = std::dynamic_pointer_cast<ScenePolygonArray>(std::move(draw_object));
+            const auto &polygons = scene_polygon_array->GetPolygons();
+            for (auto &polygon : polygons->polygons)
+            {
+                DrawScenePolygon(drawList, view, draw_to_object_tf, polygon, thickness, color);
+            }
+        }
+        break;
+        case SceneObjectType::CIRCLE:
+        {
+            // 数据转换
+            auto scene_circle = std::dynamic_pointer_cast<SceneCircle>(std::move(draw_object));
+            const auto &circle = scene_circle->GetCircle();
+            Vec2f center = Mul(draw_to_object_tf, circle->center);
+            DrawCircle(drawList, view, center, circle->radius, color, thickness);
+        }
+        break;
+        case SceneObjectType::CIRCLE_ARRAY:
+        {
+            // 数据转换
+            auto scene_circle_array = std::dynamic_pointer_cast<SceneCircleArray>(std::move(draw_object));
+            const auto &circles = scene_circle_array->GetCircles();
+            for (auto &circle : circles->circles)
+            {
+                Vec2f center = Mul(draw_to_object_tf, circle.center);
+                DrawCircle(drawList, view, center, circle.radius, color, thickness);
+            }
+        }
+        break;
+        case SceneObjectType::MARKER:
+        {
+            // 数据转换
+            auto scene_marker = std::dynamic_pointer_cast<SceneMarker>(std::move(draw_object));
+        }
+        break;
+        case SceneObjectType::MARKER_ARRAY:
+        {
+            // 数据转换
+            auto scene_marker_array = std::dynamic_pointer_cast<SceneMarkerArray>(std::move(draw_object));
+        }
+        break;
+        case SceneObjectType::POINT_CLOUD:
+        {
+            // 数据转换
+            auto scene_point_cloud = std::dynamic_pointer_cast<ScenePointCloud>(std::move(draw_object));
+            const auto &point_cloud = scene_point_cloud->GetPointCloud();
+            auto draw_points = Mul(draw_to_object_tf, point_cloud->points);
+            DrawPointCloud(drawList, view, draw_points, color, radius);
+        }
+        break;
+        default:
+            break;
         }
     }
 
@@ -260,101 +507,17 @@ namespace scene
 
             for (auto &draw_object : draw_objects)
             {
-                const auto &obj_options = draw_object->GetOptions();
-                CHECK_CONTINUE(!obj_options.isVisible);
-                CHECK_CONTINUE(!draw_object->HasObject())
-                const auto &thickness = obj_options.thickness;
-                const auto &color = obj_options.color;
-                std::string text_str = draw_object->GetName();
-                std::string frame_id = draw_object->GetFrameId();
-                auto draw_to_object_tf = tf_tree->LookupTransform(frame_id, draw_frame_id);
-                Vec2f text_pose;
-                auto bk_color = options->backgroundColor;
-
-                switch (scene_objects.first)
-                {
-                case SceneObjectType::PATH:
-                {
-                    // 数据转换
-                    ScenePath::Ptr scene_path = std::dynamic_pointer_cast<ScenePath>(std::move(draw_object));
-                    const auto &path = scene_path->GetPath();
-                    DrawScenePath(drawList, view, draw_to_object_tf, bk_color, path, thickness, color);
-                    CHECK_BREAK(path->points.size() == 0);
-                    text_pose = Mul(draw_to_object_tf, path->points.front());
-                    CHECK_CONTINUE(!obj_options.isShowID);
-                    DrawText(drawList, view, text_pose, color, text_str);
-                }
-
-                break;
-                case SceneObjectType::PATH_ARRAY:
-                {
-                    // 数据转换
-                    ScenePathArray::Ptr scene_path_array = std::dynamic_pointer_cast<ScenePathArray>(std::move(draw_object));
-                    const auto &paths = scene_path_array->GetPaths();
-                    for (auto &path : paths->paths)
-                    {
-                        // DrawScenePath(drawList, view, tf_tree, draw_frame_id, options->backgroundColor, path, thickness, color);
-                    }
-                }
-                break;
-                case SceneObjectType::POSE:
-                {
-                    // 数据转换
-                    ScenePose::Ptr scene_pose = std::dynamic_pointer_cast<ScenePose>(std::move(draw_object));
-                }
-                break;
-                case SceneObjectType::POSE_ARRAY:
-                {
-                    // 数据转换
-                    ScenePoseArray::Ptr scene_pose_array = std::dynamic_pointer_cast<ScenePoseArray>(std::move(draw_object));
-                }
-                break;
-                case SceneObjectType::POLYGON:
-                {
-                    // 数据转换
-                    ScenePolygon::Ptr scene_polygon = std::dynamic_pointer_cast<ScenePolygon>(std::move(draw_object));
-                }
-                break;
-                case SceneObjectType::POLYGON_ARRAY:
-                {
-                    // 数据转换
-                    ScenePolygonArray::Ptr scene_polygon_array = std::dynamic_pointer_cast<ScenePolygonArray>(std::move(draw_object));
-                }
-                break;
-                case SceneObjectType::CIRCLE:
-                {
-                    // 数据转换
-                    SceneCircle::Ptr scene_circle = std::dynamic_pointer_cast<SceneCircle>(std::move(draw_object));
-                }
-                break;
-                case SceneObjectType::CIRCLE_ARRAY:
-                {
-                    // 数据转换
-                    SceneCircleArray::Ptr scene_circle_array = std::dynamic_pointer_cast<SceneCircleArray>(std::move(draw_object));
-                }
-                break;
-                case SceneObjectType::MARKER:
-                {
-                    // 数据转换
-                    SceneMarker::Ptr scene_marker = std::dynamic_pointer_cast<SceneMarker>(std::move(draw_object));
-                }
-                break;
-                case SceneObjectType::MARKER_ARRAY:
-                {
-                    // 数据转换
-                    SceneMarkerArray::Ptr scene_marker_array = std::dynamic_pointer_cast<SceneMarkerArray>(std::move(draw_object));
-                }
-                break;
-                case SceneObjectType::POINT_CLOUD:
-                {
-                    // 数据转换
-                    ScenePointCloud::Ptr scene_point_cloud = std::dynamic_pointer_cast<ScenePointCloud>(std::move(draw_object));
-                }
-                break;
-                default:
-                    break;
-                }
+                DrawObject(drawList, view, options, tf_tree, draw_frame_id, scene_objects.first, draw_object);
             }
+        }
+        // 绘制顶层图形
+        CHECK_RETURN(options->topDrawtype > SceneObjectType::OBJECT_NUM);
+        auto top_objects = all_objects_list->at(options->topDrawtype);
+        std::vector<SceneObject::Ptr> draw_objects;
+        top_objects.GatherAll(draw_objects);
+        for (auto &draw_object : draw_objects)
+        {
+            DrawObject(drawList, view, options, tf_tree, draw_frame_id, options->topDrawtype, draw_object);
         }
     }
 

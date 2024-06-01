@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-27 19:24:29
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-01 00:14:20
+ * @Last Modified time: 2024-06-01 11:25:54
  */
 
 #ifndef __DATA_TYPES_H__
@@ -172,7 +172,7 @@ namespace basis
         typedef std::shared_ptr<Marker> Ptr;
         Marker() {}
         int type = 0;
-        int color = 0;
+        COLOR_TYPE color = COLOR_TYPE::BLACK;
         Path path;
         Polygon polygon;
         Circle circle;

@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 10:05:47
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-01 00:26:02
+ * @Last Modified time: 2024-06-01 10:39:25
  */
 #include <stdint.h>
 
@@ -22,7 +22,7 @@ namespace scene
 
         const Circle::Ptr GetCircle() const
         {
-            return std::static_pointer_cast<Circle>(m_object);
+            return std::dynamic_pointer_cast<Circle>(m_object);
         }
 
         void SetCircle(const Circle &circle)
@@ -32,7 +32,7 @@ namespace scene
             {
                 m_object = std::make_shared<Circle>();
             }
-            *m_object = circle;
+            *std::dynamic_pointer_cast<Circle>(m_object) = circle;
         }
     };
 }

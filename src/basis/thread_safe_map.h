@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-28 18:54:14
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-30 13:32:19
+ * @Last Modified time: 2024-06-01 11:15:22
  */
 
 #ifndef __THREAD_SAFE_MAP_H__
@@ -20,7 +20,14 @@ namespace basis
         using MapType = std::map<Key, Value>;
         using IteratorType = typename MapType::iterator;
         ThreadSafeMap() = default;
+
         virtual ~ThreadSafeMap() = default;
+        // 复制构造函数
+        ThreadSafeMap(const ThreadSafeMap &other)
+        {
+            std::lock_guard<std::mutex> lock(m_mutex);
+            m_map = other.m_map;
+        }
 
         Value &operator[](const Key &key)
         {
@@ -141,7 +148,7 @@ namespace basis
 
         bool empty() const
         {
-			bool ret = m_map.empty();
+            bool ret = m_map.empty();
             return ret;
         }
 

@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 10:08:05
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-01 00:31:43
+ * @Last Modified time: 2024-06-01 08:10:35
  */
 #include <stdint.h>
 
@@ -33,7 +33,7 @@ namespace scene
             {
                 m_object = std::make_shared<PathArray>();
             }
-            *m_object = paths;
+            *std::dynamic_pointer_cast<PathArray>(m_object) = paths;
         }
     };
 

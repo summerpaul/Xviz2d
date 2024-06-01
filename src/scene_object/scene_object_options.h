@@ -2,12 +2,13 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-28 20:21:23
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-30 18:13:24
+ * @Last Modified time: 2024-06-01 10:18:48
  */
 
 #ifndef __SCENE_OBJECT_OPTIONS_H__
 #define __SCENE_OBJECT_OPTIONS_H__
 #include <string>
+#include "scene/scene_color.h"
 namespace scene
 {
 
@@ -28,10 +29,11 @@ namespace scene
         OBJECT_NUM
     };
 
+
     struct SceneObjectOptions
     {
         SceneObjectOptions() {}
-        unsigned int color = 0;
+        unsigned int color = IM_BLACK;
         int type = 0;
         std::string name;
         bool isShowID = false;

@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-04-27 11:43:32
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-30 15:21:59
+ * @Last Modified time: 2024-06-01 10:04:35
  */
 #include <iostream>
 
@@ -240,9 +240,32 @@ namespace ui
     void SceneEditLayer::SceneObjectsEdit(std::shared_ptr<scene::SceneOptions> &options)
     {
 
-        if (ImGui::TreeNode("SceneObjectsEdit"))
+        if (ImGui::TreeNode("SceneObjects"))
         {
+            auto all_objects = m_scene->GetAllObjects();
+            for (auto &object : *all_objects)
+            {
+                auto type = object.first;
 
+                std::vector<scene::SceneObject::Ptr> draw_objects;
+                object.second.GatherAll(draw_objects);
+                CHECK_CONTINUE(draw_objects.size() == 0);
+
+                if (ImGui::TreeNode(scene::SceneObjectStr[type].data()))
+                {
+                    ImGui::Text("Visable");
+                    ImGui::SameLine();
+                    ImGui::Checkbox(("##" + scene::SceneObjectStr[type] + "vis").data(), &options->drawObject[type]);
+                    for (auto &draw_object : draw_objects)
+                    {
+                        auto name = draw_object->GetName();
+
+                        ScenebjectOptionsEdit(name, draw_object->GetOptions(), true, true, true, true);
+                    }
+
+                    ImGui::TreePop();
+                };
+            }
 
             ImGui::TreePop();
         }

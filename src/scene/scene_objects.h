@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 10:10:17
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-31 14:48:21
+ * @Last Modified time: 2024-06-01 08:26:50
  */
 #include <stdint.h>
 
@@ -27,6 +27,20 @@
 
 namespace scene
 {
+    const std::string SceneObjectStr[12] = {
+        "PATH",
+        "PATH_ARRAY",
+        "POSE",
+        "POSE_ARRAY",
+        "POINT_CLOUD",
+        "POLYGON",
+        "POLYGON_ARRAY",
+        "CIRCLE",
+        "CIRCLE_ARRAY",
+        "MARKER",
+        "MARKER_ARRAY",
+        "TRANSFORM_NODE"};
+
     typedef basis::ThreadSafeMap<std::string, SceneObject::Ptr> SceneObjectMap;
 
     typedef basis::ThreadSafeMap<std::string, ScenePose::Ptr> ScenePoseMap;

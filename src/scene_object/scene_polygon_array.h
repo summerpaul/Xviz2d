@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 10:09:25
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-29 10:09:36
+ * @Last Modified time: 2024-06-01 10:26:11
  */
 #include <stdint.h>
 
@@ -18,14 +18,21 @@ namespace scene
     public:
         typedef std::shared_ptr<ScenePolygonArray> Ptr;
         ScenePolygonArray() = default;
-        virtual ~ScenePolygonArray() { m_polygons.polygons.clear(); }
-        virtual void Clear() override { m_polygons.polygons.clear(); }
+        virtual ~ScenePolygonArray() {}
+        virtual void Clear() override {}
 
-        const PolygonArray &GetPolygons() const { return m_polygons; }
-        void SetPolygons(const PolygonArray &polygons) { m_polygons = polygons; }
-
-    protected:
-        PolygonArray m_polygons;
+        const PolygonArray::Ptr GetPolygons() const
+        {
+            return std::dynamic_pointer_cast<PolygonArray>(m_object);
+        }
+        void SetPolygons(const PolygonArray &polygons)
+        {
+            if (m_object == nullptr)
+            {
+                m_object = std::make_shared<PolygonArray>();
+            }
+            *std::dynamic_pointer_cast<PolygonArray>(m_object) = polygons;
+        }
     };
 
 } // namespace scene

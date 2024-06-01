@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 10:04:58
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-29 19:28:12
+ * @Last Modified time: 2024-06-01 10:28:44
  */
 #include <stdint.h>
 
@@ -19,19 +19,25 @@ namespace scene
     public:
         typedef std::shared_ptr<ScenePoseArray> Ptr;
         ScenePoseArray() = default;
-        ~ScenePoseArray() { m_poses.poses.clear(); }
+        ~ScenePoseArray() {}
 
         virtual void Clear() override
         {
-            m_poses.poses.clear();
         }
 
-        const PoseArray &GetPoses() const { return m_poses; }
+        const PoseArray::Ptr GetPoses() const
+        {
+            return std::dynamic_pointer_cast<PoseArray>(m_object);
+        }
 
-        void SetPoses(const PoseArray &poses) { m_poses = poses; }
-
-    protected:
-        PoseArray m_poses;
+        void SetPoses(const PoseArray &poses)
+        {
+            if (m_object == nullptr)
+            {
+                m_object = std::make_shared<PoseArray>();
+            }
+            *std::dynamic_pointer_cast<PoseArray>(m_object) = poses;
+        }
     };
 } // namespace
 

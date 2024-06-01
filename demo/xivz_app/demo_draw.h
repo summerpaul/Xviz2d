@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-30 15:29:17
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-31 23:14:22
+ * @Last Modified time: 2024-06-01 10:20:35
  */
 #include <stdint.h>
 
@@ -121,6 +121,7 @@ void DrawPolygonDemo(const scene::SceneManager::Ptr &scene)
 
     polygon.header.frameId = BASE_LINK2;
     polygon.header.name = "frame2_plygon";
+    polygon.filled = true;
     scene->AddPolygon("frame2_plygon", &polygon);
 }
 
@@ -237,6 +238,7 @@ void DrawPathArrayDemo(const scene::SceneManager::Ptr &scene)
     if (g_first_draw)
     {
         options.color = scene::IM_RED;
+        options.isShowID = true;
         scene->AddPathArray("world_path_array", &path_array, &options);
     }
     else
@@ -245,8 +247,10 @@ void DrawPathArrayDemo(const scene::SceneManager::Ptr &scene)
     }
 
     path_array.header.frameId = BASE_LINK;
+    path_array.header.name = "frame1_path_array";
     scene->AddPathArray("frame1_path_array", &path_array);
     path_array.header.frameId = BASE_LINK2;
+    path_array.header.name = "frame2_path_array";
     scene->AddPathArray("frame2_path_array", &path_array);
 }
 
@@ -334,6 +338,7 @@ void SceneDemo(const scene::SceneManager::Ptr &scene)
     DrawPathArrayDemo(scene);
     DrawPolygonArrayDemo(scene);
     AddDoubleDataDemo(scene);
+    g_first_draw = false;
 }
 
 #endif /* __DEMO_DRAW_H__ */

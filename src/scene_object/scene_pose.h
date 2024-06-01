@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 10:03:57
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-29 19:41:28
+ * @Last Modified time: 2024-06-01 09:08:03
  */
 #include <stdint.h>
 
@@ -19,12 +19,17 @@ namespace scene
         typedef std::shared_ptr<ScenePose> Ptr;
         ScenePose() = default;
         ~ScenePose() = default;
-        const basis::Pose &GetPose() const { return m_pose; }
+        const basis::Pose::Ptr GetPose() const { return std::dynamic_pointer_cast<Pose>(m_object); }
 
-        void SetPose(const basis::Pose &pose) { m_pose = pose; }
+        void SetPose(const basis::Pose &pose)
+        {
 
-    protected:
-        basis::Pose m_pose;
+            if (m_object == nullptr)
+            {
+                m_object = std::make_shared<Pose>();
+            }
+            *std::dynamic_pointer_cast<Pose>(m_object) = pose;
+        }
     };
 
 } // namespace
