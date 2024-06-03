@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-28 18:54:14
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-01 11:15:22
+ * @Last Modified time: 2024-06-03 09:58:27
  */
 
 #ifndef __THREAD_SAFE_MAP_H__
@@ -22,7 +22,7 @@ namespace basis
         ThreadSafeMap() = default;
 
         virtual ~ThreadSafeMap() = default;
-        // 复制构造函数
+    
         ThreadSafeMap(const ThreadSafeMap &other)
         {
             std::lock_guard<std::mutex> lock(m_mutex);

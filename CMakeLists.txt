@@ -38,7 +38,7 @@ find_package(glfw3 CONFIG REQUIRED)
 find_package(glad CONFIG REQUIRED)
 find_package(implot CONFIG REQUIRED)
 find_package(Stb REQUIRED)
-
+find_package(cppzmq CONFIG REQUIRED)
 
 
 include_directories(
