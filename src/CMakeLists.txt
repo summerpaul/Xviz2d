@@ -8,10 +8,13 @@ set(XVIZ_SRCS
     ui/scene_edit_layer.cpp
     window/window.cpp
     app/app.cpp
+    video/texture.cpp
+    video/video_capture.cpp
     )
 
 add_library(XvizLib  ${XVIZ_SRCS})
 target_link_libraries(XvizLib    
     glad::glad  
     implot::implot 
-    imgui::imgui)
+    imgui::imgui
+    ${FFMPEG_LIBRARIES})

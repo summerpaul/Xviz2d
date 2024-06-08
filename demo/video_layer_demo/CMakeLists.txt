@@ -1,0 +1,2 @@
+add_executable(video_layer_demo video_layer_demo.cpp main.cpp)
+target_link_libraries(video_layer_demo XvizLib)
