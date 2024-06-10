@@ -2,10 +2,13 @@
  * @Author: Xia Yunkai
  * @Date:   2024-06-08 17:50:41
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-09 00:50:20
+ * @Last Modified time: 2024-06-10 17:10:06
  */
 #include <iostream>
 #include "video_layer_demo.h"
+#include "icon/IconsFontAwesome6.h"
+#include "basis/file.h"
+using namespace basis;
 
 VideoLayer::VideoLayer(const std::string &name) : BaseLayer(name) {}
 
@@ -31,68 +34,99 @@ void VideoLayer::VideoPlayProcess()
 {
     while (m_running)
     {
-
-        if (isStart == true && isStartCapture == false)
+        // 重新播放
+        if (m_isStart == true && m_isStartCapture == false)
         {
             StartPlay();
         }
-        else if (isStart == false && isStartCapture == true)
+        // 停止播放那风格
+        else if (m_isStart == false && m_isStartCapture == true)
         {
             StopPlay();
         }
+        // 视频播放
+        if (m_isPause)
+        {
+            continue;
+        }
 
-        if (isStartCapture)
+        if (m_isStartCapture)
         {
             int length = m_width * m_height * 4;
+
             m_pData = (uint8_t *)realloc(m_pData, length);
-            m_pts = 1;
-            isDcodeSucceed = m_pVideoCapture->Decode(m_pData, &m_pts);
-            if (isDcodeSucceed)
+
+            m_isDcodeSucceed = m_pVideoCapture->Decode(m_pData, &m_pts);
+
+            if (m_isDcodeSucceed)
             {
-                dataMutex.lock();
+                m_dataMutex.lock();
                 std::vector<uint8_t> rgbData(m_pData, m_pData + length);
                 m_FrameBufferList.push_back(std::move(rgbData));
                 if (m_FrameBufferList.size() > 2)
                 { // set max buffer size
                     m_FrameBufferList.pop_back();
                 }
-                std::cout << "m_pts is " << m_pts << std::endl;
-                std::cout << "StreamIndex is " << m_pVideoCapture->GetVideoStreamIndex() << std::endl;
-                std::cout << "m_FrameBufferList.size() is " << m_FrameBufferList.size() << std::endl;
-                dataMutex.unlock();
+                m_dataMutex.unlock();
+                // 视频sleep
+                std::this_thread::sleep_for(std::chrono::milliseconds(10));
             }
         }
     }
 
-    if (isStartCapture)
+    if (m_isStartCapture)
+    {
         StopPlay();
+    }
 }
+// 绘制ui
 void VideoLayer::Draw()
 {
 
     ImGui::Begin(m_name.data());
-    ImGui::PushItemWidth(-ImGui::GetWindowWidth() * 0.2f);
-    ImGui::AlignTextToFramePadding();
-    ImGui::NewLine();
-    ImVec2 sz = ImVec2(-FLT_MIN, 0.0f);
-    if (ImGui::Button(u8"开始", sz))
+
+    if (ImGui::Button(u8"开始"))
     {
-        isStart = true;
+        m_isStart = true;
     }
     if (ImGui::IsItemHovered(ImGuiHoveredFlags_Stationary))
+    {
         ImGui::SetTooltip("Start play rtps video.");
-
-    if (ImGui::Button(u8"停止", sz))
+    }
+    ImGui::SameLine();
+    if (ImGui::Button(u8"停止"))
     {
-        isStart = false;
+        m_isStart = false;
     }
     if (ImGui::IsItemHovered(ImGuiHoveredFlags_Stationary))
+    {
         ImGui::SetTooltip("Stop play rtps video.");
+    }
+    ImGui::SameLine();
+    if (ImGui::Button(u8"暂停"))
+    {
+        Pause();
+    }
+    if (ImGui::IsItemHovered(ImGuiHoveredFlags_Stationary))
+    {
+        ImGui::SetTooltip("Pause play rtps video.");
+    }
+    ImGui::SameLine();
+    if (ImGui::Button(u8"恢复播放"))
+    {
+        Resume();
+    }
 
-    ImGui::NewLine();
     ImGui::Text("Player Status:");
     ImGui::SameLine();
-    ImGui::TextColored(ImVec4(255, 0, 0, 255), "%s", (isStart ? "Start" : "Stop"));
+    ImGui::TextColored(ImVec4(255, 0, 0, 255), "%s", (m_isStart ? "Start" : "Stop"));
+    ImGui::SameLine();
+    ImGui::Text("File Name:%s", m_fileName.c_str());
+    // s
+
+    const float video_duration = m_pVideoCapture->GetDurationSecond();
+    m_videoPosition = m_pVideoCapture->GetTimeSinceStartSeconds();
+    ImGui::SliderFloat(" ", &m_videoPosition, 0.0f, video_duration, "%.2f");
 
     OnImGuiRender();
     OnRender();
@@ -101,31 +135,42 @@ void VideoLayer::Draw()
 
 void VideoLayer::OnImGuiRender()
 {
+    // 进行视频的渲染
     ImVec2 viewportSize = ImGui::GetContentRegionAvail();
-    if (isStartCapture)
+    if (m_isStartCapture)
+    {
         ImGui::Image((ImTextureID)(intptr_t)m_pTexTure->getId(), ImVec2(viewportSize.x, viewportSize.y), ImVec2(0, 0), ImVec2(1, 1));
+    }
+
     else
+    {
         ImGui::Image((ImTextureID)(intptr_t)0, ImVec2(viewportSize.x, viewportSize.y), ImVec2(1, 1), ImVec2(1, 1));
+    }
 }
 
 void VideoLayer::OnRender()
 {
+    if (m_isPause)
+    {
+        return;
+    }
     if (!m_FrameBufferList.empty())
     {
-        dataMutex.lock();
+        m_dataMutex.lock();
         m_FrameBuffer = m_FrameBufferList.back();
         m_pTexTure->bind(m_width, m_height, m_FrameBuffer.data());
         m_FrameBufferList.pop_back();
-        dataMutex.unlock();
+        m_dataMutex.unlock();
     }
 }
 void VideoLayer::SetUIContext(const UIContext::Ptr &ui_context) {}
+
 void VideoLayer::FilesDropCallback(int count, const char **paths)
 {
     if (count > 0)
     {
         m_url = paths[0];
-        // StartPlay();
+        m_fileName = GetFileName(m_url) + "." + GetFileTag(m_url);
     }
 }
 void VideoLayer::Shutdown() {}
@@ -137,19 +182,32 @@ void VideoLayer::StartPlay()
     re = m_pVideoCapture->Open(m_url);
     if (!re)
     {
-        isStart = false;
+        m_isStart = false;
         return;
     }
     m_pData = (uint8_t *)malloc(0);
     m_width = m_pVideoCapture->GetWidth();
     m_height = m_pVideoCapture->GetHeight();
-    isStartCapture = true;
+    m_isStartCapture = true;
 }
 void VideoLayer::StopPlay()
 {
-    isStartCapture = false;
+    m_isStartCapture = false;
     m_pVideoCapture->Close();
     if (m_pData)
+    {
         free(m_pData);
+    }
+
     m_pData = nullptr;
+}
+
+void VideoLayer::Resume()
+{
+    m_isPause = false;
+}
+
+void VideoLayer::Pause()
+{
+    m_isPause = true;
 }

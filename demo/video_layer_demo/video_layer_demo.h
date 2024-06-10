@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-06-08 17:50:37
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-08 23:23:37
+ * @Last Modified time: 2024-06-10 17:00:16
  */
 #include <stdint.h>
 
@@ -29,12 +29,17 @@ public:
     virtual void SetUIContext(const UIContext::Ptr &ui_context) override;
     virtual void FilesDropCallback(int count, const char **paths) override;
     virtual void Shutdown() override;
-
+    // 重新播放
     void StartPlay();
+    // 停止播放
     void StopPlay();
+    // 恢复播放
+    void Resume();
+    // 暂停播放
+    void Pause();
+
     void OnImGuiRender();
     void OnRender();
-
 
     void VideoPlayProcess();
 
@@ -44,15 +49,19 @@ private:
     std::vector<uint8_t> m_FrameBuffer;
     std::vector<std::vector<uint8_t>> m_FrameBufferList;
     uint8_t *m_pData;
-    int64_t m_pts;
+    int64_t m_pts = 1;
     std::string m_url;
-    bool isStartCapture;
-    bool isStart;
-    bool isDcodeSucceed;
+    bool m_isStartCapture;
+    bool m_isStart;
+    bool m_isDcodeSucceed;
     int m_width, m_height;
-    std::mutex dataMutex;
+    std::mutex m_dataMutex;
     std::thread m_thread;
     bool m_running = false;
+    std::string m_fileName;
+    float m_videoPosition;
+    bool m_isPause = false;
+    
 };
 
 #endif /* __VIDEO_LAYER_DEMO_H__ */

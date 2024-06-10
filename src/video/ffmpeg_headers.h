@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-06-08 16:30:09
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-08 16:46:24
+ * @Last Modified time: 2024-06-10 14:06:11
  */
 #include <stdint.h>
 
@@ -29,6 +29,7 @@ extern "C"
 
 #include <libavutil/file.h>
 #include <libavdevice/avdevice.h>
+#include <libavutil/frame.h>
 
 #ifdef __cplusplus
 }

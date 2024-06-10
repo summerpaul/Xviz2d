@@ -8,7 +8,7 @@
             "name": "(lldb) 启动",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/bin/xviz_app",
+            "program": "${workspaceFolder}/build/bin/video_layer_demo",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
