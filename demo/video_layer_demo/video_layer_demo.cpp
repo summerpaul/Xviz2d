@@ -2,12 +2,13 @@
  * @Author: Xia Yunkai
  * @Date:   2024-06-08 17:50:41
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-10 17:10:06
+ * @Last Modified time: 2024-06-10 21:47:33
  */
 #include <iostream>
 #include "video_layer_demo.h"
 #include "icon/IconsFontAwesome6.h"
 #include "basis/file.h"
+
 using namespace basis;
 
 VideoLayer::VideoLayer(const std::string &name) : BaseLayer(name) {}
@@ -55,8 +56,9 @@ void VideoLayer::VideoPlayProcess()
             int length = m_width * m_height * 4;
 
             m_pData = (uint8_t *)realloc(m_pData, length);
-
+            m_tictoc.Tic();
             m_isDcodeSucceed = m_pVideoCapture->Decode(m_pData, &m_pts);
+            m_decodeCostTime = m_tictoc.Toc();
 
             if (m_isDcodeSucceed)
             {
@@ -122,6 +124,10 @@ void VideoLayer::Draw()
     ImGui::TextColored(ImVec4(255, 0, 0, 255), "%s", (m_isStart ? "Start" : "Stop"));
     ImGui::SameLine();
     ImGui::Text("File Name:%s", m_fileName.c_str());
+    ImGui::SameLine();
+    ImGui::Text("decode cost time :%f", m_decodeCostTime);
+    ImGui::SameLine();
+    ImGui::Text("render cost time :%f", m_renderCostTime);
     // s
 
     const float video_duration = m_pVideoCapture->GetDurationSecond();
@@ -129,7 +135,10 @@ void VideoLayer::Draw()
     ImGui::SliderFloat(" ", &m_videoPosition, 0.0f, video_duration, "%.2f");
 
     OnImGuiRender();
+
+    m_tictoc.Tic();
     OnRender();
+    m_renderCostTime = m_tictoc.Toc();
     ImGui::End();
 }
 

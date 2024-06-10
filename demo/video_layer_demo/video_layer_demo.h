@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-06-08 17:50:37
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-10 17:00:16
+ * @Last Modified time: 2024-06-10 21:39:45
  */
 #include <stdint.h>
 
@@ -12,6 +12,7 @@
 #include "ui/base_layer.h"
 #include "video/texture.h"
 #include "video/video_capture.h"
+#include "basis/tic_toc.h"
 #include <vector>
 #include <string>
 #include <mutex>
@@ -61,7 +62,10 @@ private:
     std::string m_fileName;
     float m_videoPosition;
     bool m_isPause = false;
-    
+    double m_decodeCostTime;
+    double m_renderCostTime;
+    basis::TicToc m_tictoc;
+
 };
 
 #endif /* __VIDEO_LAYER_DEMO_H__ */
