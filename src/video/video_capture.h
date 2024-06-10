@@ -31,7 +31,7 @@ namespace video
         // 获取视频长度ms
         int GetDuration() const { return m_duration; }
         // 获取视频长度seconds
-        float GetDurationSecond() const { return m_durationSecond; }
+        double GetDurationSecond() const { return m_durationSecond; }
 
         AVRational GetTimeBase() const { return m_timeBase; }
         double GetTimeBaseDouble() const { return m_timeBaseDouble; }

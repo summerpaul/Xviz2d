@@ -54,6 +54,10 @@ void VideoLayer::VideoPlayProcess()
         if (m_isStartCapture)
         {
             int length = m_width * m_height * 4;
+            if (!m_pData)
+            {
+                continue;
+            }
 
             m_pData = (uint8_t *)realloc(m_pData, length);
             m_tictoc.Tic();
@@ -87,7 +91,7 @@ void VideoLayer::Draw()
 
     ImGui::Begin(m_name.data());
 
-    if (ImGui::Button(u8"开始"))
+    if (ImGui::Button("start"))
     {
         m_isStart = true;
     }
@@ -96,7 +100,7 @@ void VideoLayer::Draw()
         ImGui::SetTooltip("Start play rtps video.");
     }
     ImGui::SameLine();
-    if (ImGui::Button(u8"停止"))
+    if (ImGui::Button("stop"))
     {
         m_isStart = false;
     }
@@ -105,7 +109,7 @@ void VideoLayer::Draw()
         ImGui::SetTooltip("Stop play rtps video.");
     }
     ImGui::SameLine();
-    if (ImGui::Button(u8"暂停"))
+    if (ImGui::Button("pause"))
     {
         Pause();
     }
@@ -114,7 +118,7 @@ void VideoLayer::Draw()
         ImGui::SetTooltip("Pause play rtps video.");
     }
     ImGui::SameLine();
-    if (ImGui::Button(u8"恢复播放"))
+    if (ImGui::Button("resume"))
     {
         Resume();
     }

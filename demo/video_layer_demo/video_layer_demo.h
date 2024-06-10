@@ -52,18 +52,18 @@ private:
     uint8_t *m_pData;
     int64_t m_pts = 1;
     std::string m_url;
-    bool m_isStartCapture;
-    bool m_isStart;
-    bool m_isDcodeSucceed;
+    bool m_isStartCapture = false;
+    bool m_isStart = false;
+    bool m_isDcodeSucceed = false;
     int m_width, m_height;
     std::mutex m_dataMutex;
     std::thread m_thread;
     bool m_running = false;
     std::string m_fileName;
-    float m_videoPosition;
+    float m_videoPosition = 0;
     bool m_isPause = false;
-    double m_decodeCostTime;
-    double m_renderCostTime;
+    double m_decodeCostTime = 0;
+    double m_renderCostTime = 0;
     basis::TicToc m_tictoc;
 
 };

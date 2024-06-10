@@ -8,12 +8,12 @@
 
 #ifndef __FILE_H__
 #define __FILE_H__
-#include <dirent.h>
+//#include <dirent.h>
 #include <fcntl.h>
 #include <stdio.h>
 #include <sys/stat.h>
 #include <sys/types.h>
-#include <unistd.h>
+//#include <unistd.h>
 #include <cstdio>
 #include <fstream>
 #include <string>
@@ -41,39 +41,39 @@ namespace basis
         return false;
     }
 
-    inline bool CreateDirectory(const std::string &directoryPath)
-    {
-        std::string path = directoryPath;
-        for (size_t i = 1; i < directoryPath.size(); ++i)
-        {
-            if (directoryPath[i] == '/')
-            {
-                // Whenever a '/' is encountered, create a temporary view from
-                // the start of the path to the character right before this.
-                path[i] = 0;
-                if (mkdir(path.c_str(), S_IRWXU) != 0)
-                {
-                    if (errno != EEXIST)
-                    {
-                        return false;
-                    }
-                }
-                // Revert the temporary view back to the original.
-                path[i] = '/';
-            }
-        }
+    //inline bool CreateDirectory(const std::string &directoryPath)
+    //{
+    //    std::string path = directoryPath;
+    //    for (size_t i = 1; i < directoryPath.size(); ++i)
+    //    {
+    //        if (directoryPath[i] == '/')
+    //        {
+    //            // Whenever a '/' is encountered, create a temporary view from
+    //            // the start of the path to the character right before this.
+    //            path[i] = 0;
+    //            if (mkdir(path.c_str(), S_IRWXU) != 0)
+    //            {
+    //                if (errno != EEXIST)
+    //                {
+    //                    return false;
+    //                }
+    //            }
+    //            // Revert the temporary view back to the original.
+    //            path[i] = '/';
+    //        }
+    //    }
 
-        // Make the final (full) directory.
-        if (mkdir(path.c_str(), S_IRWXU) != 0)
-        {
-            if (errno != EEXIST)
-            {
-                return false;
-            }
-        }
+    //    // Make the final (full) directory.
+    //    if (mkdir(path.c_str(), S_IRWXU) != 0)
+    //    {
+    //        if (errno != EEXIST)
+    //        {
+    //            return false;
+    //        }
+    //    }
 
-        return true;
-    }
+    //    return true;
+    //}
 
     inline std::string GetAbsolutePath(const std::string &prefix,
                                        const std::string &relativePath)
