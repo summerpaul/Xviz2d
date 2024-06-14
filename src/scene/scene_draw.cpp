@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 19:17:01
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-14 20:31:10
+ * @Last Modified time: 2024-06-14 21:00:28
  */
 
 #include "scene_draw.h"
@@ -22,8 +22,8 @@ namespace scene
                 const SceneView::Ptr &view,
                 const Vec2f &p1,
                 const Vec2f &p2,
-                ImU32 col,
-                float thickness = 0.02f)
+                const ImU32 &col,
+                const float &thickness = 0.02f)
   {
     auto pw1 = view->FromLocal(p1);
     auto pw2 = view->FromLocal(p2);
@@ -31,9 +31,12 @@ namespace scene
     drawList->AddLine({pw1.x, pw1.y}, {pw2.x, pw2.y}, col, pw_thickness);
   }
 
-  void DrawNgonFilled(ImDrawList *drawList, const SceneView::Ptr &view,
-                      const Vec2f &center, float radius, ImU32 col,
-                      int num_segments)
+  void DrawNgonFilled(ImDrawList *drawList,
+                      const SceneView::Ptr &view,
+                      const Vec2f &center,
+                      const float &radius,
+                      const ImU32 &col,
+                      const int &num_segments)
   {
     auto pw_center = view->FromLocal(center);
     auto pw_radius = radius * view->invScale;
@@ -43,11 +46,11 @@ namespace scene
 
   void DrawDashedLine(ImDrawList *drawList,
                       const SceneView::Ptr &view,
-                      Vec2f p1,
-                      Vec2f p2,
-                      ImU32 color,
-                      float dashSize = 0.1f,
-                      float thickness = 0.02f)
+                      const Vec2f &p1,
+                      const Vec2f &p2,
+                      const ImU32 &color,
+                      const float &dashSize = 0.1f,
+                      const float &thickness = 0.02f)
   {
     const Vec2f diff = p2 - p1;
     const float length = Length(diff);
@@ -72,9 +75,9 @@ namespace scene
   void DrawCircle(ImDrawList *drawList,
                   const SceneView::Ptr &view,
                   const Vec2f &center,
-                  float raduis,
-                  ImU32 col,
-                  float thickness = 0.02f)
+                  const float &raduis,
+                  const ImU32 &col,
+                  const float &thickness = 0.02f)
   {
     auto pw_center = view->FromLocal(center);
     auto pw_radius = raduis * view->invScale;
@@ -86,9 +89,9 @@ namespace scene
   void DrawPolyline(ImDrawList *drawList,
                     const SceneView::Ptr &view,
                     const Points &points,
-                    ImU32 col,
-                    bool is_polygon = false,
-                    float thickness = 0.02f)
+                    const ImU32 &col,
+                    const bool &is_polygon = false,
+                    const float &thickness = 0.02f)
   {
     auto num_points = points.size();
     CHECK_RETURN(num_points == 0);
@@ -117,7 +120,7 @@ namespace scene
   void DrawConvexPolyFilled(ImDrawList *drawList,
                             const SceneView::Ptr &view,
                             const Points &points,
-                            ImU32 col)
+                            const ImU32 &col)
   {
     auto num_points = points.size();
     CHECK_RETURN(num_points == 0);
@@ -135,11 +138,11 @@ namespace scene
   void DrawDashedPolyline(ImDrawList *draw_list,
                           const SceneView::Ptr &view,
                           const Points &points,
-                          ImU32 col,
-                          ImU32 backgraoud_color,
-                          float thickness,
-                          float dash_length,
-                          float gap_length)
+                          const ImU32 &col,
+                          const ImU32 &backgraoud_color,
+                          const float &thickness,
+                          const float &dash_length,
+                          const float &gap_length)
   {
     CHECK_RETURN(points.size() == 0);
 
@@ -167,8 +170,11 @@ namespace scene
     }
   }
 
-  void DrawText(ImDrawList *drawList, const SceneView::Ptr &view,
-                const Vec2f &pos, ImU32 col, const std::string &text)
+  void DrawText(ImDrawList *drawList,
+                const SceneView::Ptr &view,
+                const Vec2f &pos,
+                const ImU32 &col,
+                const std::string &text)
   {
     Vec2f pixelPose = view->FromLocal(pos);
     drawList->AddText({pixelPose.x, pixelPose.y}, col, text.c_str());
@@ -179,9 +185,9 @@ namespace scene
   void DrawArrow(ImDrawList *drawList,
                  const SceneView::Ptr &view,
                  const Pose &pos,
-                 const float length,
-                 ImU32 col,
-                 float thickness)
+                 const float &length,
+                 const ImU32 &col,
+                 const float &thickness)
   {
     const Transform pos_tf = PoseToTransform(pos);
     const float arrow_bottom = length * 0.75f;
@@ -263,7 +269,7 @@ namespace scene
                 const SceneView::Ptr &view,
                 const Pose &pos,
                 const float &length,
-                float thickness)
+                const float &thickness)
   {
     DrawArrow(drawList, view, pos, length, IM_GREEN, thickness);
     Pose y_axis_pose = pos;
@@ -286,10 +292,10 @@ namespace scene
   void DrawScenePath(ImDrawList *drawList,
                      const SceneView::Ptr &view,
                      const Transform &draw_to_object_tf,
-                     unsigned int bk_color,
+                     const unsigned int &bk_color,
                      const Path &path,
-                     float thickness,
-                     unsigned int color)
+                     const float &thickness,
+                     const unsigned int &color)
   {
     CHECK_RETURN(path.points.size() == 0);
     auto draw_path = Mul(draw_to_object_tf, path.points);
@@ -310,8 +316,8 @@ namespace scene
                         const SceneView::Ptr &view,
                         const Transform &draw_to_object_tf,
                         const Polygon &polygon,
-                        float thickness,
-                        unsigned int color)
+                        const float &thickness,
+                        const unsigned int &color)
   {
     CHECK_RETURN(polygon.points.size() == 0);
     auto draw_polygon = Mul(draw_to_object_tf, polygon.points);
@@ -328,18 +334,19 @@ namespace scene
   void DrawPointCloud(ImDrawList *drawList,
                       const SceneView::Ptr &view,
                       const Points &points,
-                      ImU32 col,
-                      float radius)
+                      const ImU32 &col,
+                      const float &radius)
   {
     size_t num_points = points.size();
     CHECK_RETURN(num_points == 0);
     Vec2f view_rect_min{view->GetViewRectMin().x, view->GetViewRectMin().y};
     Vec2f view_rect_max{view->GetViewRectMax().x, view->GetViewRectMax().y};
     const float pw_radius = radius * view->invScale;
+    Vec2f pixel_pos;
     for (auto const &point : points)
     {
       // 绘制的点云数据不在绘制范围内，不进行绘制
-      auto pixel_pos = view->FromLocal({point.x, point.y});
+      pixel_pos = view->FromLocal({point.x, point.y});
       CHECK_CONTINUE(
           pixel_pos.x < view_rect_min.x || pixel_pos.x > view_rect_max.x ||
           pixel_pos.y < view_rect_min.y || pixel_pos.y > view_rect_max.y);
@@ -351,8 +358,8 @@ namespace scene
                   const SceneView::Ptr &view,
                   const Marker &marker,
                   const Transform &tf,
-                  bool is_show_info,
-                  unsigned int bk_color)
+                  const bool &is_show_info,
+                  const unsigned int &bk_color)
   {
     const auto &thickness = marker.thickness;
     const auto &color = GetImColor(marker.color);
@@ -418,7 +425,7 @@ namespace scene
                   const SceneOptions::Ptr &options,
                   const TFTree::Ptr &tf_tree,
                   const std::string &draw_frame_id,
-                  int type,
+                  const int &type,
                   const SceneObject::Ptr &draw_object)
   {
     const auto &obj_options = draw_object->GetOptions();
@@ -653,7 +660,7 @@ namespace scene
   void DrawAllSceneObjectList(ImDrawList *drawList,
                               const SceneView::Ptr &view,
                               const SceneAllObjectsMap *all_objects_list,
-                              int draw_type,
+                              const int &draw_type,
                               const SceneOptions::Ptr &options,
                               const TFTree::Ptr &tf_tree,
                               const std::string &draw_frame_id)
@@ -682,23 +689,28 @@ namespace scene
     auto all_objects_list = scene->GetAllObjects();
     // 检查绘图元素是否为空
     CHECK_RETURN(all_objects_list->empty());
-    // 绘制底层标志位，绘制底层后，后面不再绘制
+    // 绘制底层标志类型
     int bottomDrawtype = options->bottomDrawtype;
+    // 顶部绘制标志类型
     int topDrawtype = options->topDrawtype;
+    // for 循环中的绘制类型
     int draw_type = 0;
-    if (options->topDrawtype != options->bottomDrawtype)
+    if (topDrawtype != bottomDrawtype && options->drawObject[bottomDrawtype])
     {
+
       DrawAllSceneObjectList(drawList, view, all_objects_list, bottomDrawtype, options, tf_tree, draw_frame_id);
     }
     // 绘制剩余元素
     for (auto &scene_objects : *all_objects_list)
     {
       draw_type = scene_objects.first;
+      CHECK_CONTINUE(!options->drawObject[draw_type]);
       CHECK_CONTINUE(bottomDrawtype == draw_type);
       CHECK_CONTINUE(topDrawtype == draw_type);
       DrawAllSceneObjectList(drawList, view, all_objects_list, draw_type, options, tf_tree, draw_frame_id);
     }
     // 绘制顶层图形
+    CHECK_RETURN(!options->drawObject[topDrawtype]);
     DrawAllSceneObjectList(drawList, view, all_objects_list, topDrawtype, options, tf_tree, draw_frame_id);
   }
 

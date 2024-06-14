@@ -28,17 +28,13 @@ elseif(UNIX)
     set(VCPKG_LIB_DIRS ${CMAKE_BINARY_DIR}/vcpkg_installed/x64-linux/lib)
 endif()
 
-IF (NOT CMAKE_BUILD_TYPE)
-    set (CMAKE_BUILD_TYPE Release)
-endif()
-MESSAGE("Build type: " ${CMAKE_BUILD_TYPE})
-IF ("${CMAKE_BUILD_TYPE}" STREQUAL "Release" OR "${CMAKE_BUILD_TYPE}" STREQUAL "RELEASE")
+if ("${CMAKE_BUILD_TYPE}" STREQUAL "Release" OR "${CMAKE_BUILD_TYPE}" STREQUAL "RELEASE")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC -Wall -O3 -march=native ")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -Wall -O3 -fopenmp ")
-ELSE ()
+else ()
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC -Wall")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -Wall  -g")
-ENDIF ()
+endif ()
 
 
 
