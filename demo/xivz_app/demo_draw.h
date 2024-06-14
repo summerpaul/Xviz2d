@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-30 15:29:17
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-01 20:35:22
+ * @Last Modified time: 2024-06-14 20:05:55
  */
 #include <stdint.h>
 
@@ -35,11 +35,11 @@ void DrawTransformDemo(const scene::SceneManager::Ptr &scene)
     if (g_first_draw)
     {
         scene::SceneObjectOptions options;
-        options.isShowID = true;
+        options.isShowInfo = true;
         options.length = 1.0f;
 
         scene->AddTransformNode(BASE_LINK, &tf_node1, &options);
-        options.isShowID = true;
+        options.isShowInfo = true;
         options.length = 2.0f;
         scene->AddTransformNode(BASE_LINK2, &tf_node2, &options);
     }
@@ -64,8 +64,9 @@ void DrawPathDemo(const scene::SceneManager::Ptr &scene)
     // path.header.name = "world_path";
     path.header.frameId = WORLD_FRAME;
     path.header.name = "world_path";
+    path.header.info = "world_path_info";
     options.color = scene::IM_BLUE;
-    options.isShowID = true;
+    options.isShowInfo = true;
 
     if (g_first_draw)
     {
@@ -78,6 +79,7 @@ void DrawPathDemo(const scene::SceneManager::Ptr &scene)
 
     path.header.frameId = BASE_LINK;
     path.header.name = "frameId1_path";
+    path.header.info = "frameId1_path_info";
 
     if (g_first_draw)
     {
@@ -91,9 +93,10 @@ void DrawPathDemo(const scene::SceneManager::Ptr &scene)
     path.header.frameId = BASE_LINK2;
 
     options.color = scene::IM_RED;
-    options.isShowID = true;
+    options.isShowInfo = true;
     options.thickness = 0.02f;
     path.header.name = "frameId2_path";
+    path.header.info = "frameId2_path_info";
     path.isDashed = true;
     if (g_first_draw)
     {
@@ -240,7 +243,7 @@ void DrawPathArrayDemo(const scene::SceneManager::Ptr &scene)
     if (g_first_draw)
     {
         options.color = scene::IM_RED;
-        options.isShowID = true;
+        options.isShowInfo = true;
         scene->AddPathArray("world_path_array", &path_array, &options);
     }
     else

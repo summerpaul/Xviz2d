@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 19:17:01
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-12 11:16:45
+ * @Last Modified time: 2024-06-14 20:09:31
  */
 
 #include "scene_draw.h"
@@ -18,8 +18,12 @@
 namespace scene
 {
 
-  void DrawLine(ImDrawList *drawList, const SceneView::Ptr &view, const Vec2f &p1,
-                const Vec2f &p2, ImU32 col, float thickness = 0.02f)
+  void DrawLine(ImDrawList *drawList,
+                const SceneView::Ptr &view,
+                const Vec2f &p1,
+                const Vec2f &p2,
+                ImU32 col,
+                float thickness = 0.02f)
   {
     auto pw1 = view->FromLocal(p1);
     auto pw2 = view->FromLocal(p2);
@@ -37,8 +41,12 @@ namespace scene
                             num_segments);
   }
 
-  void DrawDashedLine(ImDrawList *drawList, const SceneView::Ptr &view, Vec2f p1,
-                      Vec2f p2, ImU32 color, float dashSize = 0.1f,
+  void DrawDashedLine(ImDrawList *drawList,
+                      const SceneView::Ptr &view,
+                      Vec2f p1,
+                      Vec2f p2,
+                      ImU32 color,
+                      float dashSize = 0.1f,
                       float thickness = 0.02f)
   {
     const Vec2f diff = p2 - p1;
@@ -48,19 +56,24 @@ namespace scene
     const float remainingLength = length - numDashes * dashSize;
     const float dashSpacing = remainingLength / (numDashes - 1);
 
+    float start{0}, end{0};
+    Vec2f dashStart, dashEnd;
     for (int i = 0; i < numDashes; ++i)
     {
       CHECK_CONTINUE(i % 2 == 0);
-      const float start = i * dashSize + fminf(i * dashSpacing, remainingLength);
-      const float end = fminf(start + dashSize, length);
-      const Vec2f dashStart = p1 + dir * start;
-      const Vec2f dashEnd = p1 + dir * end;
+      start = i * dashSize + fminf(i * dashSpacing, remainingLength);
+      end = fminf(start + dashSize, length);
+      dashStart = p1 + dir * start;
+      dashEnd = p1 + dir * end;
       DrawLine(drawList, view, dashStart, dashEnd, color, thickness);
     }
   }
 
-  void DrawCircle(ImDrawList *drawList, const SceneView::Ptr &view,
-                  const Vec2f &center, float raduis, ImU32 col,
+  void DrawCircle(ImDrawList *drawList,
+                  const SceneView::Ptr &view,
+                  const Vec2f &center,
+                  float raduis,
+                  ImU32 col,
                   float thickness = 0.02f)
   {
     auto pw_center = view->FromLocal(center);
@@ -70,52 +83,67 @@ namespace scene
                         pw_thickness);
   }
 
-  void DrawPolyline(ImDrawList *drawList, const SceneView::Ptr &view,
-                    const Points &points, ImU32 col, bool is_polygon = false,
+  void DrawPolyline(ImDrawList *drawList,
+                    const SceneView::Ptr &view,
+                    const Points &points,
+                    ImU32 col,
+                    bool is_polygon = false,
                     float thickness = 0.02f)
   {
-    size_t num_points = points.size();
+    auto num_points = points.size();
     CHECK_RETURN(num_points == 0);
     if (is_polygon)
     {
       num_points += 1;
     }
     auto *pts = (ImVec2 *)malloc(num_points * sizeof(ImVec2));
+
+    Vec2f pw;
     for (int i = 0; i < points.size(); i++)
     {
-      auto pw = view->FromLocal(points[i]);
+      pw = view->FromLocal(points[i]);
       pts[i] = {pw.x, pw.y};
     }
     if (is_polygon)
     {
-      auto pw = view->FromLocal(points[0]);
+      pw = view->FromLocal(points[0]);
       pts[num_points - 1] = {pw.x, pw.y};
     }
-    auto pw_thickness = thickness * view->invScale;
+    const auto pw_thickness = thickness * view->invScale;
     drawList->AddPolyline(pts, int(num_points), col, 0, pw_thickness);
     free(pts);
   }
 
-  void DrawConvexPolyFilled(ImDrawList *drawList, const SceneView::Ptr &view,
-                            const Points &points, ImU32 col)
+  void DrawConvexPolyFilled(ImDrawList *drawList,
+                            const SceneView::Ptr &view,
+                            const Points &points,
+                            ImU32 col)
   {
-    size_t num_points = points.size();
+    auto num_points = points.size();
     CHECK_RETURN(num_points == 0);
     auto *pts = (ImVec2 *)malloc(num_points * sizeof(ImVec2));
+    Vec2f pw;
     for (int i = 0; i < points.size(); i++)
     {
-      auto pw = view->FromLocal(points[i]);
+      pw = view->FromLocal(points[i]);
       pts[i] = {pw.x, pw.y};
     }
     drawList->AddConvexPolyFilled(pts, int(num_points), col);
     free(pts);
   }
 
-  void DrawDashedPolyline(ImDrawList *draw_list, const SceneView::Ptr &view,
-                          const Points &points, ImU32 col, ImU32 backgraoud_color,
-                          float thickness, float dash_length, float gap_length)
+  void DrawDashedPolyline(ImDrawList *draw_list,
+                          const SceneView::Ptr &view,
+                          const Points &points,
+                          ImU32 col,
+                          ImU32 backgraoud_color,
+                          float thickness,
+                          float dash_length,
+                          float gap_length)
   {
-	CHECK_RETURN(points.size() == 0);
+    CHECK_RETURN(points.size() == 0);
+
+    Vec2f delta, norm, p1, p2, p3, p4;
     for (int i = 0; i < points.size() - 1; i++)
     {
       DrawLine(draw_list, view, points[i], points[i + 1], col, thickness);
@@ -124,14 +152,14 @@ namespace scene
       if ((i % (int)(dash_length / gap_length)) == 0 &&
           i + 1 < points.size() - 1)
       {
-        Vec2f delta = points[i + 1] - points[i];
-        Vec2f norm = Vec2f(delta.y, -delta.x);
+        delta = points[i + 1] - points[i];
+        norm = Vec2f(delta.y, -delta.x);
         norm = norm * gap_length / 2.0f;
 
-        Vec2f p1 = points[i] + norm;
-        Vec2f p2 = points[i + 1] + norm;
-        Vec2f p3 = points[i] - norm;
-        Vec2f p4 = points[i + 1] - norm;
+        p1 = points[i] + norm;
+        p2 = points[i + 1] + norm;
+        p3 = points[i] - norm;
+        p4 = points[i + 1] - norm;
         // 绘制背景颜色
         DrawLine(draw_list, view, p1, p2, backgraoud_color, thickness);
         DrawLine(draw_list, view, p3, p4, backgraoud_color, thickness);
@@ -148,21 +176,24 @@ namespace scene
 
   // 绘制坐标
 
-  void DrawArrow(ImDrawList *drawList, const SceneView::Ptr &view,
-                 const Pose &pos, const float length, ImU32 col,
+  void DrawArrow(ImDrawList *drawList,
+                 const SceneView::Ptr &view,
+                 const Pose &pos,
+                 const float length,
+                 ImU32 col,
                  float thickness)
   {
-    Transform pos_tf = PoseToTransform(pos);
+    const Transform pos_tf = PoseToTransform(pos);
     const float arrow_bottom = length * 0.75f;
     const float arrow_width = length * 0.06f;
-    Vec2f lineStart = view->FromLocal(pos.pos);
-    Vec2f lineEnd = view->FromLocal(Mul(pos_tf, Vec2f(arrow_bottom, 0)));
-    Vec2f arrowTop = view->FromLocal(Mul(pos_tf, Vec2f(length, 0)));
-    Vec2f arrowLeft =
+    const Vec2f lineStart = view->FromLocal(pos.pos);
+    const Vec2f lineEnd = view->FromLocal(Mul(pos_tf, Vec2f(arrow_bottom, 0)));
+    const Vec2f arrowTop = view->FromLocal(Mul(pos_tf, Vec2f(length, 0)));
+    const Vec2f arrowLeft =
         view->FromLocal(Mul(pos_tf, Vec2f(arrow_bottom, arrow_width)));
-    Vec2f arrowRight =
+    const Vec2f arrowRight =
         view->FromLocal(Mul(pos_tf, Vec2f(arrow_bottom, -arrow_width)));
-    float pw_thickness = thickness * view->invScale;
+    const float pw_thickness = thickness * view->invScale;
     drawList->AddLine({lineStart.x, lineStart.y}, {lineEnd.x, lineEnd.y}, col,
                       pw_thickness);
     drawList->AddTriangleFilled({arrowLeft.x, arrowLeft.y},
@@ -228,8 +259,11 @@ namespace scene
     }
   }
 
-  void DrawAxis(ImDrawList *drawList, const SceneView::Ptr &view, const Pose &pos,
-                const float &length, float thickness)
+  void DrawAxis(ImDrawList *drawList,
+                const SceneView::Ptr &view,
+                const Pose &pos,
+                const float &length,
+                float thickness)
   {
     DrawArrow(drawList, view, pos, length, IM_GREEN, thickness);
     Pose y_axis_pose = pos;
@@ -249,11 +283,15 @@ namespace scene
              options->originAxisThickness);
   }
 
-  void DrawScenePath(ImDrawList *drawList, const SceneView::Ptr &view,
-                     const Transform &draw_to_object_tf, unsigned int bk_color,
-                     const Path &path, float thickness, unsigned int color)
+  void DrawScenePath(ImDrawList *drawList,
+                     const SceneView::Ptr &view,
+                     const Transform &draw_to_object_tf,
+                     unsigned int bk_color,
+                     const Path &path,
+                     float thickness,
+                     unsigned int color)
   {
-	CHECK_RETURN(path.points.size() == 0);
+    CHECK_RETURN(path.points.size() == 0);
     auto draw_path = Mul(draw_to_object_tf, path.points);
     if (path.isDashed)
     {
@@ -268,12 +306,14 @@ namespace scene
     }
   }
 
-  void DrawScenePolygon(ImDrawList *drawList, const SceneView::Ptr &view,
+  void DrawScenePolygon(ImDrawList *drawList,
+                        const SceneView::Ptr &view,
                         const Transform &draw_to_object_tf,
-                        const Polygon &polygon, float thickness,
+                        const Polygon &polygon,
+                        float thickness,
                         unsigned int color)
   {
-	CHECK_RETURN(polygon.points.size() == 0);
+    CHECK_RETURN(polygon.points.size() == 0);
     auto draw_polygon = Mul(draw_to_object_tf, polygon.points);
     if (polygon.filled)
     {
@@ -285,8 +325,11 @@ namespace scene
     }
   }
 
-  void DrawPointCloud(ImDrawList *drawList, const SceneView::Ptr &view,
-                      const Points &points, ImU32 col, float radius)
+  void DrawPointCloud(ImDrawList *drawList,
+                      const SceneView::Ptr &view,
+                      const Points &points,
+                      ImU32 col,
+                      float radius)
   {
     size_t num_points = points.size();
     CHECK_RETURN(num_points == 0);
@@ -304,8 +347,11 @@ namespace scene
     }
   }
 
-  void DrawMarker(ImDrawList *drawList, const SceneView::Ptr &view,
-                  const Marker &marker, const Transform &tf, bool is_show_id,
+  void DrawMarker(ImDrawList *drawList,
+                  const SceneView::Ptr &view,
+                  const Marker &marker,
+                  const Transform &tf,
+                  bool is_show_info,
                   unsigned int bk_color)
   {
     const auto &thickness = marker.thickness;
@@ -362,24 +408,28 @@ namespace scene
     default:
       break;
     }
-    CHECK_RETURN(!is_show_id);
+    CHECK_RETURN(!is_show_info);
     CHECK_RETURN(!text_pose_valid);
     DrawText(drawList, view, text_pose, color, marker.header.name);
   }
 
-  void DrawObject(ImDrawList *drawList, const SceneView::Ptr &view,
-                  const SceneOptions::Ptr &options, const TFTree::Ptr &tf_tree,
-                  const std::string &draw_frame_id, int type,
+  void DrawObject(ImDrawList *drawList,
+                  const SceneView::Ptr &view,
+                  const SceneOptions::Ptr &options,
+                  const TFTree::Ptr &tf_tree,
+                  const std::string &draw_frame_id,
+                  int type,
                   const SceneObject::Ptr &draw_object)
   {
     const auto &obj_options = draw_object->GetOptions();
     CHECK_RETURN(!obj_options.isVisible);
     CHECK_RETURN(!draw_object->HasObject())
     const auto thickness = obj_options.thickness;
-    auto  color = obj_options.color;
+    auto color = obj_options.color;
     const auto length = obj_options.length;
     const auto radius = obj_options.radius;
-    std::string text_str = draw_object->GetName();
+    const bool is_show_info = obj_options.isShowInfo;
+    std::string text_str = draw_object->GetInfo();
     std::string frame_id = draw_object->GetFrameId();
     auto draw_to_object_tf = tf_tree->LookupTransform(frame_id, draw_frame_id);
     Vec2f text_pose;
@@ -396,9 +446,8 @@ namespace scene
       DrawScenePath(drawList, view, draw_to_object_tf, bk_color, *path, thickness,
                     color);
       CHECK_BREAK(path->points.size() == 0);
-      CHECK_BREAK(!obj_options.isShowID);
+      CHECK_BREAK(!is_show_info);
       text_pose = Mul(draw_to_object_tf, path->points.front());
-      text_str = path->header.name;
       DrawText(drawList, view, text_pose, color, text_str);
     }
 
@@ -409,19 +458,20 @@ namespace scene
       auto scene_path_array =
           std::dynamic_pointer_cast<ScenePathArray>(std::move(draw_object));
       const auto &paths = scene_path_array->GetPaths();
+      CHECK_BREAK(paths->paths.empty());
       for (auto &path : paths->paths)
       {
-		  if (path.useSelfColor)
-		  {
-			  color = path.color;
-		  }
-		CHECK_CONTINUE(path.points.size() == 0);
+        if (path.useSelfColor)
+        {
+          color = path.color;
+        }
+        CHECK_CONTINUE(path.points.size() == 0);
         DrawScenePath(drawList, view, draw_to_object_tf, bk_color, path,
                       thickness, color);
-        
-        CHECK_CONTINUE(!obj_options.isShowID);
+
+        CHECK_CONTINUE(!is_show_info);
         text_pose = Mul(draw_to_object_tf, path.points.front());
-        text_str = path.header.name;
+        text_str = path.header.info;
 
         DrawText(drawList, view, text_pose, color, text_str);
       }
@@ -435,9 +485,8 @@ namespace scene
       const auto &pose = scene_pose->GetPose();
       auto draw_pose = Mul(draw_to_object_tf, *pose);
       DrawArrow(drawList, view, draw_pose, length, color, thickness);
-      CHECK_BREAK(!obj_options.isShowID);
+      CHECK_BREAK(!is_show_info);
       text_pose = draw_pose.pos;
-      text_str = draw_pose.header.name;
       DrawText(drawList, view, text_pose, color, text_str);
     }
     break;
@@ -447,34 +496,34 @@ namespace scene
       auto scene_pose_array =
           std::dynamic_pointer_cast<ScenePoseArray>(std::move(draw_object));
       const auto &poses = scene_pose_array->GetPoses();
+      CHECK_BREAK(poses->poses.empty());
       for (auto &pose : poses->poses)
       {
-		  if (pose.useSelfColor)
-		  {
-			  color = pose.color;
-		  }
+        if (pose.useSelfColor)
+        {
+          color = pose.color;
+        }
         auto draw_pose = Mul(draw_to_object_tf, pose);
         DrawArrow(drawList, view, draw_pose, length, color, thickness);
-        CHECK_CONTINUE(!obj_options.isShowID);
+        CHECK_CONTINUE(!is_show_info);
         text_pose = draw_pose.pos;
-        text_str = pose.header.name;
+        text_str = pose.header.info;
         DrawText(drawList, view, text_pose, color, text_str);
       }
     }
     break;
     case SceneObjectType::POLYGON:
     {
-	
+
       // 数据转换
       auto scene_polygon =
           std::dynamic_pointer_cast<ScenePolygon>(std::move(draw_object));
       const auto &polygon = scene_polygon->GetPolygon();
-	  CHECK_BREAK(polygon->points.size() == 0);
+      CHECK_BREAK(polygon->points.empty());
       DrawScenePolygon(drawList, view, draw_to_object_tf, *polygon, thickness,
                        color);
-      CHECK_BREAK(!obj_options.isShowID);
+      CHECK_BREAK(!is_show_info);
       text_pose = Mul(draw_to_object_tf, polygon->points.front());
-      text_str = polygon->header.name;
       DrawText(drawList, view, text_pose, color, text_str);
     }
     break;
@@ -484,17 +533,19 @@ namespace scene
       auto scene_polygon_array =
           std::dynamic_pointer_cast<ScenePolygonArray>(std::move(draw_object));
       const auto &polygons = scene_polygon_array->GetPolygons();
+      CHECK_BREAK(polygons->polygons.empty());
       for (auto &polygon : polygons->polygons)
       {
-		  if (polygon.useSelfColor)
-		  {
-			  color = polygon.color;
-		  }
+        CHECK_CONTINUE(polygon.points.empty());
+        if (polygon.useSelfColor)
+        {
+          color = polygon.color;
+        }
         DrawScenePolygon(drawList, view, draw_to_object_tf, polygon, thickness,
                          color);
-        CHECK_CONTINUE(!obj_options.isShowID);
+        CHECK_CONTINUE(!is_show_info);
         text_pose = Mul(draw_to_object_tf, polygon.points.front());
-        text_str = polygon.header.name;
+        text_str = polygon.header.info;
         DrawText(drawList, view, text_pose, color, text_str);
       }
     }
@@ -508,9 +559,8 @@ namespace scene
       Vec2f center = Mul(draw_to_object_tf, circle->center);
       DrawCircle(drawList, view, center, circle->radius, color, thickness);
 
-      CHECK_BREAK(!obj_options.isShowID);
+      CHECK_BREAK(!is_show_info);
       text_pose = center;
-      text_str = circle->header.name;
       DrawText(drawList, view, text_pose, color, text_str);
     }
     break;
@@ -520,17 +570,18 @@ namespace scene
       auto scene_circle_array =
           std::dynamic_pointer_cast<SceneCircleArray>(std::move(draw_object));
       const auto &circles = scene_circle_array->GetCircles();
+      CHECK_BREAK(circles->circles.empty());
       for (auto &circle : circles->circles)
       {
-		  if (circle.useSelfColor)
-		  {
-			  color = circle.color;
-		  }
+        if (circle.useSelfColor)
+        {
+          color = circle.color;
+        }
         Vec2f center = Mul(draw_to_object_tf, circle.center);
         DrawCircle(drawList, view, center, circle.radius, color, thickness);
-        CHECK_CONTINUE(!obj_options.isShowID);
+        CHECK_CONTINUE(!is_show_info);
         text_pose = center;
-        text_str = circle.header.name;
+        text_str = circle.header.info;
         DrawText(drawList, view, text_pose, color, text_str);
       }
     }
@@ -541,7 +592,7 @@ namespace scene
       auto scene_marker =
           std::dynamic_pointer_cast<SceneMarker>(std::move(draw_object));
       const auto &marker = scene_marker->GetMarker();
-      DrawMarker(drawList, view, *marker, draw_to_object_tf, obj_options.isShowID,
+      DrawMarker(drawList, view, *marker, draw_to_object_tf, obj_options.isShowInfo,
                  bk_color);
     }
     break;
@@ -551,10 +602,11 @@ namespace scene
       auto scene_marker_array =
           std::dynamic_pointer_cast<SceneMarkerArray>(std::move(draw_object));
       const auto &markers = scene_marker_array->GetMarkers();
+      CHECK_BREAK(markers->markers.empty());
       for (auto &marker : markers->markers)
       {
         DrawMarker(drawList, view, marker, draw_to_object_tf,
-                   obj_options.isShowID, bk_color);
+                   is_show_info, bk_color);
       }
     }
     break;
@@ -564,6 +616,7 @@ namespace scene
       auto scene_point_cloud =
           std::dynamic_pointer_cast<ScenePointCloud>(std::move(draw_object));
       const auto &point_cloud = scene_point_cloud->GetPointCloud();
+      CHECK_BREAK(point_cloud->points.empty());
       auto draw_points = Mul(draw_to_object_tf, point_cloud->points);
       DrawPointCloud(drawList, view, draw_points, color, radius);
     }
@@ -583,14 +636,12 @@ namespace scene
           tf_tree->LookupTransform(parent_frame_id, draw_frame_id);
       auto draw_pose =
           TransformToPose(Mul(draw_to_parent_tf, parent_to_object_tf));
-      const auto &length = obj_options.length;
-      const auto &thickness = obj_options.thickness;
       DrawAxis(drawList, view, draw_pose, length, thickness);
       Vec2f parent_pt = draw_to_parent_tf.trans;
       const Vec2f &object_pt = draw_pose.pos;
       DrawLine(drawList, view, parent_pt, object_pt, obj_options.color,
                thickness);
-      CHECK_BREAK(!obj_options.isShowID);
+      CHECK_BREAK(!is_show_info);
       const std::string &name = transform_node->frameId;
       DrawText(drawList, view, object_pt, obj_options.color, name);
     }
@@ -600,71 +651,71 @@ namespace scene
     }
   }
 
-  void DrawSceneObjects(ImDrawList *drawList, const SceneManager::Ptr &scene)
+  void DrawAllSceneObjectList(ImDrawList *drawList,
+                              const SceneView::Ptr &view,
+                              const SceneAllObjectsMap *all_objects_list,
+                              int draw_type,
+                              const SceneOptions::Ptr &options,
+                              const TFTree::Ptr &tf_tree,
+                              const std::string &draw_frame_id)
   {
-
-    const auto options = scene->GetOptions();
-    auto view = scene->GetSceneView();
-    const auto draw_frame_id = scene->GetDrawFrameID();
-    auto tf_tree = scene->GetTFTree();
-    auto all_objects_list = scene->GetAllObjects();
-    CHECK_RETURN(all_objects_list->empty());
-    bool draw_bottom_flag = false;
-    if (options->topDrawtype != options->bottomDrawtype)
-    {
-		if (all_objects_list->find(options->bottomDrawtype) != all_objects_list->end())
-		{
-			auto bottom_objects = all_objects_list->at(options->bottomDrawtype);
-			std::vector<SceneObject::Ptr> draw_objects;
-			bottom_objects.GatherAll(draw_objects);
-			for (auto &draw_object : draw_objects)
-			{
-				DrawObject(drawList, view, options, tf_tree, draw_frame_id,
-					options->bottomDrawtype, draw_object);
-			}
-			draw_bottom_flag = true;
-		}
-      
-    }
-    for (auto &scene_objects : *all_objects_list)
-    {
-      CHECK_CONTINUE(!options->drawObject[scene_objects.first]);
-      CHECK_CONTINUE(options->topDrawtype == scene_objects.first);
-      CHECK_CONTINUE(scene_objects.second.empty());
-      if (draw_bottom_flag)
-      {
-        CHECK_CONTINUE(options->bottomDrawtype == scene_objects.first);
-      }
-      // 获取所有的绘图对象
-      std::vector<SceneObject::Ptr> draw_objects;
-      scene_objects.second.GatherAll(draw_objects);
-
-      for (auto &draw_object : draw_objects)
-      {
-        DrawObject(drawList, view, options, tf_tree, draw_frame_id,
-                   scene_objects.first, draw_object);
-      }
-    }
-    // 绘制顶层图形
-    CHECK_RETURN(options->topDrawtype > SceneObjectType::OBJECT_NUM);
-    CHECK_RETURN(all_objects_list->find(options->topDrawtype) ==
-                 all_objects_list->end());
-    auto top_objects = all_objects_list->at(options->topDrawtype);
+    CHECK_RETURN(all_objects_list->find(draw_type) == all_objects_list->end());
+    auto draw_object_list = all_objects_list->at(draw_type);
     std::vector<SceneObject::Ptr> draw_objects;
-    top_objects.GatherAll(draw_objects);
+    draw_object_list.GatherAll(draw_objects);
+    CHECK_RETURN(draw_object_list.empty());
     for (auto &draw_object : draw_objects)
     {
       DrawObject(drawList, view, options, tf_tree, draw_frame_id,
-                 options->topDrawtype, draw_object);
+                 draw_type, draw_object);
     }
   }
 
+  void DrawAllSceneObjects(ImDrawList *drawList, const SceneManager::Ptr &scene)
+  {
+    // 绘图的总体配置
+    const auto options = scene->GetOptions();
+    auto view = scene->GetSceneView();
+    const auto draw_frame_id = scene->GetDrawFrameID();
+    // 坐标变换的tf树
+    auto tf_tree = scene->GetTFTree();
+    // 获取所有的绘图元素
+    auto all_objects_list = scene->GetAllObjects();
+    // 检查绘图元素是否为空
+    CHECK_RETURN(all_objects_list->empty());
+    // 绘制底层标志位，绘制底层后，后面不再绘制
+    int bottomDrawtype = options->bottomDrawtype;
+    int topDrawtype = options->topDrawtype;
+    int draw_type = 0;
+    if (options->topDrawtype != options->bottomDrawtype)
+    {
+      DrawAllSceneObjectList(drawList, view, all_objects_list, bottomDrawtype, options, tf_tree, draw_frame_id);
+    }
+    // 绘制剩余元素
+    for (auto &scene_objects : *all_objects_list)
+    {
+      draw_type = scene_objects.first;
+      CHECK_CONTINUE(bottomDrawtype == draw_type);
+      CHECK_CONTINUE(topDrawtype == draw_type);
+      DrawAllSceneObjectList(drawList, view, all_objects_list, draw_type, options, tf_tree, draw_frame_id);
+    }
+    // 绘制顶层图形
+    DrawAllSceneObjectList(drawList, view, all_objects_list, topDrawtype, options, tf_tree, draw_frame_id);
+  }
+
+  /**
+   * @brief
+   *
+   * @param drawList imgui 2d绘图接口
+   * @param scene 场景数据管理器
+   */
   void DrawScene(ImDrawList *drawList, const SceneManager::Ptr &scene)
   {
     // 绘制网格,最底层
     DrawGrid(drawList, scene);
+    // 绘制坐标轴
     DrawOriginAxis(drawList, scene);
     // 绘制添加的图形
-    DrawSceneObjects(drawList, scene);
+    DrawAllSceneObjects(drawList, scene);
   }
 } // namespace scene

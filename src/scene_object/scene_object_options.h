@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-28 20:21:23
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-01 21:29:01
+ * @Last Modified time: 2024-06-14 20:07:52
  */
 
 #ifndef __SCENE_OBJECT_OPTIONS_H__
@@ -19,7 +19,7 @@ namespace scene
         unsigned int color = IM_BLACK;
         int type = 0;
         std::string name;
-        bool isShowID = false;
+        bool isShowInfo = false;
         bool isVisible = true;
         float thickness = 0.05f;
         float radius = 0.05f;

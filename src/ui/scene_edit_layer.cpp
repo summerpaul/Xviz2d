@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-04-27 11:43:32
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-01 10:04:35
+ * @Last Modified time: 2024-06-14 20:11:31
  */
 #include <iostream>
 
@@ -71,9 +71,9 @@ namespace ui
             ImGui::SameLine();
             ImGui::Checkbox(("##" + name + " Visible").data(), &options.isVisible);
 
-            ImGui::Text("ShowId ");
+            ImGui::Text("ShowInfo ");
             ImGui::SameLine();
-            ImGui::Checkbox(("##" + name + " ShowId").data(), &options.isShowID);
+            ImGui::Checkbox(("##" + name + " ShowInfo").data(), &options.isShowInfo);
             ImGui::TreePop();
         }
     }
@@ -124,14 +124,12 @@ namespace ui
 
         if (ImGui::TreeNode("SceneEdit:"))
         {
-
             ImGui::Text("Background");
             ImGui::SameLine();
             ImColor backgroundColor(options->backgroundColor);
             ImGui::ColorEdit4("##Background", (float *)&backgroundColor,
                               ImGuiColorEditFlags_NoInputs);
             options->backgroundColor = backgroundColor;
-
             SceneGridEdit(options);
             SceneOriginAxisEdit(options);
 
@@ -240,12 +238,13 @@ namespace ui
     void SceneEditLayer::SceneObjectsEdit(std::shared_ptr<scene::SceneOptions> &options)
     {
 
+        int type = 0;
         if (ImGui::TreeNode("SceneObjects"))
         {
             auto all_objects = m_scene->GetAllObjects();
             for (auto &object : *all_objects)
             {
-                auto type = object.first;
+                type = object.first;
 
                 std::vector<scene::SceneObject::Ptr> draw_objects;
                 object.second.GatherAll(draw_objects);
@@ -258,9 +257,7 @@ namespace ui
                     ImGui::Checkbox(("##" + scene::SceneObjectStr[type] + "vis").data(), &options->drawObject[type]);
                     for (auto &draw_object : draw_objects)
                     {
-                        auto name = draw_object->GetName();
-
-                        ScenebjectOptionsEdit(name, draw_object->GetOptions(), true, true, true, true);
+                        ScenebjectOptionsEdit(draw_object->GetName(), draw_object->GetOptions(), true, true, true, true);
                     }
 
                     ImGui::TreePop();

@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-28 20:20:22
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-01 08:20:35
+ * @Last Modified time: 2024-06-14 19:41:35
  */
 #include <stdint.h>
 
@@ -28,15 +28,18 @@ namespace scene
 
         void SetOptions(const SceneObjectOptions &options) { m_options = options; }
 
-		void SetName(const std::string&name) {
-			m_object->header.name = name;
-		}
+        void SetName(const std::string &name)
+        {
+            m_object->header.name = name;
+        }
+
+        const std::string &GetInfo() const { return m_object->header.info; }
 
         const std::string &GetName() const { return m_object->header.name; }
 
         const std::string &GetFrameId() const { return m_object->header.frameId; }
 
-		const std::string &GetOptionsName() const { return m_options.name; }
+        const std::string &GetOptionsName() const { return m_options.name; }
 
         bool HasObject() const { return m_object != nullptr; }
 

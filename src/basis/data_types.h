@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-27 19:24:29
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-01 11:25:54
+ * @Last Modified time: 2024-06-14 20:13:34
  */
 
 #ifndef __DATA_TYPES_H__
@@ -30,7 +30,7 @@ namespace basis
 
         std::string name = "";
         std::string frameId = WORLD_FRAME;
-		std::string info;
+        std::string info;
     };
 
     struct Vec2f
@@ -57,10 +57,9 @@ namespace basis
         virtual void clear() {}
         Header header{};
         bool isValid = true;
-		bool useSelfColor = false; //ÏÔÊ¾¶ÀÁ¢µÄÑÕÉ«
-		bool isSelfShowID = false; //ÏÔÊ¾¶ÀÁ¢µÄidÃû
-		unsigned int color = 0;   //¶ÀÁ¢ÑÕÉ«
-
+        bool useSelfColor = false;   // æ˜¾ç¤ºç‹¬ç«‹çš„é¢œè‰²
+        bool isSelfShowInfo = false; // æ˜¾ç¤ºç‹¬ç«‹çš„idå
+        unsigned int color = 0;      // ç‹¬ç«‹é¢œè‰²
     };
 
     using Points = std::vector<Vec2f>;
@@ -89,7 +88,6 @@ namespace basis
         Polygon() {}
         Points points;
         bool filled = false;
-	
     };
 
     struct PolygonArray : public BaseObject

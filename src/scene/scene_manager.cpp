@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 15:03:38
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-12 11:16:52
+ * @Last Modified time: 2024-06-14 20:12:50
  */
 #include <iostream>
 #include "scene_manager.h"
@@ -12,6 +12,18 @@
 #include "basis/thread_safe_map.h"
 using namespace std;
 
+namespace
+{
+    auto RandomColor = []()
+    {
+        ImVec4 col;
+        col.x = RandomRange(0.0f, 1.0f);
+        col.y = RandomRange(0.0f, 1.0f);
+        col.z = RandomRange(0.0f, 1.0f);
+        col.w = 1.0f;
+        return col;
+    };
+}
 namespace scene
 {
 
@@ -30,7 +42,6 @@ namespace scene
         if (!m_pathList.Exists(name))
         {
             m_pathList[name] = std::make_shared<ScenePath>();
-		
         }
         if (path)
         {
@@ -235,15 +246,6 @@ namespace scene
 
     void SceneManager::AddDoubleData(const std::string &name, double x, double y)
     {
-        auto RandomColor = []()
-        {
-            ImVec4 col;
-            col.x = RandomRange(0.0f, 1.0f);
-            col.y = RandomRange(0.0f, 1.0f);
-            col.z = RandomRange(0.0f, 1.0f);
-            col.w = 1.0f;
-            return col;
-        };
 
         if (!m_doubleDataList.Exists(name))
         {
