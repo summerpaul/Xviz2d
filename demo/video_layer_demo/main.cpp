@@ -12,6 +12,7 @@ using namespace std;
 
 int main(int argc, char const *argv[])
 {
+	setlocale(LC_ALL, ".utf8");
     auto app = app::App::GetInstance();
     CHECK_RETURN_RET_LOG(!app->Init("VideoLayer"), -1, LOG_LEVEL_ERROR, "failed to initialize");
     std::shared_ptr<VideoLayer> layer = std::make_shared<VideoLayer>("VideoLayer");

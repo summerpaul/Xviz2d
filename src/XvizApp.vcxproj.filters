@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="app">
+      <UniqueIdentifier>{8a0e30f9-ec33-4457-bff8-08ef8ac1f1b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="basis">
+      <UniqueIdentifier>{ebb50da6-e6d8-4e24-a15c-41cda20a407f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="scene">
+      <UniqueIdentifier>{215ec15f-8154-4ba0-a196-b34e2b5f7979}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="scene_object">
+      <UniqueIdentifier>{7a31699d-8218-4dea-b80b-5d32b3517604}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ui">
+      <UniqueIdentifier>{5bd3efbb-90e5-408e-9603-ff13a83e1fca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="window">
+      <UniqueIdentifier>{4e0f00d0-66e5-45fb-a7da-5a5d1bed262a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="app\app.cpp">
+      <Filter>app</Filter>
+    </ClCompile>
+    <ClCompile Include="scene\scene_draw.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="scene\scene_manager.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="scene\tf_tree.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\main_layer.cpp">
+      <Filter>ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\plot_layer.cpp">
+      <Filter>ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\scene_edit_layer.cpp">
+      <Filter>ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\scene_layer.cpp">
+      <Filter>ui</Filter>
+    </ClCompile>
+    <ClCompile Include="window\window.cpp">
+      <Filter>window</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="app\app.h">
+      <Filter>app</Filter>
+    </ClInclude>
+    <ClInclude Include="basis\bound_box.h">
+      <Filter>basis</Filter>
+    </ClInclude>
+    <ClInclude Include="basis\circular_buffer.h">
+      <Filter>basis</Filter>
+    </ClInclude>
+    <ClInclude Include="basis\data_types.h">
+      <Filter>basis</Filter>
+    </ClInclude>
+    <ClInclude Include="basis\defines.h">
+      <Filter>basis</Filter>
+    </ClInclude>
+    <ClInclude Include="basis\file.h">
+      <Filter>basis</Filter>
+    </ClInclude>
+    <ClInclude Include="basis\logger.h">
+      <Filter>basis</Filter>
+    </ClInclude>
+    <ClInclude Include="basis\signal.h">
+      <Filter>basis</Filter>
+    </ClInclude>
+    <ClInclude Include="basis\string_enum.h">
+      <Filter>basis</Filter>
+    </ClInclude>
+    <ClInclude Include="basis\thread_safe_map.h">
+      <Filter>basis</Filter>
+    </ClInclude>
+    <ClInclude Include="basis\tic_toc.h">
+      <Filter>basis</Filter>
+    </ClInclude>
+    <ClInclude Include="basis\transform.h">
+      <Filter>basis</Filter>
+    </ClInclude>
+    <ClInclude Include="basis\xviz_math.h">
+      <Filter>basis</Filter>
+    </ClInclude>
+    <ClInclude Include="basis\xviz_time.h">
+      <Filter>basis</Filter>
+    </ClInclude>
+    <ClInclude Include="basis\xviz_util.h">
+      <Filter>basis</Filter>
+    </ClInclude>
+    <ClInclude Include="scene\rolling_buffer.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="scene\scene_color.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="scene\scene_draw.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="scene\scene_manager.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="scene\scene_objects.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="scene\scene_options.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="scene\scene_view.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="scene\tf_tree.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="scene_object\scene_circle.h">
+      <Filter>scene_object</Filter>
+    </ClInclude>
+    <ClInclude Include="scene_object\scene_circle_array.h">
+      <Filter>scene_object</Filter>
+    </ClInclude>
+    <ClInclude Include="scene_object\scene_marker.h">
+      <Filter>scene_object</Filter>
+    </ClInclude>
+    <ClInclude Include="scene_object\scene_marker_array.h">
+      <Filter>scene_object</Filter>
+    </ClInclude>
+    <ClInclude Include="scene_object\scene_object.h">
+      <Filter>scene_object</Filter>
+    </ClInclude>
+    <ClInclude Include="scene_object\scene_object_options.h">
+      <Filter>scene_object</Filter>
+    </ClInclude>
+    <ClInclude Include="scene_object\scene_object_type.h">
+      <Filter>scene_object</Filter>
+    </ClInclude>
+    <ClInclude Include="scene_object\scene_path.h">
+      <Filter>scene_object</Filter>
+    </ClInclude>
+    <ClInclude Include="scene_object\scene_path_array.h">
+      <Filter>scene_object</Filter>
+    </ClInclude>
+    <ClInclude Include="scene_object\scene_point_cloud.h">
+      <Filter>scene_object</Filter>
+    </ClInclude>
+    <ClInclude Include="scene_object\scene_polygon.h">
+      <Filter>scene_object</Filter>
+    </ClInclude>
+    <ClInclude Include="scene_object\scene_polygon_array.h">
+      <Filter>scene_object</Filter>
+    </ClInclude>
+    <ClInclude Include="scene_object\scene_pose.h">
+      <Filter>scene_object</Filter>
+    </ClInclude>
+    <ClInclude Include="scene_object\scene_pose_array.h">
+      <Filter>scene_object</Filter>
+    </ClInclude>
+    <ClInclude Include="scene_object\scene_transform_node.h">
+      <Filter>scene_object</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\base_layer.h">
+      <Filter>ui</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\main_layer.h">
+      <Filter>ui</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\plot_layer.h">
+      <Filter>ui</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\scene_edit_layer.h">
+      <Filter>ui</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\scene_layer.h">
+      <Filter>ui</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\ui_context.h">
+      <Filter>ui</Filter>
+    </ClInclude>
+    <ClInclude Include="window\window.h">
+      <Filter>window</Filter>
+    </ClInclude>
+    <ClInclude Include="basis\sil_util.h">
+      <Filter>basis</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="scene_object\readme.md">
+      <Filter>scene_object</Filter>
+    </None>
+  </ItemGroup>
+</Project>

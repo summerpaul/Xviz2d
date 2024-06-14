@@ -14,6 +14,7 @@
 #include "basis/xviz_util.h"
 #include "rolling_buffer.h"
 
+using namespace basis;
 namespace scene
 {
     struct SceneOptions;
@@ -30,7 +31,7 @@ namespace scene
         void AddPose(const std::string &name, const Pose *pose, const SceneObjectOptions *options = nullptr);
         void AddPoseArray(const std::string &name, const PoseArray *poses, const SceneObjectOptions *options = nullptr);
         void AddPointCloud(const std::string &name, const PointCloud *point_cloud, const SceneObjectOptions *options = nullptr);
-        void AddPolygon(const std::string &name, const Polygon *polygon, const SceneObjectOptions *options = nullptr);
+        void AddPolygon(const std::string &name, const basis::Polygon *polygon, const SceneObjectOptions *options = nullptr);
         void AddPolygonArray(const std::string &name, const PolygonArray *polygons, const SceneObjectOptions *options = nullptr);
         void AddCircle(const std::string &name, const Circle *circle, const SceneObjectOptions *options = nullptr);
         void AddCircleArray(const std::string &name, const CircleArray *circles, const SceneObjectOptions *options = nullptr);

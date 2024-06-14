@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-06-08 16:34:29
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-10 17:51:59
+ * @Last Modified time: 2024-06-11 12:16:36
  */
 
 #include "video_capture.h"
@@ -165,8 +165,8 @@ namespace video
                 continue;
             }
             // 倍速播放
-            m_pAvPacket->pts = m_pAvPacket->pts / speed;
-            m_pAvPacket->dts = m_pAvPacket->dts / speed;
+        /*    m_pAvPacket->pts = m_pAvPacket->pts / speed;
+            m_pAvPacket->dts = m_pAvPacket->dts / speed;*/
             // 将解码器所需的压缩数据包（即AVPacket）发送给解码器
             response = avcodec_send_packet(m_pAvCodecCtx, m_pAvPacket);
             if (response < 0)
@@ -191,6 +191,7 @@ namespace video
             av_packet_unref(m_pAvPacket);
             break;
         }
+   
         auto pt_delta_t = m_pAvFrame->pts - *pts;
         *pts = m_pAvFrame->pts;
         int64_t time_since_start = m_pAvFrame->pts - m_startPts;
@@ -252,4 +253,7 @@ namespace video
         avformat_network_deinit();
         return true;
     }
+
+
+
 }

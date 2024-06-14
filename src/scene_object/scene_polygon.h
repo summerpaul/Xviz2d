@@ -23,16 +23,16 @@ namespace scene
 
         const Polygon::Ptr GetPolygon() const
         {
-            return std::dynamic_pointer_cast<Polygon>(m_object);
+            return std::dynamic_pointer_cast<basis::Polygon>(m_object);
         }
 
-        void SetPolygon(const Polygon &polygon)
+        void SetPolygon(const basis::Polygon &polygon)
         {
             if (m_object == nullptr)
             {
-                m_object = std::make_shared<Polygon>();
+                m_object = std::make_shared< basis::Polygon>();
             }
-            *std::dynamic_pointer_cast<Polygon>(m_object) = polygon;
+            *std::dynamic_pointer_cast<basis::Polygon>(m_object) = polygon;
         }
 
         virtual void Clear() override {}

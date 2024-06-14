@@ -28,9 +28,15 @@ namespace scene
 
         void SetOptions(const SceneObjectOptions &options) { m_options = options; }
 
+		void SetName(const std::string&name) {
+			m_object->header.name = name;
+		}
+
         const std::string &GetName() const { return m_object->header.name; }
 
         const std::string &GetFrameId() const { return m_object->header.frameId; }
+
+		const std::string &GetOptionsName() const { return m_options.name; }
 
         bool HasObject() const { return m_object != nullptr; }
 

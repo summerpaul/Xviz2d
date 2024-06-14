@@ -2,13 +2,13 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 15:03:38
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-31 14:52:06
+ * @Last Modified time: 2024-06-12 11:16:52
  */
 #include <iostream>
 #include "scene_manager.h"
 #include "scene_options.h"
 #include "scene_view.h"
-#include "tf_tree/tf_tree.h"
+#include "tf_tree.h"
 #include "basis/thread_safe_map.h"
 using namespace std;
 
@@ -30,6 +30,7 @@ namespace scene
         if (!m_pathList.Exists(name))
         {
             m_pathList[name] = std::make_shared<ScenePath>();
+		
         }
         if (path)
         {

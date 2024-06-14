@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 19:17:01
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-09 01:00:54
+ * @Last Modified time: 2024-06-12 11:16:45
  */
 
 #include "scene_draw.h"
@@ -10,13 +10,14 @@
 #include "basis/xviz_math.h"
 #include "basis/xviz_util.h"
 #include "scene/scene_options.h"
-#include "scene/tf_tree/tf_tree.h"
+#include "scene/tf_tree.h"
 #include "scene_view.h"
 #include <iostream>
 #include <memory>
 
 namespace scene
 {
+
   void DrawLine(ImDrawList *drawList, const SceneView::Ptr &view, const Vec2f &p1,
                 const Vec2f &p2, ImU32 col, float thickness = 0.02f)
   {
@@ -114,6 +115,7 @@ namespace scene
                           const Points &points, ImU32 col, ImU32 backgraoud_color,
                           float thickness, float dash_length, float gap_length)
   {
+	CHECK_RETURN(points.size() == 0);
     for (int i = 0; i < points.size() - 1; i++)
     {
       DrawLine(draw_list, view, points[i], points[i + 1], col, thickness);
@@ -251,7 +253,7 @@ namespace scene
                      const Transform &draw_to_object_tf, unsigned int bk_color,
                      const Path &path, float thickness, unsigned int color)
   {
-
+	CHECK_RETURN(path.points.size() == 0);
     auto draw_path = Mul(draw_to_object_tf, path.points);
     if (path.isDashed)
     {
@@ -271,6 +273,7 @@ namespace scene
                         const Polygon &polygon, float thickness,
                         unsigned int color)
   {
+	CHECK_RETURN(polygon.points.size() == 0);
     auto draw_polygon = Mul(draw_to_object_tf, polygon.points);
     if (polygon.filled)
     {
@@ -372,10 +375,10 @@ namespace scene
     const auto &obj_options = draw_object->GetOptions();
     CHECK_RETURN(!obj_options.isVisible);
     CHECK_RETURN(!draw_object->HasObject())
-    const auto &thickness = obj_options.thickness;
-    const auto &color = obj_options.color;
-    const auto &length = obj_options.length;
-    const auto &radius = obj_options.radius;
+    const auto thickness = obj_options.thickness;
+    auto  color = obj_options.color;
+    const auto length = obj_options.length;
+    const auto radius = obj_options.radius;
     std::string text_str = draw_object->GetName();
     std::string frame_id = draw_object->GetFrameId();
     auto draw_to_object_tf = tf_tree->LookupTransform(frame_id, draw_frame_id);
@@ -408,12 +411,18 @@ namespace scene
       const auto &paths = scene_path_array->GetPaths();
       for (auto &path : paths->paths)
       {
+		  if (path.useSelfColor)
+		  {
+			  color = path.color;
+		  }
+		CHECK_CONTINUE(path.points.size() == 0);
         DrawScenePath(drawList, view, draw_to_object_tf, bk_color, path,
                       thickness, color);
-        CHECK_CONTINUE(path.points.size() == 0);
+        
         CHECK_CONTINUE(!obj_options.isShowID);
         text_pose = Mul(draw_to_object_tf, path.points.front());
         text_str = path.header.name;
+
         DrawText(drawList, view, text_pose, color, text_str);
       }
     }
@@ -440,6 +449,10 @@ namespace scene
       const auto &poses = scene_pose_array->GetPoses();
       for (auto &pose : poses->poses)
       {
+		  if (pose.useSelfColor)
+		  {
+			  color = pose.color;
+		  }
         auto draw_pose = Mul(draw_to_object_tf, pose);
         DrawArrow(drawList, view, draw_pose, length, color, thickness);
         CHECK_CONTINUE(!obj_options.isShowID);
@@ -451,10 +464,12 @@ namespace scene
     break;
     case SceneObjectType::POLYGON:
     {
+	
       // 数据转换
       auto scene_polygon =
           std::dynamic_pointer_cast<ScenePolygon>(std::move(draw_object));
       const auto &polygon = scene_polygon->GetPolygon();
+	  CHECK_BREAK(polygon->points.size() == 0);
       DrawScenePolygon(drawList, view, draw_to_object_tf, *polygon, thickness,
                        color);
       CHECK_BREAK(!obj_options.isShowID);
@@ -471,6 +486,10 @@ namespace scene
       const auto &polygons = scene_polygon_array->GetPolygons();
       for (auto &polygon : polygons->polygons)
       {
+		  if (polygon.useSelfColor)
+		  {
+			  color = polygon.color;
+		  }
         DrawScenePolygon(drawList, view, draw_to_object_tf, polygon, thickness,
                          color);
         CHECK_CONTINUE(!obj_options.isShowID);
@@ -503,6 +522,10 @@ namespace scene
       const auto &circles = scene_circle_array->GetCircles();
       for (auto &circle : circles->circles)
       {
+		  if (circle.useSelfColor)
+		  {
+			  color = circle.color;
+		  }
         Vec2f center = Mul(draw_to_object_tf, circle.center);
         DrawCircle(drawList, view, center, circle.radius, color, thickness);
         CHECK_CONTINUE(!obj_options.isShowID);
@@ -589,16 +612,19 @@ namespace scene
     bool draw_bottom_flag = false;
     if (options->topDrawtype != options->bottomDrawtype)
     {
-
-      auto bottom_objects = all_objects_list->at(options->bottomDrawtype);
-      std::vector<SceneObject::Ptr> draw_objects;
-      bottom_objects.GatherAll(draw_objects);
-      for (auto &draw_object : draw_objects)
-      {
-        DrawObject(drawList, view, options, tf_tree, draw_frame_id,
-                   options->bottomDrawtype, draw_object);
-      }
-      draw_bottom_flag = true;
+		if (all_objects_list->find(options->bottomDrawtype) != all_objects_list->end())
+		{
+			auto bottom_objects = all_objects_list->at(options->bottomDrawtype);
+			std::vector<SceneObject::Ptr> draw_objects;
+			bottom_objects.GatherAll(draw_objects);
+			for (auto &draw_object : draw_objects)
+			{
+				DrawObject(drawList, view, options, tf_tree, draw_frame_id,
+					options->bottomDrawtype, draw_object);
+			}
+			draw_bottom_flag = true;
+		}
+      
     }
     for (auto &scene_objects : *all_objects_list)
     {

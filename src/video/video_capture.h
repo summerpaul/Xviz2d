@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-06-08 16:34:10
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-10 17:34:21
+ * @Last Modified time: 2024-06-11 12:15:38
  */
 #include <stdint.h>
 
@@ -11,6 +11,9 @@
 
 #include "ffmpeg_headers.h"
 #include <string>
+
+
+
 namespace video
 {
     class VideoCapture
@@ -22,7 +25,7 @@ namespace video
         // 打开视频
         bool Open(const std::string &url);
         // 视频解码
-        bool Decode(uint8_t *frame, int64_t *pts, float speed = 1.0f);
+        bool Decode(uint8_t *frame, int64_t *pts, float speed = 2.0f);
         bool Close();
 
         int GetWidth() const { return m_width; }
@@ -48,7 +51,7 @@ namespace video
         std::string GetCodecIdStr() const { return m_codecIdStr; }
         // 获取视频像素格式
         std::string GetPixFmtName() const { return m_pixFmtName; }
-    
+
 
     private:
         int m_width;
@@ -62,8 +65,8 @@ namespace video
         AVFrame *m_pAvFrame;             // 存储原始图像或音频数据的主要容器
         AVPacket *m_pAvPacket;           // 处理数据包
         SwsContext *m_pSwsScalerCtx;     // 像素缩放和像素格式转换结构体
-        int m_duration;                  // ms
-        double m_durationSecond;         // seconds
+        int m_duration = 0;              // ms
+        double m_durationSecond = 0;     // seconds
         int m_nbStreams;                 // number of streams
         double m_framerate;              // framerate
         int64_t m_startPts;              // 微秒（1/1,000,000秒）

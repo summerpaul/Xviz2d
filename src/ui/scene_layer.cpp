@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 19:00:52
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-06 16:37:32
+ * @Last Modified time: 2024-06-12 11:16:57
  */
 #include <iostream>
 
@@ -14,7 +14,7 @@
 #include "scene/scene_manager.h"
 #include "scene/scene_options.h"
 #include "scene/scene_view.h"
-#include "scene/tf_tree/tf_tree.h"
+#include "scene/tf_tree.h"
 #include "scene_layer.h"
 
 using namespace basis;

@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-06-08 17:50:41
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-10 21:47:33
+ * @Last Modified time: 2024-06-11 12:05:00
  */
 #include <iostream>
 #include "video_layer_demo.h"
@@ -75,7 +75,7 @@ void VideoLayer::VideoPlayProcess()
                 }
                 m_dataMutex.unlock();
                 // 视频sleep
-                std::this_thread::sleep_for(std::chrono::milliseconds(10));
+                //std::this_thread::sleep_for(std::chrono::milliseconds(10));
             }
         }
     }
@@ -128,7 +128,7 @@ void VideoLayer::Draw()
     ImGui::TextColored(ImVec4(255, 0, 0, 255), "%s", (m_isStart ? "Start" : "Stop"));
     ImGui::SameLine();
     ImGui::Text("File Name:%s", m_fileName.c_str());
-    ImGui::SameLine();
+
     ImGui::Text("decode cost time :%f", m_decodeCostTime);
     ImGui::SameLine();
     ImGui::Text("render cost time :%f", m_renderCostTime);

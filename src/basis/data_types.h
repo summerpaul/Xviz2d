@@ -30,6 +30,7 @@ namespace basis
 
         std::string name = "";
         std::string frameId = WORLD_FRAME;
+		std::string info;
     };
 
     struct Vec2f
@@ -56,6 +57,10 @@ namespace basis
         virtual void clear() {}
         Header header{};
         bool isValid = true;
+		bool useSelfColor = false; //显示独立的颜色
+		bool isSelfShowID = false; //显示独立的id名
+		unsigned int color = 0;   //独立颜色
+
     };
 
     using Points = std::vector<Vec2f>;
@@ -84,6 +89,7 @@ namespace basis
         Polygon() {}
         Points points;
         bool filled = false;
+	
     };
 
     struct PolygonArray : public BaseObject

@@ -45,11 +45,11 @@ namespace scene
         {
             std::lock_guard<std::mutex> mtx(mutex);
             double xmod = fmod(x, span);
-            if (!xs.empty() && xmod < xs.back())
+ /*           if (!xs.empty() && xmod < xs.back())
             {
                 xs.clear();
                 ys.clear();
-            }
+            }*/
             xs.push_back(xmod);
             ys.push_back(y);
         }

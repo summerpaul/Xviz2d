@@ -1,18 +1,24 @@
-set(XVIZ_SRCS 
-    scene/scene_manager.cpp 
-    scene/scene_draw.cpp
-    scene/tf_tree/tf_tree.cpp
-    ui/main_layer.cpp
-    ui/scene_layer.cpp
-    ui/plot_layer.cpp
-    ui/scene_edit_layer.cpp
-    window/window.cpp
-    app/app.cpp
-    video/texture.cpp
-    video/video_capture.cpp
-    )
 
-add_library(XvizLib  ${XVIZ_SRCS})
+
+set(XVIZ_ALL_DIRS
+    "app"
+    "basis"
+    "communication"
+    "scene"
+    "scene_object"
+    "ui"
+    "window"
+    "video"
+)
+
+foreach(dir ${XVIZ_ALL_DIRS})
+    file(GLOB_RECURSE header_files "${dir}/*.h" "${dir}/*.hpp" "${dir}/*.hxx")
+    list(APPEND ALL_HEADERS ${header_files})
+    file(GLOB_RECURSE src_files "${dir}/*.cpp" )
+    list(APPEND ALL_SRCS ${src_files})
+endforeach()
+
+add_library(XvizLib  ${ALL_SRCS} ${ALL_HEADERS})
 target_link_libraries(XvizLib    
     glad::glad  
     implot::implot 
