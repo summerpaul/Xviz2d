@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-04-26 23:25:31
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-29 20:08:20
+ * @Last Modified time: 2024-06-14 20:29:57
  */
 
 #ifndef __WINDOW_H__
@@ -39,7 +39,6 @@ namespace window
         uint32_t m_width = 500;
         uint32_t m_height = 500;
         std::string m_title = "XvizApp";
-        float m_factor = 1.0f;
     };
 
 }

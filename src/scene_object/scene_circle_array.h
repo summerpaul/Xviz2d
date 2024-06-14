@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 10:06:12
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-01 10:40:08
+ * @Last Modified time: 2024-06-14 20:33:11
  */
 #include <stdint.h>
 
@@ -21,7 +21,7 @@ namespace scene
 
         SceneCircleArray() = default;
 
-        ~SceneCircleArray(){};
+       virtual ~SceneCircleArray(){};
 
         const CircleArray::Ptr GetCircles() const
         {

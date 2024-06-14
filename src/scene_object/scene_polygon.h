@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 10:09:04
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-01 09:16:45
+ * @Last Modified time: 2024-06-14 20:33:47
  */
 #include <stdint.h>
 
@@ -19,7 +19,7 @@ namespace scene
     public:
         typedef std::shared_ptr<ScenePolygon> Ptr;
         ScenePolygon() = default;
-        ~ScenePolygon() {}
+        virtual ~ScenePolygon() {}
 
         const Polygon::Ptr GetPolygon() const
         {
@@ -30,7 +30,7 @@ namespace scene
         {
             if (m_object == nullptr)
             {
-                m_object = std::make_shared< basis::Polygon>();
+                m_object = std::make_shared<basis::Polygon>();
             }
             *std::dynamic_pointer_cast<basis::Polygon>(m_object) = polygon;
         }

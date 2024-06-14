@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 10:04:58
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-01 10:28:44
+ * @Last Modified time: 2024-06-14 20:33:53
  */
 #include <stdint.h>
 
@@ -19,7 +19,7 @@ namespace scene
     public:
         typedef std::shared_ptr<ScenePoseArray> Ptr;
         ScenePoseArray() = default;
-        ~ScenePoseArray() {}
+        virtual ~ScenePoseArray() {}
 
         virtual void Clear() override
         {

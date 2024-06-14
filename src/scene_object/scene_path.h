@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 10:07:46
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-01 00:40:31
+ * @Last Modified time: 2024-06-14 20:32:46
  */
 #include <stdint.h>
 
@@ -18,7 +18,7 @@ namespace scene
     public:
         typedef std::shared_ptr<ScenePath> Ptr;
         ScenePath() = default;
-        ~ScenePath() {}
+        virtual ~ScenePath() {}
 
         void SetPath(const Path &path)
         {

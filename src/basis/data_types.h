@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-27 19:24:29
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-14 20:13:34
+ * @Last Modified time: 2024-06-14 20:28:08
  */
 
 #ifndef __DATA_TYPES_H__
@@ -23,8 +23,9 @@ namespace basis
     struct Header
     {
         Header(const std::string &name = "",
-               const std::string &frame_id = WORLD_FRAME)
-            : name(name), frameId(frame_id)
+               const std::string &frame_id = WORLD_FRAME,
+               const std::string &info = "")
+            : name(name), frameId(frame_id), info(info)
         {
         }
 
@@ -53,7 +54,10 @@ namespace basis
     struct BaseObject
     {
         typedef std::shared_ptr<BaseObject> Ptr;
-        BaseObject() {}
+        BaseObject()
+        {
+        }
+        virtual ~BaseObject() {}
         virtual void clear() {}
         Header header{};
         bool isValid = true;
@@ -136,7 +140,7 @@ namespace basis
     struct TransformNode : public BaseObject
     {
         typedef std::shared_ptr<TransformNode> Ptr;
-        TransformNode() {}
+        TransformNode() : trans(Vec2f(0.0f, 0.0f)), yaw(0.0f), frameId(WORLD_FRAME), parentFrameId(ROOT_FRAME) {}
 
         Vec2f trans;
         float yaw;

@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-06-08 16:34:29
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-11 12:16:36
+ * @Last Modified time: 2024-06-14 20:36:28
  */
 
 #include "video_capture.h"
@@ -73,15 +73,14 @@ namespace video
         // avg_frame_rate：视频流的帧率
         AVCodecParameters *av_codec_params;
         const AVCodec *av_codec;
-        AVStream *av_stream;
         m_nbStreams = m_pAvFormatCtx->nb_streams;
 
         for (uint32_t i = 0; i < m_nbStreams; ++i)
         {
-            av_stream = m_pAvFormatCtx->streams[i];
-            av_codec_params = m_pAvFormatCtx->streams[i]->codecpar;
+            auto av_stream = m_pAvFormatCtx->streams[i];
+            av_codec_params = av_stream->codecpar;
             // 寻找相应的解码器
-            av_codec = avcodec_find_decoder(av_codec_params->codec_id);
+            auto av_codec = avcodec_find_decoder(av_codec_params->codec_id);
             if (!av_codec)
             {
                 continue;
@@ -92,13 +91,13 @@ namespace video
                 m_videoStreamIndex = i;
                 m_width = av_codec_params->width;
                 m_height = av_codec_params->height;
-                m_timeBase = m_pAvFormatCtx->streams[i]->time_base;
+                m_timeBase = av_stream->time_base;
                 m_timeBaseDouble = av_q2d(m_timeBase);
                 m_framerate = av_q2d(av_codec_params->framerate);
-                m_startPts = m_pAvFormatCtx->streams[i]->start_time;
+                m_startPts = av_stream->start_time;
                 m_formatName = m_pAvFormatCtx->iformat->name;
-                m_codecIdStr = avcodec_get_name(m_pAvFormatCtx->streams[i]->codecpar->codec_id);
-                m_pixFmtName = av_get_pix_fmt_name(AVPixelFormat(m_pAvFormatCtx->streams[i]->codecpar->format));
+                m_codecIdStr = avcodec_get_name(av_stream->codecpar->codec_id);
+                m_pixFmtName = av_get_pix_fmt_name(AVPixelFormat(av_stream->codecpar->format));
 
                 break;
             }
@@ -165,8 +164,8 @@ namespace video
                 continue;
             }
             // 倍速播放
-        /*    m_pAvPacket->pts = m_pAvPacket->pts / speed;
-            m_pAvPacket->dts = m_pAvPacket->dts / speed;*/
+            /*    m_pAvPacket->pts = m_pAvPacket->pts / speed;
+                m_pAvPacket->dts = m_pAvPacket->dts / speed;*/
             // 将解码器所需的压缩数据包（即AVPacket）发送给解码器
             response = avcodec_send_packet(m_pAvCodecCtx, m_pAvPacket);
             if (response < 0)
@@ -191,7 +190,7 @@ namespace video
             av_packet_unref(m_pAvPacket);
             break;
         }
-   
+
         auto pt_delta_t = m_pAvFrame->pts - *pts;
         *pts = m_pAvFrame->pts;
         int64_t time_since_start = m_pAvFrame->pts - m_startPts;
@@ -253,7 +252,5 @@ namespace video
         avformat_network_deinit();
         return true;
     }
-
-
 
 }

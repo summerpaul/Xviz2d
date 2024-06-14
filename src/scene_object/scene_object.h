@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-28 20:20:22
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-14 19:41:35
+ * @Last Modified time: 2024-06-14 20:33:30
  */
 #include <stdint.h>
 
@@ -21,6 +21,7 @@ namespace scene
     {
     public:
         typedef std::shared_ptr<SceneObject> Ptr;
+        virtual ~SceneObject() {}
 
         virtual void Clear() {}
 

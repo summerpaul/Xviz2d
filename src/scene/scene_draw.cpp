@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 19:17:01
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-14 20:09:31
+ * @Last Modified time: 2024-06-14 20:31:10
  */
 
 #include "scene_draw.h"
@@ -206,8 +206,8 @@ namespace scene
     const auto &options = scene->GetOptions();
     CHECK_RETURN(!options->drawGrid);
     auto view = scene->GetSceneView();
-    const int grid_width = options->gridWidth;
-    const int grid_height = options->gridHeight;
+    // const int grid_width = options->gridWidth;
+    // const int grid_height = options->gridHeight;
     const float grid_intervel = options->gridInterval;
     const float grid_thickness = options->girdThickness;
     const float grid_dash_size = options->gridDashSize;
@@ -627,7 +627,6 @@ namespace scene
       auto scene_transform_node =
           std::dynamic_pointer_cast<SceneTransformNode>(std::move(draw_object));
       const auto &transform_node = scene_transform_node->GetTransformNode();
-      const std::string &frame_id = transform_node->frameId;
       const std::string &parent_frame_id = transform_node->parentFrameId;
       const Vec2f tf_trans = transform_node->trans;
       const float tf_angle = transform_node->yaw;

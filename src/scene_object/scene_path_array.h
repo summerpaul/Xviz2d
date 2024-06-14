@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 10:08:05
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-01 08:10:35
+ * @Last Modified time: 2024-06-14 20:33:36
  */
 #include <stdint.h>
 
@@ -18,7 +18,7 @@ namespace scene
     public:
         typedef std::shared_ptr<ScenePathArray> Ptr;
         ScenePathArray() = default;
-        ~ScenePathArray() {}
+        virtual ~ScenePathArray() {}
 
         virtual void Clear() override {}
 

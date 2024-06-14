@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 10:03:57
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-01 09:08:03
+ * @Last Modified time: 2024-06-14 20:33:58
  */
 #include <stdint.h>
 
@@ -18,7 +18,7 @@ namespace scene
     public:
         typedef std::shared_ptr<ScenePose> Ptr;
         ScenePose() = default;
-        ~ScenePose() = default;
+        virtual ~ScenePose() = default;
         const basis::Pose::Ptr GetPose() const { return std::dynamic_pointer_cast<Pose>(m_object); }
 
         void SetPose(const basis::Pose &pose)
