@@ -49,9 +49,7 @@ find_package(Stb REQUIRED)
 find_package(cppzmq CONFIG REQUIRED)
 find_package(FFMPEG REQUIRED)
 find_package(rpclib CONFIG REQUIRED)
-    # target_link_libraries(main PRIVATE rpclib::rpc)
-find_package(Boost REQUIRED COMPONENTS smart_ptr)
-    # target_link_libraries(main PRIVATE Boost::smart_ptr)
+
 include_directories(
     ${VCPKG_INCLUDE_DIRS} 
     src

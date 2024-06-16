@@ -1,9 +1,13 @@
 {
   "dependencies": [
     {
-      "name":"imgui",
+      "name": "imgui",
       "default-features": false,
-      "features": ["glfw-binding","opengl3-binding","docking-experimental"]
+      "features": [
+        "glfw-binding",
+        "opengl3-binding",
+        "docking-experimental"
+      ]
     },
     "glfw3",
     "glad",
@@ -11,7 +15,30 @@
     "stb",
     "glm",
     "cppzmq",
-    "ffmpeg"
+    "ffmpeg",
+    "rpclib",
+    "boost-smart-ptr",
+    "boost-date-time",
+    "boost-asio",
+    "boost-geometry"
+  ],
+  "overrides": [
+    {
+      "name": "boost-smart-ptr",
+      "version": "1.72.0"
+    },
+    {
+      "name": "boost-date-time",
+      "version": "1.72.0"
+    },
+    {
+      "name": "boost-asio",
+      "version": "1.72.0"
+    },
+    {
+      "name": "boost-geometry",
+      "version": "1.72.0" 
+    }
   ],
   "builtin-baseline": "cb1e4728779e35c4bb60c25114a59c93b3e9be9a"
 }
