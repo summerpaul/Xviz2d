@@ -60,6 +60,11 @@ namespace app
         m_mainUI->FilesDropCallback(count, paths);
     }
 
+	void App::SetCurPlotTime(const double& t)
+	{
+		m_mainUI->SetCurPlotTime(t);
+	}
+
     void App::Shutdown()
     {
         m_mainUI->Shutdown();

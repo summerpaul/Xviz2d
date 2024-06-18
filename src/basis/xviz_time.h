@@ -9,6 +9,18 @@
 #ifndef __XVIZ_TIME_H__
 #define __XVIZ_TIME_H__
 
+#include <ctime>
+#include <cstdio>
+#include <string>
+
+#include <chrono>
+#include <iomanip>
+#include <iostream>
+#include <sstream>
+#include <string.h>
+
+
+
 namespace basis
 {
 

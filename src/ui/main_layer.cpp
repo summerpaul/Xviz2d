@@ -214,6 +214,12 @@ namespace ui
         }
     }
 
+	void MainLayer::SetCurPlotTime(const double& t)
+	{
+		m_plotLayer->SetCurPlotTime(t);
+	
+	}
+
     void MainLayer::DropCallback(GLFWwindow *window, int count, const char **paths)
     {
         app::App::GetInstance()->SetDropFiles(count, paths);

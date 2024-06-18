@@ -8,15 +8,7 @@
 #ifndef __LOGGER_H__
 #define __LOGGER_H__
 
-#include <ctime>
-#include <cstdio>
-#include <string>
 
-#include <chrono>
-#include <iomanip>
-#include <iostream>
-#include <sstream>
-#include <string.h>
 
 #include "xviz_time.h"
 

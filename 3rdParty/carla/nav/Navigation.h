@@ -1,3 +1,9 @@
+/**
+ * @Author: Xia Yunkai
+ * @Date:   2024-06-17 09:50:09
+ * @Last Modified by:   Xia Yunkai
+ * @Last Modified time: 2024-06-17 18:24:22
+ */
 // Copyright (c) 2019 Computer Vision Center (CVC) at the Universitat Autonoma
 // de Barcelona (UAB).
 //
@@ -13,12 +19,12 @@
 #include "carla/geom/Transform.h"
 #include "carla/nav/WalkerManager.h"
 #include "carla/rpc/ActorId.h"
-#include <recast/Recast.h>
-#include <recast/DetourCrowd.h>
-#include <recast/DetourNavMesh.h>
-#include <recast/DetourNavMeshBuilder.h>
-#include <recast/DetourNavMeshQuery.h>
-#include <recast/DetourCommon.h>
+#include <recast/Recast/Recast.h>
+#include <recast/DetourCrowd/DetourCrowd.h>
+#include <recast/Detour/DetourNavMesh.h>
+#include <recast/Detour/DetourNavMeshBuilder.h>
+#include <recast/Detour/DetourNavMeshQuery.h>
+#include <recast/Detour/DetourCommon.h>
 
 namespace carla {
 namespace nav {

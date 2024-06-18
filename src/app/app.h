@@ -41,6 +41,7 @@ namespace app
         const std::shared_ptr<scene::SceneManager> GetSceneManager() const { return m_sceneManager; }
         void AddLayer(const std::shared_ptr<ui::BaseLayer> &layer);
         void SetDropFiles(int count, const char **paths);
+		void SetCurPlotTime(const double& t);
 
     private:
         App() = default;

@@ -31,6 +31,7 @@ namespace ui
         void EndDraw();
         void AddLayer(const BaseLayer::Ptr &layer);
         static void DropCallback(GLFWwindow *window, int count, const char **paths);
+		void SetCurPlotTime(const double& t);
 
     protected:
         void DrawMenuBar();

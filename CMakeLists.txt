@@ -28,13 +28,13 @@ elseif(UNIX)
     set(VCPKG_LIB_DIRS ${CMAKE_BINARY_DIR}/vcpkg_installed/x64-linux/lib)
 endif()
 
-if ("${CMAKE_BUILD_TYPE}" STREQUAL "Release" OR "${CMAKE_BUILD_TYPE}" STREQUAL "RELEASE")
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC -Wall -O3 -march=native ")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -Wall -O3 -fopenmp ")
-else ()
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC -Wall")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -Wall  -g")
-endif ()
+# if ("${CMAKE_BUILD_TYPE}" STREQUAL "Release" OR "${CMAKE_BUILD_TYPE}" STREQUAL "RELEASE")
+#     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC -Wall -O3 -march=native ")
+#     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -Wall -O3 -fopenmp ")
+# else ()
+#     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC -Wall")
+#     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -Wall  -g")
+# endif ()
 
 
 
@@ -56,6 +56,6 @@ include_directories(
     3rdParty
 )
 
-add_subdirectory(3rdParty)
+# add_subdirectory(3rdParty)
 add_subdirectory(src)
 add_subdirectory(demo)

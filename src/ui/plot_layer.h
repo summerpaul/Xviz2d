@@ -30,6 +30,7 @@ namespace ui
         virtual bool Init() override;
         virtual void Shutdown() override;
         virtual void SetUIContext(const UIContext::Ptr &ui_context) override;
+		void SetCurPlotTime(const double& t);
 
     private:
         void DrawTable();
@@ -47,6 +48,7 @@ namespace ui
     protected:
         UIContext::Ptr m_uiContext;
         std::shared_ptr<scene::SceneManager> m_scene;
+		bool m_setCurPlotTime = false;
     };
 
 } // namespace ui

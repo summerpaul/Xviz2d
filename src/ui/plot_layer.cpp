@@ -260,6 +260,11 @@ namespace ui
         ImGui::BeginChild("DND_RIGHT", ImVec2(-1, -1));
 
         DrawDragBar("X1", lims.X.Min, lims.X.Max, dragX1, dragX1Color, isShowDragX1);
+		if (m_setCurPlotTime)
+		{
+			*dragX1 = m_uiContext->curPlotTime;
+		}
+
         ImGui::SameLine();
         if (ImGui::Button("Clear"))
         {
@@ -531,4 +536,15 @@ namespace ui
         ImPlot::DragLineX(id, value, color);
         *value = XVIZ_CLAMP(*value, min, max);
     }
+
+	void PlotLayer::SetCurPlotTime(const double& t)
+	{
+		m_uiContext->curPlotTime = t;
+		if (!m_setCurPlotTime)
+		{
+			m_setCurPlotTime = true;
+		}
+
+
+	}
 }

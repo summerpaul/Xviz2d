@@ -44,6 +44,7 @@ namespace ui
         bool linkx = true;
         double maxX = 10000;
         bool autoFit = true;
+		double curPlotTime = 0;
     };
 
 } // namespace ui
