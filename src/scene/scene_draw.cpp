@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 19:17:01
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-14 21:00:28
+ * @Last Modified time: 2024-06-21 23:21:38
  */
 
 #include "scene_draw.h"
@@ -163,7 +163,7 @@ namespace scene
         p2 = points[i + 1] + norm;
         p3 = points[i] - norm;
         p4 = points[i + 1] - norm;
-        // 绘制背景颜色
+
         DrawLine(draw_list, view, p1, p2, backgraoud_color, thickness);
         DrawLine(draw_list, view, p3, p4, backgraoud_color, thickness);
       }
@@ -180,9 +180,7 @@ namespace scene
     drawList->AddText({pixelPose.x, pixelPose.y}, col, text.c_str());
   }
 
-  // 绘制坐标
-
-  void DrawArrow(ImDrawList *drawList,
+   void DrawArrow(ImDrawList *drawList,
                  const SceneView::Ptr &view,
                  const Pose &pos,
                  const float &length,
@@ -212,8 +210,6 @@ namespace scene
     const auto &options = scene->GetOptions();
     CHECK_RETURN(!options->drawGrid);
     auto view = scene->GetSceneView();
-    // const int grid_width = options->gridWidth;
-    // const int grid_height = options->gridHeight;
     const float grid_intervel = options->gridInterval;
     const float grid_thickness = options->girdThickness;
     const float grid_dash_size = options->gridDashSize;
@@ -223,7 +219,6 @@ namespace scene
 
     const auto grid_x_max = options->gridXmax;
     const auto grid_y_max = options->gridYmax;
-    // 绘制竖向直线
 
     for (float x = grid_x_min; x <= grid_x_max; x += grid_intervel)
     {

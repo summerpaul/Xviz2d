@@ -48,7 +48,6 @@ find_package(implot CONFIG REQUIRED)
 find_package(Stb REQUIRED)
 find_package(cppzmq CONFIG REQUIRED)
 find_package(FFMPEG REQUIRED)
-find_package(rpclib CONFIG REQUIRED)
 
 include_directories(
     ${VCPKG_INCLUDE_DIRS} 

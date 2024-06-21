@@ -1,5 +1,7 @@
 
 
+
+add_subdirectory(xviz_msgs)
 set(XVIZ_ALL_DIRS
     "app"
     "basis"
@@ -9,6 +11,8 @@ set(XVIZ_ALL_DIRS
     "ui"
     "window"
     "video"
+    "xviz_server"
+    "xviz_msgs/pb"
 )
 
 foreach(dir ${XVIZ_ALL_DIRS})

@@ -2,17 +2,32 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-27 19:24:29
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-14 20:28:08
+ * @Last Modified time: 2024-06-21 23:21:06
  */
 
 #ifndef __DATA_TYPES_H__
 #define __DATA_TYPES_H__
 
+#include <memory>
 #include <string>
 #include <vector>
-#include <memory>
 namespace basis
 {
+
+    const std::string MSG_PATH2F = "MSG_PATH2F";
+    const std::string MSG_PATH2F_ARRAY = "MSG_PATH2F_ARRAY";
+    const std::string MSG_POSE2F = "MSG_POSE2F";
+    const std::string MSG_POSE2F_ARRAY = "MSG_POSE2F_ARRAY";
+    const std::string MSG_POINT_CLOUD2F = "MSG_POINT_CLOUD2F";
+    const std::string MSG_POLYGON2F = "MSG_POLYGON2F";
+    const std::string MSG_POLYGON2F_ARRAY = "MSG_POLYGON2F_ARRAY";
+    const std::string MSG_CIRCLE2F = "MSG_CIRCLE2F";
+    const std::string MSG_CIRCLE2F_ARRAY = "MSG_CIRCLE2F_ARRAY";
+    const std::string MSG_MARKER2F = "MSG_MARKER2F";
+    const std::string MSG_MARKER2F_ARRAY = "MSG_MARKER2F_ARRAY";
+    const std::string MSG_STRING_DATA = "MSG_STRING_DATA";
+    const std::string MSG_DOUBLE_DATA = "MSG_DOUBLE_DATA";
+    const std::string MSG_TRANSFORM2F_NODE = "MSG_TRANSFORM2F_NODE";
 
     const std::string ROOT_FRAME = "root";
     const std::string WORLD_FRAME = "world";
@@ -25,9 +40,7 @@ namespace basis
         Header(const std::string &name = "",
                const std::string &frame_id = WORLD_FRAME,
                const std::string &info = "")
-            : name(name), frameId(frame_id), info(info)
-        {
-        }
+            : name(name), frameId(frame_id), info(info) {}
 
         std::string name = "";
         std::string frameId = WORLD_FRAME;
@@ -54,16 +67,14 @@ namespace basis
     struct BaseObject
     {
         typedef std::shared_ptr<BaseObject> Ptr;
-        BaseObject()
-        {
-        }
+        BaseObject() {}
         virtual ~BaseObject() {}
         virtual void clear() {}
         Header header{};
         bool isValid = true;
-        bool useSelfColor = false;   // 显示独立的颜色
-        bool isSelfShowInfo = false; // 显示独立的id名
-        unsigned int color = 0;      // 独立颜色
+        bool useSelfColor = false;
+        bool isSelfShowInfo = false;
+        unsigned int color = 0;
     };
 
     using Points = std::vector<Vec2f>;
@@ -140,7 +151,11 @@ namespace basis
     struct TransformNode : public BaseObject
     {
         typedef std::shared_ptr<TransformNode> Ptr;
-        TransformNode() : trans(Vec2f(0.0f, 0.0f)), yaw(0.0f), frameId(WORLD_FRAME), parentFrameId(ROOT_FRAME) {}
+        TransformNode()
+            : trans(Vec2f(0.0f, 0.0f)),
+              yaw(0.0f),
+              frameId(WORLD_FRAME),
+              parentFrameId(ROOT_FRAME) {}
 
         Vec2f trans;
         float yaw;

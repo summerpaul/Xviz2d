@@ -1,0 +1,118 @@
+syntax = "proto3";
+
+package xviz_msgs;
+message Header 
+{
+    string name = 1;
+    string frameId = 2;
+    string info = 3;
+}
+
+message Vector2f
+{
+    float x = 1;
+    float y = 2;
+}
+
+message Pose2f
+{
+    Header header = 1;
+    Vector2f position = 2;
+    float yaw = 3;
+}
+
+message Pose2fArray
+{
+    Header header = 1;
+    repeated Pose2f poseArray = 2; 
+}
+
+message Polygon2f
+{
+    Header header = 1;
+    repeated Vector2f points = 2;    
+    bool filled = 3;
+
+}
+
+message Polygon2fArray
+{
+    Header header = 1;
+    repeated Polygon2f polygonArray = 2;
+}
+
+message Path2f
+{
+    Header header = 1;
+    repeated Vector2f points = 2; 
+    bool isDashed = 3;
+    
+}
+
+message  Path2fArray {
+    Header header = 1;
+    repeated Path2f pathArray =2;
+}
+
+message Circle2f
+{
+    Header header = 1;
+    Vector2f center = 2;
+    float raduis = 3;
+    bool filled = 4;
+    
+}
+
+message Circle2fArray
+{
+    Header header = 1;
+    repeated Circle2f circleArray = 2;
+
+}
+
+message PointCloud2f
+{
+    Header header = 1;
+    repeated Vector2f points = 2;   
+}
+
+message Marker2f
+{
+    Header header = 1;
+    uint32 type = 2;
+    Path2f path = 3;
+    Polygon2f polygon = 4;
+    Circle2f cirlce = 5;
+    Pose2f pose = 6;
+    PointCloud2f point_cloud = 7;
+    string text  = 8;
+    uint32 colorType = 9;
+    float length = 10;
+    float thickness = 11;
+    float radius = 12;
+    
+}
+
+message Marker2fArray
+{
+    Header header = 1;
+    repeated Marker2f markerArray = 2;
+    
+}
+
+message Transform2fNode
+{
+    Vector2f trans = 1;
+    float angle = 2;
+    string frameId = 3;
+    string parentFrameId = 4;
+}
+message  MapDouble
+ {
+    map<string,double> data = 1;
+}
+
+message MapString 
+{
+    map<string, string> data = 1;
+}

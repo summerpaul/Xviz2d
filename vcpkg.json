@@ -16,34 +16,7 @@
     "glm",
     "cppzmq",
     "ffmpeg",
-    "rpclib",
-    "boost-smart-ptr",
-    "boost-date-time",
-    "boost-asio",
-    "boost-geometry",
-    "recast"
-  ],
-  "overrides": [
-    {
-      "name": "boost-smart-ptr",
-      "version": "1.80.0"
-    },
-    {
-      "name": "boost-date-time",
-      "version": "1.80.0"
-    },
-    {
-      "name": "boost-asio",
-      "version": "1.80.0"
-    },
-    {
-      "name": "boost-geometry",
-      "version": "1.80.0" 
-    },
-    {
-      "name": "recast",
-      "version": "1.5.1" 
-    }
+    "protobuf"
   ],
   "builtin-baseline": "cb1e4728779e35c4bb60c25114a59c93b3e9be9a"
 }
