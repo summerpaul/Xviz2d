@@ -1,34 +1,18 @@
 /**
  * @Author: Xia Yunkai
- * @Date:   2024-05-29 10:10:17
+ * @Date:   2024-06-22 14:34:13
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-01 21:29:22
+ * @Last Modified time: 2024-06-22 14:35:16
  */
 #include <stdint.h>
 
-#ifndef __SCENE_OBJECTS_H__
-#define __SCENE_OBJECTS_H__
+#ifndef __SCENE_DATA_TYPES_H__
+#define __SCENE_DATA_TYPES_H__
+#include "scene_object/scene_objects.h"
 #include "basis/thread_safe_map.h"
-
-#include "scene_object/scene_pose.h"
-#include "scene_object/scene_pose_array.h"
-#include "scene_object/scene_path.h"
-#include "scene_object/scene_path_array.h"
-#include "scene_object/scene_circle.h"
-#include "scene_object/scene_circle_array.h"
-#include "scene_object/scene_polygon.h"
-#include "scene_object/scene_polygon_array.h"
-#include "scene_object/scene_marker.h"
-#include "scene_object/scene_marker_array.h"
-#include "scene_object/scene_point_cloud.h"
-#include "scene_object/scene_transform_node.h"
-
 #include "rolling_buffer.h"
-
 namespace scene
 {
-
-
     typedef basis::ThreadSafeMap<std::string, SceneObject::Ptr> SceneObjectMap;
 
     typedef basis::ThreadSafeMap<std::string, ScenePose::Ptr> ScenePoseMap;
@@ -60,6 +44,6 @@ namespace scene
     typedef std::map<std::string, std::string> SceneStringMap;
 
     typedef basis::ThreadSafeMap<std::string, RollingBuffer> SceneRollingBufferMap;
+} // namespace scene
 
-}
-#endif /* __SCENE_OBJECTS_H__ */
+#endif /* __SCENE_DATA_TYPES_H__ */

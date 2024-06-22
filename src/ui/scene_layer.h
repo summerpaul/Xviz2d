@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 19:00:47
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-30 14:10:31
+ * @Last Modified time: 2024-06-22 14:41:04
  */
 
 #ifndef __SCENE_LAYER_H__
@@ -32,8 +32,8 @@ namespace ui
         void HandleMeasure(const ImGuiIO &io);
 
     protected:
-        std::shared_ptr<scene::SceneManager> m_scene;
-        UIContext::Ptr m_uiContext;
+        std::shared_ptr<scene::SceneManager> m_pScene;
+        UIContext::Ptr m_pUiContext;
     };
 }
 #endif /* __SCENE_LAYER_H__ */

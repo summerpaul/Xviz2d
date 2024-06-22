@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 19:02:11
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-30 15:20:59
+ * @Last Modified time: 2024-06-22 14:40:41
  */
 #include <stdint.h>
 
@@ -39,8 +39,8 @@ namespace ui
         void StyleEdit();
 
     protected:
-        UIContext::Ptr m_uiContext;
-        std::shared_ptr<scene::SceneManager> m_scene;
+        UIContext::Ptr m_pUiContext;
+        std::shared_ptr<scene::SceneManager> m_pScene;
     };
 }
 #endif /* __SCENE_EDIT_LAYER_H__ */

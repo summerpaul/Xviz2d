@@ -23,8 +23,8 @@ SceneLayer::SceneLayer(const std::string &name) : BaseLayer(name) {}
 
 bool SceneLayer::Init() {
 
-  m_scene = app::App::GetInstance()->GetSceneManager();
-  if (!m_scene) {
+  m_pScene = app::App::GetInstance()->GetSceneManager();
+  if (!m_pScene) {
     LOG_ERROR("SceneLayer is not initialized");
 
     return false;
@@ -37,16 +37,16 @@ bool SceneLayer::Init() {
 void SceneLayer::Draw() {
 
   ImGui::Begin(m_name.data());
-  auto view = m_scene->GetSceneView();
+  auto view = m_pScene->GetSceneView();
   view->SetPosition({ImGui::GetWindowPos().x, ImGui::GetWindowPos().y});
   view->SetSize({ImGui::GetWindowSize().x, ImGui::GetWindowSize().y});
   ImVec2 view_rect_min{view->GetViewRectMin().x, view->GetViewRectMin().y};
   ImVec2 view_rect_max{view->GetViewRectMax().x, view->GetViewRectMax().y};
-  auto options = m_scene->GetOptions();
+  auto options = m_pScene->GetOptions();
   ImDrawList *drawList = ImGui::GetWindowDrawList();
   drawList->AddRectFilled(view_rect_min, view_rect_max,
                           options->backgroundColor);
-  DrawScene(drawList, m_scene);
+  DrawScene(drawList, m_pScene);
   HandleMouse();
   ImGui::End();
 }
@@ -54,7 +54,7 @@ void SceneLayer::Draw() {
 void SceneLayer::Shutdown() {}
 
 void SceneLayer::SetUIContext(const UIContext::Ptr &ui_context) {
-  m_uiContext = ui_context;
+  m_pUiContext = ui_context;
 }
 
 void SceneLayer::HandleMouse() {
@@ -71,17 +71,17 @@ void SceneLayer::HandleMouse() {
 }
 
 void SceneLayer::HandleZoomScroll(const ImGuiIO &io) {
-  auto options = m_scene->GetOptions();
-  auto view = m_scene->GetSceneView();
+  auto options = m_pScene->GetOptions();
+  auto view = m_pScene->GetSceneView();
   Vec2f mousePosePixel{io.MousePos.x, io.MousePos.y};
   Vec2f mousePositionScene = view->ToLocal(mousePosePixel);
-  m_scene->SetMousePose(mousePositionScene);
-  m_scene->SetMousePoseToOriginDist(Length(mousePositionScene));
-  auto tf_tree = m_scene->GetTFTree();
-  const auto &draw_frame_id = m_scene->GetDrawFrameID();
+  m_pScene->SetMousePose(mousePositionScene);
+  m_pScene->SetMousePoseToOriginDist(Length(mousePositionScene));
+  auto tf_tree = m_pScene->GetTFTree();
+  const auto &draw_frame_id = m_pScene->GetDrawFrameID();
   if (tf_tree->CanTransform(draw_frame_id, WORLD_FRAME)) {
     auto tf = tf_tree->LookupTransform(draw_frame_id, WORLD_FRAME);
-    m_scene->SetMousePose(Mul(tf, mousePositionScene));
+    m_pScene->SetMousePose(Mul(tf, mousePositionScene));
   }
   const float zoomStep = options->zoomStep;
   const float minZoom = options->minZoom;
@@ -127,8 +127,8 @@ void SceneLayer::HandleMouseMenu() {
   }
 
   if (ImGui::BeginPopup("context")) {
-    auto options = m_scene->GetOptions();
-    auto view = m_scene->GetSceneView();
+    auto options = m_pScene->GetOptions();
+    auto view = m_pScene->GetSceneView();
     if (ImGui::MenuItem("Clear")) {
       // m_scene->Clear();
     }
@@ -153,12 +153,12 @@ void SceneLayer::HandleMouseMenu() {
     ImGui::Text("FrameId");
     ImGui::SameLine();
     ImGui::SetNextItemWidth(80);
-    if (ImGui::BeginCombo("##DrawFrameID", m_scene->GetDrawFrameID().data(),
+    if (ImGui::BeginCombo("##DrawFrameID", m_pScene->GetDrawFrameID().data(),
                           ImGuiComboFlags_NoArrowButton)) {
-      for (auto &frameId : m_scene->GetFrameIdList()) {
-        bool is_selected = frameId.second == m_scene->GetDrawFrameID();
+      for (auto &frameId : m_pScene->GetFrameIdList()) {
+        bool is_selected = frameId.second == m_pScene->GetDrawFrameID();
         if (ImGui::Selectable(frameId.second.data(), is_selected)) {
-          m_scene->SetDrawFrameId(frameId.second);
+          m_pScene->SetDrawFrameId(frameId.second);
         }
 
         if (is_selected) {
@@ -220,19 +220,19 @@ void SceneLayer::HandleMouseMenu() {
     ImGui::Text("Move To:");
     ImGui::SameLine();
     ImGui::SetNextItemWidth(80);
-    static std::string target_frame_id = m_scene->GetDrawFrameID();
+    static std::string target_frame_id = m_pScene->GetDrawFrameID();
     if (ImGui::BeginCombo("##MoveTo", target_frame_id.data(),
                           ImGuiComboFlags_NoArrowButton)) {
-      for (auto &frameId : m_scene->GetFrameIdList()) {
-        bool is_selected = frameId.second == m_scene->GetDrawFrameID();
+      for (auto &frameId : m_pScene->GetFrameIdList()) {
+        bool is_selected = frameId.second == m_pScene->GetDrawFrameID();
 
         if (ImGui::Selectable(frameId.second.data(), is_selected)) {
           target_frame_id = frameId.second;
-          auto tf_tree = m_scene->GetTFTree();
-          if (tf_tree->CanTransform(m_scene->GetDrawFrameID(),
+          auto tf_tree = m_pScene->GetTFTree();
+          if (tf_tree->CanTransform(m_pScene->GetDrawFrameID(),
                                     frameId.second)) {
             auto tf = tf_tree->LookupTransform(frameId.second,
-                                               m_scene->GetDrawFrameID());
+                                               m_pScene->GetDrawFrameID());
             const auto size = view->scale * view->size;
 
             view->SetOrigin(1.0f * tf.trans - 0.5 * size);
@@ -252,8 +252,8 @@ void SceneLayer::HandleMouseMenu() {
 }
 
 void SceneLayer::HandleMeasure(const ImGuiIO &io) {
-  auto options = m_scene->GetOptions();
-  auto view = m_scene->GetSceneView();
+  auto options = m_pScene->GetOptions();
+  auto view = m_pScene->GetSceneView();
   CHECK_RETURN(!options->drawMeasure);
   ImDrawList *drawList = ImGui::GetWindowDrawList();
   static bool lastLeftBtnDown = false;

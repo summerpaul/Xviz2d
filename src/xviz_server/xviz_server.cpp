@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-06-21 22:53:10
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-21 23:20:24
+ * @Last Modified time: 2024-06-22 16:13:38
  */
 #include "xviz_server.h"
 
@@ -11,17 +11,18 @@
 #include "app/app.h"
 #include "basis/defines.h"
 #include "basis/logger.h"
+#include "msg_convert/msg_convert.h"
 using namespace std;
 
 namespace xviz_server
 {
     XvizServer::XvizServer() : m_running(false)
     {
-        m_ctx = std::make_unique<zmq::context_t>();
+        m_pCtx = std::make_unique<zmq::context_t>();
 
-        m_sub = std::make_unique<zmq::socket_t>(*m_ctx, zmq::socket_type::sub);
+        m_pSub = std::make_unique<zmq::socket_t>(*m_pCtx, zmq::socket_type::sub);
 
-        m_pub = std::make_unique<zmq::socket_t>(*m_ctx, zmq::socket_type::pub);
+        m_pPub = std::make_unique<zmq::socket_t>(*m_pCtx, zmq::socket_type::pub);
     }
     XvizServer::~XvizServer() { Disconnect(); }
 
@@ -38,17 +39,11 @@ namespace xviz_server
             LOG_WARN("Communication is already running");
             return m_running;
         }
-        const std::string connectIP = "127.0.0.1";
-        const std::string sub_port = "8888";
 
-        const std::string pub_port = "8899";
-
-        m_subConnect = "tcp://" + connectIP + ":" + sub_port;
-        m_sub->connect(m_subConnect);
-        m_sub->set(zmq::sockopt::rcvtimeo, 100);
-        m_sub->set(zmq::sockopt::subscribe, "");
-        m_pubConnect = "tcp://" + connectIP + ":" + pub_port;
-        m_pub->connect(m_pubConnect);
+        m_pSub->connect(m_subConnect);
+        m_pSub->set(zmq::sockopt::rcvtimeo, 100);
+        m_pSub->set(zmq::sockopt::subscribe, "");
+        m_pPub->connect(m_pubConnect);
         m_receiveThread = std::thread(&XvizServer::ReceiveLoop, this);
         m_running = true;
         LOG_INFO("Connected");
@@ -68,15 +63,15 @@ namespace xviz_server
                 LOG_INFO("stop thread ");
             }
 
-            if (m_pub->handle() != nullptr)
+            if (m_pPub->handle() != nullptr)
             {
-                m_pub->disconnect(m_pubConnect.c_str());
+                m_pPub->disconnect(m_pubConnect.c_str());
                 LOG_INFO("disconnect %s", m_pubConnect.c_str());
             }
 
-            if (m_sub->handle() != nullptr)
+            if (m_pSub->handle() != nullptr)
             {
-                m_sub->disconnect(m_subConnect.c_str());
+                m_pSub->disconnect(m_subConnect.c_str());
                 LOG_INFO("disconnect %s", m_subConnect.c_str());
             }
         }
@@ -86,15 +81,44 @@ namespace xviz_server
     bool XvizServer::IsConnected() { return m_running; }
     void XvizServer::ReceiveLoop()
     {
+
         while (m_running)
         {
             zmq::multipart_t recv_msgs;
             zmq::recv_result_t result =
-                zmq::recv_multipart(*m_sub, std::back_inserter(recv_msgs));
+                zmq::recv_multipart(*m_pSub, std::back_inserter(recv_msgs));
             CHECK_CONTINUE((recv_msgs.size() > 2 && result.has_value()));
-            const std::string msgType = recv_msgs[0].to_string();
+            int msgType = std::stoi(recv_msgs[0].to_string());
             const std::string name = recv_msgs[1].to_string();
             const std::string data = recv_msgs[2].to_string();
+            switch (msgType)
+            {
+            case MSG_TYPE::PATH2F:
+                break;
+            case MSG_TYPE::PATH2F_ARRAY:
+                break;
+            case MSG_TYPE::POSE2F:
+                break;
+            case MSG_TYPE::POSE2F_ARRAY:
+                break;
+            case MSG_TYPE::POINT_CLOUD2F:
+                break;
+            case MSG_TYPE::POLYGON2F:
+                break;
+            case MSG_TYPE::POLYGON2F_ARRAY:
+                break;
+            case MSG_TYPE::CIRCLE2F:
+                break;
+            case MSG_TYPE::CIRCLE2F_ARRAY:
+                break;
+            case MSG_TYPE::DOUBLE_DATA:
+                break;
+            case MSG_TYPE::STRING_DATA:
+                break;
+
+            default:
+                break;
+            }
         }
     }
 

@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 19:02:44
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-30 15:13:51
+ * @Last Modified time: 2024-06-22 14:39:49
  */
 #include <stdint.h>
 
@@ -31,7 +31,7 @@ namespace ui
         void EndDraw();
         void AddLayer(const BaseLayer::Ptr &layer);
         static void DropCallback(GLFWwindow *window, int count, const char **paths);
-		void SetCurPlotTime(const double& t);
+        void SetCurPlotTime(const double &t);
 
     protected:
         void DrawMenuBar();
@@ -40,10 +40,10 @@ namespace ui
 
     protected:
         std::vector<BaseLayer::Ptr> m_layers;
-        std::shared_ptr<SceneLayer> m_sceneLayer;
-        std::shared_ptr<PlotLayer> m_plotLayer;
-        std::shared_ptr<SceneEditLayer> m_sceneEditLayer;
-        UIContext::Ptr m_uiContext;
+        std::shared_ptr<SceneLayer> m_pSceneLayer;
+        std::shared_ptr<PlotLayer> m_pPlotLayer;
+        std::shared_ptr<SceneEditLayer> m_pSceneEditLayer;
+        UIContext::Ptr m_pUiContext;
     };
 }
 #endif /* __MAIN_LAYER_H__ */

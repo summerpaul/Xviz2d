@@ -29,10 +29,10 @@ namespace scene
 
     bool SceneManager::Init()
     {
-        m_options = std::make_shared<SceneOptions>();
-        m_view = std::make_shared<SceneView>();
-        m_tfTree = std::make_shared<TFTree>();
-        m_tfTree->InsertTransform(WORLD_FRAME, ROOT_FRAME, Transform());
+        m_pOptions = std::make_shared<SceneOptions>();
+        m_pView = std::make_shared<SceneView>();
+        m_pTfTree = std::make_shared<TFTree>();
+        m_pTfTree->InsertTransform(WORLD_FRAME, ROOT_FRAME, Transform());
         m_frameIdList[WORLD_FRAME] = WORLD_FRAME;
         return true;
     }
@@ -240,7 +240,7 @@ namespace scene
         }
         m_allSceneObjects[SceneObjectType::TRANSFORM_NODE][name] = m_transformNodeList[name];
         Transform tf(tf_node->trans, tf_node->yaw);
-        m_tfTree->InsertTransform(name, tf_node->parentFrameId, tf);
+        m_pTfTree->InsertTransform(name, tf_node->parentFrameId, tf);
         m_frameIdList[name] = name;
     }
 

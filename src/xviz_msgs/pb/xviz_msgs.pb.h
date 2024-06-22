@@ -2975,6 +2975,7 @@ class MapDouble final :
 
   enum : int {
     kDataFieldNumber = 1,
+    kTFieldNumber = 2,
   };
   // map<string, double> data = 1;
   int data_size() const;
@@ -2993,6 +2994,15 @@ class MapDouble final :
   ::PROTOBUF_NAMESPACE_ID::Map< std::string, double >*
       mutable_data();
 
+  // double t = 2;
+  void clear_t();
+  double t() const;
+  void set_t(double value);
+  private:
+  double _internal_t() const;
+  void _internal_set_t(double value);
+  public:
+
   // @@protoc_insertion_point(class_scope:xviz_msgs.MapDouble)
  private:
   class _Internal;
@@ -3006,6 +3016,7 @@ class MapDouble final :
         std::string, double,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_STRING,
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_DOUBLE> data_;
+    double t_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -5888,6 +5899,26 @@ inline ::PROTOBUF_NAMESPACE_ID::Map< std::string, double >*
 MapDouble::mutable_data() {
   // @@protoc_insertion_point(field_mutable_map:xviz_msgs.MapDouble.data)
   return _internal_mutable_data();
+}
+
+// double t = 2;
+inline void MapDouble::clear_t() {
+  _impl_.t_ = 0;
+}
+inline double MapDouble::_internal_t() const {
+  return _impl_.t_;
+}
+inline double MapDouble::t() const {
+  // @@protoc_insertion_point(field_get:xviz_msgs.MapDouble.t)
+  return _internal_t();
+}
+inline void MapDouble::_internal_set_t(double value) {
+  
+  _impl_.t_ = value;
+}
+inline void MapDouble::set_t(double value) {
+  _internal_set_t(value);
+  // @@protoc_insertion_point(field_set:xviz_msgs.MapDouble.t)
 }
 
 // -------------------------------------------------------------------

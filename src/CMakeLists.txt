@@ -13,6 +13,7 @@ set(XVIZ_ALL_DIRS
     "video"
     "xviz_server"
     "xviz_msgs/pb"
+    "msg_convert"
 )
 
 foreach(dir ${XVIZ_ALL_DIRS})

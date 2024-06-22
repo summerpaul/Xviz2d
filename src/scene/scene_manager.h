@@ -2,14 +2,14 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 09:48:29
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-31 16:28:15
+ * @Last Modified time: 2024-06-22 14:38:18
  */
 #include <stdint.h>
 
 #ifndef __SCENE_MANAGER_H__
 #define __SCENE_MANAGER_H__
 
-#include "scene_objects.h"
+#include "scene_data_types.h"
 #include "basis/transform.h"
 #include "basis/xviz_util.h"
 #include "rolling_buffer.h"
@@ -62,9 +62,9 @@ namespace scene
         float GetMousePoseToOriginDist() const { return m_mousePoseToOrigin; }
         void SetMousePoseToOriginDist(float dist) { m_mousePoseToOrigin = dist; }
 
-        const std::shared_ptr<SceneOptions> GetOptions() const { return m_options; }
-        const std::shared_ptr<SceneView> GetSceneView() const { return m_view; }
-        const std::shared_ptr<TFTree> GetTFTree() const { return m_tfTree; }
+        const std::shared_ptr<SceneOptions> GetOptions() const { return m_pOptions; }
+        const std::shared_ptr<SceneView> GetSceneView() const { return m_pView; }
+        const std::shared_ptr<TFTree> GetTFTree() const { return m_pTfTree; }
         const std::string &GetDrawFrameID() const { return m_drawFrameId; }
         void SetDrawFrameId(const std::string &frame_id) { m_drawFrameId = frame_id; }
         SceneRollingBufferMap &GetDoubleDataList() { return m_doubleDataList; }
@@ -72,9 +72,9 @@ namespace scene
         const SceneStringMap &GetFrameIdList() const { return m_frameIdList; }
 
     private:
-        std::shared_ptr<SceneOptions> m_options;
-        std::shared_ptr<SceneView> m_view;
-        std::shared_ptr<TFTree> m_tfTree;
+        std::shared_ptr<SceneOptions> m_pOptions;
+        std::shared_ptr<SceneView> m_pView;
+        std::shared_ptr<TFTree> m_pTfTree;
 
         ScenePoseMap m_poseList;
         ScenePathMap m_pathList;

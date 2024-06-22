@@ -249,6 +249,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 PROTOBUF_CONSTEXPR MapDouble::MapDouble(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.data_)*/{::_pbi::ConstantInitialized()}
+  , /*decltype(_impl_.t_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct MapDoubleDefaultTypeInternal {
   PROTOBUF_CONSTEXPR MapDoubleDefaultTypeInternal()
@@ -436,6 +437,7 @@ const uint32_t TableStruct_xviz_5fmsgs_2eproto::offsets[] PROTOBUF_SECTION_VARIA
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::xviz_msgs::MapDouble, _impl_.data_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::MapDouble, _impl_.t_),
   PROTOBUF_FIELD_OFFSET(::xviz_msgs::MapString_DataEntry_DoNotUse, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::xviz_msgs::MapString_DataEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -471,8 +473,8 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 120, -1, -1, sizeof(::xviz_msgs::Transform2fNode)},
   { 130, 138, -1, sizeof(::xviz_msgs::MapDouble_DataEntry_DoNotUse)},
   { 140, -1, -1, sizeof(::xviz_msgs::MapDouble)},
-  { 147, 155, -1, sizeof(::xviz_msgs::MapString_DataEntry_DoNotUse)},
-  { 157, -1, -1, sizeof(::xviz_msgs::MapString)},
+  { 148, 156, -1, sizeof(::xviz_msgs::MapString_DataEntry_DoNotUse)},
+  { 158, -1, -1, sizeof(::xviz_msgs::MapString)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -535,16 +537,16 @@ const char descriptor_table_protodef_xviz_5fmsgs_2eproto[] PROTOBUF_SECTION_VARI
   "_msgs.Marker2f\"l\n\017Transform2fNode\022\"\n\005tra"
   "ns\030\001 \001(\0132\023.xviz_msgs.Vector2f\022\r\n\005angle\030\002"
   " \001(\002\022\017\n\007frameId\030\003 \001(\t\022\025\n\rparentFrameId\030\004"
-  " \001(\t\"f\n\tMapDouble\022,\n\004data\030\001 \003(\0132\036.xviz_m"
-  "sgs.MapDouble.DataEntry\032+\n\tDataEntry\022\013\n\003"
-  "key\030\001 \001(\t\022\r\n\005value\030\002 \001(\001:\0028\001\"f\n\tMapStrin"
-  "g\022,\n\004data\030\001 \003(\0132\036.xviz_msgs.MapString.Da"
-  "taEntry\032+\n\tDataEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005val"
-  "ue\030\002 \001(\t:\0028\001b\006proto3"
+  " \001(\t\"q\n\tMapDouble\022,\n\004data\030\001 \003(\0132\036.xviz_m"
+  "sgs.MapDouble.DataEntry\022\t\n\001t\030\002 \001(\001\032+\n\tDa"
+  "taEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\001:\0028\001\""
+  "f\n\tMapString\022,\n\004data\030\001 \003(\0132\036.xviz_msgs.M"
+  "apString.DataEntry\032+\n\tDataEntry\022\013\n\003key\030\001"
+  " \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001b\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_xviz_5fmsgs_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_xviz_5fmsgs_2eproto = {
-    false, false, 1740, descriptor_table_protodef_xviz_5fmsgs_2eproto,
+    false, false, 1751, descriptor_table_protodef_xviz_5fmsgs_2eproto,
     "xviz_msgs.proto",
     &descriptor_table_xviz_5fmsgs_2eproto_once, nullptr, 0, 18,
     schemas, file_default_instances, TableStruct_xviz_5fmsgs_2eproto::offsets,
@@ -4546,10 +4548,12 @@ MapDouble::MapDouble(const MapDouble& from)
   MapDouble* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       /*decltype(_impl_.data_)*/{}
+    , decltype(_impl_.t_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   _this->_impl_.data_.MergeFrom(from._impl_.data_);
+  _this->_impl_.t_ = from._impl_.t_;
   // @@protoc_insertion_point(copy_constructor:xviz_msgs.MapDouble)
 }
 
@@ -4559,6 +4563,7 @@ inline void MapDouble::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       /*decltype(_impl_.data_)*/{::_pbi::ArenaInitialized(), arena}
+    , decltype(_impl_.t_){0}
     , /*decltype(_impl_._cached_size_)*/{}
   };
 }
@@ -4594,6 +4599,7 @@ void MapDouble::Clear() {
   (void) cached_has_bits;
 
   _impl_.data_.Clear();
+  _impl_.t_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -4613,6 +4619,14 @@ const char* MapDouble::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // double t = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 17)) {
+          _impl_.t_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
         } else
           goto handle_unusual;
         continue;
@@ -4671,6 +4685,16 @@ uint8_t* MapDouble::_InternalSerialize(
     }
   }
 
+  // double t = 2;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_t = this->_internal_t();
+  uint64_t raw_t;
+  memcpy(&raw_t, &tmp_t, sizeof(tmp_t));
+  if (raw_t != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(2, this->_internal_t(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -4696,6 +4720,15 @@ size_t MapDouble::ByteSizeLong() const {
     total_size += MapDouble_DataEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
   }
 
+  // double t = 2;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_t = this->_internal_t();
+  uint64_t raw_t;
+  memcpy(&raw_t, &tmp_t, sizeof(tmp_t));
+  if (raw_t != 0) {
+    total_size += 1 + 8;
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -4715,6 +4748,13 @@ void MapDouble::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROT
   (void) cached_has_bits;
 
   _this->_impl_.data_.MergeFrom(from._impl_.data_);
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_t = from._internal_t();
+  uint64_t raw_t;
+  memcpy(&raw_t, &tmp_t, sizeof(tmp_t));
+  if (raw_t != 0) {
+    _this->_internal_set_t(from._internal_t());
+  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -4733,6 +4773,7 @@ void MapDouble::InternalSwap(MapDouble* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   _impl_.data_.InternalSwap(&other->_impl_.data_);
+  swap(_impl_.t_, other->_impl_.t_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata MapDouble::GetMetadata() const {

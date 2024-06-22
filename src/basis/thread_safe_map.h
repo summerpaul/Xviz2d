@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-28 18:54:14
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-03 09:58:27
+ * @Last Modified time: 2024-06-22 15:48:16
  */
 
 #ifndef __THREAD_SAFE_MAP_H__
@@ -22,7 +22,7 @@ namespace basis
         ThreadSafeMap() = default;
 
         virtual ~ThreadSafeMap() = default;
-    
+
         ThreadSafeMap(const ThreadSafeMap &other)
         {
             std::lock_guard<std::mutex> lock(m_mutex);
@@ -117,7 +117,26 @@ namespace basis
             return exists;
         }
 
-        void GatherAll(std::vector<Value> &values) const
+        void GatherKeyAll(std::vector<Key> &keys) const
+        {
+            std::lock_guard<std::mutex> lock(m_mutex);
+
+            if (m_map.size() > 0)
+            {
+                keys.resize(m_map.size());
+                auto kiter = keys.begin();
+                for (auto const &m : m_map)
+                {
+                    *kiter++ = m.first;
+                }
+            }
+            else
+            {
+                keys.clear();
+            }
+        }
+
+        void GatherValueAll(std::vector<Value> &values) const
         {
             std::lock_guard<std::mutex> lock(m_mutex);
 

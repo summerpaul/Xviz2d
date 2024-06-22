@@ -25,13 +25,13 @@ namespace app
 
     bool App::Init(const std::string &title, uint32_t width, uint32_t height)
     {
-        m_window = std::make_unique<window::Window>();
-        CHECK_RETURN_RET(!m_window->Init(width, height, title), false);
-        m_sceneManager = std::make_shared<scene::SceneManager>();
-        CHECK_RETURN_RET(!m_sceneManager->Init(), false);
-        m_mainUI = std::make_unique<ui::MainLayer>("MainLayer");
-        CHECK_RETURN_RET(!m_mainUI->Init(), false);
-        CHECK_RETURN_RET(!m_mainUI->InitHandle(m_window->GetHandle()), false);
+        m_pWindow = std::make_unique<window::Window>();
+        CHECK_RETURN_RET(!m_pWindow->Init(width, height, title), false);
+        m_pSceneManager = std::make_shared<scene::SceneManager>();
+        CHECK_RETURN_RET(!m_pSceneManager->Init(), false);
+        m_pMainUI = std::make_unique<ui::MainLayer>("MainLayer");
+        CHECK_RETURN_RET(!m_pMainUI->Init(), false);
+        CHECK_RETURN_RET(!m_pMainUI->InitHandle(m_pWindow->GetHandle()), false);
         LOG_INFO("APP init succeeded");
         return true;
     }
@@ -39,36 +39,36 @@ namespace app
     void App::Run()
     {
         // 设置窗口回调函数
-        m_window->SetDropCallback(ui::MainLayer::DropCallback);
-        while (!m_window->ShouldClose())
+        m_pWindow->SetDropCallback(ui::MainLayer::DropCallback);
+        while (!m_pWindow->ShouldClose())
         {
-            m_window->PrewDraw();
-            m_mainUI->BeginDraw();
-            m_mainUI->Draw();
-            m_mainUI->EndDraw();
-            m_window->PostDraw();
+            m_pWindow->PrewDraw();
+            m_pMainUI->BeginDraw();
+            m_pMainUI->Draw();
+            m_pMainUI->EndDraw();
+            m_pWindow->PostDraw();
         }
     }
 
     void App::AddLayer(const std::shared_ptr<ui::BaseLayer> &layer)
     {
-        m_mainUI->AddLayer(layer);
+        m_pMainUI->AddLayer(layer);
     }
 
     void App::SetDropFiles(int count, const char **paths)
     {
-        m_mainUI->FilesDropCallback(count, paths);
+        m_pMainUI->FilesDropCallback(count, paths);
     }
 
 	void App::SetCurPlotTime(const double& t)
 	{
-		m_mainUI->SetCurPlotTime(t);
+		m_pMainUI->SetCurPlotTime(t);
 	}
 
     void App::Shutdown()
     {
-        m_mainUI->Shutdown();
-        m_window->DestroyWindow();
+        m_pMainUI->Shutdown();
+        m_pWindow->DestroyWindow();
         LOG_INFO("Shutting down");
         m_isShutDown = true;
     }

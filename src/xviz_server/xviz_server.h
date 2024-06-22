@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-06-21 22:53:05
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-21 23:20:27
+ * @Last Modified time: 2024-06-22 16:11:37
  */
 #include <stdint.h>
 
@@ -32,12 +32,12 @@ namespace xviz_server
         void ReceiveLoop();
 
     private:
-        std::unique_ptr<zmq::context_t> m_ctx;
-        std::unique_ptr<zmq::socket_t> m_sub;
-        std::unique_ptr<zmq::socket_t> m_pub;
+        std::unique_ptr<zmq::context_t> m_pCtx;
+        std::unique_ptr<zmq::socket_t> m_pSub;
+        std::unique_ptr<zmq::socket_t> m_pPub;
         std::thread m_receiveThread;
-        std::string m_subConnect;
-        std::string m_pubConnect;
+        const std::string m_subConnect = "tcp://127.0.0.1:8888";
+        const std::string m_pubConnect = "tcp://127.0.0.1:8899";
         std::mutex m_mtx;
         bool m_running;
         std::shared_ptr<scene::SceneManager> m_pScene;

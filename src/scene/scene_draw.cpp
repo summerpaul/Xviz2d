@@ -663,7 +663,7 @@ namespace scene
     CHECK_RETURN(all_objects_list->find(draw_type) == all_objects_list->end());
     auto draw_object_list = all_objects_list->at(draw_type);
     std::vector<SceneObject::Ptr> draw_objects;
-    draw_object_list.GatherAll(draw_objects);
+    draw_object_list.GatherValueAll(draw_objects);
     CHECK_RETURN(draw_object_list.empty());
     for (auto &draw_object : draw_objects)
     {

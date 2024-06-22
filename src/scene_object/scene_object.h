@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-28 20:20:22
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-14 20:33:30
+ * @Last Modified time: 2024-06-22 15:56:17
  */
 #include <stdint.h>
 
@@ -26,6 +26,8 @@ namespace scene
         virtual void Clear() {}
 
         SceneObjectOptions &GetOptions() { return m_options; }
+
+        int GetDataType() const { return m_object->data_type; }
 
         void SetOptions(const SceneObjectOptions &options) { m_options = options; }
 

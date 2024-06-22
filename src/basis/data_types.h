@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-27 19:24:29
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-21 23:21:06
+ * @Last Modified time: 2024-06-22 15:55:30
  */
 
 #ifndef __DATA_TYPES_H__
@@ -14,20 +14,24 @@
 namespace basis
 {
 
-    const std::string MSG_PATH2F = "MSG_PATH2F";
-    const std::string MSG_PATH2F_ARRAY = "MSG_PATH2F_ARRAY";
-    const std::string MSG_POSE2F = "MSG_POSE2F";
-    const std::string MSG_POSE2F_ARRAY = "MSG_POSE2F_ARRAY";
-    const std::string MSG_POINT_CLOUD2F = "MSG_POINT_CLOUD2F";
-    const std::string MSG_POLYGON2F = "MSG_POLYGON2F";
-    const std::string MSG_POLYGON2F_ARRAY = "MSG_POLYGON2F_ARRAY";
-    const std::string MSG_CIRCLE2F = "MSG_CIRCLE2F";
-    const std::string MSG_CIRCLE2F_ARRAY = "MSG_CIRCLE2F_ARRAY";
-    const std::string MSG_MARKER2F = "MSG_MARKER2F";
-    const std::string MSG_MARKER2F_ARRAY = "MSG_MARKER2F_ARRAY";
-    const std::string MSG_STRING_DATA = "MSG_STRING_DATA";
-    const std::string MSG_DOUBLE_DATA = "MSG_DOUBLE_DATA";
-    const std::string MSG_TRANSFORM2F_NODE = "MSG_TRANSFORM2F_NODE";
+    enum MSG_TYPE
+    {
+        PATH2F = 0,
+        PATH2F_ARRAY,
+        POSE2F,
+        POSE2F_ARRAY,
+        POINT_CLOUD2F,
+        POLYGON2F,
+        POLYGON2F_ARRAY,
+        CIRCLE2F,
+        CIRCLE2F_ARRAY,
+        MARKER2F,
+        MARKER2F_ARRAY,
+        STRING_DATA,
+        DOUBLE_DATA,
+        TRANSFORM2F_NODE,
+        UNKOWN
+    };
 
     const std::string ROOT_FRAME = "root";
     const std::string WORLD_FRAME = "world";
@@ -75,6 +79,7 @@ namespace basis
         bool useSelfColor = false;
         bool isSelfShowInfo = false;
         unsigned int color = 0;
+        int data_type = MSG_TYPE::UNKOWN;
     };
 
     using Points = std::vector<Vec2f>;
@@ -82,7 +87,10 @@ namespace basis
     struct Path : public BaseObject
     {
         typedef std::shared_ptr<Path> Ptr;
-        Path() {}
+        Path()
+        {
+            data_type = MSG_TYPE::PATH2F;
+        }
         Points points;
         bool isDashed = false;
         float thicknessScale = 1.0f;
@@ -93,14 +101,20 @@ namespace basis
     struct PathArray : public BaseObject
     {
         typedef std::shared_ptr<PathArray> Ptr;
-        PathArray() {}
+        PathArray()
+        {
+            data_type = MSG_TYPE::PATH2F_ARRAY;
+        }
         std::vector<Path> paths;
     };
 
     struct Polygon : public BaseObject
     {
         typedef std::shared_ptr<Polygon> Ptr;
-        Polygon() {}
+        Polygon()
+        {
+            data_type = MSG_TYPE::POLYGON2F;
+        }
         Points points;
         bool filled = false;
     };
@@ -108,14 +122,20 @@ namespace basis
     struct PolygonArray : public BaseObject
     {
         typedef std::shared_ptr<PolygonArray> Ptr;
-        PolygonArray() {}
+        PolygonArray()
+        {
+            data_type = MSG_TYPE::POLYGON2F_ARRAY;
+        }
         std::vector<Polygon> polygons;
     };
 
     struct Circle : public BaseObject
     {
         typedef std::shared_ptr<Circle> Ptr;
-        Circle() {}
+        Circle()
+        {
+            data_type = MSG_TYPE::CIRCLE2F;
+        }
         Vec2f center;
         float radius;
     };
@@ -123,28 +143,44 @@ namespace basis
     struct CircleArray : public BaseObject
     {
         typedef std::shared_ptr<CircleArray> Ptr;
-        CircleArray() {}
+        CircleArray()
+        {
+            data_type = MSG_TYPE::CIRCLE2F_ARRAY;
+        }
         std::vector<Circle> circles;
     };
 
     struct PointCloud : public BaseObject
     {
         typedef std::shared_ptr<PointCloud> Ptr;
-        PointCloud() {}
+        PointCloud()
+        {
+            data_type = MSG_TYPE::POINT_CLOUD2F;
+        }
         Points points;
     };
 
     struct Pose : public BaseObject
     {
         typedef std::shared_ptr<Pose> Ptr;
-        Pose() {}
+        Pose()
+        {
+            data_type = MSG_TYPE::POSE2F;
+        }
+        Pose(float x, float y, float yaw) : pos(x, y), yaw(yaw)
+        {
+            data_type = MSG_TYPE::POSE2F;
+        }
         Vec2f pos;
         float yaw = 0;
     };
     struct PoseArray : public BaseObject
     {
         typedef std::shared_ptr<PoseArray> Ptr;
-        PoseArray() {}
+        PoseArray()
+        {
+            data_type = MSG_TYPE::POSE2F_ARRAY;
+        }
         std::vector<Pose> poses;
     };
 
@@ -155,7 +191,10 @@ namespace basis
             : trans(Vec2f(0.0f, 0.0f)),
               yaw(0.0f),
               frameId(WORLD_FRAME),
-              parentFrameId(ROOT_FRAME) {}
+              parentFrameId(ROOT_FRAME)
+        {
+            data_type = MSG_TYPE::TRANSFORM2F_NODE;
+        }
 
         Vec2f trans;
         float yaw;
@@ -193,7 +232,10 @@ namespace basis
     struct Marker : public BaseObject
     {
         typedef std::shared_ptr<Marker> Ptr;
-        Marker() {}
+        Marker()
+        {
+            data_type = MSG_TYPE::MARKER2F;
+        }
         int type = 0;
         COLOR_TYPE color = COLOR_TYPE::BLACK;
         Path path;
@@ -209,7 +251,10 @@ namespace basis
     struct MarkerArray : public BaseObject
     {
         typedef std::shared_ptr<MarkerArray> Ptr;
-        MarkerArray() {}
+        MarkerArray()
+        {
+            data_type = MSG_TYPE::MARKER2F_ARRAY;
+        }
         std::vector<Marker> markers;
     };
 

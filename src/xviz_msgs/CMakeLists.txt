@@ -8,7 +8,7 @@ set(PB_DIR ${CMAKE_CURRENT_SOURCE_DIR}/pb)
 file(GLOB PROTO_FILES ${PROTO_PATH}/*.proto )
 
 if(UNIX)
-    set(PROTOC ../3rdParty/tools/arm64-osx/protoc)
+    set(PROTOC  ${CMAKE_BINARY_DIR}/vcpkg_installed/arm64-osx/tools/protobuf/protoc)
 elseif(WIN32)
     set(PROTOC  ${CMAKE_BINARY_DIR}/vcpkg_installed/x64-windows/tools/protobuf/protoc.exe)
 endif()

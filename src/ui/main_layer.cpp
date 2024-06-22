@@ -29,16 +29,16 @@ namespace ui
     }
     bool MainLayer::Init()
     {
-        m_uiContext = std::make_shared<UIContext>();
-        m_sceneLayer = std::make_shared<SceneLayer>("SceneLayer");
-        CHECK_RETURN_RET(!m_sceneLayer->Init(), false);
-        AddLayer(m_sceneLayer);
-        m_plotLayer = std::make_shared<PlotLayer>("PlotLayer");
-        CHECK_RETURN_RET(!m_plotLayer->Init(), false);
-        AddLayer(m_plotLayer);
-        m_sceneEditLayer = std::make_shared<SceneEditLayer>("SceneEditLayer");
-        CHECK_RETURN_RET(!m_sceneEditLayer->Init(), false);
-        AddLayer(m_sceneEditLayer);
+        m_pUiContext = std::make_shared<UIContext>();
+        m_pSceneLayer = std::make_shared<SceneLayer>("SceneLayer");
+        CHECK_RETURN_RET(!m_pSceneLayer->Init(), false);
+        AddLayer(m_pSceneLayer);
+        m_pPlotLayer = std::make_shared<PlotLayer>("PlotLayer");
+        CHECK_RETURN_RET(!m_pPlotLayer->Init(), false);
+        AddLayer(m_pPlotLayer);
+        m_pSceneEditLayer = std::make_shared<SceneEditLayer>("SceneEditLayer");
+        CHECK_RETURN_RET(!m_pSceneEditLayer->Init(), false);
+        AddLayer(m_pSceneEditLayer);
         LOG_INFO("Main Layer Init");
         return true;
     }
@@ -194,7 +194,7 @@ namespace ui
     {
         CHECK_RETURN(layer == nullptr);
         m_layers.push_back(layer);
-        layer->SetUIContext(m_uiContext);
+        layer->SetUIContext(m_pUiContext);
     }
 
     void MainLayer::Shutdown()
@@ -216,7 +216,7 @@ namespace ui
 
 	void MainLayer::SetCurPlotTime(const double& t)
 	{
-		m_plotLayer->SetCurPlotTime(t);
+		m_pPlotLayer->SetCurPlotTime(t);
 	
 	}
 

@@ -47,8 +47,8 @@ namespace ui
     }
     bool PlotLayer::Init()
     {
-        m_scene = app::App::GetInstance()->GetSceneManager();
-        CHECK_RETURN_RET(!m_scene, false);
+        m_pScene = app::App::GetInstance()->GetSceneManager();
+        CHECK_RETURN_RET(!m_pScene, false);
         ImPlot::CreateContext();
         ImPlot::StyleColorsLight();
         LOG_INFO("SceneManager  initialized");
@@ -64,7 +64,7 @@ namespace ui
 
     void PlotLayer::SetUIContext(const UIContext::Ptr &ui_context)
     {
-        m_uiContext = ui_context;
+        m_pUiContext = ui_context;
     }
 
     void PlotLayer::DrawTable()
@@ -75,10 +75,10 @@ namespace ui
             ImGuiTableFlags_RowBg | ImGuiTableFlags_Resizable |
             ImGuiTableFlags_BordersInner | ImGuiTableFlags_BordersOuter;
 
-        auto &draw_datas = m_scene->GetDoubleDataList();
-        const auto &isShowDragX1 = m_uiContext->isShowDragX1;
-        const auto &isShowDragX2 = m_uiContext->isShowDragX2;
-        const auto &string_datas = m_scene->GetStringDataList();
+        auto &draw_datas = m_pScene->GetDoubleDataList();
+        const auto &isShowDragX1 = m_pUiContext->isShowDragX1;
+        const auto &isShowDragX2 = m_pUiContext->isShowDragX2;
+        const auto &string_datas = m_pScene->GetStringDataList();
         int col_num = 2;
         if (isShowDragX1)
         {
@@ -150,10 +150,10 @@ namespace ui
 
     void PlotLayer::DrawSelectedData(const char *title, const RollingBuffer &data)
     {
-        const auto &isShowDragX1 = m_uiContext->isShowDragX1;
-        const auto &isShowDragX2 = m_uiContext->isShowDragX2;
-        const auto &idx1 = m_uiContext->idx1;
-        const auto &idx2 = m_uiContext->idx2;
+        const auto &isShowDragX1 = m_pUiContext->isShowDragX1;
+        const auto &isShowDragX2 = m_pUiContext->isShowDragX2;
+        const auto &idx1 = m_pUiContext->idx1;
+        const auto &idx2 = m_pUiContext->idx2;
         CHECK_RETURN(data.xs.empty() || data.ys.empty() || data.xs.size() != data.ys.size());
         CHECK_RETURN(!data.isPlt);
         CHECK_RETURN(idx1 >= data.xs.size() || idx2 >= data.xs.size());
@@ -194,10 +194,10 @@ namespace ui
     void PlotLayer::DrawUnselectedData(const std::string &title, const RollingBuffer &data)
     {
 
-        const auto &isShowDragX1 = m_uiContext->isShowDragX1;
-        const auto &isShowDragX2 = m_uiContext->isShowDragX2;
-        const auto &idx1 = m_uiContext->idx1;
-        const auto &idx2 = m_uiContext->idx2;
+        const auto &isShowDragX1 = m_pUiContext->isShowDragX1;
+        const auto &isShowDragX2 = m_pUiContext->isShowDragX2;
+        const auto &idx1 = m_pUiContext->idx1;
+        const auto &idx2 = m_pUiContext->idx2;
         CHECK_RETURN(data.xs.empty() || data.ys.empty() || data.xs.size() != data.ys.size());
         CHECK_RETURN(data.isPlt);
         int col_index = 0;
@@ -244,25 +244,25 @@ namespace ui
 
     void PlotLayer::DrawCharts(const char *title)
     {
-        const int &rows = m_uiContext->rows;
-        const int &cols = m_uiContext->cols;
-        auto &rratios = m_uiContext->rratios;
-        auto &cratios = m_uiContext->cratios;
-        auto &lims = m_uiContext->lims;
-        auto dragX1Color = &m_uiContext->dragX1Color.x;
-        auto dragX2Color = &m_uiContext->dragX2Color.x;
-        auto dragX1 = &m_uiContext->dragX1;
-        auto dragX2 = &m_uiContext->dragX2;
-        auto isShowDragX1 = &m_uiContext->isShowDragX1;
-        auto isShowDragX2 = &m_uiContext->isShowDragX2;
+        const int &rows = m_pUiContext->rows;
+        const int &cols = m_pUiContext->cols;
+        auto &rratios = m_pUiContext->rratios;
+        auto &cratios = m_pUiContext->cratios;
+        auto &lims = m_pUiContext->lims;
+        auto dragX1Color = &m_pUiContext->dragX1Color.x;
+        auto dragX2Color = &m_pUiContext->dragX2Color.x;
+        auto dragX1 = &m_pUiContext->dragX1;
+        auto dragX2 = &m_pUiContext->dragX2;
+        auto isShowDragX1 = &m_pUiContext->isShowDragX1;
+        auto isShowDragX2 = &m_pUiContext->isShowDragX2;
         static ImPlotSubplotFlags flags = ImPlotSubplotFlags_NoTitle;
-        auto &draw_datas = m_scene->GetDoubleDataList();
+        auto &draw_datas = m_pScene->GetDoubleDataList();
         ImGui::BeginChild("DND_RIGHT", ImVec2(-1, -1));
 
         DrawDragBar("X1", lims.X.Min, lims.X.Max, dragX1, dragX1Color, isShowDragX1);
 		if (m_setCurPlotTime)
 		{
-			*dragX1 = m_uiContext->curPlotTime;
+			*dragX1 = m_pUiContext->curPlotTime;
 		}
 
         ImGui::SameLine();
@@ -276,7 +276,7 @@ namespace ui
 
         DrawDragBar("X2", lims.X.Min, lims.X.Max, dragX2, dragX2Color, isShowDragX2);
         ImGui::SameLine();
-        ImGui::Checkbox("AutoFit", &m_uiContext->autoFit);
+        ImGui::Checkbox("AutoFit", &m_pUiContext->autoFit);
         if (ImPlot::BeginSubplots("DataPlot", rows, cols, ImVec2(-1, -1), flags, rratios, cratios))
         {
             for (int i = 0; i < rows * cols; ++i)
@@ -294,21 +294,21 @@ namespace ui
     void PlotLayer::DrawSingleChart(const char *title)
     {
         static ImPlotFlags flags = ImPlotSubplotFlags_NoTitle | ImPlotFlags_Crosshairs;
-        auto &lims = m_uiContext->lims;
-        const bool &linkx = m_uiContext->linkx;
-        auto &drag_value1 = m_uiContext->dragX1;
-        auto &drag_value2 = m_uiContext->dragX2;
-        auto &drag_color1 = m_uiContext->dragX1Color;
-        auto &drag_color2 = m_uiContext->dragX2Color;
-        auto &plotDataList = m_scene->GetDoubleDataList();
-        auto &drag_x1 = m_uiContext->dragX1;
-        auto &drag_x2 = m_uiContext->dragX2;
-        auto &last_drag_x1 = m_uiContext->lastDragX1;
-        auto &last_drag_x2 = m_uiContext->lastDragX2;
-        auto &idx1 = m_uiContext->idx1;
-        auto &idx2 = m_uiContext->idx2;
-        const bool isShowDragX1 = m_uiContext->isShowDragX1;
-        const bool isShowDragX2 = m_uiContext->isShowDragX2;
+        auto &lims = m_pUiContext->lims;
+        const bool &linkx = m_pUiContext->linkx;
+        auto &drag_value1 = m_pUiContext->dragX1;
+        auto &drag_value2 = m_pUiContext->dragX2;
+        auto &drag_color1 = m_pUiContext->dragX1Color;
+        auto &drag_color2 = m_pUiContext->dragX2Color;
+        auto &plotDataList = m_pScene->GetDoubleDataList();
+        auto &drag_x1 = m_pUiContext->dragX1;
+        auto &drag_x2 = m_pUiContext->dragX2;
+        auto &last_drag_x1 = m_pUiContext->lastDragX1;
+        auto &last_drag_x2 = m_pUiContext->lastDragX2;
+        auto &idx1 = m_pUiContext->idx1;
+        auto &idx2 = m_pUiContext->idx2;
+        const bool isShowDragX1 = m_pUiContext->isShowDragX1;
+        const bool isShowDragX2 = m_pUiContext->isShowDragX2;
 
         if (ImPlot::BeginPlot(title, ImVec2(), flags))
         {
@@ -431,10 +431,10 @@ namespace ui
     }
     void PlotLayer::DrawTooltips()
     {
-        const auto &dragX1 = m_uiContext->dragX1;
-        const auto &dragX2 = m_uiContext->dragX2;
-        const auto &isShowDragX1 = m_uiContext->isShowDragX1;
-        const auto &isShowDragX2 = m_uiContext->isShowDragX2;
+        const auto &dragX1 = m_pUiContext->dragX1;
+        const auto &dragX2 = m_pUiContext->dragX2;
+        const auto &isShowDragX1 = m_pUiContext->isShowDragX1;
+        const auto &isShowDragX2 = m_pUiContext->isShowDragX2;
         CHECK_RETURN(!isShowDragX1 || !isShowDragX2);
         if (ImGui::BeginTooltip())
         {
@@ -447,7 +447,7 @@ namespace ui
     void PlotLayer::SetUpPlotAxis()
     {
         ImPlotAxisFlags flag = ImPlotAxisFlags_None;
-        if (m_uiContext->autoFit)
+        if (m_pUiContext->autoFit)
         {
             flag = ImPlotAxisFlags_AutoFit;
         }
@@ -472,7 +472,7 @@ namespace ui
     }
     void PlotLayer::SetPlotDragDropTarget(const char *title)
     {
-        auto &plotDataList = m_scene->GetDoubleDataList();
+        auto &plotDataList = m_pScene->GetDoubleDataList();
         if (ImPlot::BeginDragDropTargetPlot())
         {
             const ImGuiPayload *payload = ImGui::AcceptDragDropPayload("MY_DND");
@@ -539,7 +539,7 @@ namespace ui
 
 	void PlotLayer::SetCurPlotTime(const double& t)
 	{
-		m_uiContext->curPlotTime = t;
+		m_pUiContext->curPlotTime = t;
 		if (!m_setCurPlotTime)
 		{
 			m_setCurPlotTime = true;

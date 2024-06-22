@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 19:02:30
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-30 14:08:49
+ * @Last Modified time: 2024-06-22 14:40:16
  */
 #include <stdint.h>
 
@@ -46,8 +46,8 @@ namespace ui
         void DrawDragLineTagX(const char *title, double *value, const ImVec4 &color, int id, double min, double max);
 
     protected:
-        UIContext::Ptr m_uiContext;
-        std::shared_ptr<scene::SceneManager> m_scene;
+        UIContext::Ptr m_pUiContext;
+        std::shared_ptr<scene::SceneManager> m_pScene;
 		bool m_setCurPlotTime = false;
     };
 
