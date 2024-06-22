@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-04-26 23:25:46
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-22 14:31:04
+ * @Last Modified time: 2024-06-22 20:40:17
  */
 
 #ifndef __APP_H__
@@ -26,6 +26,11 @@ namespace scene
     class SceneManager;
 }
 
+namespace xviz_server
+{
+    class XvizServer;
+} // namespace name
+
 namespace app
 {
 
@@ -41,7 +46,7 @@ namespace app
         const std::shared_ptr<scene::SceneManager> GetSceneManager() const { return m_pSceneManager; }
         void AddLayer(const std::shared_ptr<ui::BaseLayer> &layer);
         void SetDropFiles(int count, const char **paths);
-		void SetCurPlotTime(const double& t);
+        void SetCurPlotTime(const double &t);
 
     private:
         App() = default;
@@ -51,6 +56,7 @@ namespace app
         std::unique_ptr<ui::MainLayer> m_pMainUI;
         std::unique_ptr<window::Window> m_pWindow;
         std::shared_ptr<scene::SceneManager> m_pSceneManager;
+        std::shared_ptr<xviz_server::XvizServer> m_pXvizServer;
         bool m_isShutDown = false;
     };
 

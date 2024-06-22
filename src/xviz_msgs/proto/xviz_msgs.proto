@@ -58,7 +58,7 @@ message Circle2f
 {
     Header header = 1;
     Vector2f center = 2;
-    float raduis = 3;
+    float radius = 3;
     bool filled = 4;
     
 }
@@ -102,10 +102,11 @@ message Marker2fArray
 
 message Transform2fNode
 {
-    Vector2f trans = 1;
-    float angle = 2;
-    string frameId = 3;
-    string parentFrameId = 4;
+    Header header = 1;
+    Vector2f trans = 2;
+    float angle = 3;
+    string frameId = 4;
+    string parentFrameId = 5;
 }
 message  MapDouble
  {

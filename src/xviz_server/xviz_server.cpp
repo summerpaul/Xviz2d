@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-06-21 22:53:10
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-22 16:13:38
+ * @Last Modified time: 2024-06-22 21:03:29
  */
 #include "xviz_server.h"
 
@@ -91,30 +91,85 @@ namespace xviz_server
             int msgType = std::stoi(recv_msgs[0].to_string());
             const std::string name = recv_msgs[1].to_string();
             const std::string data = recv_msgs[2].to_string();
+
             switch (msgType)
             {
             case MSG_TYPE::PATH2F:
-                break;
+            {
+                auto path = xviz_msgs::ProtoBufToPath(data);
+                m_pScene->AddPath(name, &path);
+            }
+            break;
             case MSG_TYPE::PATH2F_ARRAY:
-                break;
+            {
+                auto paths = xviz_msgs::ProtoBufToPathArray(data);
+                m_pScene->AddPathArray(name, &paths);
+            }
+            break;
             case MSG_TYPE::POSE2F:
-                break;
+            {
+                auto pose = xviz_msgs::ProtoBufToPose(data);
+                m_pScene->AddPose(name, &pose);
+            }
+            break;
             case MSG_TYPE::POSE2F_ARRAY:
-                break;
+            {
+                auto poses = xviz_msgs::ProtoBufToPoseArray(data);
+                m_pScene->AddPoseArray(name, &poses);
+            }
+            break;
             case MSG_TYPE::POINT_CLOUD2F:
-                break;
+            {
+                auto point_cloud = xviz_msgs::ProtoBufToPointCloud(data);
+                m_pScene->AddPointCloud(name, &point_cloud);
+            }
+            break;
             case MSG_TYPE::POLYGON2F:
-                break;
+            {
+                auto polygon = xviz_msgs::ProtoBufToPolygon(data);
+                m_pScene->AddPolygon(name, &polygon);
+            }
+            break;
             case MSG_TYPE::POLYGON2F_ARRAY:
-                break;
+            {
+                auto polygons = xviz_msgs::ProtoBufToPolygonArray(data);
+                m_pScene->AddPolygonArray(name, &polygons);
+            }
+            break;
             case MSG_TYPE::CIRCLE2F:
-                break;
+            {
+                auto circle = xviz_msgs::ProtoBufToCircle(data);
+                m_pScene->AddCircle(name, &circle);
+            }
+            break;
             case MSG_TYPE::CIRCLE2F_ARRAY:
-                break;
+            {
+                auto circles = xviz_msgs::ProtoBufToCircleArray(data);
+                m_pScene->AddCircleArray(name, &circles);
+            }
+            break;
             case MSG_TYPE::DOUBLE_DATA:
-                break;
+            {
+                xviz_msgs::MapDouble proto_double_datas;
+                proto_double_datas.ParseFromString(data);
+                const double t = proto_double_datas.t();
+                for (const auto &proto_double_data : proto_double_datas.data())
+                {
+                    m_pScene->AddDoubleData(proto_double_data.first, t, proto_double_data.second);
+                }
+            }
+            break;
             case MSG_TYPE::STRING_DATA:
-                break;
+            {
+                xviz_msgs::MapString proto_string_datas;
+                proto_string_datas.ParseFromString(data);
+
+                for (const auto &proto_string_data : proto_string_datas.data())
+                {
+                    m_pScene->AddStringData(proto_string_data.first, proto_string_data.second);
+                }
+            }
+            break;
 
             default:
                 break;

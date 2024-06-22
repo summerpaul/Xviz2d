@@ -2,6 +2,7 @@
 
 
 add_subdirectory(xviz_msgs)
+
 set(XVIZ_ALL_DIRS
     "app"
     "basis"
@@ -12,7 +13,6 @@ set(XVIZ_ALL_DIRS
     "window"
     "video"
     "xviz_server"
-    "xviz_msgs/pb"
     "msg_convert"
 )
 
@@ -28,4 +28,6 @@ target_link_libraries(XvizLib
     glad::glad  
     implot::implot 
     imgui::imgui
+    cppzmq-static
+    xviz_msgs
     ${FFMPEG_LIBRARIES})

@@ -26,9 +26,4 @@ file(GLOB PROTO_SRCS  ${PB_DIR}/*.cc)
 file(GLOB PROTO_HDRS ${PB_DIR}/*.h)
 # 生成静态库
 add_library(${PROJECT_NAME} STATIC ${PROTO_SRCS} ${PROTO_HDRS} )
-
-if(WIN32)
-    target_link_libraries(${PROJECT_NAME} libprotobuf.lib)
-elseif(UNIX)
-    target_link_libraries(${PROJECT_NAME} protobuf)
-endif()
+target_link_libraries(${PROJECT_NAME} protobuf::libprotobuf)

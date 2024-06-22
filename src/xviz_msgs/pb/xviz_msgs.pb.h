@@ -1689,7 +1689,7 @@ class Circle2f final :
   enum : int {
     kHeaderFieldNumber = 1,
     kCenterFieldNumber = 2,
-    kRaduisFieldNumber = 3,
+    kRadiusFieldNumber = 3,
     kFilledFieldNumber = 4,
   };
   // .xviz_msgs.Header header = 1;
@@ -1728,13 +1728,13 @@ class Circle2f final :
       ::xviz_msgs::Vector2f* center);
   ::xviz_msgs::Vector2f* unsafe_arena_release_center();
 
-  // float raduis = 3;
-  void clear_raduis();
-  float raduis() const;
-  void set_raduis(float value);
+  // float radius = 3;
+  void clear_radius();
+  float radius() const;
+  void set_radius(float value);
   private:
-  float _internal_raduis() const;
-  void _internal_set_raduis(float value);
+  float _internal_radius() const;
+  void _internal_set_radius(float value);
   public:
 
   // bool filled = 4;
@@ -1756,7 +1756,7 @@ class Circle2f final :
   struct Impl_ {
     ::xviz_msgs::Header* header_;
     ::xviz_msgs::Vector2f* center_;
-    float raduis_;
+    float radius_;
     bool filled_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -2745,12 +2745,13 @@ class Transform2fNode final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kFrameIdFieldNumber = 3,
-    kParentFrameIdFieldNumber = 4,
-    kTransFieldNumber = 1,
-    kAngleFieldNumber = 2,
+    kFrameIdFieldNumber = 4,
+    kParentFrameIdFieldNumber = 5,
+    kHeaderFieldNumber = 1,
+    kTransFieldNumber = 2,
+    kAngleFieldNumber = 3,
   };
-  // string frameId = 3;
+  // string frameId = 4;
   void clear_frameid();
   const std::string& frameid() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -2764,7 +2765,7 @@ class Transform2fNode final :
   std::string* _internal_mutable_frameid();
   public:
 
-  // string parentFrameId = 4;
+  // string parentFrameId = 5;
   void clear_parentframeid();
   const std::string& parentframeid() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -2778,7 +2779,25 @@ class Transform2fNode final :
   std::string* _internal_mutable_parentframeid();
   public:
 
-  // .xviz_msgs.Vector2f trans = 1;
+  // .xviz_msgs.Header header = 1;
+  bool has_header() const;
+  private:
+  bool _internal_has_header() const;
+  public:
+  void clear_header();
+  const ::xviz_msgs::Header& header() const;
+  PROTOBUF_NODISCARD ::xviz_msgs::Header* release_header();
+  ::xviz_msgs::Header* mutable_header();
+  void set_allocated_header(::xviz_msgs::Header* header);
+  private:
+  const ::xviz_msgs::Header& _internal_header() const;
+  ::xviz_msgs::Header* _internal_mutable_header();
+  public:
+  void unsafe_arena_set_allocated_header(
+      ::xviz_msgs::Header* header);
+  ::xviz_msgs::Header* unsafe_arena_release_header();
+
+  // .xviz_msgs.Vector2f trans = 2;
   bool has_trans() const;
   private:
   bool _internal_has_trans() const;
@@ -2796,7 +2815,7 @@ class Transform2fNode final :
       ::xviz_msgs::Vector2f* trans);
   ::xviz_msgs::Vector2f* unsafe_arena_release_trans();
 
-  // float angle = 2;
+  // float angle = 3;
   void clear_angle();
   float angle() const;
   void set_angle(float value);
@@ -2815,6 +2834,7 @@ class Transform2fNode final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr frameid_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr parentframeid_;
+    ::xviz_msgs::Header* header_;
     ::xviz_msgs::Vector2f* trans_;
     float angle_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -4516,24 +4536,24 @@ inline void Circle2f::set_allocated_center(::xviz_msgs::Vector2f* center) {
   // @@protoc_insertion_point(field_set_allocated:xviz_msgs.Circle2f.center)
 }
 
-// float raduis = 3;
-inline void Circle2f::clear_raduis() {
-  _impl_.raduis_ = 0;
+// float radius = 3;
+inline void Circle2f::clear_radius() {
+  _impl_.radius_ = 0;
 }
-inline float Circle2f::_internal_raduis() const {
-  return _impl_.raduis_;
+inline float Circle2f::_internal_radius() const {
+  return _impl_.radius_;
 }
-inline float Circle2f::raduis() const {
-  // @@protoc_insertion_point(field_get:xviz_msgs.Circle2f.raduis)
-  return _internal_raduis();
+inline float Circle2f::radius() const {
+  // @@protoc_insertion_point(field_get:xviz_msgs.Circle2f.radius)
+  return _internal_radius();
 }
-inline void Circle2f::_internal_set_raduis(float value) {
+inline void Circle2f::_internal_set_radius(float value) {
   
-  _impl_.raduis_ = value;
+  _impl_.radius_ = value;
 }
-inline void Circle2f::set_raduis(float value) {
-  _internal_set_raduis(value);
-  // @@protoc_insertion_point(field_set:xviz_msgs.Circle2f.raduis)
+inline void Circle2f::set_radius(float value) {
+  _internal_set_radius(value);
+  // @@protoc_insertion_point(field_set:xviz_msgs.Circle2f.radius)
 }
 
 // bool filled = 4;
@@ -5656,7 +5676,97 @@ Marker2fArray::markerarray() const {
 
 // Transform2fNode
 
-// .xviz_msgs.Vector2f trans = 1;
+// .xviz_msgs.Header header = 1;
+inline bool Transform2fNode::_internal_has_header() const {
+  return this != internal_default_instance() && _impl_.header_ != nullptr;
+}
+inline bool Transform2fNode::has_header() const {
+  return _internal_has_header();
+}
+inline void Transform2fNode::clear_header() {
+  if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
+    delete _impl_.header_;
+  }
+  _impl_.header_ = nullptr;
+}
+inline const ::xviz_msgs::Header& Transform2fNode::_internal_header() const {
+  const ::xviz_msgs::Header* p = _impl_.header_;
+  return p != nullptr ? *p : reinterpret_cast<const ::xviz_msgs::Header&>(
+      ::xviz_msgs::_Header_default_instance_);
+}
+inline const ::xviz_msgs::Header& Transform2fNode::header() const {
+  // @@protoc_insertion_point(field_get:xviz_msgs.Transform2fNode.header)
+  return _internal_header();
+}
+inline void Transform2fNode::unsafe_arena_set_allocated_header(
+    ::xviz_msgs::Header* header) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.header_);
+  }
+  _impl_.header_ = header;
+  if (header) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:xviz_msgs.Transform2fNode.header)
+}
+inline ::xviz_msgs::Header* Transform2fNode::release_header() {
+  
+  ::xviz_msgs::Header* temp = _impl_.header_;
+  _impl_.header_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::xviz_msgs::Header* Transform2fNode::unsafe_arena_release_header() {
+  // @@protoc_insertion_point(field_release:xviz_msgs.Transform2fNode.header)
+  
+  ::xviz_msgs::Header* temp = _impl_.header_;
+  _impl_.header_ = nullptr;
+  return temp;
+}
+inline ::xviz_msgs::Header* Transform2fNode::_internal_mutable_header() {
+  
+  if (_impl_.header_ == nullptr) {
+    auto* p = CreateMaybeMessage<::xviz_msgs::Header>(GetArenaForAllocation());
+    _impl_.header_ = p;
+  }
+  return _impl_.header_;
+}
+inline ::xviz_msgs::Header* Transform2fNode::mutable_header() {
+  ::xviz_msgs::Header* _msg = _internal_mutable_header();
+  // @@protoc_insertion_point(field_mutable:xviz_msgs.Transform2fNode.header)
+  return _msg;
+}
+inline void Transform2fNode::set_allocated_header(::xviz_msgs::Header* header) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.header_;
+  }
+  if (header) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(header);
+    if (message_arena != submessage_arena) {
+      header = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, header, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.header_ = header;
+  // @@protoc_insertion_point(field_set_allocated:xviz_msgs.Transform2fNode.header)
+}
+
+// .xviz_msgs.Vector2f trans = 2;
 inline bool Transform2fNode::_internal_has_trans() const {
   return this != internal_default_instance() && _impl_.trans_ != nullptr;
 }
@@ -5746,7 +5856,7 @@ inline void Transform2fNode::set_allocated_trans(::xviz_msgs::Vector2f* trans) {
   // @@protoc_insertion_point(field_set_allocated:xviz_msgs.Transform2fNode.trans)
 }
 
-// float angle = 2;
+// float angle = 3;
 inline void Transform2fNode::clear_angle() {
   _impl_.angle_ = 0;
 }
@@ -5766,7 +5876,7 @@ inline void Transform2fNode::set_angle(float value) {
   // @@protoc_insertion_point(field_set:xviz_msgs.Transform2fNode.angle)
 }
 
-// string frameId = 3;
+// string frameId = 4;
 inline void Transform2fNode::clear_frameid() {
   _impl_.frameid_.ClearToEmpty();
 }
@@ -5816,7 +5926,7 @@ inline void Transform2fNode::set_allocated_frameid(std::string* frameid) {
   // @@protoc_insertion_point(field_set_allocated:xviz_msgs.Transform2fNode.frameId)
 }
 
-// string parentFrameId = 4;
+// string parentFrameId = 5;
 inline void Transform2fNode::clear_parentframeid() {
   _impl_.parentframeid_.ClearToEmpty();
 }

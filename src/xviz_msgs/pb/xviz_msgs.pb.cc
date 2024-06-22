@@ -141,7 +141,7 @@ PROTOBUF_CONSTEXPR Circle2f::Circle2f(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.header_)*/nullptr
   , /*decltype(_impl_.center_)*/nullptr
-  , /*decltype(_impl_.raduis_)*/0
+  , /*decltype(_impl_.radius_)*/0
   , /*decltype(_impl_.filled_)*/false
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct Circle2fDefaultTypeInternal {
@@ -223,6 +223,7 @@ PROTOBUF_CONSTEXPR Transform2fNode::Transform2fNode(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.frameid_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.parentframeid_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.header_)*/nullptr
   , /*decltype(_impl_.trans_)*/nullptr
   , /*decltype(_impl_.angle_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
@@ -366,7 +367,7 @@ const uint32_t TableStruct_xviz_5fmsgs_2eproto::offsets[] PROTOBUF_SECTION_VARIA
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::xviz_msgs::Circle2f, _impl_.header_),
   PROTOBUF_FIELD_OFFSET(::xviz_msgs::Circle2f, _impl_.center_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Circle2f, _impl_.raduis_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Circle2f, _impl_.radius_),
   PROTOBUF_FIELD_OFFSET(::xviz_msgs::Circle2f, _impl_.filled_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::xviz_msgs::Circle2fArray, _internal_metadata_),
@@ -416,6 +417,7 @@ const uint32_t TableStruct_xviz_5fmsgs_2eproto::offsets[] PROTOBUF_SECTION_VARIA
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Transform2fNode, _impl_.header_),
   PROTOBUF_FIELD_OFFSET(::xviz_msgs::Transform2fNode, _impl_.trans_),
   PROTOBUF_FIELD_OFFSET(::xviz_msgs::Transform2fNode, _impl_.angle_),
   PROTOBUF_FIELD_OFFSET(::xviz_msgs::Transform2fNode, _impl_.frameid_),
@@ -471,10 +473,10 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 94, -1, -1, sizeof(::xviz_msgs::Marker2f)},
   { 112, -1, -1, sizeof(::xviz_msgs::Marker2fArray)},
   { 120, -1, -1, sizeof(::xviz_msgs::Transform2fNode)},
-  { 130, 138, -1, sizeof(::xviz_msgs::MapDouble_DataEntry_DoNotUse)},
-  { 140, -1, -1, sizeof(::xviz_msgs::MapDouble)},
-  { 148, 156, -1, sizeof(::xviz_msgs::MapString_DataEntry_DoNotUse)},
-  { 158, -1, -1, sizeof(::xviz_msgs::MapString)},
+  { 131, 139, -1, sizeof(::xviz_msgs::MapDouble_DataEntry_DoNotUse)},
+  { 141, -1, -1, sizeof(::xviz_msgs::MapDouble)},
+  { 149, 157, -1, sizeof(::xviz_msgs::MapString_DataEntry_DoNotUse)},
+  { 159, -1, -1, sizeof(::xviz_msgs::MapString)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -518,7 +520,7 @@ const char descriptor_table_protodef_xviz_5fmsgs_2eproto[] PROTOBUF_SECTION_VARI
   "sgs.Header\022$\n\tpathArray\030\002 \003(\0132\021.xviz_msg"
   "s.Path2f\"r\n\010Circle2f\022!\n\006header\030\001 \001(\0132\021.x"
   "viz_msgs.Header\022#\n\006center\030\002 \001(\0132\023.xviz_m"
-  "sgs.Vector2f\022\016\n\006raduis\030\003 \001(\002\022\016\n\006filled\030\004"
+  "sgs.Vector2f\022\016\n\006radius\030\003 \001(\002\022\016\n\006filled\030\004"
   " \001(\010\"\\\n\rCircle2fArray\022!\n\006header\030\001 \001(\0132\021."
   "xviz_msgs.Header\022(\n\013circleArray\030\002 \003(\0132\023."
   "xviz_msgs.Circle2f\"V\n\014PointCloud2f\022!\n\006he"
@@ -534,19 +536,20 @@ const char descriptor_table_protodef_xviz_5fmsgs_2eproto[] PROTOBUF_SECTION_VARI
   "\n \001(\002\022\021\n\tthickness\030\013 \001(\002\022\016\n\006radius\030\014 \001(\002"
   "\"\\\n\rMarker2fArray\022!\n\006header\030\001 \001(\0132\021.xviz"
   "_msgs.Header\022(\n\013markerArray\030\002 \003(\0132\023.xviz"
-  "_msgs.Marker2f\"l\n\017Transform2fNode\022\"\n\005tra"
-  "ns\030\001 \001(\0132\023.xviz_msgs.Vector2f\022\r\n\005angle\030\002"
-  " \001(\002\022\017\n\007frameId\030\003 \001(\t\022\025\n\rparentFrameId\030\004"
-  " \001(\t\"q\n\tMapDouble\022,\n\004data\030\001 \003(\0132\036.xviz_m"
-  "sgs.MapDouble.DataEntry\022\t\n\001t\030\002 \001(\001\032+\n\tDa"
-  "taEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\001:\0028\001\""
-  "f\n\tMapString\022,\n\004data\030\001 \003(\0132\036.xviz_msgs.M"
-  "apString.DataEntry\032+\n\tDataEntry\022\013\n\003key\030\001"
-  " \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001b\006proto3"
+  "_msgs.Marker2f\"\217\001\n\017Transform2fNode\022!\n\006he"
+  "ader\030\001 \001(\0132\021.xviz_msgs.Header\022\"\n\005trans\030\002"
+  " \001(\0132\023.xviz_msgs.Vector2f\022\r\n\005angle\030\003 \001(\002"
+  "\022\017\n\007frameId\030\004 \001(\t\022\025\n\rparentFrameId\030\005 \001(\t"
+  "\"q\n\tMapDouble\022,\n\004data\030\001 \003(\0132\036.xviz_msgs."
+  "MapDouble.DataEntry\022\t\n\001t\030\002 \001(\001\032+\n\tDataEn"
+  "try\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\001:\0028\001\"f\n\tM"
+  "apString\022,\n\004data\030\001 \003(\0132\036.xviz_msgs.MapSt"
+  "ring.DataEntry\032+\n\tDataEntry\022\013\n\003key\030\001 \001(\t"
+  "\022\r\n\005value\030\002 \001(\t:\0028\001b\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_xviz_5fmsgs_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_xviz_5fmsgs_2eproto = {
-    false, false, 1751, descriptor_table_protodef_xviz_5fmsgs_2eproto,
+    false, false, 1787, descriptor_table_protodef_xviz_5fmsgs_2eproto,
     "xviz_msgs.proto",
     &descriptor_table_xviz_5fmsgs_2eproto_once, nullptr, 0, 18,
     schemas, file_default_instances, TableStruct_xviz_5fmsgs_2eproto::offsets,
@@ -2601,7 +2604,7 @@ Circle2f::Circle2f(const Circle2f& from)
   new (&_impl_) Impl_{
       decltype(_impl_.header_){nullptr}
     , decltype(_impl_.center_){nullptr}
-    , decltype(_impl_.raduis_){}
+    , decltype(_impl_.radius_){}
     , decltype(_impl_.filled_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
@@ -2612,9 +2615,9 @@ Circle2f::Circle2f(const Circle2f& from)
   if (from._internal_has_center()) {
     _this->_impl_.center_ = new ::xviz_msgs::Vector2f(*from._impl_.center_);
   }
-  ::memcpy(&_impl_.raduis_, &from._impl_.raduis_,
+  ::memcpy(&_impl_.radius_, &from._impl_.radius_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.filled_) -
-    reinterpret_cast<char*>(&_impl_.raduis_)) + sizeof(_impl_.filled_));
+    reinterpret_cast<char*>(&_impl_.radius_)) + sizeof(_impl_.filled_));
   // @@protoc_insertion_point(copy_constructor:xviz_msgs.Circle2f)
 }
 
@@ -2625,7 +2628,7 @@ inline void Circle2f::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_.header_){nullptr}
     , decltype(_impl_.center_){nullptr}
-    , decltype(_impl_.raduis_){0}
+    , decltype(_impl_.radius_){0}
     , decltype(_impl_.filled_){false}
     , /*decltype(_impl_._cached_size_)*/{}
   };
@@ -2664,9 +2667,9 @@ void Circle2f::Clear() {
     delete _impl_.center_;
   }
   _impl_.center_ = nullptr;
-  ::memset(&_impl_.raduis_, 0, static_cast<size_t>(
+  ::memset(&_impl_.radius_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&_impl_.filled_) -
-      reinterpret_cast<char*>(&_impl_.raduis_)) + sizeof(_impl_.filled_));
+      reinterpret_cast<char*>(&_impl_.radius_)) + sizeof(_impl_.filled_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -2692,10 +2695,10 @@ const char* Circle2f::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx)
         } else
           goto handle_unusual;
         continue;
-      // float raduis = 3;
+      // float radius = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 29)) {
-          _impl_.raduis_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          _impl_.radius_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else
           goto handle_unusual;
@@ -2751,14 +2754,14 @@ uint8_t* Circle2f::_InternalSerialize(
         _Internal::center(this).GetCachedSize(), target, stream);
   }
 
-  // float raduis = 3;
+  // float radius = 3;
   static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_raduis = this->_internal_raduis();
-  uint32_t raw_raduis;
-  memcpy(&raw_raduis, &tmp_raduis, sizeof(tmp_raduis));
-  if (raw_raduis != 0) {
+  float tmp_radius = this->_internal_radius();
+  uint32_t raw_radius;
+  memcpy(&raw_radius, &tmp_radius, sizeof(tmp_radius));
+  if (raw_radius != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteFloatToArray(3, this->_internal_raduis(), target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(3, this->_internal_radius(), target);
   }
 
   // bool filled = 4;
@@ -2797,12 +2800,12 @@ size_t Circle2f::ByteSizeLong() const {
         *_impl_.center_);
   }
 
-  // float raduis = 3;
+  // float radius = 3;
   static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_raduis = this->_internal_raduis();
-  uint32_t raw_raduis;
-  memcpy(&raw_raduis, &tmp_raduis, sizeof(tmp_raduis));
-  if (raw_raduis != 0) {
+  float tmp_radius = this->_internal_radius();
+  uint32_t raw_radius;
+  memcpy(&raw_radius, &tmp_radius, sizeof(tmp_radius));
+  if (raw_radius != 0) {
     total_size += 1 + 4;
   }
 
@@ -2838,11 +2841,11 @@ void Circle2f::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTO
         from._internal_center());
   }
   static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
-  float tmp_raduis = from._internal_raduis();
-  uint32_t raw_raduis;
-  memcpy(&raw_raduis, &tmp_raduis, sizeof(tmp_raduis));
-  if (raw_raduis != 0) {
-    _this->_internal_set_raduis(from._internal_raduis());
+  float tmp_radius = from._internal_radius();
+  uint32_t raw_radius;
+  memcpy(&raw_radius, &tmp_radius, sizeof(tmp_radius));
+  if (raw_radius != 0) {
+    _this->_internal_set_radius(from._internal_radius());
   }
   if (from._internal_filled() != 0) {
     _this->_internal_set_filled(from._internal_filled());
@@ -4180,9 +4183,14 @@ void Marker2fArray::InternalSwap(Marker2fArray* other) {
 
 class Transform2fNode::_Internal {
  public:
+  static const ::xviz_msgs::Header& header(const Transform2fNode* msg);
   static const ::xviz_msgs::Vector2f& trans(const Transform2fNode* msg);
 };
 
+const ::xviz_msgs::Header&
+Transform2fNode::_Internal::header(const Transform2fNode* msg) {
+  return *msg->_impl_.header_;
+}
 const ::xviz_msgs::Vector2f&
 Transform2fNode::_Internal::trans(const Transform2fNode* msg) {
   return *msg->_impl_.trans_;
@@ -4199,6 +4207,7 @@ Transform2fNode::Transform2fNode(const Transform2fNode& from)
   new (&_impl_) Impl_{
       decltype(_impl_.frameid_){}
     , decltype(_impl_.parentframeid_){}
+    , decltype(_impl_.header_){nullptr}
     , decltype(_impl_.trans_){nullptr}
     , decltype(_impl_.angle_){}
     , /*decltype(_impl_._cached_size_)*/{}};
@@ -4220,6 +4229,9 @@ Transform2fNode::Transform2fNode(const Transform2fNode& from)
     _this->_impl_.parentframeid_.Set(from._internal_parentframeid(), 
       _this->GetArenaForAllocation());
   }
+  if (from._internal_has_header()) {
+    _this->_impl_.header_ = new ::xviz_msgs::Header(*from._impl_.header_);
+  }
   if (from._internal_has_trans()) {
     _this->_impl_.trans_ = new ::xviz_msgs::Vector2f(*from._impl_.trans_);
   }
@@ -4234,6 +4246,7 @@ inline void Transform2fNode::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_.frameid_){}
     , decltype(_impl_.parentframeid_){}
+    , decltype(_impl_.header_){nullptr}
     , decltype(_impl_.trans_){nullptr}
     , decltype(_impl_.angle_){0}
     , /*decltype(_impl_._cached_size_)*/{}
@@ -4261,6 +4274,7 @@ inline void Transform2fNode::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.frameid_.Destroy();
   _impl_.parentframeid_.Destroy();
+  if (this != internal_default_instance()) delete _impl_.header_;
   if (this != internal_default_instance()) delete _impl_.trans_;
 }
 
@@ -4276,6 +4290,10 @@ void Transform2fNode::Clear() {
 
   _impl_.frameid_.ClearToEmpty();
   _impl_.parentframeid_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
+    delete _impl_.header_;
+  }
+  _impl_.header_ = nullptr;
   if (GetArenaForAllocation() == nullptr && _impl_.trans_ != nullptr) {
     delete _impl_.trans_;
   }
@@ -4290,25 +4308,33 @@ const char* Transform2fNode::_InternalParse(const char* ptr, ::_pbi::ParseContex
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // .xviz_msgs.Vector2f trans = 1;
+      // .xviz_msgs.Header header = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_header(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .xviz_msgs.Vector2f trans = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           ptr = ctx->ParseMessage(_internal_mutable_trans(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // float angle = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 21)) {
+      // float angle = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 29)) {
           _impl_.angle_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else
           goto handle_unusual;
         continue;
-      // string frameId = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+      // string frameId = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           auto str = _internal_mutable_frameid();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
@@ -4316,9 +4342,9 @@ const char* Transform2fNode::_InternalParse(const char* ptr, ::_pbi::ParseContex
         } else
           goto handle_unusual;
         continue;
-      // string parentFrameId = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+      // string parentFrameId = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           auto str = _internal_mutable_parentframeid();
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
@@ -4355,41 +4381,48 @@ uint8_t* Transform2fNode::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // .xviz_msgs.Vector2f trans = 1;
+  // .xviz_msgs.Header header = 1;
+  if (this->_internal_has_header()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::header(this),
+        _Internal::header(this).GetCachedSize(), target, stream);
+  }
+
+  // .xviz_msgs.Vector2f trans = 2;
   if (this->_internal_has_trans()) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, _Internal::trans(this),
+      InternalWriteMessage(2, _Internal::trans(this),
         _Internal::trans(this).GetCachedSize(), target, stream);
   }
 
-  // float angle = 2;
+  // float angle = 3;
   static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
   float tmp_angle = this->_internal_angle();
   uint32_t raw_angle;
   memcpy(&raw_angle, &tmp_angle, sizeof(tmp_angle));
   if (raw_angle != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteFloatToArray(2, this->_internal_angle(), target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(3, this->_internal_angle(), target);
   }
 
-  // string frameId = 3;
+  // string frameId = 4;
   if (!this->_internal_frameid().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_frameid().data(), static_cast<int>(this->_internal_frameid().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "xviz_msgs.Transform2fNode.frameId");
     target = stream->WriteStringMaybeAliased(
-        3, this->_internal_frameid(), target);
+        4, this->_internal_frameid(), target);
   }
 
-  // string parentFrameId = 4;
+  // string parentFrameId = 5;
   if (!this->_internal_parentframeid().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_parentframeid().data(), static_cast<int>(this->_internal_parentframeid().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "xviz_msgs.Transform2fNode.parentFrameId");
     target = stream->WriteStringMaybeAliased(
-        4, this->_internal_parentframeid(), target);
+        5, this->_internal_parentframeid(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -4408,28 +4441,35 @@ size_t Transform2fNode::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string frameId = 3;
+  // string frameId = 4;
   if (!this->_internal_frameid().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_frameid());
   }
 
-  // string parentFrameId = 4;
+  // string parentFrameId = 5;
   if (!this->_internal_parentframeid().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_parentframeid());
   }
 
-  // .xviz_msgs.Vector2f trans = 1;
+  // .xviz_msgs.Header header = 1;
+  if (this->_internal_has_header()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.header_);
+  }
+
+  // .xviz_msgs.Vector2f trans = 2;
   if (this->_internal_has_trans()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *_impl_.trans_);
   }
 
-  // float angle = 2;
+  // float angle = 3;
   static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
   float tmp_angle = this->_internal_angle();
   uint32_t raw_angle;
@@ -4461,6 +4501,10 @@ void Transform2fNode::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const 
   }
   if (!from._internal_parentframeid().empty()) {
     _this->_internal_set_parentframeid(from._internal_parentframeid());
+  }
+  if (from._internal_has_header()) {
+    _this->_internal_mutable_header()->::xviz_msgs::Header::MergeFrom(
+        from._internal_header());
   }
   if (from._internal_has_trans()) {
     _this->_internal_mutable_trans()->::xviz_msgs::Vector2f::MergeFrom(
@@ -4503,9 +4547,9 @@ void Transform2fNode::InternalSwap(Transform2fNode* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(Transform2fNode, _impl_.angle_)
       + sizeof(Transform2fNode::_impl_.angle_)
-      - PROTOBUF_FIELD_OFFSET(Transform2fNode, _impl_.trans_)>(
-          reinterpret_cast<char*>(&_impl_.trans_),
-          reinterpret_cast<char*>(&other->_impl_.trans_));
+      - PROTOBUF_FIELD_OFFSET(Transform2fNode, _impl_.header_)>(
+          reinterpret_cast<char*>(&_impl_.header_),
+          reinterpret_cast<char*>(&other->_impl_.header_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Transform2fNode::GetMetadata() const {

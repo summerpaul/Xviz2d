@@ -2,13 +2,14 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-28 19:08:47
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-30 10:27:22
+ * @Last Modified time: 2024-06-22 20:40:15
  */
 #include "app.h"
 #include "basis/logger.h"
 #include "window/window.h"
 #include "scene/scene_manager.h"
 #include "ui/main_layer.h"
+#include "xviz_server/xviz_server.h"
 namespace app
 {
     App::~App()
@@ -32,6 +33,9 @@ namespace app
         m_pMainUI = std::make_unique<ui::MainLayer>("MainLayer");
         CHECK_RETURN_RET(!m_pMainUI->Init(), false);
         CHECK_RETURN_RET(!m_pMainUI->InitHandle(m_pWindow->GetHandle()), false);
+
+        m_pXvizServer = std::make_shared<xviz_server::XvizServer>();
+        CHECK_RETURN_RET(!m_pXvizServer->Init(), false);
         LOG_INFO("APP init succeeded");
         return true;
     }
@@ -60,10 +64,10 @@ namespace app
         m_pMainUI->FilesDropCallback(count, paths);
     }
 
-	void App::SetCurPlotTime(const double& t)
-	{
-		m_pMainUI->SetCurPlotTime(t);
-	}
+    void App::SetCurPlotTime(const double &t)
+    {
+        m_pMainUI->SetCurPlotTime(t);
+    }
 
     void App::Shutdown()
     {
