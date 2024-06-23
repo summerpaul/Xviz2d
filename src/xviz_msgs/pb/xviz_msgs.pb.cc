@@ -16,279 +16,259 @@
 #include <google/protobuf/port_def.inc>
 
 PROTOBUF_PRAGMA_INIT_SEG
-
-namespace _pb = ::PROTOBUF_NAMESPACE_ID;
-namespace _pbi = _pb::internal;
-
 namespace xviz_msgs {
-PROTOBUF_CONSTEXPR Header::Header(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.frameid_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.info_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_._cached_size_)*/{}} {}
+constexpr Header::Header(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , frameid_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , info_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
 struct HeaderDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR HeaderDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
+  constexpr HeaderDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
   ~HeaderDefaultTypeInternal() {}
   union {
     Header _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 HeaderDefaultTypeInternal _Header_default_instance_;
-PROTOBUF_CONSTEXPR Vector2f::Vector2f(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.x_)*/0
-  , /*decltype(_impl_.y_)*/0
-  , /*decltype(_impl_._cached_size_)*/{}} {}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT HeaderDefaultTypeInternal _Header_default_instance_;
+constexpr Vector2f::Vector2f(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : x_(0)
+  , y_(0){}
 struct Vector2fDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR Vector2fDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
+  constexpr Vector2fDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
   ~Vector2fDefaultTypeInternal() {}
   union {
     Vector2f _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 Vector2fDefaultTypeInternal _Vector2f_default_instance_;
-PROTOBUF_CONSTEXPR Pose2f::Pose2f(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.header_)*/nullptr
-  , /*decltype(_impl_.position_)*/nullptr
-  , /*decltype(_impl_.yaw_)*/0
-  , /*decltype(_impl_._cached_size_)*/{}} {}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT Vector2fDefaultTypeInternal _Vector2f_default_instance_;
+constexpr Pose2f::Pose2f(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : header_(nullptr)
+  , position_(nullptr)
+  , yaw_(0){}
 struct Pose2fDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR Pose2fDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
+  constexpr Pose2fDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
   ~Pose2fDefaultTypeInternal() {}
   union {
     Pose2f _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 Pose2fDefaultTypeInternal _Pose2f_default_instance_;
-PROTOBUF_CONSTEXPR Pose2fArray::Pose2fArray(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.posearray_)*/{}
-  , /*decltype(_impl_.header_)*/nullptr
-  , /*decltype(_impl_._cached_size_)*/{}} {}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT Pose2fDefaultTypeInternal _Pose2f_default_instance_;
+constexpr Pose2fArray::Pose2fArray(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : posearray_()
+  , header_(nullptr){}
 struct Pose2fArrayDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR Pose2fArrayDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
+  constexpr Pose2fArrayDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
   ~Pose2fArrayDefaultTypeInternal() {}
   union {
     Pose2fArray _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 Pose2fArrayDefaultTypeInternal _Pose2fArray_default_instance_;
-PROTOBUF_CONSTEXPR Polygon2f::Polygon2f(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.points_)*/{}
-  , /*decltype(_impl_.header_)*/nullptr
-  , /*decltype(_impl_.filled_)*/false
-  , /*decltype(_impl_._cached_size_)*/{}} {}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT Pose2fArrayDefaultTypeInternal _Pose2fArray_default_instance_;
+constexpr Polygon2f::Polygon2f(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : points_()
+  , header_(nullptr)
+  , filled_(false){}
 struct Polygon2fDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR Polygon2fDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
+  constexpr Polygon2fDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
   ~Polygon2fDefaultTypeInternal() {}
   union {
     Polygon2f _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 Polygon2fDefaultTypeInternal _Polygon2f_default_instance_;
-PROTOBUF_CONSTEXPR Polygon2fArray::Polygon2fArray(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.polygonarray_)*/{}
-  , /*decltype(_impl_.header_)*/nullptr
-  , /*decltype(_impl_._cached_size_)*/{}} {}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT Polygon2fDefaultTypeInternal _Polygon2f_default_instance_;
+constexpr Polygon2fArray::Polygon2fArray(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : polygonarray_()
+  , header_(nullptr){}
 struct Polygon2fArrayDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR Polygon2fArrayDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
+  constexpr Polygon2fArrayDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
   ~Polygon2fArrayDefaultTypeInternal() {}
   union {
     Polygon2fArray _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 Polygon2fArrayDefaultTypeInternal _Polygon2fArray_default_instance_;
-PROTOBUF_CONSTEXPR Path2f::Path2f(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.points_)*/{}
-  , /*decltype(_impl_.header_)*/nullptr
-  , /*decltype(_impl_.isdashed_)*/false
-  , /*decltype(_impl_._cached_size_)*/{}} {}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT Polygon2fArrayDefaultTypeInternal _Polygon2fArray_default_instance_;
+constexpr Path2f::Path2f(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : points_()
+  , header_(nullptr)
+  , isdashed_(false){}
 struct Path2fDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR Path2fDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
+  constexpr Path2fDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
   ~Path2fDefaultTypeInternal() {}
   union {
     Path2f _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 Path2fDefaultTypeInternal _Path2f_default_instance_;
-PROTOBUF_CONSTEXPR Path2fArray::Path2fArray(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.patharray_)*/{}
-  , /*decltype(_impl_.header_)*/nullptr
-  , /*decltype(_impl_._cached_size_)*/{}} {}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT Path2fDefaultTypeInternal _Path2f_default_instance_;
+constexpr Path2fArray::Path2fArray(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : patharray_()
+  , header_(nullptr){}
 struct Path2fArrayDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR Path2fArrayDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
+  constexpr Path2fArrayDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
   ~Path2fArrayDefaultTypeInternal() {}
   union {
     Path2fArray _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 Path2fArrayDefaultTypeInternal _Path2fArray_default_instance_;
-PROTOBUF_CONSTEXPR Circle2f::Circle2f(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.header_)*/nullptr
-  , /*decltype(_impl_.center_)*/nullptr
-  , /*decltype(_impl_.radius_)*/0
-  , /*decltype(_impl_.filled_)*/false
-  , /*decltype(_impl_._cached_size_)*/{}} {}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT Path2fArrayDefaultTypeInternal _Path2fArray_default_instance_;
+constexpr Circle2f::Circle2f(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : header_(nullptr)
+  , center_(nullptr)
+  , radius_(0)
+  , filled_(false){}
 struct Circle2fDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR Circle2fDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
+  constexpr Circle2fDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
   ~Circle2fDefaultTypeInternal() {}
   union {
     Circle2f _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 Circle2fDefaultTypeInternal _Circle2f_default_instance_;
-PROTOBUF_CONSTEXPR Circle2fArray::Circle2fArray(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.circlearray_)*/{}
-  , /*decltype(_impl_.header_)*/nullptr
-  , /*decltype(_impl_._cached_size_)*/{}} {}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT Circle2fDefaultTypeInternal _Circle2f_default_instance_;
+constexpr Circle2fArray::Circle2fArray(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : circlearray_()
+  , header_(nullptr){}
 struct Circle2fArrayDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR Circle2fArrayDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
+  constexpr Circle2fArrayDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
   ~Circle2fArrayDefaultTypeInternal() {}
   union {
     Circle2fArray _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 Circle2fArrayDefaultTypeInternal _Circle2fArray_default_instance_;
-PROTOBUF_CONSTEXPR PointCloud2f::PointCloud2f(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.points_)*/{}
-  , /*decltype(_impl_.header_)*/nullptr
-  , /*decltype(_impl_._cached_size_)*/{}} {}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT Circle2fArrayDefaultTypeInternal _Circle2fArray_default_instance_;
+constexpr PointCloud2f::PointCloud2f(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : points_()
+  , header_(nullptr){}
 struct PointCloud2fDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR PointCloud2fDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
+  constexpr PointCloud2fDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
   ~PointCloud2fDefaultTypeInternal() {}
   union {
     PointCloud2f _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 PointCloud2fDefaultTypeInternal _PointCloud2f_default_instance_;
-PROTOBUF_CONSTEXPR Marker2f::Marker2f(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.text_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.header_)*/nullptr
-  , /*decltype(_impl_.path_)*/nullptr
-  , /*decltype(_impl_.polygon_)*/nullptr
-  , /*decltype(_impl_.cirlce_)*/nullptr
-  , /*decltype(_impl_.pose_)*/nullptr
-  , /*decltype(_impl_.point_cloud_)*/nullptr
-  , /*decltype(_impl_.type_)*/0u
-  , /*decltype(_impl_.colortype_)*/0u
-  , /*decltype(_impl_.length_)*/0
-  , /*decltype(_impl_.thickness_)*/0
-  , /*decltype(_impl_.radius_)*/0
-  , /*decltype(_impl_._cached_size_)*/{}} {}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PointCloud2fDefaultTypeInternal _PointCloud2f_default_instance_;
+constexpr Marker2f::Marker2f(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : text_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , header_(nullptr)
+  , path_(nullptr)
+  , polygon_(nullptr)
+  , cirlce_(nullptr)
+  , pose_(nullptr)
+  , point_cloud_(nullptr)
+  , type_(0u)
+  , colortype_(0u)
+  , length_(0)
+  , thickness_(0)
+  , radius_(0){}
 struct Marker2fDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR Marker2fDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
+  constexpr Marker2fDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
   ~Marker2fDefaultTypeInternal() {}
   union {
     Marker2f _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 Marker2fDefaultTypeInternal _Marker2f_default_instance_;
-PROTOBUF_CONSTEXPR Marker2fArray::Marker2fArray(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.markerarray_)*/{}
-  , /*decltype(_impl_.header_)*/nullptr
-  , /*decltype(_impl_._cached_size_)*/{}} {}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT Marker2fDefaultTypeInternal _Marker2f_default_instance_;
+constexpr Marker2fArray::Marker2fArray(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : markerarray_()
+  , header_(nullptr){}
 struct Marker2fArrayDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR Marker2fArrayDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
+  constexpr Marker2fArrayDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
   ~Marker2fArrayDefaultTypeInternal() {}
   union {
     Marker2fArray _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 Marker2fArrayDefaultTypeInternal _Marker2fArray_default_instance_;
-PROTOBUF_CONSTEXPR Transform2fNode::Transform2fNode(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.frameid_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.parentframeid_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.header_)*/nullptr
-  , /*decltype(_impl_.trans_)*/nullptr
-  , /*decltype(_impl_.angle_)*/0
-  , /*decltype(_impl_._cached_size_)*/{}} {}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT Marker2fArrayDefaultTypeInternal _Marker2fArray_default_instance_;
+constexpr Transform2fNode::Transform2fNode(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : frameid_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , parentframeid_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , header_(nullptr)
+  , trans_(nullptr)
+  , angle_(0){}
 struct Transform2fNodeDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR Transform2fNodeDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
+  constexpr Transform2fNodeDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
   ~Transform2fNodeDefaultTypeInternal() {}
   union {
     Transform2fNode _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 Transform2fNodeDefaultTypeInternal _Transform2fNode_default_instance_;
-PROTOBUF_CONSTEXPR MapDouble_DataEntry_DoNotUse::MapDouble_DataEntry_DoNotUse(
-    ::_pbi::ConstantInitialized) {}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT Transform2fNodeDefaultTypeInternal _Transform2fNode_default_instance_;
+constexpr MapDouble_DataEntry_DoNotUse::MapDouble_DataEntry_DoNotUse(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
 struct MapDouble_DataEntry_DoNotUseDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR MapDouble_DataEntry_DoNotUseDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
+  constexpr MapDouble_DataEntry_DoNotUseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
   ~MapDouble_DataEntry_DoNotUseDefaultTypeInternal() {}
   union {
     MapDouble_DataEntry_DoNotUse _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 MapDouble_DataEntry_DoNotUseDefaultTypeInternal _MapDouble_DataEntry_DoNotUse_default_instance_;
-PROTOBUF_CONSTEXPR MapDouble::MapDouble(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.data_)*/{::_pbi::ConstantInitialized()}
-  , /*decltype(_impl_.t_)*/0
-  , /*decltype(_impl_._cached_size_)*/{}} {}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT MapDouble_DataEntry_DoNotUseDefaultTypeInternal _MapDouble_DataEntry_DoNotUse_default_instance_;
+constexpr MapDouble::MapDouble(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : data_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{})
+  , t_(0){}
 struct MapDoubleDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR MapDoubleDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
+  constexpr MapDoubleDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
   ~MapDoubleDefaultTypeInternal() {}
   union {
     MapDouble _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 MapDoubleDefaultTypeInternal _MapDouble_default_instance_;
-PROTOBUF_CONSTEXPR MapString_DataEntry_DoNotUse::MapString_DataEntry_DoNotUse(
-    ::_pbi::ConstantInitialized) {}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT MapDoubleDefaultTypeInternal _MapDouble_default_instance_;
+constexpr MapString_DataEntry_DoNotUse::MapString_DataEntry_DoNotUse(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized){}
 struct MapString_DataEntry_DoNotUseDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR MapString_DataEntry_DoNotUseDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
+  constexpr MapString_DataEntry_DoNotUseDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
   ~MapString_DataEntry_DoNotUseDefaultTypeInternal() {}
   union {
     MapString_DataEntry_DoNotUse _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 MapString_DataEntry_DoNotUseDefaultTypeInternal _MapString_DataEntry_DoNotUse_default_instance_;
-PROTOBUF_CONSTEXPR MapString::MapString(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_.data_)*/{::_pbi::ConstantInitialized()}
-  , /*decltype(_impl_._cached_size_)*/{}} {}
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT MapString_DataEntry_DoNotUseDefaultTypeInternal _MapString_DataEntry_DoNotUse_default_instance_;
+constexpr MapString::MapString(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : data_(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}){}
 struct MapStringDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR MapStringDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
+  constexpr MapStringDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
   ~MapStringDefaultTypeInternal() {}
   union {
     MapString _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 MapStringDefaultTypeInternal _MapString_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT MapStringDefaultTypeInternal _MapString_default_instance_;
 }  // namespace xviz_msgs
-static ::_pb::Metadata file_level_metadata_xviz_5fmsgs_2eproto[18];
-static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_xviz_5fmsgs_2eproto = nullptr;
-static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_xviz_5fmsgs_2eproto = nullptr;
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_xviz_5fmsgs_2eproto[18];
+static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_xviz_5fmsgs_2eproto = nullptr;
+static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_xviz_5fmsgs_2eproto = nullptr;
 
 const uint32_t TableStruct_xviz_5fmsgs_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
@@ -297,131 +277,131 @@ const uint32_t TableStruct_xviz_5fmsgs_2eproto::offsets[] PROTOBUF_SECTION_VARIA
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Header, _impl_.name_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Header, _impl_.frameid_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Header, _impl_.info_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Header, name_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Header, frameid_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Header, info_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::xviz_msgs::Vector2f, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Vector2f, _impl_.x_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Vector2f, _impl_.y_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Vector2f, x_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Vector2f, y_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::xviz_msgs::Pose2f, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Pose2f, _impl_.header_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Pose2f, _impl_.position_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Pose2f, _impl_.yaw_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Pose2f, header_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Pose2f, position_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Pose2f, yaw_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::xviz_msgs::Pose2fArray, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Pose2fArray, _impl_.header_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Pose2fArray, _impl_.posearray_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Pose2fArray, header_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Pose2fArray, posearray_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::xviz_msgs::Polygon2f, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Polygon2f, _impl_.header_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Polygon2f, _impl_.points_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Polygon2f, _impl_.filled_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Polygon2f, header_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Polygon2f, points_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Polygon2f, filled_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::xviz_msgs::Polygon2fArray, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Polygon2fArray, _impl_.header_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Polygon2fArray, _impl_.polygonarray_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Polygon2fArray, header_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Polygon2fArray, polygonarray_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::xviz_msgs::Path2f, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Path2f, _impl_.header_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Path2f, _impl_.points_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Path2f, _impl_.isdashed_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Path2f, header_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Path2f, points_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Path2f, isdashed_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::xviz_msgs::Path2fArray, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Path2fArray, _impl_.header_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Path2fArray, _impl_.patharray_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Path2fArray, header_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Path2fArray, patharray_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::xviz_msgs::Circle2f, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Circle2f, _impl_.header_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Circle2f, _impl_.center_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Circle2f, _impl_.radius_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Circle2f, _impl_.filled_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Circle2f, header_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Circle2f, center_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Circle2f, radius_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Circle2f, filled_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::xviz_msgs::Circle2fArray, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Circle2fArray, _impl_.header_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Circle2fArray, _impl_.circlearray_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Circle2fArray, header_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Circle2fArray, circlearray_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::xviz_msgs::PointCloud2f, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::PointCloud2f, _impl_.header_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::PointCloud2f, _impl_.points_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::PointCloud2f, header_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::PointCloud2f, points_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::xviz_msgs::Marker2f, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Marker2f, _impl_.header_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Marker2f, _impl_.type_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Marker2f, _impl_.path_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Marker2f, _impl_.polygon_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Marker2f, _impl_.cirlce_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Marker2f, _impl_.pose_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Marker2f, _impl_.point_cloud_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Marker2f, _impl_.text_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Marker2f, _impl_.colortype_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Marker2f, _impl_.length_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Marker2f, _impl_.thickness_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Marker2f, _impl_.radius_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Marker2f, header_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Marker2f, type_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Marker2f, path_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Marker2f, polygon_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Marker2f, cirlce_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Marker2f, pose_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Marker2f, point_cloud_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Marker2f, text_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Marker2f, colortype_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Marker2f, length_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Marker2f, thickness_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Marker2f, radius_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::xviz_msgs::Marker2fArray, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Marker2fArray, _impl_.header_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Marker2fArray, _impl_.markerarray_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Marker2fArray, header_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Marker2fArray, markerarray_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::xviz_msgs::Transform2fNode, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Transform2fNode, _impl_.header_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Transform2fNode, _impl_.trans_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Transform2fNode, _impl_.angle_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Transform2fNode, _impl_.frameid_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Transform2fNode, _impl_.parentframeid_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Transform2fNode, header_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Transform2fNode, trans_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Transform2fNode, angle_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Transform2fNode, frameid_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::Transform2fNode, parentframeid_),
   PROTOBUF_FIELD_OFFSET(::xviz_msgs::MapDouble_DataEntry_DoNotUse, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::xviz_msgs::MapDouble_DataEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -438,8 +418,8 @@ const uint32_t TableStruct_xviz_5fmsgs_2eproto::offsets[] PROTOBUF_SECTION_VARIA
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::MapDouble, _impl_.data_),
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::MapDouble, _impl_.t_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::MapDouble, data_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::MapDouble, t_),
   PROTOBUF_FIELD_OFFSET(::xviz_msgs::MapString_DataEntry_DoNotUse, _has_bits_),
   PROTOBUF_FIELD_OFFSET(::xviz_msgs::MapString_DataEntry_DoNotUse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -456,9 +436,9 @@ const uint32_t TableStruct_xviz_5fmsgs_2eproto::offsets[] PROTOBUF_SECTION_VARIA
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::xviz_msgs::MapString, _impl_.data_),
+  PROTOBUF_FIELD_OFFSET(::xviz_msgs::MapString, data_),
 };
-static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::xviz_msgs::Header)},
   { 9, -1, -1, sizeof(::xviz_msgs::Vector2f)},
   { 17, -1, -1, sizeof(::xviz_msgs::Pose2f)},
@@ -479,25 +459,25 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 159, -1, -1, sizeof(::xviz_msgs::MapString)},
 };
 
-static const ::_pb::Message* const file_default_instances[] = {
-  &::xviz_msgs::_Header_default_instance_._instance,
-  &::xviz_msgs::_Vector2f_default_instance_._instance,
-  &::xviz_msgs::_Pose2f_default_instance_._instance,
-  &::xviz_msgs::_Pose2fArray_default_instance_._instance,
-  &::xviz_msgs::_Polygon2f_default_instance_._instance,
-  &::xviz_msgs::_Polygon2fArray_default_instance_._instance,
-  &::xviz_msgs::_Path2f_default_instance_._instance,
-  &::xviz_msgs::_Path2fArray_default_instance_._instance,
-  &::xviz_msgs::_Circle2f_default_instance_._instance,
-  &::xviz_msgs::_Circle2fArray_default_instance_._instance,
-  &::xviz_msgs::_PointCloud2f_default_instance_._instance,
-  &::xviz_msgs::_Marker2f_default_instance_._instance,
-  &::xviz_msgs::_Marker2fArray_default_instance_._instance,
-  &::xviz_msgs::_Transform2fNode_default_instance_._instance,
-  &::xviz_msgs::_MapDouble_DataEntry_DoNotUse_default_instance_._instance,
-  &::xviz_msgs::_MapDouble_default_instance_._instance,
-  &::xviz_msgs::_MapString_DataEntry_DoNotUse_default_instance_._instance,
-  &::xviz_msgs::_MapString_default_instance_._instance,
+static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::xviz_msgs::_Header_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::xviz_msgs::_Vector2f_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::xviz_msgs::_Pose2f_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::xviz_msgs::_Pose2fArray_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::xviz_msgs::_Polygon2f_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::xviz_msgs::_Polygon2fArray_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::xviz_msgs::_Path2f_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::xviz_msgs::_Path2fArray_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::xviz_msgs::_Circle2f_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::xviz_msgs::_Circle2fArray_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::xviz_msgs::_PointCloud2f_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::xviz_msgs::_Marker2f_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::xviz_msgs::_Marker2fArray_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::xviz_msgs::_Transform2fNode_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::xviz_msgs::_MapDouble_DataEntry_DoNotUse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::xviz_msgs::_MapDouble_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::xviz_msgs::_MapString_DataEntry_DoNotUse_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::xviz_msgs::_MapString_default_instance_),
 };
 
 const char descriptor_table_protodef_xviz_5fmsgs_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -547,21 +527,19 @@ const char descriptor_table_protodef_xviz_5fmsgs_2eproto[] PROTOBUF_SECTION_VARI
   "ring.DataEntry\032+\n\tDataEntry\022\013\n\003key\030\001 \001(\t"
   "\022\r\n\005value\030\002 \001(\t:\0028\001b\006proto3"
   ;
-static ::_pbi::once_flag descriptor_table_xviz_5fmsgs_2eproto_once;
-const ::_pbi::DescriptorTable descriptor_table_xviz_5fmsgs_2eproto = {
-    false, false, 1787, descriptor_table_protodef_xviz_5fmsgs_2eproto,
-    "xviz_msgs.proto",
-    &descriptor_table_xviz_5fmsgs_2eproto_once, nullptr, 0, 18,
-    schemas, file_default_instances, TableStruct_xviz_5fmsgs_2eproto::offsets,
-    file_level_metadata_xviz_5fmsgs_2eproto, file_level_enum_descriptors_xviz_5fmsgs_2eproto,
-    file_level_service_descriptors_xviz_5fmsgs_2eproto,
+static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_xviz_5fmsgs_2eproto_once;
+const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_xviz_5fmsgs_2eproto = {
+  false, false, 1787, descriptor_table_protodef_xviz_5fmsgs_2eproto, "xviz_msgs.proto", 
+  &descriptor_table_xviz_5fmsgs_2eproto_once, nullptr, 0, 18,
+  schemas, file_default_instances, TableStruct_xviz_5fmsgs_2eproto::offsets,
+  file_level_metadata_xviz_5fmsgs_2eproto, file_level_enum_descriptors_xviz_5fmsgs_2eproto, file_level_service_descriptors_xviz_5fmsgs_2eproto,
 };
-PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_xviz_5fmsgs_2eproto_getter() {
+PROTOBUF_ATTRIBUTE_WEAK const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable* descriptor_table_xviz_5fmsgs_2eproto_getter() {
   return &descriptor_table_xviz_5fmsgs_2eproto;
 }
 
 // Force running AddDescriptors() at dynamic initialization time.
-PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_xviz_5fmsgs_2eproto(&descriptor_table_xviz_5fmsgs_2eproto);
+PROTOBUF_ATTRIBUTE_INIT_PRIORITY static ::PROTOBUF_NAMESPACE_ID::internal::AddDescriptorsRunner dynamic_init_dummy_xviz_5fmsgs_2eproto(&descriptor_table_xviz_5fmsgs_2eproto);
 namespace xviz_msgs {
 
 // ===================================================================
@@ -573,88 +551,79 @@ class Header::_Internal {
 Header::Header(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:xviz_msgs.Header)
 }
 Header::Header(const Header& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
-  Header* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.name_){}
-    , decltype(_impl_.frameid_){}
-    , decltype(_impl_.info_){}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _impl_.name_.InitDefault();
+  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.name_.Set("", GetArenaForAllocation());
+    name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_name().empty()) {
-    _this->_impl_.name_.Set(from._internal_name(), 
-      _this->GetArenaForAllocation());
+    name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
+      GetArenaForAllocation());
   }
-  _impl_.frameid_.InitDefault();
+  frameid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.frameid_.Set("", GetArenaForAllocation());
+    frameid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_frameid().empty()) {
-    _this->_impl_.frameid_.Set(from._internal_frameid(), 
-      _this->GetArenaForAllocation());
+    frameid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_frameid(), 
+      GetArenaForAllocation());
   }
-  _impl_.info_.InitDefault();
+  info_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.info_.Set("", GetArenaForAllocation());
+    info_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_info().empty()) {
-    _this->_impl_.info_.Set(from._internal_info(), 
-      _this->GetArenaForAllocation());
+    info_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_info(), 
+      GetArenaForAllocation());
   }
   // @@protoc_insertion_point(copy_constructor:xviz_msgs.Header)
 }
 
-inline void Header::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.name_){}
-    , decltype(_impl_.frameid_){}
-    , decltype(_impl_.info_){}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
-  _impl_.name_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.name_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  _impl_.frameid_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.frameid_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  _impl_.info_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.info_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+inline void Header::SharedCtor() {
+name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  name_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+frameid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  frameid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+info_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  info_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 Header::~Header() {
   // @@protoc_insertion_point(destructor:xviz_msgs.Header)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void Header::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.name_.Destroy();
-  _impl_.frameid_.Destroy();
-  _impl_.info_.Destroy();
+  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  frameid_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  info_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
+void Header::ArenaDtor(void* object) {
+  Header* _this = reinterpret_cast< Header* >(object);
+  (void)_this;
+}
+void Header::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
 void Header::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
+  _cached_size_.Set(size);
 }
 
 void Header::Clear() {
@@ -663,25 +632,25 @@ void Header::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.name_.ClearToEmpty();
-  _impl_.frameid_.ClearToEmpty();
-  _impl_.info_.ClearToEmpty();
+  name_.ClearToEmpty();
+  frameid_.ClearToEmpty();
+  info_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Header::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* Header::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // string name = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           auto str = _internal_mutable_name();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "xviz_msgs.Header.name"));
           CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "xviz_msgs.Header.name"));
         } else
           goto handle_unusual;
         continue;
@@ -689,9 +658,9 @@ const char* Header::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
           auto str = _internal_mutable_frameid();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "xviz_msgs.Header.frameId"));
           CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "xviz_msgs.Header.frameId"));
         } else
           goto handle_unusual;
         continue;
@@ -699,9 +668,9 @@ const char* Header::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
           auto str = _internal_mutable_info();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "xviz_msgs.Header.info"));
           CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "xviz_msgs.Header.info"));
         } else
           goto handle_unusual;
         continue;
@@ -765,7 +734,7 @@ uint8_t* Header::_InternalSerialize(
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:xviz_msgs.Header)
@@ -801,34 +770,38 @@ size_t Header::ByteSizeLong() const {
         this->_internal_info());
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Header::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
     Header::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Header::GetClassData() const { return &_class_data_; }
 
+void Header::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<Header *>(to)->MergeFrom(
+      static_cast<const Header &>(from));
+}
 
-void Header::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<Header*>(&to_msg);
-  auto& from = static_cast<const Header&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:xviz_msgs.Header)
-  GOOGLE_DCHECK_NE(&from, _this);
+
+void Header::MergeFrom(const Header& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:xviz_msgs.Header)
+  GOOGLE_DCHECK_NE(&from, this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (!from._internal_name().empty()) {
-    _this->_internal_set_name(from._internal_name());
+    _internal_set_name(from._internal_name());
   }
   if (!from._internal_frameid().empty()) {
-    _this->_internal_set_frameid(from._internal_frameid());
+    _internal_set_frameid(from._internal_frameid());
   }
   if (!from._internal_info().empty()) {
-    _this->_internal_set_info(from._internal_info());
+    _internal_set_info(from._internal_info());
   }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Header::CopyFrom(const Header& from) {
@@ -848,21 +821,24 @@ void Header::InternalSwap(Header* other) {
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.name_, lhs_arena,
-      &other->_impl_.name_, rhs_arena
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &name_, lhs_arena,
+      &other->name_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.frameid_, lhs_arena,
-      &other->_impl_.frameid_, rhs_arena
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &frameid_, lhs_arena,
+      &other->frameid_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.info_, lhs_arena,
-      &other->_impl_.info_, rhs_arena
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &info_, lhs_arena,
+      &other->info_, rhs_arena
   );
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Header::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_xviz_5fmsgs_2eproto_getter, &descriptor_table_xviz_5fmsgs_2eproto_once,
       file_level_metadata_xviz_5fmsgs_2eproto[0]);
 }
@@ -876,50 +852,47 @@ class Vector2f::_Internal {
 Vector2f::Vector2f(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:xviz_msgs.Vector2f)
 }
 Vector2f::Vector2f(const Vector2f& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
-  Vector2f* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.x_){}
-    , decltype(_impl_.y_){}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.x_, &from._impl_.x_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.y_) -
-    reinterpret_cast<char*>(&_impl_.x_)) + sizeof(_impl_.y_));
+  ::memcpy(&x_, &from.x_,
+    static_cast<size_t>(reinterpret_cast<char*>(&y_) -
+    reinterpret_cast<char*>(&x_)) + sizeof(y_));
   // @@protoc_insertion_point(copy_constructor:xviz_msgs.Vector2f)
 }
 
-inline void Vector2f::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.x_){0}
-    , decltype(_impl_.y_){0}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
+inline void Vector2f::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&x_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&y_) -
+    reinterpret_cast<char*>(&x_)) + sizeof(y_));
 }
 
 Vector2f::~Vector2f() {
   // @@protoc_insertion_point(destructor:xviz_msgs.Vector2f)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void Vector2f::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
+void Vector2f::ArenaDtor(void* object) {
+  Vector2f* _this = reinterpret_cast< Vector2f* >(object);
+  (void)_this;
+}
+void Vector2f::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
 void Vector2f::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
+  _cached_size_.Set(size);
 }
 
 void Vector2f::Clear() {
@@ -928,22 +901,22 @@ void Vector2f::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&_impl_.x_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.y_) -
-      reinterpret_cast<char*>(&_impl_.x_)) + sizeof(_impl_.y_));
+  ::memset(&x_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&y_) -
+      reinterpret_cast<char*>(&x_)) + sizeof(y_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Vector2f::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* Vector2f::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // float x = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 13)) {
-          _impl_.x_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          x_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else
           goto handle_unusual;
@@ -951,7 +924,7 @@ const char* Vector2f::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx)
       // float y = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 21)) {
-          _impl_.y_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          y_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else
           goto handle_unusual;
@@ -992,7 +965,7 @@ uint8_t* Vector2f::_InternalSerialize(
   memcpy(&raw_x, &tmp_x, sizeof(tmp_x));
   if (raw_x != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteFloatToArray(1, this->_internal_x(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(1, this->_internal_x(), target);
   }
 
   // float y = 2;
@@ -1002,11 +975,11 @@ uint8_t* Vector2f::_InternalSerialize(
   memcpy(&raw_y, &tmp_y, sizeof(tmp_y));
   if (raw_y != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteFloatToArray(2, this->_internal_y(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(2, this->_internal_y(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:xviz_msgs.Vector2f)
@@ -1039,21 +1012,25 @@ size_t Vector2f::ByteSizeLong() const {
     total_size += 1 + 4;
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Vector2f::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
     Vector2f::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Vector2f::GetClassData() const { return &_class_data_; }
 
+void Vector2f::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<Vector2f *>(to)->MergeFrom(
+      static_cast<const Vector2f &>(from));
+}
 
-void Vector2f::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<Vector2f*>(&to_msg);
-  auto& from = static_cast<const Vector2f&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:xviz_msgs.Vector2f)
-  GOOGLE_DCHECK_NE(&from, _this);
+
+void Vector2f::MergeFrom(const Vector2f& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:xviz_msgs.Vector2f)
+  GOOGLE_DCHECK_NE(&from, this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -1062,16 +1039,16 @@ void Vector2f::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTO
   uint32_t raw_x;
   memcpy(&raw_x, &tmp_x, sizeof(tmp_x));
   if (raw_x != 0) {
-    _this->_internal_set_x(from._internal_x());
+    _internal_set_x(from._internal_x());
   }
   static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
   float tmp_y = from._internal_y();
   uint32_t raw_y;
   memcpy(&raw_y, &tmp_y, sizeof(tmp_y));
   if (raw_y != 0) {
-    _this->_internal_set_y(from._internal_y());
+    _internal_set_y(from._internal_y());
   }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Vector2f::CopyFrom(const Vector2f& from) {
@@ -1089,15 +1066,15 @@ void Vector2f::InternalSwap(Vector2f* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Vector2f, _impl_.y_)
-      + sizeof(Vector2f::_impl_.y_)
-      - PROTOBUF_FIELD_OFFSET(Vector2f, _impl_.x_)>(
-          reinterpret_cast<char*>(&_impl_.x_),
-          reinterpret_cast<char*>(&other->_impl_.x_));
+      PROTOBUF_FIELD_OFFSET(Vector2f, y_)
+      + sizeof(Vector2f::y_)
+      - PROTOBUF_FIELD_OFFSET(Vector2f, x_)>(
+          reinterpret_cast<char*>(&x_),
+          reinterpret_cast<char*>(&other->x_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Vector2f::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_xviz_5fmsgs_2eproto_getter, &descriptor_table_xviz_5fmsgs_2eproto_once,
       file_level_metadata_xviz_5fmsgs_2eproto[1]);
 }
@@ -1112,67 +1089,66 @@ class Pose2f::_Internal {
 
 const ::xviz_msgs::Header&
 Pose2f::_Internal::header(const Pose2f* msg) {
-  return *msg->_impl_.header_;
+  return *msg->header_;
 }
 const ::xviz_msgs::Vector2f&
 Pose2f::_Internal::position(const Pose2f* msg) {
-  return *msg->_impl_.position_;
+  return *msg->position_;
 }
 Pose2f::Pose2f(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:xviz_msgs.Pose2f)
 }
 Pose2f::Pose2f(const Pose2f& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
-  Pose2f* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.header_){nullptr}
-    , decltype(_impl_.position_){nullptr}
-    , decltype(_impl_.yaw_){}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_header()) {
-    _this->_impl_.header_ = new ::xviz_msgs::Header(*from._impl_.header_);
+    header_ = new ::xviz_msgs::Header(*from.header_);
+  } else {
+    header_ = nullptr;
   }
   if (from._internal_has_position()) {
-    _this->_impl_.position_ = new ::xviz_msgs::Vector2f(*from._impl_.position_);
+    position_ = new ::xviz_msgs::Vector2f(*from.position_);
+  } else {
+    position_ = nullptr;
   }
-  _this->_impl_.yaw_ = from._impl_.yaw_;
+  yaw_ = from.yaw_;
   // @@protoc_insertion_point(copy_constructor:xviz_msgs.Pose2f)
 }
 
-inline void Pose2f::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.header_){nullptr}
-    , decltype(_impl_.position_){nullptr}
-    , decltype(_impl_.yaw_){0}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
+inline void Pose2f::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&header_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&yaw_) -
+    reinterpret_cast<char*>(&header_)) + sizeof(yaw_));
 }
 
 Pose2f::~Pose2f() {
   // @@protoc_insertion_point(destructor:xviz_msgs.Pose2f)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void Pose2f::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (this != internal_default_instance()) delete _impl_.header_;
-  if (this != internal_default_instance()) delete _impl_.position_;
+  if (this != internal_default_instance()) delete header_;
+  if (this != internal_default_instance()) delete position_;
 }
 
+void Pose2f::ArenaDtor(void* object) {
+  Pose2f* _this = reinterpret_cast< Pose2f* >(object);
+  (void)_this;
+}
+void Pose2f::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
 void Pose2f::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
+  _cached_size_.Set(size);
 }
 
 void Pose2f::Clear() {
@@ -1181,23 +1157,23 @@ void Pose2f::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
-    delete _impl_.header_;
+  if (GetArenaForAllocation() == nullptr && header_ != nullptr) {
+    delete header_;
   }
-  _impl_.header_ = nullptr;
-  if (GetArenaForAllocation() == nullptr && _impl_.position_ != nullptr) {
-    delete _impl_.position_;
+  header_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && position_ != nullptr) {
+    delete position_;
   }
-  _impl_.position_ = nullptr;
-  _impl_.yaw_ = 0;
+  position_ = nullptr;
+  yaw_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Pose2f::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* Pose2f::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .xviz_msgs.Header header = 1;
       case 1:
@@ -1218,7 +1194,7 @@ const char* Pose2f::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
       // float yaw = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 29)) {
-          _impl_.yaw_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          yaw_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else
           goto handle_unusual;
@@ -1254,16 +1230,18 @@ uint8_t* Pose2f::_InternalSerialize(
 
   // .xviz_msgs.Header header = 1;
   if (this->_internal_has_header()) {
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, _Internal::header(this),
-        _Internal::header(this).GetCachedSize(), target, stream);
+      InternalWriteMessage(
+        1, _Internal::header(this), target, stream);
   }
 
   // .xviz_msgs.Vector2f position = 2;
   if (this->_internal_has_position()) {
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(2, _Internal::position(this),
-        _Internal::position(this).GetCachedSize(), target, stream);
+      InternalWriteMessage(
+        2, _Internal::position(this), target, stream);
   }
 
   // float yaw = 3;
@@ -1273,11 +1251,11 @@ uint8_t* Pose2f::_InternalSerialize(
   memcpy(&raw_yaw, &tmp_yaw, sizeof(tmp_yaw));
   if (raw_yaw != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteFloatToArray(3, this->_internal_yaw(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(3, this->_internal_yaw(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:xviz_msgs.Pose2f)
@@ -1296,14 +1274,14 @@ size_t Pose2f::ByteSizeLong() const {
   if (this->_internal_has_header()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.header_);
+        *header_);
   }
 
   // .xviz_msgs.Vector2f position = 2;
   if (this->_internal_has_position()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.position_);
+        *position_);
   }
 
   // float yaw = 3;
@@ -1315,40 +1293,42 @@ size_t Pose2f::ByteSizeLong() const {
     total_size += 1 + 4;
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Pose2f::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
     Pose2f::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Pose2f::GetClassData() const { return &_class_data_; }
 
+void Pose2f::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<Pose2f *>(to)->MergeFrom(
+      static_cast<const Pose2f &>(from));
+}
 
-void Pose2f::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<Pose2f*>(&to_msg);
-  auto& from = static_cast<const Pose2f&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:xviz_msgs.Pose2f)
-  GOOGLE_DCHECK_NE(&from, _this);
+
+void Pose2f::MergeFrom(const Pose2f& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:xviz_msgs.Pose2f)
+  GOOGLE_DCHECK_NE(&from, this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_has_header()) {
-    _this->_internal_mutable_header()->::xviz_msgs::Header::MergeFrom(
-        from._internal_header());
+    _internal_mutable_header()->::xviz_msgs::Header::MergeFrom(from._internal_header());
   }
   if (from._internal_has_position()) {
-    _this->_internal_mutable_position()->::xviz_msgs::Vector2f::MergeFrom(
-        from._internal_position());
+    _internal_mutable_position()->::xviz_msgs::Vector2f::MergeFrom(from._internal_position());
   }
   static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
   float tmp_yaw = from._internal_yaw();
   uint32_t raw_yaw;
   memcpy(&raw_yaw, &tmp_yaw, sizeof(tmp_yaw));
   if (raw_yaw != 0) {
-    _this->_internal_set_yaw(from._internal_yaw());
+    _internal_set_yaw(from._internal_yaw());
   }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Pose2f::CopyFrom(const Pose2f& from) {
@@ -1366,15 +1346,15 @@ void Pose2f::InternalSwap(Pose2f* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Pose2f, _impl_.yaw_)
-      + sizeof(Pose2f::_impl_.yaw_)
-      - PROTOBUF_FIELD_OFFSET(Pose2f, _impl_.header_)>(
-          reinterpret_cast<char*>(&_impl_.header_),
-          reinterpret_cast<char*>(&other->_impl_.header_));
+      PROTOBUF_FIELD_OFFSET(Pose2f, yaw_)
+      + sizeof(Pose2f::yaw_)
+      - PROTOBUF_FIELD_OFFSET(Pose2f, header_)>(
+          reinterpret_cast<char*>(&header_),
+          reinterpret_cast<char*>(&other->header_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Pose2f::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_xviz_5fmsgs_2eproto_getter, &descriptor_table_xviz_5fmsgs_2eproto_once,
       file_level_metadata_xviz_5fmsgs_2eproto[2]);
 }
@@ -1388,57 +1368,54 @@ class Pose2fArray::_Internal {
 
 const ::xviz_msgs::Header&
 Pose2fArray::_Internal::header(const Pose2fArray* msg) {
-  return *msg->_impl_.header_;
+  return *msg->header_;
 }
 Pose2fArray::Pose2fArray(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+  posearray_(arena) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:xviz_msgs.Pose2fArray)
 }
 Pose2fArray::Pose2fArray(const Pose2fArray& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  Pose2fArray* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.posearray_){from._impl_.posearray_}
-    , decltype(_impl_.header_){nullptr}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      posearray_(from.posearray_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_header()) {
-    _this->_impl_.header_ = new ::xviz_msgs::Header(*from._impl_.header_);
+    header_ = new ::xviz_msgs::Header(*from.header_);
+  } else {
+    header_ = nullptr;
   }
   // @@protoc_insertion_point(copy_constructor:xviz_msgs.Pose2fArray)
 }
 
-inline void Pose2fArray::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.posearray_){arena}
-    , decltype(_impl_.header_){nullptr}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
+inline void Pose2fArray::SharedCtor() {
+header_ = nullptr;
 }
 
 Pose2fArray::~Pose2fArray() {
   // @@protoc_insertion_point(destructor:xviz_msgs.Pose2fArray)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void Pose2fArray::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.posearray_.~RepeatedPtrField();
-  if (this != internal_default_instance()) delete _impl_.header_;
+  if (this != internal_default_instance()) delete header_;
 }
 
+void Pose2fArray::ArenaDtor(void* object) {
+  Pose2fArray* _this = reinterpret_cast< Pose2fArray* >(object);
+  (void)_this;
+}
+void Pose2fArray::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
 void Pose2fArray::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
+  _cached_size_.Set(size);
 }
 
 void Pose2fArray::Clear() {
@@ -1447,19 +1424,19 @@ void Pose2fArray::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.posearray_.Clear();
-  if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
-    delete _impl_.header_;
+  posearray_.Clear();
+  if (GetArenaForAllocation() == nullptr && header_ != nullptr) {
+    delete header_;
   }
-  _impl_.header_ = nullptr;
+  header_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Pose2fArray::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* Pose2fArray::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .xviz_msgs.Header header = 1;
       case 1:
@@ -1513,21 +1490,22 @@ uint8_t* Pose2fArray::_InternalSerialize(
 
   // .xviz_msgs.Header header = 1;
   if (this->_internal_has_header()) {
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, _Internal::header(this),
-        _Internal::header(this).GetCachedSize(), target, stream);
+      InternalWriteMessage(
+        1, _Internal::header(this), target, stream);
   }
 
   // repeated .xviz_msgs.Pose2f poseArray = 2;
-  for (unsigned i = 0,
-      n = static_cast<unsigned>(this->_internal_posearray_size()); i < n; i++) {
-    const auto& repfield = this->_internal_posearray(i);
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_posearray_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-        InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
+      InternalWriteMessage(2, this->_internal_posearray(i), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:xviz_msgs.Pose2fArray)
@@ -1544,7 +1522,7 @@ size_t Pose2fArray::ByteSizeLong() const {
 
   // repeated .xviz_msgs.Pose2f poseArray = 2;
   total_size += 1UL * this->_internal_posearray_size();
-  for (const auto& msg : this->_impl_.posearray_) {
+  for (const auto& msg : this->posearray_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
@@ -1553,33 +1531,36 @@ size_t Pose2fArray::ByteSizeLong() const {
   if (this->_internal_has_header()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.header_);
+        *header_);
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Pose2fArray::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
     Pose2fArray::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Pose2fArray::GetClassData() const { return &_class_data_; }
 
+void Pose2fArray::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<Pose2fArray *>(to)->MergeFrom(
+      static_cast<const Pose2fArray &>(from));
+}
 
-void Pose2fArray::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<Pose2fArray*>(&to_msg);
-  auto& from = static_cast<const Pose2fArray&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:xviz_msgs.Pose2fArray)
-  GOOGLE_DCHECK_NE(&from, _this);
+
+void Pose2fArray::MergeFrom(const Pose2fArray& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:xviz_msgs.Pose2fArray)
+  GOOGLE_DCHECK_NE(&from, this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  _this->_impl_.posearray_.MergeFrom(from._impl_.posearray_);
+  posearray_.MergeFrom(from.posearray_);
   if (from._internal_has_header()) {
-    _this->_internal_mutable_header()->::xviz_msgs::Header::MergeFrom(
-        from._internal_header());
+    _internal_mutable_header()->::xviz_msgs::Header::MergeFrom(from._internal_header());
   }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Pose2fArray::CopyFrom(const Pose2fArray& from) {
@@ -1596,12 +1577,12 @@ bool Pose2fArray::IsInitialized() const {
 void Pose2fArray::InternalSwap(Pose2fArray* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.posearray_.InternalSwap(&other->_impl_.posearray_);
-  swap(_impl_.header_, other->_impl_.header_);
+  posearray_.InternalSwap(&other->posearray_);
+  swap(header_, other->header_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Pose2fArray::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_xviz_5fmsgs_2eproto_getter, &descriptor_table_xviz_5fmsgs_2eproto_once,
       file_level_metadata_xviz_5fmsgs_2eproto[3]);
 }
@@ -1615,60 +1596,58 @@ class Polygon2f::_Internal {
 
 const ::xviz_msgs::Header&
 Polygon2f::_Internal::header(const Polygon2f* msg) {
-  return *msg->_impl_.header_;
+  return *msg->header_;
 }
 Polygon2f::Polygon2f(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+  points_(arena) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:xviz_msgs.Polygon2f)
 }
 Polygon2f::Polygon2f(const Polygon2f& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  Polygon2f* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.points_){from._impl_.points_}
-    , decltype(_impl_.header_){nullptr}
-    , decltype(_impl_.filled_){}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      points_(from.points_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_header()) {
-    _this->_impl_.header_ = new ::xviz_msgs::Header(*from._impl_.header_);
+    header_ = new ::xviz_msgs::Header(*from.header_);
+  } else {
+    header_ = nullptr;
   }
-  _this->_impl_.filled_ = from._impl_.filled_;
+  filled_ = from.filled_;
   // @@protoc_insertion_point(copy_constructor:xviz_msgs.Polygon2f)
 }
 
-inline void Polygon2f::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.points_){arena}
-    , decltype(_impl_.header_){nullptr}
-    , decltype(_impl_.filled_){false}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
+inline void Polygon2f::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&header_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&filled_) -
+    reinterpret_cast<char*>(&header_)) + sizeof(filled_));
 }
 
 Polygon2f::~Polygon2f() {
   // @@protoc_insertion_point(destructor:xviz_msgs.Polygon2f)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void Polygon2f::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.points_.~RepeatedPtrField();
-  if (this != internal_default_instance()) delete _impl_.header_;
+  if (this != internal_default_instance()) delete header_;
 }
 
+void Polygon2f::ArenaDtor(void* object) {
+  Polygon2f* _this = reinterpret_cast< Polygon2f* >(object);
+  (void)_this;
+}
+void Polygon2f::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
 void Polygon2f::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
+  _cached_size_.Set(size);
 }
 
 void Polygon2f::Clear() {
@@ -1677,20 +1656,20 @@ void Polygon2f::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.points_.Clear();
-  if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
-    delete _impl_.header_;
+  points_.Clear();
+  if (GetArenaForAllocation() == nullptr && header_ != nullptr) {
+    delete header_;
   }
-  _impl_.header_ = nullptr;
-  _impl_.filled_ = false;
+  header_ = nullptr;
+  filled_ = false;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Polygon2f::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* Polygon2f::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .xviz_msgs.Header header = 1;
       case 1:
@@ -1716,7 +1695,7 @@ const char* Polygon2f::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx
       // bool filled = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          _impl_.filled_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          filled_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1752,27 +1731,28 @@ uint8_t* Polygon2f::_InternalSerialize(
 
   // .xviz_msgs.Header header = 1;
   if (this->_internal_has_header()) {
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, _Internal::header(this),
-        _Internal::header(this).GetCachedSize(), target, stream);
+      InternalWriteMessage(
+        1, _Internal::header(this), target, stream);
   }
 
   // repeated .xviz_msgs.Vector2f points = 2;
-  for (unsigned i = 0,
-      n = static_cast<unsigned>(this->_internal_points_size()); i < n; i++) {
-    const auto& repfield = this->_internal_points(i);
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_points_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-        InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
+      InternalWriteMessage(2, this->_internal_points(i), target, stream);
   }
 
   // bool filled = 3;
   if (this->_internal_filled() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_filled(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_filled(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:xviz_msgs.Polygon2f)
@@ -1789,7 +1769,7 @@ size_t Polygon2f::ByteSizeLong() const {
 
   // repeated .xviz_msgs.Vector2f points = 2;
   total_size += 1UL * this->_internal_points_size();
-  for (const auto& msg : this->_impl_.points_) {
+  for (const auto& msg : this->points_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
@@ -1798,7 +1778,7 @@ size_t Polygon2f::ByteSizeLong() const {
   if (this->_internal_has_header()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.header_);
+        *header_);
   }
 
   // bool filled = 3;
@@ -1806,33 +1786,36 @@ size_t Polygon2f::ByteSizeLong() const {
     total_size += 1 + 1;
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Polygon2f::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
     Polygon2f::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Polygon2f::GetClassData() const { return &_class_data_; }
 
+void Polygon2f::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<Polygon2f *>(to)->MergeFrom(
+      static_cast<const Polygon2f &>(from));
+}
 
-void Polygon2f::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<Polygon2f*>(&to_msg);
-  auto& from = static_cast<const Polygon2f&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:xviz_msgs.Polygon2f)
-  GOOGLE_DCHECK_NE(&from, _this);
+
+void Polygon2f::MergeFrom(const Polygon2f& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:xviz_msgs.Polygon2f)
+  GOOGLE_DCHECK_NE(&from, this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  _this->_impl_.points_.MergeFrom(from._impl_.points_);
+  points_.MergeFrom(from.points_);
   if (from._internal_has_header()) {
-    _this->_internal_mutable_header()->::xviz_msgs::Header::MergeFrom(
-        from._internal_header());
+    _internal_mutable_header()->::xviz_msgs::Header::MergeFrom(from._internal_header());
   }
   if (from._internal_filled() != 0) {
-    _this->_internal_set_filled(from._internal_filled());
+    _internal_set_filled(from._internal_filled());
   }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Polygon2f::CopyFrom(const Polygon2f& from) {
@@ -1849,17 +1832,17 @@ bool Polygon2f::IsInitialized() const {
 void Polygon2f::InternalSwap(Polygon2f* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.points_.InternalSwap(&other->_impl_.points_);
+  points_.InternalSwap(&other->points_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Polygon2f, _impl_.filled_)
-      + sizeof(Polygon2f::_impl_.filled_)
-      - PROTOBUF_FIELD_OFFSET(Polygon2f, _impl_.header_)>(
-          reinterpret_cast<char*>(&_impl_.header_),
-          reinterpret_cast<char*>(&other->_impl_.header_));
+      PROTOBUF_FIELD_OFFSET(Polygon2f, filled_)
+      + sizeof(Polygon2f::filled_)
+      - PROTOBUF_FIELD_OFFSET(Polygon2f, header_)>(
+          reinterpret_cast<char*>(&header_),
+          reinterpret_cast<char*>(&other->header_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Polygon2f::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_xviz_5fmsgs_2eproto_getter, &descriptor_table_xviz_5fmsgs_2eproto_once,
       file_level_metadata_xviz_5fmsgs_2eproto[4]);
 }
@@ -1873,57 +1856,54 @@ class Polygon2fArray::_Internal {
 
 const ::xviz_msgs::Header&
 Polygon2fArray::_Internal::header(const Polygon2fArray* msg) {
-  return *msg->_impl_.header_;
+  return *msg->header_;
 }
 Polygon2fArray::Polygon2fArray(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+  polygonarray_(arena) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:xviz_msgs.Polygon2fArray)
 }
 Polygon2fArray::Polygon2fArray(const Polygon2fArray& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  Polygon2fArray* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.polygonarray_){from._impl_.polygonarray_}
-    , decltype(_impl_.header_){nullptr}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      polygonarray_(from.polygonarray_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_header()) {
-    _this->_impl_.header_ = new ::xviz_msgs::Header(*from._impl_.header_);
+    header_ = new ::xviz_msgs::Header(*from.header_);
+  } else {
+    header_ = nullptr;
   }
   // @@protoc_insertion_point(copy_constructor:xviz_msgs.Polygon2fArray)
 }
 
-inline void Polygon2fArray::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.polygonarray_){arena}
-    , decltype(_impl_.header_){nullptr}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
+inline void Polygon2fArray::SharedCtor() {
+header_ = nullptr;
 }
 
 Polygon2fArray::~Polygon2fArray() {
   // @@protoc_insertion_point(destructor:xviz_msgs.Polygon2fArray)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void Polygon2fArray::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.polygonarray_.~RepeatedPtrField();
-  if (this != internal_default_instance()) delete _impl_.header_;
+  if (this != internal_default_instance()) delete header_;
 }
 
+void Polygon2fArray::ArenaDtor(void* object) {
+  Polygon2fArray* _this = reinterpret_cast< Polygon2fArray* >(object);
+  (void)_this;
+}
+void Polygon2fArray::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
 void Polygon2fArray::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
+  _cached_size_.Set(size);
 }
 
 void Polygon2fArray::Clear() {
@@ -1932,19 +1912,19 @@ void Polygon2fArray::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.polygonarray_.Clear();
-  if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
-    delete _impl_.header_;
+  polygonarray_.Clear();
+  if (GetArenaForAllocation() == nullptr && header_ != nullptr) {
+    delete header_;
   }
-  _impl_.header_ = nullptr;
+  header_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Polygon2fArray::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* Polygon2fArray::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .xviz_msgs.Header header = 1;
       case 1:
@@ -1998,21 +1978,22 @@ uint8_t* Polygon2fArray::_InternalSerialize(
 
   // .xviz_msgs.Header header = 1;
   if (this->_internal_has_header()) {
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, _Internal::header(this),
-        _Internal::header(this).GetCachedSize(), target, stream);
+      InternalWriteMessage(
+        1, _Internal::header(this), target, stream);
   }
 
   // repeated .xviz_msgs.Polygon2f polygonArray = 2;
-  for (unsigned i = 0,
-      n = static_cast<unsigned>(this->_internal_polygonarray_size()); i < n; i++) {
-    const auto& repfield = this->_internal_polygonarray(i);
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_polygonarray_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-        InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
+      InternalWriteMessage(2, this->_internal_polygonarray(i), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:xviz_msgs.Polygon2fArray)
@@ -2029,7 +2010,7 @@ size_t Polygon2fArray::ByteSizeLong() const {
 
   // repeated .xviz_msgs.Polygon2f polygonArray = 2;
   total_size += 1UL * this->_internal_polygonarray_size();
-  for (const auto& msg : this->_impl_.polygonarray_) {
+  for (const auto& msg : this->polygonarray_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
@@ -2038,33 +2019,36 @@ size_t Polygon2fArray::ByteSizeLong() const {
   if (this->_internal_has_header()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.header_);
+        *header_);
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Polygon2fArray::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
     Polygon2fArray::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Polygon2fArray::GetClassData() const { return &_class_data_; }
 
+void Polygon2fArray::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<Polygon2fArray *>(to)->MergeFrom(
+      static_cast<const Polygon2fArray &>(from));
+}
 
-void Polygon2fArray::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<Polygon2fArray*>(&to_msg);
-  auto& from = static_cast<const Polygon2fArray&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:xviz_msgs.Polygon2fArray)
-  GOOGLE_DCHECK_NE(&from, _this);
+
+void Polygon2fArray::MergeFrom(const Polygon2fArray& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:xviz_msgs.Polygon2fArray)
+  GOOGLE_DCHECK_NE(&from, this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  _this->_impl_.polygonarray_.MergeFrom(from._impl_.polygonarray_);
+  polygonarray_.MergeFrom(from.polygonarray_);
   if (from._internal_has_header()) {
-    _this->_internal_mutable_header()->::xviz_msgs::Header::MergeFrom(
-        from._internal_header());
+    _internal_mutable_header()->::xviz_msgs::Header::MergeFrom(from._internal_header());
   }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Polygon2fArray::CopyFrom(const Polygon2fArray& from) {
@@ -2081,12 +2065,12 @@ bool Polygon2fArray::IsInitialized() const {
 void Polygon2fArray::InternalSwap(Polygon2fArray* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.polygonarray_.InternalSwap(&other->_impl_.polygonarray_);
-  swap(_impl_.header_, other->_impl_.header_);
+  polygonarray_.InternalSwap(&other->polygonarray_);
+  swap(header_, other->header_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Polygon2fArray::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_xviz_5fmsgs_2eproto_getter, &descriptor_table_xviz_5fmsgs_2eproto_once,
       file_level_metadata_xviz_5fmsgs_2eproto[5]);
 }
@@ -2100,60 +2084,58 @@ class Path2f::_Internal {
 
 const ::xviz_msgs::Header&
 Path2f::_Internal::header(const Path2f* msg) {
-  return *msg->_impl_.header_;
+  return *msg->header_;
 }
 Path2f::Path2f(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+  points_(arena) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:xviz_msgs.Path2f)
 }
 Path2f::Path2f(const Path2f& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  Path2f* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.points_){from._impl_.points_}
-    , decltype(_impl_.header_){nullptr}
-    , decltype(_impl_.isdashed_){}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      points_(from.points_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_header()) {
-    _this->_impl_.header_ = new ::xviz_msgs::Header(*from._impl_.header_);
+    header_ = new ::xviz_msgs::Header(*from.header_);
+  } else {
+    header_ = nullptr;
   }
-  _this->_impl_.isdashed_ = from._impl_.isdashed_;
+  isdashed_ = from.isdashed_;
   // @@protoc_insertion_point(copy_constructor:xviz_msgs.Path2f)
 }
 
-inline void Path2f::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.points_){arena}
-    , decltype(_impl_.header_){nullptr}
-    , decltype(_impl_.isdashed_){false}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
+inline void Path2f::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&header_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&isdashed_) -
+    reinterpret_cast<char*>(&header_)) + sizeof(isdashed_));
 }
 
 Path2f::~Path2f() {
   // @@protoc_insertion_point(destructor:xviz_msgs.Path2f)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void Path2f::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.points_.~RepeatedPtrField();
-  if (this != internal_default_instance()) delete _impl_.header_;
+  if (this != internal_default_instance()) delete header_;
 }
 
+void Path2f::ArenaDtor(void* object) {
+  Path2f* _this = reinterpret_cast< Path2f* >(object);
+  (void)_this;
+}
+void Path2f::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
 void Path2f::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
+  _cached_size_.Set(size);
 }
 
 void Path2f::Clear() {
@@ -2162,20 +2144,20 @@ void Path2f::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.points_.Clear();
-  if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
-    delete _impl_.header_;
+  points_.Clear();
+  if (GetArenaForAllocation() == nullptr && header_ != nullptr) {
+    delete header_;
   }
-  _impl_.header_ = nullptr;
-  _impl_.isdashed_ = false;
+  header_ = nullptr;
+  isdashed_ = false;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Path2f::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* Path2f::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .xviz_msgs.Header header = 1;
       case 1:
@@ -2201,7 +2183,7 @@ const char* Path2f::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
       // bool isDashed = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
-          _impl_.isdashed_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          isdashed_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -2237,27 +2219,28 @@ uint8_t* Path2f::_InternalSerialize(
 
   // .xviz_msgs.Header header = 1;
   if (this->_internal_has_header()) {
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, _Internal::header(this),
-        _Internal::header(this).GetCachedSize(), target, stream);
+      InternalWriteMessage(
+        1, _Internal::header(this), target, stream);
   }
 
   // repeated .xviz_msgs.Vector2f points = 2;
-  for (unsigned i = 0,
-      n = static_cast<unsigned>(this->_internal_points_size()); i < n; i++) {
-    const auto& repfield = this->_internal_points(i);
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_points_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-        InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
+      InternalWriteMessage(2, this->_internal_points(i), target, stream);
   }
 
   // bool isDashed = 3;
   if (this->_internal_isdashed() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_isdashed(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_isdashed(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:xviz_msgs.Path2f)
@@ -2274,7 +2257,7 @@ size_t Path2f::ByteSizeLong() const {
 
   // repeated .xviz_msgs.Vector2f points = 2;
   total_size += 1UL * this->_internal_points_size();
-  for (const auto& msg : this->_impl_.points_) {
+  for (const auto& msg : this->points_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
@@ -2283,7 +2266,7 @@ size_t Path2f::ByteSizeLong() const {
   if (this->_internal_has_header()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.header_);
+        *header_);
   }
 
   // bool isDashed = 3;
@@ -2291,33 +2274,36 @@ size_t Path2f::ByteSizeLong() const {
     total_size += 1 + 1;
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Path2f::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
     Path2f::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Path2f::GetClassData() const { return &_class_data_; }
 
+void Path2f::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<Path2f *>(to)->MergeFrom(
+      static_cast<const Path2f &>(from));
+}
 
-void Path2f::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<Path2f*>(&to_msg);
-  auto& from = static_cast<const Path2f&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:xviz_msgs.Path2f)
-  GOOGLE_DCHECK_NE(&from, _this);
+
+void Path2f::MergeFrom(const Path2f& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:xviz_msgs.Path2f)
+  GOOGLE_DCHECK_NE(&from, this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  _this->_impl_.points_.MergeFrom(from._impl_.points_);
+  points_.MergeFrom(from.points_);
   if (from._internal_has_header()) {
-    _this->_internal_mutable_header()->::xviz_msgs::Header::MergeFrom(
-        from._internal_header());
+    _internal_mutable_header()->::xviz_msgs::Header::MergeFrom(from._internal_header());
   }
   if (from._internal_isdashed() != 0) {
-    _this->_internal_set_isdashed(from._internal_isdashed());
+    _internal_set_isdashed(from._internal_isdashed());
   }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Path2f::CopyFrom(const Path2f& from) {
@@ -2334,17 +2320,17 @@ bool Path2f::IsInitialized() const {
 void Path2f::InternalSwap(Path2f* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.points_.InternalSwap(&other->_impl_.points_);
+  points_.InternalSwap(&other->points_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Path2f, _impl_.isdashed_)
-      + sizeof(Path2f::_impl_.isdashed_)
-      - PROTOBUF_FIELD_OFFSET(Path2f, _impl_.header_)>(
-          reinterpret_cast<char*>(&_impl_.header_),
-          reinterpret_cast<char*>(&other->_impl_.header_));
+      PROTOBUF_FIELD_OFFSET(Path2f, isdashed_)
+      + sizeof(Path2f::isdashed_)
+      - PROTOBUF_FIELD_OFFSET(Path2f, header_)>(
+          reinterpret_cast<char*>(&header_),
+          reinterpret_cast<char*>(&other->header_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Path2f::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_xviz_5fmsgs_2eproto_getter, &descriptor_table_xviz_5fmsgs_2eproto_once,
       file_level_metadata_xviz_5fmsgs_2eproto[6]);
 }
@@ -2358,57 +2344,54 @@ class Path2fArray::_Internal {
 
 const ::xviz_msgs::Header&
 Path2fArray::_Internal::header(const Path2fArray* msg) {
-  return *msg->_impl_.header_;
+  return *msg->header_;
 }
 Path2fArray::Path2fArray(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+  patharray_(arena) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:xviz_msgs.Path2fArray)
 }
 Path2fArray::Path2fArray(const Path2fArray& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  Path2fArray* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.patharray_){from._impl_.patharray_}
-    , decltype(_impl_.header_){nullptr}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      patharray_(from.patharray_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_header()) {
-    _this->_impl_.header_ = new ::xviz_msgs::Header(*from._impl_.header_);
+    header_ = new ::xviz_msgs::Header(*from.header_);
+  } else {
+    header_ = nullptr;
   }
   // @@protoc_insertion_point(copy_constructor:xviz_msgs.Path2fArray)
 }
 
-inline void Path2fArray::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.patharray_){arena}
-    , decltype(_impl_.header_){nullptr}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
+inline void Path2fArray::SharedCtor() {
+header_ = nullptr;
 }
 
 Path2fArray::~Path2fArray() {
   // @@protoc_insertion_point(destructor:xviz_msgs.Path2fArray)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void Path2fArray::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.patharray_.~RepeatedPtrField();
-  if (this != internal_default_instance()) delete _impl_.header_;
+  if (this != internal_default_instance()) delete header_;
 }
 
+void Path2fArray::ArenaDtor(void* object) {
+  Path2fArray* _this = reinterpret_cast< Path2fArray* >(object);
+  (void)_this;
+}
+void Path2fArray::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
 void Path2fArray::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
+  _cached_size_.Set(size);
 }
 
 void Path2fArray::Clear() {
@@ -2417,19 +2400,19 @@ void Path2fArray::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.patharray_.Clear();
-  if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
-    delete _impl_.header_;
+  patharray_.Clear();
+  if (GetArenaForAllocation() == nullptr && header_ != nullptr) {
+    delete header_;
   }
-  _impl_.header_ = nullptr;
+  header_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Path2fArray::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* Path2fArray::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .xviz_msgs.Header header = 1;
       case 1:
@@ -2483,21 +2466,22 @@ uint8_t* Path2fArray::_InternalSerialize(
 
   // .xviz_msgs.Header header = 1;
   if (this->_internal_has_header()) {
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, _Internal::header(this),
-        _Internal::header(this).GetCachedSize(), target, stream);
+      InternalWriteMessage(
+        1, _Internal::header(this), target, stream);
   }
 
   // repeated .xviz_msgs.Path2f pathArray = 2;
-  for (unsigned i = 0,
-      n = static_cast<unsigned>(this->_internal_patharray_size()); i < n; i++) {
-    const auto& repfield = this->_internal_patharray(i);
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_patharray_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-        InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
+      InternalWriteMessage(2, this->_internal_patharray(i), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:xviz_msgs.Path2fArray)
@@ -2514,7 +2498,7 @@ size_t Path2fArray::ByteSizeLong() const {
 
   // repeated .xviz_msgs.Path2f pathArray = 2;
   total_size += 1UL * this->_internal_patharray_size();
-  for (const auto& msg : this->_impl_.patharray_) {
+  for (const auto& msg : this->patharray_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
@@ -2523,33 +2507,36 @@ size_t Path2fArray::ByteSizeLong() const {
   if (this->_internal_has_header()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.header_);
+        *header_);
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Path2fArray::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
     Path2fArray::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Path2fArray::GetClassData() const { return &_class_data_; }
 
+void Path2fArray::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<Path2fArray *>(to)->MergeFrom(
+      static_cast<const Path2fArray &>(from));
+}
 
-void Path2fArray::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<Path2fArray*>(&to_msg);
-  auto& from = static_cast<const Path2fArray&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:xviz_msgs.Path2fArray)
-  GOOGLE_DCHECK_NE(&from, _this);
+
+void Path2fArray::MergeFrom(const Path2fArray& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:xviz_msgs.Path2fArray)
+  GOOGLE_DCHECK_NE(&from, this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  _this->_impl_.patharray_.MergeFrom(from._impl_.patharray_);
+  patharray_.MergeFrom(from.patharray_);
   if (from._internal_has_header()) {
-    _this->_internal_mutable_header()->::xviz_msgs::Header::MergeFrom(
-        from._internal_header());
+    _internal_mutable_header()->::xviz_msgs::Header::MergeFrom(from._internal_header());
   }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Path2fArray::CopyFrom(const Path2fArray& from) {
@@ -2566,12 +2553,12 @@ bool Path2fArray::IsInitialized() const {
 void Path2fArray::InternalSwap(Path2fArray* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.patharray_.InternalSwap(&other->_impl_.patharray_);
-  swap(_impl_.header_, other->_impl_.header_);
+  patharray_.InternalSwap(&other->patharray_);
+  swap(header_, other->header_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Path2fArray::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_xviz_5fmsgs_2eproto_getter, &descriptor_table_xviz_5fmsgs_2eproto_once,
       file_level_metadata_xviz_5fmsgs_2eproto[7]);
 }
@@ -2586,71 +2573,68 @@ class Circle2f::_Internal {
 
 const ::xviz_msgs::Header&
 Circle2f::_Internal::header(const Circle2f* msg) {
-  return *msg->_impl_.header_;
+  return *msg->header_;
 }
 const ::xviz_msgs::Vector2f&
 Circle2f::_Internal::center(const Circle2f* msg) {
-  return *msg->_impl_.center_;
+  return *msg->center_;
 }
 Circle2f::Circle2f(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:xviz_msgs.Circle2f)
 }
 Circle2f::Circle2f(const Circle2f& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
-  Circle2f* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.header_){nullptr}
-    , decltype(_impl_.center_){nullptr}
-    , decltype(_impl_.radius_){}
-    , decltype(_impl_.filled_){}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_header()) {
-    _this->_impl_.header_ = new ::xviz_msgs::Header(*from._impl_.header_);
+    header_ = new ::xviz_msgs::Header(*from.header_);
+  } else {
+    header_ = nullptr;
   }
   if (from._internal_has_center()) {
-    _this->_impl_.center_ = new ::xviz_msgs::Vector2f(*from._impl_.center_);
+    center_ = new ::xviz_msgs::Vector2f(*from.center_);
+  } else {
+    center_ = nullptr;
   }
-  ::memcpy(&_impl_.radius_, &from._impl_.radius_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.filled_) -
-    reinterpret_cast<char*>(&_impl_.radius_)) + sizeof(_impl_.filled_));
+  ::memcpy(&radius_, &from.radius_,
+    static_cast<size_t>(reinterpret_cast<char*>(&filled_) -
+    reinterpret_cast<char*>(&radius_)) + sizeof(filled_));
   // @@protoc_insertion_point(copy_constructor:xviz_msgs.Circle2f)
 }
 
-inline void Circle2f::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.header_){nullptr}
-    , decltype(_impl_.center_){nullptr}
-    , decltype(_impl_.radius_){0}
-    , decltype(_impl_.filled_){false}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
+inline void Circle2f::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&header_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&filled_) -
+    reinterpret_cast<char*>(&header_)) + sizeof(filled_));
 }
 
 Circle2f::~Circle2f() {
   // @@protoc_insertion_point(destructor:xviz_msgs.Circle2f)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void Circle2f::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  if (this != internal_default_instance()) delete _impl_.header_;
-  if (this != internal_default_instance()) delete _impl_.center_;
+  if (this != internal_default_instance()) delete header_;
+  if (this != internal_default_instance()) delete center_;
 }
 
+void Circle2f::ArenaDtor(void* object) {
+  Circle2f* _this = reinterpret_cast< Circle2f* >(object);
+  (void)_this;
+}
+void Circle2f::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
 void Circle2f::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
+  _cached_size_.Set(size);
 }
 
 void Circle2f::Clear() {
@@ -2659,25 +2643,25 @@ void Circle2f::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
-    delete _impl_.header_;
+  if (GetArenaForAllocation() == nullptr && header_ != nullptr) {
+    delete header_;
   }
-  _impl_.header_ = nullptr;
-  if (GetArenaForAllocation() == nullptr && _impl_.center_ != nullptr) {
-    delete _impl_.center_;
+  header_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && center_ != nullptr) {
+    delete center_;
   }
-  _impl_.center_ = nullptr;
-  ::memset(&_impl_.radius_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.filled_) -
-      reinterpret_cast<char*>(&_impl_.radius_)) + sizeof(_impl_.filled_));
+  center_ = nullptr;
+  ::memset(&radius_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&filled_) -
+      reinterpret_cast<char*>(&radius_)) + sizeof(filled_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Circle2f::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* Circle2f::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .xviz_msgs.Header header = 1;
       case 1:
@@ -2698,7 +2682,7 @@ const char* Circle2f::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx)
       // float radius = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 29)) {
-          _impl_.radius_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          radius_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else
           goto handle_unusual;
@@ -2706,7 +2690,7 @@ const char* Circle2f::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx)
       // bool filled = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
-          _impl_.filled_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          filled_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -2742,16 +2726,18 @@ uint8_t* Circle2f::_InternalSerialize(
 
   // .xviz_msgs.Header header = 1;
   if (this->_internal_has_header()) {
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, _Internal::header(this),
-        _Internal::header(this).GetCachedSize(), target, stream);
+      InternalWriteMessage(
+        1, _Internal::header(this), target, stream);
   }
 
   // .xviz_msgs.Vector2f center = 2;
   if (this->_internal_has_center()) {
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(2, _Internal::center(this),
-        _Internal::center(this).GetCachedSize(), target, stream);
+      InternalWriteMessage(
+        2, _Internal::center(this), target, stream);
   }
 
   // float radius = 3;
@@ -2761,17 +2747,17 @@ uint8_t* Circle2f::_InternalSerialize(
   memcpy(&raw_radius, &tmp_radius, sizeof(tmp_radius));
   if (raw_radius != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteFloatToArray(3, this->_internal_radius(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(3, this->_internal_radius(), target);
   }
 
   // bool filled = 4;
   if (this->_internal_filled() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteBoolToArray(4, this->_internal_filled(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(4, this->_internal_filled(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:xviz_msgs.Circle2f)
@@ -2790,14 +2776,14 @@ size_t Circle2f::ByteSizeLong() const {
   if (this->_internal_has_header()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.header_);
+        *header_);
   }
 
   // .xviz_msgs.Vector2f center = 2;
   if (this->_internal_has_center()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.center_);
+        *center_);
   }
 
   // float radius = 3;
@@ -2814,43 +2800,45 @@ size_t Circle2f::ByteSizeLong() const {
     total_size += 1 + 1;
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Circle2f::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
     Circle2f::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Circle2f::GetClassData() const { return &_class_data_; }
 
+void Circle2f::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<Circle2f *>(to)->MergeFrom(
+      static_cast<const Circle2f &>(from));
+}
 
-void Circle2f::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<Circle2f*>(&to_msg);
-  auto& from = static_cast<const Circle2f&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:xviz_msgs.Circle2f)
-  GOOGLE_DCHECK_NE(&from, _this);
+
+void Circle2f::MergeFrom(const Circle2f& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:xviz_msgs.Circle2f)
+  GOOGLE_DCHECK_NE(&from, this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (from._internal_has_header()) {
-    _this->_internal_mutable_header()->::xviz_msgs::Header::MergeFrom(
-        from._internal_header());
+    _internal_mutable_header()->::xviz_msgs::Header::MergeFrom(from._internal_header());
   }
   if (from._internal_has_center()) {
-    _this->_internal_mutable_center()->::xviz_msgs::Vector2f::MergeFrom(
-        from._internal_center());
+    _internal_mutable_center()->::xviz_msgs::Vector2f::MergeFrom(from._internal_center());
   }
   static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
   float tmp_radius = from._internal_radius();
   uint32_t raw_radius;
   memcpy(&raw_radius, &tmp_radius, sizeof(tmp_radius));
   if (raw_radius != 0) {
-    _this->_internal_set_radius(from._internal_radius());
+    _internal_set_radius(from._internal_radius());
   }
   if (from._internal_filled() != 0) {
-    _this->_internal_set_filled(from._internal_filled());
+    _internal_set_filled(from._internal_filled());
   }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Circle2f::CopyFrom(const Circle2f& from) {
@@ -2868,15 +2856,15 @@ void Circle2f::InternalSwap(Circle2f* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Circle2f, _impl_.filled_)
-      + sizeof(Circle2f::_impl_.filled_)
-      - PROTOBUF_FIELD_OFFSET(Circle2f, _impl_.header_)>(
-          reinterpret_cast<char*>(&_impl_.header_),
-          reinterpret_cast<char*>(&other->_impl_.header_));
+      PROTOBUF_FIELD_OFFSET(Circle2f, filled_)
+      + sizeof(Circle2f::filled_)
+      - PROTOBUF_FIELD_OFFSET(Circle2f, header_)>(
+          reinterpret_cast<char*>(&header_),
+          reinterpret_cast<char*>(&other->header_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Circle2f::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_xviz_5fmsgs_2eproto_getter, &descriptor_table_xviz_5fmsgs_2eproto_once,
       file_level_metadata_xviz_5fmsgs_2eproto[8]);
 }
@@ -2890,57 +2878,54 @@ class Circle2fArray::_Internal {
 
 const ::xviz_msgs::Header&
 Circle2fArray::_Internal::header(const Circle2fArray* msg) {
-  return *msg->_impl_.header_;
+  return *msg->header_;
 }
 Circle2fArray::Circle2fArray(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+  circlearray_(arena) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:xviz_msgs.Circle2fArray)
 }
 Circle2fArray::Circle2fArray(const Circle2fArray& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  Circle2fArray* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.circlearray_){from._impl_.circlearray_}
-    , decltype(_impl_.header_){nullptr}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      circlearray_(from.circlearray_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_header()) {
-    _this->_impl_.header_ = new ::xviz_msgs::Header(*from._impl_.header_);
+    header_ = new ::xviz_msgs::Header(*from.header_);
+  } else {
+    header_ = nullptr;
   }
   // @@protoc_insertion_point(copy_constructor:xviz_msgs.Circle2fArray)
 }
 
-inline void Circle2fArray::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.circlearray_){arena}
-    , decltype(_impl_.header_){nullptr}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
+inline void Circle2fArray::SharedCtor() {
+header_ = nullptr;
 }
 
 Circle2fArray::~Circle2fArray() {
   // @@protoc_insertion_point(destructor:xviz_msgs.Circle2fArray)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void Circle2fArray::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.circlearray_.~RepeatedPtrField();
-  if (this != internal_default_instance()) delete _impl_.header_;
+  if (this != internal_default_instance()) delete header_;
 }
 
+void Circle2fArray::ArenaDtor(void* object) {
+  Circle2fArray* _this = reinterpret_cast< Circle2fArray* >(object);
+  (void)_this;
+}
+void Circle2fArray::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
 void Circle2fArray::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
+  _cached_size_.Set(size);
 }
 
 void Circle2fArray::Clear() {
@@ -2949,19 +2934,19 @@ void Circle2fArray::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.circlearray_.Clear();
-  if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
-    delete _impl_.header_;
+  circlearray_.Clear();
+  if (GetArenaForAllocation() == nullptr && header_ != nullptr) {
+    delete header_;
   }
-  _impl_.header_ = nullptr;
+  header_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Circle2fArray::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* Circle2fArray::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .xviz_msgs.Header header = 1;
       case 1:
@@ -3015,21 +3000,22 @@ uint8_t* Circle2fArray::_InternalSerialize(
 
   // .xviz_msgs.Header header = 1;
   if (this->_internal_has_header()) {
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, _Internal::header(this),
-        _Internal::header(this).GetCachedSize(), target, stream);
+      InternalWriteMessage(
+        1, _Internal::header(this), target, stream);
   }
 
   // repeated .xviz_msgs.Circle2f circleArray = 2;
-  for (unsigned i = 0,
-      n = static_cast<unsigned>(this->_internal_circlearray_size()); i < n; i++) {
-    const auto& repfield = this->_internal_circlearray(i);
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_circlearray_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-        InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
+      InternalWriteMessage(2, this->_internal_circlearray(i), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:xviz_msgs.Circle2fArray)
@@ -3046,7 +3032,7 @@ size_t Circle2fArray::ByteSizeLong() const {
 
   // repeated .xviz_msgs.Circle2f circleArray = 2;
   total_size += 1UL * this->_internal_circlearray_size();
-  for (const auto& msg : this->_impl_.circlearray_) {
+  for (const auto& msg : this->circlearray_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
@@ -3055,33 +3041,36 @@ size_t Circle2fArray::ByteSizeLong() const {
   if (this->_internal_has_header()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.header_);
+        *header_);
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Circle2fArray::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
     Circle2fArray::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Circle2fArray::GetClassData() const { return &_class_data_; }
 
+void Circle2fArray::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<Circle2fArray *>(to)->MergeFrom(
+      static_cast<const Circle2fArray &>(from));
+}
 
-void Circle2fArray::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<Circle2fArray*>(&to_msg);
-  auto& from = static_cast<const Circle2fArray&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:xviz_msgs.Circle2fArray)
-  GOOGLE_DCHECK_NE(&from, _this);
+
+void Circle2fArray::MergeFrom(const Circle2fArray& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:xviz_msgs.Circle2fArray)
+  GOOGLE_DCHECK_NE(&from, this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  _this->_impl_.circlearray_.MergeFrom(from._impl_.circlearray_);
+  circlearray_.MergeFrom(from.circlearray_);
   if (from._internal_has_header()) {
-    _this->_internal_mutable_header()->::xviz_msgs::Header::MergeFrom(
-        from._internal_header());
+    _internal_mutable_header()->::xviz_msgs::Header::MergeFrom(from._internal_header());
   }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Circle2fArray::CopyFrom(const Circle2fArray& from) {
@@ -3098,12 +3087,12 @@ bool Circle2fArray::IsInitialized() const {
 void Circle2fArray::InternalSwap(Circle2fArray* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.circlearray_.InternalSwap(&other->_impl_.circlearray_);
-  swap(_impl_.header_, other->_impl_.header_);
+  circlearray_.InternalSwap(&other->circlearray_);
+  swap(header_, other->header_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Circle2fArray::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_xviz_5fmsgs_2eproto_getter, &descriptor_table_xviz_5fmsgs_2eproto_once,
       file_level_metadata_xviz_5fmsgs_2eproto[9]);
 }
@@ -3117,57 +3106,54 @@ class PointCloud2f::_Internal {
 
 const ::xviz_msgs::Header&
 PointCloud2f::_Internal::header(const PointCloud2f* msg) {
-  return *msg->_impl_.header_;
+  return *msg->header_;
 }
 PointCloud2f::PointCloud2f(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+  points_(arena) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:xviz_msgs.PointCloud2f)
 }
 PointCloud2f::PointCloud2f(const PointCloud2f& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  PointCloud2f* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.points_){from._impl_.points_}
-    , decltype(_impl_.header_){nullptr}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      points_(from.points_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_header()) {
-    _this->_impl_.header_ = new ::xviz_msgs::Header(*from._impl_.header_);
+    header_ = new ::xviz_msgs::Header(*from.header_);
+  } else {
+    header_ = nullptr;
   }
   // @@protoc_insertion_point(copy_constructor:xviz_msgs.PointCloud2f)
 }
 
-inline void PointCloud2f::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.points_){arena}
-    , decltype(_impl_.header_){nullptr}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
+inline void PointCloud2f::SharedCtor() {
+header_ = nullptr;
 }
 
 PointCloud2f::~PointCloud2f() {
   // @@protoc_insertion_point(destructor:xviz_msgs.PointCloud2f)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void PointCloud2f::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.points_.~RepeatedPtrField();
-  if (this != internal_default_instance()) delete _impl_.header_;
+  if (this != internal_default_instance()) delete header_;
 }
 
+void PointCloud2f::ArenaDtor(void* object) {
+  PointCloud2f* _this = reinterpret_cast< PointCloud2f* >(object);
+  (void)_this;
+}
+void PointCloud2f::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
 void PointCloud2f::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
+  _cached_size_.Set(size);
 }
 
 void PointCloud2f::Clear() {
@@ -3176,19 +3162,19 @@ void PointCloud2f::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.points_.Clear();
-  if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
-    delete _impl_.header_;
+  points_.Clear();
+  if (GetArenaForAllocation() == nullptr && header_ != nullptr) {
+    delete header_;
   }
-  _impl_.header_ = nullptr;
+  header_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* PointCloud2f::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* PointCloud2f::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .xviz_msgs.Header header = 1;
       case 1:
@@ -3242,21 +3228,22 @@ uint8_t* PointCloud2f::_InternalSerialize(
 
   // .xviz_msgs.Header header = 1;
   if (this->_internal_has_header()) {
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, _Internal::header(this),
-        _Internal::header(this).GetCachedSize(), target, stream);
+      InternalWriteMessage(
+        1, _Internal::header(this), target, stream);
   }
 
   // repeated .xviz_msgs.Vector2f points = 2;
-  for (unsigned i = 0,
-      n = static_cast<unsigned>(this->_internal_points_size()); i < n; i++) {
-    const auto& repfield = this->_internal_points(i);
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_points_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-        InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
+      InternalWriteMessage(2, this->_internal_points(i), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:xviz_msgs.PointCloud2f)
@@ -3273,7 +3260,7 @@ size_t PointCloud2f::ByteSizeLong() const {
 
   // repeated .xviz_msgs.Vector2f points = 2;
   total_size += 1UL * this->_internal_points_size();
-  for (const auto& msg : this->_impl_.points_) {
+  for (const auto& msg : this->points_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
@@ -3282,33 +3269,36 @@ size_t PointCloud2f::ByteSizeLong() const {
   if (this->_internal_has_header()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.header_);
+        *header_);
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData PointCloud2f::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
     PointCloud2f::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*PointCloud2f::GetClassData() const { return &_class_data_; }
 
+void PointCloud2f::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<PointCloud2f *>(to)->MergeFrom(
+      static_cast<const PointCloud2f &>(from));
+}
 
-void PointCloud2f::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<PointCloud2f*>(&to_msg);
-  auto& from = static_cast<const PointCloud2f&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:xviz_msgs.PointCloud2f)
-  GOOGLE_DCHECK_NE(&from, _this);
+
+void PointCloud2f::MergeFrom(const PointCloud2f& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:xviz_msgs.PointCloud2f)
+  GOOGLE_DCHECK_NE(&from, this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  _this->_impl_.points_.MergeFrom(from._impl_.points_);
+  points_.MergeFrom(from.points_);
   if (from._internal_has_header()) {
-    _this->_internal_mutable_header()->::xviz_msgs::Header::MergeFrom(
-        from._internal_header());
+    _internal_mutable_header()->::xviz_msgs::Header::MergeFrom(from._internal_header());
   }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void PointCloud2f::CopyFrom(const PointCloud2f& from) {
@@ -3325,12 +3315,12 @@ bool PointCloud2f::IsInitialized() const {
 void PointCloud2f::InternalSwap(PointCloud2f* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.points_.InternalSwap(&other->_impl_.points_);
-  swap(_impl_.header_, other->_impl_.header_);
+  points_.InternalSwap(&other->points_);
+  swap(header_, other->header_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata PointCloud2f::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_xviz_5fmsgs_2eproto_getter, &descriptor_table_xviz_5fmsgs_2eproto_once,
       file_level_metadata_xviz_5fmsgs_2eproto[10]);
 }
@@ -3349,132 +3339,121 @@ class Marker2f::_Internal {
 
 const ::xviz_msgs::Header&
 Marker2f::_Internal::header(const Marker2f* msg) {
-  return *msg->_impl_.header_;
+  return *msg->header_;
 }
 const ::xviz_msgs::Path2f&
 Marker2f::_Internal::path(const Marker2f* msg) {
-  return *msg->_impl_.path_;
+  return *msg->path_;
 }
 const ::xviz_msgs::Polygon2f&
 Marker2f::_Internal::polygon(const Marker2f* msg) {
-  return *msg->_impl_.polygon_;
+  return *msg->polygon_;
 }
 const ::xviz_msgs::Circle2f&
 Marker2f::_Internal::cirlce(const Marker2f* msg) {
-  return *msg->_impl_.cirlce_;
+  return *msg->cirlce_;
 }
 const ::xviz_msgs::Pose2f&
 Marker2f::_Internal::pose(const Marker2f* msg) {
-  return *msg->_impl_.pose_;
+  return *msg->pose_;
 }
 const ::xviz_msgs::PointCloud2f&
 Marker2f::_Internal::point_cloud(const Marker2f* msg) {
-  return *msg->_impl_.point_cloud_;
+  return *msg->point_cloud_;
 }
 Marker2f::Marker2f(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:xviz_msgs.Marker2f)
 }
 Marker2f::Marker2f(const Marker2f& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
-  Marker2f* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.text_){}
-    , decltype(_impl_.header_){nullptr}
-    , decltype(_impl_.path_){nullptr}
-    , decltype(_impl_.polygon_){nullptr}
-    , decltype(_impl_.cirlce_){nullptr}
-    , decltype(_impl_.pose_){nullptr}
-    , decltype(_impl_.point_cloud_){nullptr}
-    , decltype(_impl_.type_){}
-    , decltype(_impl_.colortype_){}
-    , decltype(_impl_.length_){}
-    , decltype(_impl_.thickness_){}
-    , decltype(_impl_.radius_){}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _impl_.text_.InitDefault();
+  text_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.text_.Set("", GetArenaForAllocation());
+    text_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_text().empty()) {
-    _this->_impl_.text_.Set(from._internal_text(), 
-      _this->GetArenaForAllocation());
+    text_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_text(), 
+      GetArenaForAllocation());
   }
   if (from._internal_has_header()) {
-    _this->_impl_.header_ = new ::xviz_msgs::Header(*from._impl_.header_);
+    header_ = new ::xviz_msgs::Header(*from.header_);
+  } else {
+    header_ = nullptr;
   }
   if (from._internal_has_path()) {
-    _this->_impl_.path_ = new ::xviz_msgs::Path2f(*from._impl_.path_);
+    path_ = new ::xviz_msgs::Path2f(*from.path_);
+  } else {
+    path_ = nullptr;
   }
   if (from._internal_has_polygon()) {
-    _this->_impl_.polygon_ = new ::xviz_msgs::Polygon2f(*from._impl_.polygon_);
+    polygon_ = new ::xviz_msgs::Polygon2f(*from.polygon_);
+  } else {
+    polygon_ = nullptr;
   }
   if (from._internal_has_cirlce()) {
-    _this->_impl_.cirlce_ = new ::xviz_msgs::Circle2f(*from._impl_.cirlce_);
+    cirlce_ = new ::xviz_msgs::Circle2f(*from.cirlce_);
+  } else {
+    cirlce_ = nullptr;
   }
   if (from._internal_has_pose()) {
-    _this->_impl_.pose_ = new ::xviz_msgs::Pose2f(*from._impl_.pose_);
+    pose_ = new ::xviz_msgs::Pose2f(*from.pose_);
+  } else {
+    pose_ = nullptr;
   }
   if (from._internal_has_point_cloud()) {
-    _this->_impl_.point_cloud_ = new ::xviz_msgs::PointCloud2f(*from._impl_.point_cloud_);
+    point_cloud_ = new ::xviz_msgs::PointCloud2f(*from.point_cloud_);
+  } else {
+    point_cloud_ = nullptr;
   }
-  ::memcpy(&_impl_.type_, &from._impl_.type_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.radius_) -
-    reinterpret_cast<char*>(&_impl_.type_)) + sizeof(_impl_.radius_));
+  ::memcpy(&type_, &from.type_,
+    static_cast<size_t>(reinterpret_cast<char*>(&radius_) -
+    reinterpret_cast<char*>(&type_)) + sizeof(radius_));
   // @@protoc_insertion_point(copy_constructor:xviz_msgs.Marker2f)
 }
 
-inline void Marker2f::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.text_){}
-    , decltype(_impl_.header_){nullptr}
-    , decltype(_impl_.path_){nullptr}
-    , decltype(_impl_.polygon_){nullptr}
-    , decltype(_impl_.cirlce_){nullptr}
-    , decltype(_impl_.pose_){nullptr}
-    , decltype(_impl_.point_cloud_){nullptr}
-    , decltype(_impl_.type_){0u}
-    , decltype(_impl_.colortype_){0u}
-    , decltype(_impl_.length_){0}
-    , decltype(_impl_.thickness_){0}
-    , decltype(_impl_.radius_){0}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
-  _impl_.text_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.text_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+inline void Marker2f::SharedCtor() {
+text_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  text_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&header_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&radius_) -
+    reinterpret_cast<char*>(&header_)) + sizeof(radius_));
 }
 
 Marker2f::~Marker2f() {
   // @@protoc_insertion_point(destructor:xviz_msgs.Marker2f)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void Marker2f::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.text_.Destroy();
-  if (this != internal_default_instance()) delete _impl_.header_;
-  if (this != internal_default_instance()) delete _impl_.path_;
-  if (this != internal_default_instance()) delete _impl_.polygon_;
-  if (this != internal_default_instance()) delete _impl_.cirlce_;
-  if (this != internal_default_instance()) delete _impl_.pose_;
-  if (this != internal_default_instance()) delete _impl_.point_cloud_;
+  text_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete header_;
+  if (this != internal_default_instance()) delete path_;
+  if (this != internal_default_instance()) delete polygon_;
+  if (this != internal_default_instance()) delete cirlce_;
+  if (this != internal_default_instance()) delete pose_;
+  if (this != internal_default_instance()) delete point_cloud_;
 }
 
+void Marker2f::ArenaDtor(void* object) {
+  Marker2f* _this = reinterpret_cast< Marker2f* >(object);
+  (void)_this;
+}
+void Marker2f::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
 void Marker2f::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
+  _cached_size_.Set(size);
 }
 
 void Marker2f::Clear() {
@@ -3483,42 +3462,42 @@ void Marker2f::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.text_.ClearToEmpty();
-  if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
-    delete _impl_.header_;
+  text_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && header_ != nullptr) {
+    delete header_;
   }
-  _impl_.header_ = nullptr;
-  if (GetArenaForAllocation() == nullptr && _impl_.path_ != nullptr) {
-    delete _impl_.path_;
+  header_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && path_ != nullptr) {
+    delete path_;
   }
-  _impl_.path_ = nullptr;
-  if (GetArenaForAllocation() == nullptr && _impl_.polygon_ != nullptr) {
-    delete _impl_.polygon_;
+  path_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && polygon_ != nullptr) {
+    delete polygon_;
   }
-  _impl_.polygon_ = nullptr;
-  if (GetArenaForAllocation() == nullptr && _impl_.cirlce_ != nullptr) {
-    delete _impl_.cirlce_;
+  polygon_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && cirlce_ != nullptr) {
+    delete cirlce_;
   }
-  _impl_.cirlce_ = nullptr;
-  if (GetArenaForAllocation() == nullptr && _impl_.pose_ != nullptr) {
-    delete _impl_.pose_;
+  cirlce_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && pose_ != nullptr) {
+    delete pose_;
   }
-  _impl_.pose_ = nullptr;
-  if (GetArenaForAllocation() == nullptr && _impl_.point_cloud_ != nullptr) {
-    delete _impl_.point_cloud_;
+  pose_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && point_cloud_ != nullptr) {
+    delete point_cloud_;
   }
-  _impl_.point_cloud_ = nullptr;
-  ::memset(&_impl_.type_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.radius_) -
-      reinterpret_cast<char*>(&_impl_.type_)) + sizeof(_impl_.radius_));
+  point_cloud_ = nullptr;
+  ::memset(&type_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&radius_) -
+      reinterpret_cast<char*>(&type_)) + sizeof(radius_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Marker2f::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* Marker2f::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .xviz_msgs.Header header = 1;
       case 1:
@@ -3531,7 +3510,7 @@ const char* Marker2f::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx)
       // uint32 type = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          _impl_.type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -3580,16 +3559,16 @@ const char* Marker2f::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx)
       case 8:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
           auto str = _internal_mutable_text();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "xviz_msgs.Marker2f.text"));
           CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "xviz_msgs.Marker2f.text"));
         } else
           goto handle_unusual;
         continue;
       // uint32 colorType = 9;
       case 9:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 72)) {
-          _impl_.colortype_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          colortype_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -3597,7 +3576,7 @@ const char* Marker2f::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx)
       // float length = 10;
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 85)) {
-          _impl_.length_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          length_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else
           goto handle_unusual;
@@ -3605,7 +3584,7 @@ const char* Marker2f::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx)
       // float thickness = 11;
       case 11:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 93)) {
-          _impl_.thickness_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          thickness_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else
           goto handle_unusual;
@@ -3613,7 +3592,7 @@ const char* Marker2f::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx)
       // float radius = 12;
       case 12:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 101)) {
-          _impl_.radius_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          radius_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else
           goto handle_unusual;
@@ -3649,50 +3628,56 @@ uint8_t* Marker2f::_InternalSerialize(
 
   // .xviz_msgs.Header header = 1;
   if (this->_internal_has_header()) {
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, _Internal::header(this),
-        _Internal::header(this).GetCachedSize(), target, stream);
+      InternalWriteMessage(
+        1, _Internal::header(this), target, stream);
   }
 
   // uint32 type = 2;
   if (this->_internal_type() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_type(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_type(), target);
   }
 
   // .xviz_msgs.Path2f path = 3;
   if (this->_internal_has_path()) {
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(3, _Internal::path(this),
-        _Internal::path(this).GetCachedSize(), target, stream);
+      InternalWriteMessage(
+        3, _Internal::path(this), target, stream);
   }
 
   // .xviz_msgs.Polygon2f polygon = 4;
   if (this->_internal_has_polygon()) {
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(4, _Internal::polygon(this),
-        _Internal::polygon(this).GetCachedSize(), target, stream);
+      InternalWriteMessage(
+        4, _Internal::polygon(this), target, stream);
   }
 
   // .xviz_msgs.Circle2f cirlce = 5;
   if (this->_internal_has_cirlce()) {
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(5, _Internal::cirlce(this),
-        _Internal::cirlce(this).GetCachedSize(), target, stream);
+      InternalWriteMessage(
+        5, _Internal::cirlce(this), target, stream);
   }
 
   // .xviz_msgs.Pose2f pose = 6;
   if (this->_internal_has_pose()) {
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(6, _Internal::pose(this),
-        _Internal::pose(this).GetCachedSize(), target, stream);
+      InternalWriteMessage(
+        6, _Internal::pose(this), target, stream);
   }
 
   // .xviz_msgs.PointCloud2f point_cloud = 7;
   if (this->_internal_has_point_cloud()) {
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(7, _Internal::point_cloud(this),
-        _Internal::point_cloud(this).GetCachedSize(), target, stream);
+      InternalWriteMessage(
+        7, _Internal::point_cloud(this), target, stream);
   }
 
   // string text = 8;
@@ -3708,7 +3693,7 @@ uint8_t* Marker2f::_InternalSerialize(
   // uint32 colorType = 9;
   if (this->_internal_colortype() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(9, this->_internal_colortype(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(9, this->_internal_colortype(), target);
   }
 
   // float length = 10;
@@ -3718,7 +3703,7 @@ uint8_t* Marker2f::_InternalSerialize(
   memcpy(&raw_length, &tmp_length, sizeof(tmp_length));
   if (raw_length != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteFloatToArray(10, this->_internal_length(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(10, this->_internal_length(), target);
   }
 
   // float thickness = 11;
@@ -3728,7 +3713,7 @@ uint8_t* Marker2f::_InternalSerialize(
   memcpy(&raw_thickness, &tmp_thickness, sizeof(tmp_thickness));
   if (raw_thickness != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteFloatToArray(11, this->_internal_thickness(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(11, this->_internal_thickness(), target);
   }
 
   // float radius = 12;
@@ -3738,11 +3723,11 @@ uint8_t* Marker2f::_InternalSerialize(
   memcpy(&raw_radius, &tmp_radius, sizeof(tmp_radius));
   if (raw_radius != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteFloatToArray(12, this->_internal_radius(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(12, this->_internal_radius(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:xviz_msgs.Marker2f)
@@ -3768,52 +3753,52 @@ size_t Marker2f::ByteSizeLong() const {
   if (this->_internal_has_header()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.header_);
+        *header_);
   }
 
   // .xviz_msgs.Path2f path = 3;
   if (this->_internal_has_path()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.path_);
+        *path_);
   }
 
   // .xviz_msgs.Polygon2f polygon = 4;
   if (this->_internal_has_polygon()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.polygon_);
+        *polygon_);
   }
 
   // .xviz_msgs.Circle2f cirlce = 5;
   if (this->_internal_has_cirlce()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.cirlce_);
+        *cirlce_);
   }
 
   // .xviz_msgs.Pose2f pose = 6;
   if (this->_internal_has_pose()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.pose_);
+        *pose_);
   }
 
   // .xviz_msgs.PointCloud2f point_cloud = 7;
   if (this->_internal_has_point_cloud()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.point_cloud_);
+        *point_cloud_);
   }
 
   // uint32 type = 2;
   if (this->_internal_type() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_type());
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_type());
   }
 
   // uint32 colorType = 9;
   if (this->_internal_colortype() != 0) {
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_colortype());
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32SizePlusOne(this->_internal_colortype());
   }
 
   // float length = 10;
@@ -3843,79 +3828,77 @@ size_t Marker2f::ByteSizeLong() const {
     total_size += 1 + 4;
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Marker2f::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
     Marker2f::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Marker2f::GetClassData() const { return &_class_data_; }
 
+void Marker2f::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<Marker2f *>(to)->MergeFrom(
+      static_cast<const Marker2f &>(from));
+}
 
-void Marker2f::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<Marker2f*>(&to_msg);
-  auto& from = static_cast<const Marker2f&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:xviz_msgs.Marker2f)
-  GOOGLE_DCHECK_NE(&from, _this);
+
+void Marker2f::MergeFrom(const Marker2f& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:xviz_msgs.Marker2f)
+  GOOGLE_DCHECK_NE(&from, this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (!from._internal_text().empty()) {
-    _this->_internal_set_text(from._internal_text());
+    _internal_set_text(from._internal_text());
   }
   if (from._internal_has_header()) {
-    _this->_internal_mutable_header()->::xviz_msgs::Header::MergeFrom(
-        from._internal_header());
+    _internal_mutable_header()->::xviz_msgs::Header::MergeFrom(from._internal_header());
   }
   if (from._internal_has_path()) {
-    _this->_internal_mutable_path()->::xviz_msgs::Path2f::MergeFrom(
-        from._internal_path());
+    _internal_mutable_path()->::xviz_msgs::Path2f::MergeFrom(from._internal_path());
   }
   if (from._internal_has_polygon()) {
-    _this->_internal_mutable_polygon()->::xviz_msgs::Polygon2f::MergeFrom(
-        from._internal_polygon());
+    _internal_mutable_polygon()->::xviz_msgs::Polygon2f::MergeFrom(from._internal_polygon());
   }
   if (from._internal_has_cirlce()) {
-    _this->_internal_mutable_cirlce()->::xviz_msgs::Circle2f::MergeFrom(
-        from._internal_cirlce());
+    _internal_mutable_cirlce()->::xviz_msgs::Circle2f::MergeFrom(from._internal_cirlce());
   }
   if (from._internal_has_pose()) {
-    _this->_internal_mutable_pose()->::xviz_msgs::Pose2f::MergeFrom(
-        from._internal_pose());
+    _internal_mutable_pose()->::xviz_msgs::Pose2f::MergeFrom(from._internal_pose());
   }
   if (from._internal_has_point_cloud()) {
-    _this->_internal_mutable_point_cloud()->::xviz_msgs::PointCloud2f::MergeFrom(
-        from._internal_point_cloud());
+    _internal_mutable_point_cloud()->::xviz_msgs::PointCloud2f::MergeFrom(from._internal_point_cloud());
   }
   if (from._internal_type() != 0) {
-    _this->_internal_set_type(from._internal_type());
+    _internal_set_type(from._internal_type());
   }
   if (from._internal_colortype() != 0) {
-    _this->_internal_set_colortype(from._internal_colortype());
+    _internal_set_colortype(from._internal_colortype());
   }
   static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
   float tmp_length = from._internal_length();
   uint32_t raw_length;
   memcpy(&raw_length, &tmp_length, sizeof(tmp_length));
   if (raw_length != 0) {
-    _this->_internal_set_length(from._internal_length());
+    _internal_set_length(from._internal_length());
   }
   static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
   float tmp_thickness = from._internal_thickness();
   uint32_t raw_thickness;
   memcpy(&raw_thickness, &tmp_thickness, sizeof(tmp_thickness));
   if (raw_thickness != 0) {
-    _this->_internal_set_thickness(from._internal_thickness());
+    _internal_set_thickness(from._internal_thickness());
   }
   static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
   float tmp_radius = from._internal_radius();
   uint32_t raw_radius;
   memcpy(&raw_radius, &tmp_radius, sizeof(tmp_radius));
   if (raw_radius != 0) {
-    _this->_internal_set_radius(from._internal_radius());
+    _internal_set_radius(from._internal_radius());
   }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Marker2f::CopyFrom(const Marker2f& from) {
@@ -3935,19 +3918,20 @@ void Marker2f::InternalSwap(Marker2f* other) {
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.text_, lhs_arena,
-      &other->_impl_.text_, rhs_arena
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &text_, lhs_arena,
+      &other->text_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Marker2f, _impl_.radius_)
-      + sizeof(Marker2f::_impl_.radius_)
-      - PROTOBUF_FIELD_OFFSET(Marker2f, _impl_.header_)>(
-          reinterpret_cast<char*>(&_impl_.header_),
-          reinterpret_cast<char*>(&other->_impl_.header_));
+      PROTOBUF_FIELD_OFFSET(Marker2f, radius_)
+      + sizeof(Marker2f::radius_)
+      - PROTOBUF_FIELD_OFFSET(Marker2f, header_)>(
+          reinterpret_cast<char*>(&header_),
+          reinterpret_cast<char*>(&other->header_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Marker2f::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_xviz_5fmsgs_2eproto_getter, &descriptor_table_xviz_5fmsgs_2eproto_once,
       file_level_metadata_xviz_5fmsgs_2eproto[11]);
 }
@@ -3961,57 +3945,54 @@ class Marker2fArray::_Internal {
 
 const ::xviz_msgs::Header&
 Marker2fArray::_Internal::header(const Marker2fArray* msg) {
-  return *msg->_impl_.header_;
+  return *msg->header_;
 }
 Marker2fArray::Marker2fArray(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+  markerarray_(arena) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:xviz_msgs.Marker2fArray)
 }
 Marker2fArray::Marker2fArray(const Marker2fArray& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  Marker2fArray* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.markerarray_){from._impl_.markerarray_}
-    , decltype(_impl_.header_){nullptr}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      markerarray_(from.markerarray_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   if (from._internal_has_header()) {
-    _this->_impl_.header_ = new ::xviz_msgs::Header(*from._impl_.header_);
+    header_ = new ::xviz_msgs::Header(*from.header_);
+  } else {
+    header_ = nullptr;
   }
   // @@protoc_insertion_point(copy_constructor:xviz_msgs.Marker2fArray)
 }
 
-inline void Marker2fArray::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.markerarray_){arena}
-    , decltype(_impl_.header_){nullptr}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
+inline void Marker2fArray::SharedCtor() {
+header_ = nullptr;
 }
 
 Marker2fArray::~Marker2fArray() {
   // @@protoc_insertion_point(destructor:xviz_msgs.Marker2fArray)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void Marker2fArray::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.markerarray_.~RepeatedPtrField();
-  if (this != internal_default_instance()) delete _impl_.header_;
+  if (this != internal_default_instance()) delete header_;
 }
 
+void Marker2fArray::ArenaDtor(void* object) {
+  Marker2fArray* _this = reinterpret_cast< Marker2fArray* >(object);
+  (void)_this;
+}
+void Marker2fArray::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
 void Marker2fArray::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
+  _cached_size_.Set(size);
 }
 
 void Marker2fArray::Clear() {
@@ -4020,19 +4001,19 @@ void Marker2fArray::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.markerarray_.Clear();
-  if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
-    delete _impl_.header_;
+  markerarray_.Clear();
+  if (GetArenaForAllocation() == nullptr && header_ != nullptr) {
+    delete header_;
   }
-  _impl_.header_ = nullptr;
+  header_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Marker2fArray::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* Marker2fArray::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .xviz_msgs.Header header = 1;
       case 1:
@@ -4086,21 +4067,22 @@ uint8_t* Marker2fArray::_InternalSerialize(
 
   // .xviz_msgs.Header header = 1;
   if (this->_internal_has_header()) {
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, _Internal::header(this),
-        _Internal::header(this).GetCachedSize(), target, stream);
+      InternalWriteMessage(
+        1, _Internal::header(this), target, stream);
   }
 
   // repeated .xviz_msgs.Marker2f markerArray = 2;
-  for (unsigned i = 0,
-      n = static_cast<unsigned>(this->_internal_markerarray_size()); i < n; i++) {
-    const auto& repfield = this->_internal_markerarray(i);
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_markerarray_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-        InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
+      InternalWriteMessage(2, this->_internal_markerarray(i), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:xviz_msgs.Marker2fArray)
@@ -4117,7 +4099,7 @@ size_t Marker2fArray::ByteSizeLong() const {
 
   // repeated .xviz_msgs.Marker2f markerArray = 2;
   total_size += 1UL * this->_internal_markerarray_size();
-  for (const auto& msg : this->_impl_.markerarray_) {
+  for (const auto& msg : this->markerarray_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
@@ -4126,33 +4108,36 @@ size_t Marker2fArray::ByteSizeLong() const {
   if (this->_internal_has_header()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.header_);
+        *header_);
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Marker2fArray::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
     Marker2fArray::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Marker2fArray::GetClassData() const { return &_class_data_; }
 
+void Marker2fArray::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<Marker2fArray *>(to)->MergeFrom(
+      static_cast<const Marker2fArray &>(from));
+}
 
-void Marker2fArray::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<Marker2fArray*>(&to_msg);
-  auto& from = static_cast<const Marker2fArray&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:xviz_msgs.Marker2fArray)
-  GOOGLE_DCHECK_NE(&from, _this);
+
+void Marker2fArray::MergeFrom(const Marker2fArray& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:xviz_msgs.Marker2fArray)
+  GOOGLE_DCHECK_NE(&from, this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  _this->_impl_.markerarray_.MergeFrom(from._impl_.markerarray_);
+  markerarray_.MergeFrom(from.markerarray_);
   if (from._internal_has_header()) {
-    _this->_internal_mutable_header()->::xviz_msgs::Header::MergeFrom(
-        from._internal_header());
+    _internal_mutable_header()->::xviz_msgs::Header::MergeFrom(from._internal_header());
   }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Marker2fArray::CopyFrom(const Marker2fArray& from) {
@@ -4169,12 +4154,12 @@ bool Marker2fArray::IsInitialized() const {
 void Marker2fArray::InternalSwap(Marker2fArray* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.markerarray_.InternalSwap(&other->_impl_.markerarray_);
-  swap(_impl_.header_, other->_impl_.header_);
+  markerarray_.InternalSwap(&other->markerarray_);
+  swap(header_, other->header_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Marker2fArray::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_xviz_5fmsgs_2eproto_getter, &descriptor_table_xviz_5fmsgs_2eproto_once,
       file_level_metadata_xviz_5fmsgs_2eproto[12]);
 }
@@ -4189,97 +4174,92 @@ class Transform2fNode::_Internal {
 
 const ::xviz_msgs::Header&
 Transform2fNode::_Internal::header(const Transform2fNode* msg) {
-  return *msg->_impl_.header_;
+  return *msg->header_;
 }
 const ::xviz_msgs::Vector2f&
 Transform2fNode::_Internal::trans(const Transform2fNode* msg) {
-  return *msg->_impl_.trans_;
+  return *msg->trans_;
 }
 Transform2fNode::Transform2fNode(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
+  }
   // @@protoc_insertion_point(arena_constructor:xviz_msgs.Transform2fNode)
 }
 Transform2fNode::Transform2fNode(const Transform2fNode& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
-  Transform2fNode* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_.frameid_){}
-    , decltype(_impl_.parentframeid_){}
-    , decltype(_impl_.header_){nullptr}
-    , decltype(_impl_.trans_){nullptr}
-    , decltype(_impl_.angle_){}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _impl_.frameid_.InitDefault();
+  frameid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.frameid_.Set("", GetArenaForAllocation());
+    frameid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_frameid().empty()) {
-    _this->_impl_.frameid_.Set(from._internal_frameid(), 
-      _this->GetArenaForAllocation());
+    frameid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_frameid(), 
+      GetArenaForAllocation());
   }
-  _impl_.parentframeid_.InitDefault();
+  parentframeid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.parentframeid_.Set("", GetArenaForAllocation());
+    parentframeid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_parentframeid().empty()) {
-    _this->_impl_.parentframeid_.Set(from._internal_parentframeid(), 
-      _this->GetArenaForAllocation());
+    parentframeid_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_parentframeid(), 
+      GetArenaForAllocation());
   }
   if (from._internal_has_header()) {
-    _this->_impl_.header_ = new ::xviz_msgs::Header(*from._impl_.header_);
+    header_ = new ::xviz_msgs::Header(*from.header_);
+  } else {
+    header_ = nullptr;
   }
   if (from._internal_has_trans()) {
-    _this->_impl_.trans_ = new ::xviz_msgs::Vector2f(*from._impl_.trans_);
+    trans_ = new ::xviz_msgs::Vector2f(*from.trans_);
+  } else {
+    trans_ = nullptr;
   }
-  _this->_impl_.angle_ = from._impl_.angle_;
+  angle_ = from.angle_;
   // @@protoc_insertion_point(copy_constructor:xviz_msgs.Transform2fNode)
 }
 
-inline void Transform2fNode::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_.frameid_){}
-    , decltype(_impl_.parentframeid_){}
-    , decltype(_impl_.header_){nullptr}
-    , decltype(_impl_.trans_){nullptr}
-    , decltype(_impl_.angle_){0}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
-  _impl_.frameid_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.frameid_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  _impl_.parentframeid_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.parentframeid_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+inline void Transform2fNode::SharedCtor() {
+frameid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  frameid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+parentframeid_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  parentframeid_.Set(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), "", GetArenaForAllocation());
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&header_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&angle_) -
+    reinterpret_cast<char*>(&header_)) + sizeof(angle_));
 }
 
 Transform2fNode::~Transform2fNode() {
   // @@protoc_insertion_point(destructor:xviz_msgs.Transform2fNode)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void Transform2fNode::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.frameid_.Destroy();
-  _impl_.parentframeid_.Destroy();
-  if (this != internal_default_instance()) delete _impl_.header_;
-  if (this != internal_default_instance()) delete _impl_.trans_;
+  frameid_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  parentframeid_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete header_;
+  if (this != internal_default_instance()) delete trans_;
 }
 
+void Transform2fNode::ArenaDtor(void* object) {
+  Transform2fNode* _this = reinterpret_cast< Transform2fNode* >(object);
+  (void)_this;
+}
+void Transform2fNode::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
 void Transform2fNode::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
+  _cached_size_.Set(size);
 }
 
 void Transform2fNode::Clear() {
@@ -4288,25 +4268,25 @@ void Transform2fNode::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.frameid_.ClearToEmpty();
-  _impl_.parentframeid_.ClearToEmpty();
-  if (GetArenaForAllocation() == nullptr && _impl_.header_ != nullptr) {
-    delete _impl_.header_;
+  frameid_.ClearToEmpty();
+  parentframeid_.ClearToEmpty();
+  if (GetArenaForAllocation() == nullptr && header_ != nullptr) {
+    delete header_;
   }
-  _impl_.header_ = nullptr;
-  if (GetArenaForAllocation() == nullptr && _impl_.trans_ != nullptr) {
-    delete _impl_.trans_;
+  header_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && trans_ != nullptr) {
+    delete trans_;
   }
-  _impl_.trans_ = nullptr;
-  _impl_.angle_ = 0;
+  trans_ = nullptr;
+  angle_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* Transform2fNode::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* Transform2fNode::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // .xviz_msgs.Header header = 1;
       case 1:
@@ -4327,7 +4307,7 @@ const char* Transform2fNode::_InternalParse(const char* ptr, ::_pbi::ParseContex
       // float angle = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 29)) {
-          _impl_.angle_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          angle_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else
           goto handle_unusual;
@@ -4336,9 +4316,9 @@ const char* Transform2fNode::_InternalParse(const char* ptr, ::_pbi::ParseContex
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           auto str = _internal_mutable_frameid();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "xviz_msgs.Transform2fNode.frameId"));
           CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "xviz_msgs.Transform2fNode.frameId"));
         } else
           goto handle_unusual;
         continue;
@@ -4346,9 +4326,9 @@ const char* Transform2fNode::_InternalParse(const char* ptr, ::_pbi::ParseContex
       case 5:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
           auto str = _internal_mutable_parentframeid();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "xviz_msgs.Transform2fNode.parentFrameId"));
           CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "xviz_msgs.Transform2fNode.parentFrameId"));
         } else
           goto handle_unusual;
         continue;
@@ -4383,16 +4363,18 @@ uint8_t* Transform2fNode::_InternalSerialize(
 
   // .xviz_msgs.Header header = 1;
   if (this->_internal_has_header()) {
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, _Internal::header(this),
-        _Internal::header(this).GetCachedSize(), target, stream);
+      InternalWriteMessage(
+        1, _Internal::header(this), target, stream);
   }
 
   // .xviz_msgs.Vector2f trans = 2;
   if (this->_internal_has_trans()) {
+    target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(2, _Internal::trans(this),
-        _Internal::trans(this).GetCachedSize(), target, stream);
+      InternalWriteMessage(
+        2, _Internal::trans(this), target, stream);
   }
 
   // float angle = 3;
@@ -4402,7 +4384,7 @@ uint8_t* Transform2fNode::_InternalSerialize(
   memcpy(&raw_angle, &tmp_angle, sizeof(tmp_angle));
   if (raw_angle != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteFloatToArray(3, this->_internal_angle(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(3, this->_internal_angle(), target);
   }
 
   // string frameId = 4;
@@ -4426,7 +4408,7 @@ uint8_t* Transform2fNode::_InternalSerialize(
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:xviz_msgs.Transform2fNode)
@@ -4459,14 +4441,14 @@ size_t Transform2fNode::ByteSizeLong() const {
   if (this->_internal_has_header()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.header_);
+        *header_);
   }
 
   // .xviz_msgs.Vector2f trans = 2;
   if (this->_internal_has_trans()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.trans_);
+        *trans_);
   }
 
   // float angle = 3;
@@ -4478,46 +4460,48 @@ size_t Transform2fNode::ByteSizeLong() const {
     total_size += 1 + 4;
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData Transform2fNode::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
     Transform2fNode::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*Transform2fNode::GetClassData() const { return &_class_data_; }
 
+void Transform2fNode::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<Transform2fNode *>(to)->MergeFrom(
+      static_cast<const Transform2fNode &>(from));
+}
 
-void Transform2fNode::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<Transform2fNode*>(&to_msg);
-  auto& from = static_cast<const Transform2fNode&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:xviz_msgs.Transform2fNode)
-  GOOGLE_DCHECK_NE(&from, _this);
+
+void Transform2fNode::MergeFrom(const Transform2fNode& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:xviz_msgs.Transform2fNode)
+  GOOGLE_DCHECK_NE(&from, this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   if (!from._internal_frameid().empty()) {
-    _this->_internal_set_frameid(from._internal_frameid());
+    _internal_set_frameid(from._internal_frameid());
   }
   if (!from._internal_parentframeid().empty()) {
-    _this->_internal_set_parentframeid(from._internal_parentframeid());
+    _internal_set_parentframeid(from._internal_parentframeid());
   }
   if (from._internal_has_header()) {
-    _this->_internal_mutable_header()->::xviz_msgs::Header::MergeFrom(
-        from._internal_header());
+    _internal_mutable_header()->::xviz_msgs::Header::MergeFrom(from._internal_header());
   }
   if (from._internal_has_trans()) {
-    _this->_internal_mutable_trans()->::xviz_msgs::Vector2f::MergeFrom(
-        from._internal_trans());
+    _internal_mutable_trans()->::xviz_msgs::Vector2f::MergeFrom(from._internal_trans());
   }
   static_assert(sizeof(uint32_t) == sizeof(float), "Code assumes uint32_t and float are the same size.");
   float tmp_angle = from._internal_angle();
   uint32_t raw_angle;
   memcpy(&raw_angle, &tmp_angle, sizeof(tmp_angle));
   if (raw_angle != 0) {
-    _this->_internal_set_angle(from._internal_angle());
+    _internal_set_angle(from._internal_angle());
   }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void Transform2fNode::CopyFrom(const Transform2fNode& from) {
@@ -4537,23 +4521,25 @@ void Transform2fNode::InternalSwap(Transform2fNode* other) {
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.frameid_, lhs_arena,
-      &other->_impl_.frameid_, rhs_arena
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &frameid_, lhs_arena,
+      &other->frameid_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.parentframeid_, lhs_arena,
-      &other->_impl_.parentframeid_, rhs_arena
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &parentframeid_, lhs_arena,
+      &other->parentframeid_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(Transform2fNode, _impl_.angle_)
-      + sizeof(Transform2fNode::_impl_.angle_)
-      - PROTOBUF_FIELD_OFFSET(Transform2fNode, _impl_.header_)>(
-          reinterpret_cast<char*>(&_impl_.header_),
-          reinterpret_cast<char*>(&other->_impl_.header_));
+      PROTOBUF_FIELD_OFFSET(Transform2fNode, angle_)
+      + sizeof(Transform2fNode::angle_)
+      - PROTOBUF_FIELD_OFFSET(Transform2fNode, header_)>(
+          reinterpret_cast<char*>(&header_),
+          reinterpret_cast<char*>(&other->header_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata Transform2fNode::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_xviz_5fmsgs_2eproto_getter, &descriptor_table_xviz_5fmsgs_2eproto_once,
       file_level_metadata_xviz_5fmsgs_2eproto[13]);
 }
@@ -4567,7 +4553,7 @@ void MapDouble_DataEntry_DoNotUse::MergeFrom(const MapDouble_DataEntry_DoNotUse&
   MergeFromInternal(other);
 }
 ::PROTOBUF_NAMESPACE_ID::Metadata MapDouble_DataEntry_DoNotUse::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_xviz_5fmsgs_2eproto_getter, &descriptor_table_xviz_5fmsgs_2eproto_once,
       file_level_metadata_xviz_5fmsgs_2eproto[14]);
 }
@@ -4580,60 +4566,49 @@ class MapDouble::_Internal {
 
 MapDouble::MapDouble(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
-  if (arena != nullptr && !is_message_owned) {
-    arena->OwnCustomDestructor(this, &MapDouble::ArenaDtor);
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+  data_(arena) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
   }
   // @@protoc_insertion_point(arena_constructor:xviz_msgs.MapDouble)
 }
 MapDouble::MapDouble(const MapDouble& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
-  MapDouble* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      /*decltype(_impl_.data_)*/{}
-    , decltype(_impl_.t_){}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _this->_impl_.data_.MergeFrom(from._impl_.data_);
-  _this->_impl_.t_ = from._impl_.t_;
+  data_.MergeFrom(from.data_);
+  t_ = from.t_;
   // @@protoc_insertion_point(copy_constructor:xviz_msgs.MapDouble)
 }
 
-inline void MapDouble::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      /*decltype(_impl_.data_)*/{::_pbi::ArenaInitialized(), arena}
-    , decltype(_impl_.t_){0}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
+inline void MapDouble::SharedCtor() {
+t_ = 0;
 }
 
 MapDouble::~MapDouble() {
   // @@protoc_insertion_point(destructor:xviz_msgs.MapDouble)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    ArenaDtor(this);
-    return;
-  }
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void MapDouble::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.data_.Destruct();
-  _impl_.data_.~MapField();
 }
 
 void MapDouble::ArenaDtor(void* object) {
   MapDouble* _this = reinterpret_cast< MapDouble* >(object);
-  _this->_impl_.data_.Destruct();
+  (void)_this;
+  _this->data_. ~MapField();
+}
+inline void MapDouble::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena) {
+  if (arena != nullptr) {
+    arena->OwnCustomDestructor(this, &MapDouble::ArenaDtor);
+  }
 }
 void MapDouble::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
+  _cached_size_.Set(size);
 }
 
 void MapDouble::Clear() {
@@ -4642,16 +4617,16 @@ void MapDouble::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.data_.Clear();
-  _impl_.t_ = 0;
+  data_.Clear();
+  t_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* MapDouble::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* MapDouble::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // map<string, double> data = 1;
       case 1:
@@ -4659,7 +4634,7 @@ const char* MapDouble::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx
           ptr -= 1;
           do {
             ptr += 1;
-            ptr = ctx->ParseMessage(&_impl_.data_, ptr);
+            ptr = ctx->ParseMessage(&data_, ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
@@ -4669,7 +4644,7 @@ const char* MapDouble::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx
       // double t = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 17)) {
-          _impl_.t_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          t_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
           ptr += sizeof(double);
         } else
           goto handle_unusual;
@@ -4705,26 +4680,42 @@ uint8_t* MapDouble::_InternalSerialize(
 
   // map<string, double> data = 1;
   if (!this->_internal_data().empty()) {
-    using MapType = ::_pb::Map<std::string, double>;
-    using WireHelper = MapDouble_DataEntry_DoNotUse::Funcs;
-    const auto& map_field = this->_internal_data();
-    auto check_utf8 = [](const MapType::value_type& entry) {
-      (void)entry;
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-        entry.first.data(), static_cast<int>(entry.first.length()),
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-        "xviz_msgs.MapDouble.DataEntry.key");
+    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, double >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        (void)p;
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+          "xviz_msgs.MapDouble.DataEntry.key");
+      }
     };
 
-    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
-      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
-        target = WireHelper::InternalSerialize(1, entry.first, entry.second, target, stream);
-        check_utf8(entry);
+    if (stream->IsSerializationDeterministic() &&
+        this->_internal_data().size() > 1) {
+      ::std::unique_ptr<SortItem[]> items(
+          new SortItem[this->_internal_data().size()]);
+      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, double >::size_type size_type;
+      size_type n = 0;
+      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, double >::const_iterator
+          it = this->_internal_data().begin();
+          it != this->_internal_data().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      for (size_type i = 0; i < n; i++) {
+        target = MapDouble_DataEntry_DoNotUse::Funcs::InternalSerialize(1, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
+        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
       }
     } else {
-      for (const auto& entry : map_field) {
-        target = WireHelper::InternalSerialize(1, entry.first, entry.second, target, stream);
-        check_utf8(entry);
+      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, double >::const_iterator
+          it = this->_internal_data().begin();
+          it != this->_internal_data().end(); ++it) {
+        target = MapDouble_DataEntry_DoNotUse::Funcs::InternalSerialize(1, it->first, it->second, target, stream);
+        Utf8Check::Check(&(*it));
       }
     }
   }
@@ -4736,11 +4727,11 @@ uint8_t* MapDouble::_InternalSerialize(
   memcpy(&raw_t, &tmp_t, sizeof(tmp_t));
   if (raw_t != 0) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteDoubleToArray(2, this->_internal_t(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(2, this->_internal_t(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:xviz_msgs.MapDouble)
@@ -4773,33 +4764,37 @@ size_t MapDouble::ByteSizeLong() const {
     total_size += 1 + 8;
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData MapDouble::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
     MapDouble::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*MapDouble::GetClassData() const { return &_class_data_; }
 
+void MapDouble::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<MapDouble *>(to)->MergeFrom(
+      static_cast<const MapDouble &>(from));
+}
 
-void MapDouble::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<MapDouble*>(&to_msg);
-  auto& from = static_cast<const MapDouble&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:xviz_msgs.MapDouble)
-  GOOGLE_DCHECK_NE(&from, _this);
+
+void MapDouble::MergeFrom(const MapDouble& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:xviz_msgs.MapDouble)
+  GOOGLE_DCHECK_NE(&from, this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  _this->_impl_.data_.MergeFrom(from._impl_.data_);
+  data_.MergeFrom(from.data_);
   static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
   double tmp_t = from._internal_t();
   uint64_t raw_t;
   memcpy(&raw_t, &tmp_t, sizeof(tmp_t));
   if (raw_t != 0) {
-    _this->_internal_set_t(from._internal_t());
+    _internal_set_t(from._internal_t());
   }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void MapDouble::CopyFrom(const MapDouble& from) {
@@ -4816,12 +4811,12 @@ bool MapDouble::IsInitialized() const {
 void MapDouble::InternalSwap(MapDouble* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.data_.InternalSwap(&other->_impl_.data_);
-  swap(_impl_.t_, other->_impl_.t_);
+  data_.InternalSwap(&other->data_);
+  swap(t_, other->t_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata MapDouble::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_xviz_5fmsgs_2eproto_getter, &descriptor_table_xviz_5fmsgs_2eproto_once,
       file_level_metadata_xviz_5fmsgs_2eproto[15]);
 }
@@ -4835,7 +4830,7 @@ void MapString_DataEntry_DoNotUse::MergeFrom(const MapString_DataEntry_DoNotUse&
   MergeFromInternal(other);
 }
 ::PROTOBUF_NAMESPACE_ID::Metadata MapString_DataEntry_DoNotUse::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_xviz_5fmsgs_2eproto_getter, &descriptor_table_xviz_5fmsgs_2eproto_once,
       file_level_metadata_xviz_5fmsgs_2eproto[16]);
 }
@@ -4848,57 +4843,47 @@ class MapString::_Internal {
 
 MapString::MapString(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
-  if (arena != nullptr && !is_message_owned) {
-    arena->OwnCustomDestructor(this, &MapString::ArenaDtor);
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned),
+  data_(arena) {
+  SharedCtor();
+  if (!is_message_owned) {
+    RegisterArenaDtor(arena);
   }
   // @@protoc_insertion_point(arena_constructor:xviz_msgs.MapString)
 }
 MapString::MapString(const MapString& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
-  MapString* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      /*decltype(_impl_.data_)*/{}
-    , /*decltype(_impl_._cached_size_)*/{}};
-
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _this->_impl_.data_.MergeFrom(from._impl_.data_);
+  data_.MergeFrom(from.data_);
   // @@protoc_insertion_point(copy_constructor:xviz_msgs.MapString)
 }
 
-inline void MapString::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      /*decltype(_impl_.data_)*/{::_pbi::ArenaInitialized(), arena}
-    , /*decltype(_impl_._cached_size_)*/{}
-  };
+inline void MapString::SharedCtor() {
 }
 
 MapString::~MapString() {
   // @@protoc_insertion_point(destructor:xviz_msgs.MapString)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    ArenaDtor(this);
-    return;
-  }
+  if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
 inline void MapString::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.data_.Destruct();
-  _impl_.data_.~MapField();
 }
 
 void MapString::ArenaDtor(void* object) {
   MapString* _this = reinterpret_cast< MapString* >(object);
-  _this->_impl_.data_.Destruct();
+  (void)_this;
+  _this->data_. ~MapField();
+}
+inline void MapString::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena) {
+  if (arena != nullptr) {
+    arena->OwnCustomDestructor(this, &MapString::ArenaDtor);
+  }
 }
 void MapString::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
+  _cached_size_.Set(size);
 }
 
 void MapString::Clear() {
@@ -4907,15 +4892,15 @@ void MapString::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  _impl_.data_.Clear();
+  data_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* MapString::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* MapString::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
       // map<string, string> data = 1;
       case 1:
@@ -4923,7 +4908,7 @@ const char* MapString::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx
           ptr -= 1;
           do {
             ptr += 1;
-            ptr = ctx->ParseMessage(&_impl_.data_, ptr);
+            ptr = ctx->ParseMessage(&data_, ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
           } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
@@ -4961,36 +4946,52 @@ uint8_t* MapString::_InternalSerialize(
 
   // map<string, string> data = 1;
   if (!this->_internal_data().empty()) {
-    using MapType = ::_pb::Map<std::string, std::string>;
-    using WireHelper = MapString_DataEntry_DoNotUse::Funcs;
-    const auto& map_field = this->_internal_data();
-    auto check_utf8 = [](const MapType::value_type& entry) {
-      (void)entry;
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-        entry.first.data(), static_cast<int>(entry.first.length()),
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-        "xviz_msgs.MapString.DataEntry.key");
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-        entry.second.data(), static_cast<int>(entry.second.length()),
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-        "xviz_msgs.MapString.DataEntry.value");
+    typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_pointer
+        ConstPtr;
+    typedef ConstPtr SortItem;
+    typedef ::PROTOBUF_NAMESPACE_ID::internal::CompareByDerefFirst<SortItem> Less;
+    struct Utf8Check {
+      static void Check(ConstPtr p) {
+        (void)p;
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+          p->first.data(), static_cast<int>(p->first.length()),
+          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+          "xviz_msgs.MapString.DataEntry.key");
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+          p->second.data(), static_cast<int>(p->second.length()),
+          ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+          "xviz_msgs.MapString.DataEntry.value");
+      }
     };
 
-    if (stream->IsSerializationDeterministic() && map_field.size() > 1) {
-      for (const auto& entry : ::_pbi::MapSorterPtr<MapType>(map_field)) {
-        target = WireHelper::InternalSerialize(1, entry.first, entry.second, target, stream);
-        check_utf8(entry);
+    if (stream->IsSerializationDeterministic() &&
+        this->_internal_data().size() > 1) {
+      ::std::unique_ptr<SortItem[]> items(
+          new SortItem[this->_internal_data().size()]);
+      typedef ::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::size_type size_type;
+      size_type n = 0;
+      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_iterator
+          it = this->_internal_data().begin();
+          it != this->_internal_data().end(); ++it, ++n) {
+        items[static_cast<ptrdiff_t>(n)] = SortItem(&*it);
+      }
+      ::std::sort(&items[0], &items[static_cast<ptrdiff_t>(n)], Less());
+      for (size_type i = 0; i < n; i++) {
+        target = MapString_DataEntry_DoNotUse::Funcs::InternalSerialize(1, items[static_cast<ptrdiff_t>(i)]->first, items[static_cast<ptrdiff_t>(i)]->second, target, stream);
+        Utf8Check::Check(&(*items[static_cast<ptrdiff_t>(i)]));
       }
     } else {
-      for (const auto& entry : map_field) {
-        target = WireHelper::InternalSerialize(1, entry.first, entry.second, target, stream);
-        check_utf8(entry);
+      for (::PROTOBUF_NAMESPACE_ID::Map< std::string, std::string >::const_iterator
+          it = this->_internal_data().begin();
+          it != this->_internal_data().end(); ++it) {
+        target = MapString_DataEntry_DoNotUse::Funcs::InternalSerialize(1, it->first, it->second, target, stream);
+        Utf8Check::Check(&(*it));
       }
     }
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
   // @@protoc_insertion_point(serialize_to_array_end:xviz_msgs.MapString)
@@ -5014,26 +5015,30 @@ size_t MapString::ByteSizeLong() const {
     total_size += MapString_DataEntry_DoNotUse::Funcs::ByteSizeLong(it->first, it->second);
   }
 
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+  return MaybeComputeUnknownFieldsSize(total_size, &_cached_size_);
 }
 
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData MapString::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSizeCheck,
     MapString::MergeImpl
 };
 const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*MapString::GetClassData() const { return &_class_data_; }
 
+void MapString::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message* to,
+                      const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+  static_cast<MapString *>(to)->MergeFrom(
+      static_cast<const MapString &>(from));
+}
 
-void MapString::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<MapString*>(&to_msg);
-  auto& from = static_cast<const MapString&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:xviz_msgs.MapString)
-  GOOGLE_DCHECK_NE(&from, _this);
+
+void MapString::MergeFrom(const MapString& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:xviz_msgs.MapString)
+  GOOGLE_DCHECK_NE(&from, this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  _this->_impl_.data_.MergeFrom(from._impl_.data_);
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  data_.MergeFrom(from.data_);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
 void MapString::CopyFrom(const MapString& from) {
@@ -5050,11 +5055,11 @@ bool MapString::IsInitialized() const {
 void MapString::InternalSwap(MapString* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  _impl_.data_.InternalSwap(&other->_impl_.data_);
+  data_.InternalSwap(&other->data_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata MapString::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_xviz_5fmsgs_2eproto_getter, &descriptor_table_xviz_5fmsgs_2eproto_once,
       file_level_metadata_xviz_5fmsgs_2eproto[17]);
 }
@@ -5062,76 +5067,58 @@ void MapString::InternalSwap(MapString* other) {
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace xviz_msgs
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::xviz_msgs::Header*
-Arena::CreateMaybeMessage< ::xviz_msgs::Header >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::xviz_msgs::Header* Arena::CreateMaybeMessage< ::xviz_msgs::Header >(Arena* arena) {
   return Arena::CreateMessageInternal< ::xviz_msgs::Header >(arena);
 }
-template<> PROTOBUF_NOINLINE ::xviz_msgs::Vector2f*
-Arena::CreateMaybeMessage< ::xviz_msgs::Vector2f >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::xviz_msgs::Vector2f* Arena::CreateMaybeMessage< ::xviz_msgs::Vector2f >(Arena* arena) {
   return Arena::CreateMessageInternal< ::xviz_msgs::Vector2f >(arena);
 }
-template<> PROTOBUF_NOINLINE ::xviz_msgs::Pose2f*
-Arena::CreateMaybeMessage< ::xviz_msgs::Pose2f >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::xviz_msgs::Pose2f* Arena::CreateMaybeMessage< ::xviz_msgs::Pose2f >(Arena* arena) {
   return Arena::CreateMessageInternal< ::xviz_msgs::Pose2f >(arena);
 }
-template<> PROTOBUF_NOINLINE ::xviz_msgs::Pose2fArray*
-Arena::CreateMaybeMessage< ::xviz_msgs::Pose2fArray >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::xviz_msgs::Pose2fArray* Arena::CreateMaybeMessage< ::xviz_msgs::Pose2fArray >(Arena* arena) {
   return Arena::CreateMessageInternal< ::xviz_msgs::Pose2fArray >(arena);
 }
-template<> PROTOBUF_NOINLINE ::xviz_msgs::Polygon2f*
-Arena::CreateMaybeMessage< ::xviz_msgs::Polygon2f >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::xviz_msgs::Polygon2f* Arena::CreateMaybeMessage< ::xviz_msgs::Polygon2f >(Arena* arena) {
   return Arena::CreateMessageInternal< ::xviz_msgs::Polygon2f >(arena);
 }
-template<> PROTOBUF_NOINLINE ::xviz_msgs::Polygon2fArray*
-Arena::CreateMaybeMessage< ::xviz_msgs::Polygon2fArray >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::xviz_msgs::Polygon2fArray* Arena::CreateMaybeMessage< ::xviz_msgs::Polygon2fArray >(Arena* arena) {
   return Arena::CreateMessageInternal< ::xviz_msgs::Polygon2fArray >(arena);
 }
-template<> PROTOBUF_NOINLINE ::xviz_msgs::Path2f*
-Arena::CreateMaybeMessage< ::xviz_msgs::Path2f >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::xviz_msgs::Path2f* Arena::CreateMaybeMessage< ::xviz_msgs::Path2f >(Arena* arena) {
   return Arena::CreateMessageInternal< ::xviz_msgs::Path2f >(arena);
 }
-template<> PROTOBUF_NOINLINE ::xviz_msgs::Path2fArray*
-Arena::CreateMaybeMessage< ::xviz_msgs::Path2fArray >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::xviz_msgs::Path2fArray* Arena::CreateMaybeMessage< ::xviz_msgs::Path2fArray >(Arena* arena) {
   return Arena::CreateMessageInternal< ::xviz_msgs::Path2fArray >(arena);
 }
-template<> PROTOBUF_NOINLINE ::xviz_msgs::Circle2f*
-Arena::CreateMaybeMessage< ::xviz_msgs::Circle2f >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::xviz_msgs::Circle2f* Arena::CreateMaybeMessage< ::xviz_msgs::Circle2f >(Arena* arena) {
   return Arena::CreateMessageInternal< ::xviz_msgs::Circle2f >(arena);
 }
-template<> PROTOBUF_NOINLINE ::xviz_msgs::Circle2fArray*
-Arena::CreateMaybeMessage< ::xviz_msgs::Circle2fArray >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::xviz_msgs::Circle2fArray* Arena::CreateMaybeMessage< ::xviz_msgs::Circle2fArray >(Arena* arena) {
   return Arena::CreateMessageInternal< ::xviz_msgs::Circle2fArray >(arena);
 }
-template<> PROTOBUF_NOINLINE ::xviz_msgs::PointCloud2f*
-Arena::CreateMaybeMessage< ::xviz_msgs::PointCloud2f >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::xviz_msgs::PointCloud2f* Arena::CreateMaybeMessage< ::xviz_msgs::PointCloud2f >(Arena* arena) {
   return Arena::CreateMessageInternal< ::xviz_msgs::PointCloud2f >(arena);
 }
-template<> PROTOBUF_NOINLINE ::xviz_msgs::Marker2f*
-Arena::CreateMaybeMessage< ::xviz_msgs::Marker2f >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::xviz_msgs::Marker2f* Arena::CreateMaybeMessage< ::xviz_msgs::Marker2f >(Arena* arena) {
   return Arena::CreateMessageInternal< ::xviz_msgs::Marker2f >(arena);
 }
-template<> PROTOBUF_NOINLINE ::xviz_msgs::Marker2fArray*
-Arena::CreateMaybeMessage< ::xviz_msgs::Marker2fArray >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::xviz_msgs::Marker2fArray* Arena::CreateMaybeMessage< ::xviz_msgs::Marker2fArray >(Arena* arena) {
   return Arena::CreateMessageInternal< ::xviz_msgs::Marker2fArray >(arena);
 }
-template<> PROTOBUF_NOINLINE ::xviz_msgs::Transform2fNode*
-Arena::CreateMaybeMessage< ::xviz_msgs::Transform2fNode >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::xviz_msgs::Transform2fNode* Arena::CreateMaybeMessage< ::xviz_msgs::Transform2fNode >(Arena* arena) {
   return Arena::CreateMessageInternal< ::xviz_msgs::Transform2fNode >(arena);
 }
-template<> PROTOBUF_NOINLINE ::xviz_msgs::MapDouble_DataEntry_DoNotUse*
-Arena::CreateMaybeMessage< ::xviz_msgs::MapDouble_DataEntry_DoNotUse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::xviz_msgs::MapDouble_DataEntry_DoNotUse* Arena::CreateMaybeMessage< ::xviz_msgs::MapDouble_DataEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::xviz_msgs::MapDouble_DataEntry_DoNotUse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::xviz_msgs::MapDouble*
-Arena::CreateMaybeMessage< ::xviz_msgs::MapDouble >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::xviz_msgs::MapDouble* Arena::CreateMaybeMessage< ::xviz_msgs::MapDouble >(Arena* arena) {
   return Arena::CreateMessageInternal< ::xviz_msgs::MapDouble >(arena);
 }
-template<> PROTOBUF_NOINLINE ::xviz_msgs::MapString_DataEntry_DoNotUse*
-Arena::CreateMaybeMessage< ::xviz_msgs::MapString_DataEntry_DoNotUse >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::xviz_msgs::MapString_DataEntry_DoNotUse* Arena::CreateMaybeMessage< ::xviz_msgs::MapString_DataEntry_DoNotUse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::xviz_msgs::MapString_DataEntry_DoNotUse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::xviz_msgs::MapString*
-Arena::CreateMaybeMessage< ::xviz_msgs::MapString >(Arena* arena) {
+template<> PROTOBUF_NOINLINE ::xviz_msgs::MapString* Arena::CreateMaybeMessage< ::xviz_msgs::MapString >(Arena* arena) {
   return Arena::CreateMessageInternal< ::xviz_msgs::MapString >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
