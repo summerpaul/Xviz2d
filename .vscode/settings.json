@@ -80,6 +80,7 @@
         "typeindex": "cpp",
         "unordered_set": "cpp",
         "valarray": "cpp",
-        "*.inc": "cpp"
+        "*.inc": "cpp",
+        "csetjmp": "cpp"
     }
 }

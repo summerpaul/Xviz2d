@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 10:13:09
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-30 17:00:50
+ * @Last Modified time: 2024-06-24 16:10:25
  */
 #include <stdint.h>
 
@@ -27,8 +27,9 @@ namespace scene
     const unsigned int IM_LIGHT_BLUE = IM_COL32(173, 216, 230, 255);
     const unsigned int IM_LIME_GREEN = IM_COL32(50, 205, 50, 255);
     const unsigned int IM_SLATE_GRAY = IM_COL32(112, 128, 144, 255);
+    const unsigned int IM_ORANGE = IM_COL32(255, 165, 0, 255);
 
-    const unsigned int IM_COLORS[14]{
+    const unsigned int IM_COLORS[15]{
         IM_WHITE,
         IM_RED,
         IM_GREEN,
@@ -42,7 +43,8 @@ namespace scene
         IM_PINK,
         IM_LIGHT_BLUE,
         IM_LIME_GREEN,
-        IM_SLATE_GRAY};
+        IM_SLATE_GRAY,
+        IM_ORANGE};
 
     inline unsigned int GetImColor(const basis::COLOR_TYPE &type)
     {

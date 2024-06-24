@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-29 15:08:30
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-05-29 19:39:08
+ * @Last Modified time: 2024-06-24 16:29:33
  */
 #include <stdint.h>
 
@@ -147,12 +147,11 @@ namespace basis
 
     inline Points Mul(const Transform &T, const Points &vs)
     {
+
         Points result;
-        const size_t pt_size = vs.size();
-        result.resize(pt_size);
-        for (size_t i = 0; i < pt_size; i++)
+        for (const auto &pt : vs)
         {
-            result[i] = Mul(T, vs[i]);
+            result.emplace_back(Mul(T, pt));
         }
         return result;
     }
@@ -160,11 +159,9 @@ namespace basis
     inline Points MulT(const Transform &T, const Points &vs)
     {
         Points result;
-        const size_t pt_size = vs.size();
-        result.resize(pt_size);
-        for (size_t i = 0; i < pt_size; i++)
+        for (const auto &pt : vs)
         {
-            result[i] = Mul(T, vs[i]);
+            result.emplace_back(MulT(T, pt));
         }
         return result;
     }

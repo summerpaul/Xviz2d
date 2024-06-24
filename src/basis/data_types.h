@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-05-27 19:24:29
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-22 15:55:30
+ * @Last Modified time: 2024-06-24 16:10:38
  */
 
 #ifndef __DATA_TYPES_H__
@@ -216,7 +216,8 @@ namespace basis
         PINK,
         LIGHT_BLUE,
         LIME_GREEN,
-        SLATE_GRAY
+        SLATE_GRAY,
+        ORANGE
     };
 
     enum MARKER_TYPE
