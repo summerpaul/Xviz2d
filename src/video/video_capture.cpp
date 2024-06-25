@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-06-08 16:34:29
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-14 20:36:28
+ * @Last Modified time: 2024-06-25 15:16:59
  */
 
 #include "video_capture.h"
@@ -80,7 +80,7 @@ namespace video
             auto av_stream = m_pAvFormatCtx->streams[i];
             av_codec_params = av_stream->codecpar;
             // 寻找相应的解码器
-            auto av_codec = avcodec_find_decoder(av_codec_params->codec_id);
+            av_codec = avcodec_find_decoder(av_codec_params->codec_id);
             if (!av_codec)
             {
                 continue;

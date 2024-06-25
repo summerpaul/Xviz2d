@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-06-21 22:53:05
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-22 16:11:37
+ * @Last Modified time: 2024-06-25 15:53:14
  */
 #include <stdint.h>
 
@@ -10,11 +10,18 @@
 #define __XVIZ_SERVER_H__
 #include <future>
 #include <thread>
-#include <zmq.hpp>
-#include <zmq_addon.hpp>
 
-#include "scene/scene_manager.h"
-#include "xviz_msgs/pb/xviz_msgs.pb.h"
+
+
+namespace zmq
+{
+    class context_t;
+    class socket_t;
+}
+namespace scene
+{
+    class SceneManager;
+}
 
 namespace xviz_server
 {

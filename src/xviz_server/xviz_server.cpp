@@ -2,7 +2,7 @@
  * @Author: Xia Yunkai
  * @Date:   2024-06-21 22:53:10
  * @Last Modified by:   Xia Yunkai
- * @Last Modified time: 2024-06-22 21:03:29
+ * @Last Modified time: 2024-06-25 15:36:47
  */
 #include "xviz_server.h"
 
@@ -12,6 +12,11 @@
 #include "basis/defines.h"
 #include "basis/logger.h"
 #include "msg_convert/msg_convert.h"
+#include <zmq.hpp>
+#include <zmq_addon.hpp>
+
+#include "scene/scene_manager.h"
+#include "xviz_msgs/pb/xviz_msgs.pb.h"
 using namespace std;
 
 namespace xviz_server

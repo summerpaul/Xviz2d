@@ -57,5 +57,7 @@ include_directories(
 )
 
 # add_subdirectory(3rdParty)
+add_subdirectory(src/xviz_msgs)
+add_subdirectory(src/xviz_client)
 add_subdirectory(src)
 add_subdirectory(demo)

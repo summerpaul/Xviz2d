@@ -1,8 +1,5 @@
 
 
-
-add_subdirectory(xviz_msgs)
-
 set(XVIZ_ALL_DIRS
     "app"
     "basis"
